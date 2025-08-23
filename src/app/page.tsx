@@ -15,16 +15,36 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        <Hero />
-        <Features />
-        <Services />
-        <Process />
-        <SuccessCases />
-        <Stats />
-        <Testimonials />
-        <Faq />
-        <CtaFinal />
-        <ContactForm />
+          <div data-aos="fade-down">
+            <Hero />
+          </div>
+          <div data-aos="zoom-in-up">
+            <Features />
+          </div>
+          <div data-aos="fade-right">
+            <Services />
+          </div>
+          <div data-aos="fade-left">
+            <Process />
+          </div>
+          <div data-aos="flip-up">
+            <SuccessCases />
+          </div>
+          <div data-aos="zoom-in">
+            <Stats />
+          </div>
+          <div data-aos="fade-up">
+            <Testimonials />
+          </div>
+          <div data-aos="fade-down">
+            <Faq />
+          </div>
+          <div data-aos="zoom-in-up">
+            <CtaFinal />
+          </div>
+          <div data-aos="fade-up">
+            <ContactForm />
+          </div>
       </main>
     </>
   );

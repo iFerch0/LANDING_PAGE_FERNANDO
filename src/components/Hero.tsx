@@ -1,14 +1,16 @@
 import React from 'react';
+import { WhatsAppIcon, PhoneIcon } from './Icons';
+import CountUpClient from './CountUpClient';
 
 const Hero = () => {
   return (
-    <section id="inicio" className="hero">
+  <section id="inicio" className="hero" data-aos="fade-up">
       <div className="container">
         <div className="hero__content">
           <h1 className="hero__title">
-            <span className="hero__title-line">Tu Computador</span>
-            <span className="hero__title-line">Funcionando</span>
-            <span className="hero__title-line hero__title-highlight">Como Nuevo</span>
+      <span className="hero__title-line" data-aos="fade-up" data-aos-delay="100">Tu Computador</span>
+      <span className="hero__title-line" data-aos="fade-up" data-aos-delay="200">Funcionando</span>
+      <span className="hero__title-line hero__title-highlight" data-aos="fade-up" data-aos-delay="300">Como Nuevo</span>
           </h1>
           
           <p className="hero__subtitle">
@@ -18,16 +20,19 @@ const Hero = () => {
           </p>
 
           <div className="hero__stats">
-            <span className="hero__stat">2000+ equipos reparados</span>
-            <span className="hero__stat">Garantía de 30 días</span>
+            <span className="hero__stat"><CountUpClient end={2000} suffix="+" /> equipos reparados</span>
+            <span className="hero__stat">Garantía de <CountUpClient end={30} suffix=" días" /></span>
           </div>
 
-          <div className="hero__actions">
-            <a href="http://wa.link/n8et4q" target="_blank" className="btn btn--whatsapp">
-              Escribir por WhatsApp
+          <div className="hero__actions" data-aos="fade-up" data-aos-delay="400">
+            <a href="http://wa.link/n8et4q" target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp" className="btn btn--whatsapp cta-pulse">
+              <WhatsAppIcon className="btn__icon" />
+              <span>Escribir por WhatsApp</span>
             </a>
-            <a href="tel:+573008474121" className="btn btn--call">
-              Llamar Ahora
+
+            <a href="tel:+573008474121" aria-label="Llamar ahora" className="btn btn--call">
+              <PhoneIcon className="btn__icon" />
+              <span>Llamar Ahora</span>
             </a>
           </div>
         </div>

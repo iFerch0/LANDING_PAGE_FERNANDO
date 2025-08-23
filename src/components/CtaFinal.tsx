@@ -1,4 +1,5 @@
 import React from "react";
+import CountUpClient from './CountUpClient';
 
 const CtaFinal = () => {
     return (
@@ -9,7 +10,7 @@ const CtaFinal = () => {
                 
                 <div className="cta-final__benefits">
                     <div className="cta-benefit">Diagnóstico Gratuito</div>
-                    <div className="cta-benefit">Garantía 30 Días</div>
+                    <div className="cta-benefit">Garantía <CountUpClient end={30} suffix=" Días" /></div>
                     <div className="cta-benefit">Respuesta 24/7</div>
                 </div>
                 

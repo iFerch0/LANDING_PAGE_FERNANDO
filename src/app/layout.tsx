@@ -1,6 +1,9 @@
+import ClientLayout from "./ClientLayout";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "aos/dist/aos.css";
+// AOS initialization moved to ClientLayout (client-side). No client hooks here.
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+  <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
