@@ -8,7 +8,7 @@ const Testimonials = () => {
             
             <div className="testimonials__grid">
                 <div className="testimonial-card">
-                    <div className="testimonial__quote">"</div>
+                    <div className="testimonial__quote">&quot;</div>
                     <p className="testimonial__text">Fernando salvó mi computador cuando pensé que había perdido años de trabajo. Excelente servicio y muy confiable.</p>
                     <div className="testimonial__author">
                         <strong>idalver Gómez</strong>
@@ -17,7 +17,7 @@ const Testimonials = () => {
                 </div>
                 
                 <div className="testimonial-card">
-                    <div className="testimonial__quote">"</div>
+                    <div className="testimonial__quote">&quot;</div>
                     <p className="testimonial__text">Mi portátil estaba súper lento y ahora funciona como nuevo. Precios justos y atención personalizada.</p>
                     <div className="testimonial__author">
                         <strong>luz karime mendivil</strong>
@@ -26,7 +26,7 @@ const Testimonials = () => {
                 </div>
                 
                 <div className="testimonial-card">
-                    <div className="testimonial__quote">"</div>
+                    <div className="testimonial__quote">&quot;</div>
                     <p className="testimonial__text">Recuperó todos mis archivos importantes de un disco dañado. Un profesional de verdad, lo recomiendo 100%.</p>
                     <div className="testimonial__author">
                         <strong>MARCELA MORELO</strong>
