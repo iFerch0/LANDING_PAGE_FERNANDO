@@ -34,54 +34,54 @@ const Navbar = () => {
 
                 <ul className={`navbar__menu ${isMenuOpen ? 'mobile-open' : ''}`} id="navbar-menu">
                     <li className="navbar__item">
-                        <a href="#inicio" className="navbar__link" data-section="inicio">
+                        <Link href="#inicio" className="navbar__link" data-section="inicio">
                             <span className="navbar__icon">🏠</span>
                             <span className="navbar__text">Inicio</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="navbar__item">
-                        <a href="#servicios" className="navbar__link" data-section="servicios">
+                        <Link href="#servicios" className="navbar__link" data-section="servicios">
                             <span className="navbar__icon">🛠️</span>
                             <span className="navbar__text">Servicios</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="navbar__item">
-                        <a href="#proceso" className="navbar__link" data-section="proceso">
+                        <Link href="#proceso" className="navbar__link" data-section="proceso">
                             <span className="navbar__icon">⚙️</span>
                             <span className="navbar__text">Proceso</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="navbar__item">
-                        <a href="#casos" className="navbar__link" data-section="casos">
+                        <Link href="#casos" className="navbar__link" data-section="casos">
                             <span className="navbar__icon">📊</span>
                             <span className="navbar__text">Casos</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="navbar__item">
-                        <a href="#testimonios" className="navbar__link" data-section="testimonios">
+                        <Link href="#testimonios" className="navbar__link" data-section="testimonios">
                             <span className="navbar__icon">💬</span>
                             <span className="navbar__text">Testimonios</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="navbar__item">
-                        <a href="#faq" className="navbar__link" data-section="faq">
+                        <Link href="#faq" className="navbar__link" data-section="faq">
                             <span className="navbar__icon">❓</span>
                             <span className="navbar__text">FAQ</span>
-                        </a>
+                        </Link>
                     </li>
                     <li className="navbar__item">
-                        <a href="#contacto" className="navbar__link" data-section="contacto">
+                        <Link href="#contacto" className="navbar__link" data-section="contacto">
                             <span className="navbar__icon">📞</span>
                             <span className="navbar__text">Contacto</span>
-                        </a>
+                        </Link>
                     </li>
                 </ul>
 
                 <div className="navbar__cta">
-                    <a href="http://wa.link/n8et4q" target="_blank" className="btn--whatsapp-nav">
+                    <Link href="http://wa.link/n8et4q" target="_blank" className="btn--whatsapp-nav">
                         <span className="whatsapp-icon">📱</span>
                         WhatsApp
-                    </a>
+                    </Link>
                     <div className="navbar__rating">
                         <span className="rating-stars">⭐⭐⭐⭐⭐</span>
                         <span className="rating-text">5.0 (92 reseñas)</span>
