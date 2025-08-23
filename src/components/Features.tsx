@@ -13,7 +13,6 @@ function useCountOnView(targetNumber: number) {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !started) {
                     started = true;
-                    let start = 0;
                     const duration = 900; // ms
                     const step = (timestampStart: number | null) => {
                         const now = performance.now();

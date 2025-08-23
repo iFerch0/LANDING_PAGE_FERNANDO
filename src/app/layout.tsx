@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import "aos/dist/aos.css";
-// AOS initialization moved to ClientLayout (client-side). No client hooks here.
+import AOS from "aos";
+import { useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
