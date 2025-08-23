@@ -68,7 +68,7 @@ const Features = () => {
                 const { ref, count } = useCountOnView(number);
                 return (
                     <div className="stat-card" role="listitem" data-aos="fade-up">
-                        <div className="stat-card__number" ref={ref as any}>{count}{label === 'Disponible' && <span>/7</span>}</div>
+                        <div className="stat-card__number" ref={ref as React.RefObject<HTMLDivElement>}>{count}{label === 'Disponible' && <span>/7</span>}</div>
                         <div className="stat-card__label">{label}</div>
                         {children && <p className="stat-card__desc">{children}</p>}
                     </div>
