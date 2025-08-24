@@ -27,6 +27,10 @@ export default function ServiceTemplate(props: {
 
   return (
     <main className="container service-page">
+      {/* Preload hero image for better LCP */}
+      <head>
+        <link rel="preload" as="image" href={image} />
+      </head>
       <section className="service-hero">
         <div className="service-copy">
           <h1>{title}</h1>
