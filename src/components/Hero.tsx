@@ -6,7 +6,7 @@ const Hero = () => {
   return (
   <section id="inicio" className="hero" data-aos="fade-up">
       <div className="container">
-        <div className="hero__content">
+  <div className="hero__content">
           <h1 className="hero__title">
       <span className="hero__title-line" data-aos="fade-up" data-aos-delay="100">Tu Computador</span>
       <span className="hero__title-line" data-aos="fade-up" data-aos-delay="200">Funcionando</span>

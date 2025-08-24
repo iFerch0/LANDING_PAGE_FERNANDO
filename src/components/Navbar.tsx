@@ -1,5 +1,3 @@
-'use client';
-
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
@@ -79,11 +77,11 @@ const Navbar = () => {
                 </ul>
 
                 <div className="navbar__cta">
-                    <Link href="http://wa.link/n8et4q" target="_blank" className="btn--whatsapp-nav">
+                    <Link href="http://wa.link/n8et4q" target="_blank" rel="noopener noreferrer" className="btn--whatsapp-nav" aria-label="Contactar por WhatsApp">
                         <span className="whatsapp-icon">📱</span>
                         WhatsApp
                     </Link>
-                    <div className="navbar__rating">
+                    <div className="navbar__rating" aria-hidden="true">
                         <span className="rating-stars">⭐⭐⭐⭐⭐</span>
                         <span className="rating-text">5.0 (92 reseñas)</span>
                     </div>
@@ -92,10 +90,14 @@ const Navbar = () => {
                 <button
                     className={`navbar__toggle ${isMenuOpen ? 'active' : ''}`}
                     id="navbar-toggle"
+                    aria-expanded={isMenuOpen}
+                    aria-controls="navbar-menu"
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                >                    <span className="navbar__hamburger"></span>
-                    <span className="navbar__hamburger"></span>
-                    <span className="navbar__hamburger"></span>
+                    aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+                >
+                    <span className="navbar__hamburger" aria-hidden="true"></span>
+                    <span className="navbar__hamburger" aria-hidden="true"></span>
+                    <span className="navbar__hamburger" aria-hidden="true"></span>
                 </button>
             </div>
         </nav>
