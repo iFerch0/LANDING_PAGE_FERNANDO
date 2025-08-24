@@ -1,0 +1,5 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://www.ferchotecnico.com/sitemap.xml
+Host: https://www.ferchotecnico.com
