@@ -15,8 +15,14 @@ export default function Page() {
       image="/hero-poster.jpg"
       canonical="https://www.ferchotecnico.com/servicios/recuperacion-datos-monteria"
       serviceName="Recuperación de datos"
-      cases={[{ title: 'SSD recuperado', text: 'Recuperación de datos críticos de SSD con alta tasa de éxito.' }]}
-      faqs={[{ q: '¿Garantizan recuperación?', a: 'Intentamos métodos no destructivos; no siempre es 100% garantizable.' }]}
+      cases={[
+        { title: 'SSD recuperado', text: 'Recuperación de datos críticos de SSD con alta tasa de éxito.' },
+        { title: 'Pendrive con archivos', text: 'Recuperación de pendrive dañado y recuperación de documentos importantes.' }
+      ]}
+      faqs={[
+        { q: '¿Garantizan recuperación?', a: 'Intentamos métodos no destructivos; no siempre es 100% garantizable.' },
+        { q: '¿Cuánto cuesta el servicio?', a: 'El precio depende del soporte y la complejidad; ofrecemos presupuesto tras diagnóstico.' }
+      ]}
     />
   );
 }

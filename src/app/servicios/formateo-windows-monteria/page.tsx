@@ -15,8 +15,14 @@ export default function Page() {
       image="/hero-poster.jpg"
       canonical="https://www.ferchotecnico.com/servicios/formateo-windows-monteria"
       serviceName="Formateo Windows"
-      cases={[{ title: 'Restauración completa', text: 'Formateo + recuperación de datos y migración a SSD.' }]}
-      faqs={[{ q: '¿Perderé mis archivos?', a: 'No si solicitas respaldo; ofrecemos migración segura.' }]}
+      cases={[
+        { title: 'Restauración completa', text: 'Formateo + recuperación de datos y migración a SSD.' },
+        { title: 'Windows optimizado', text: 'Instalación limpia y conjunto de utilidades para performance.' }
+      ]}
+      faqs={[
+        { q: '¿Perderé mis archivos?', a: 'No si solicitas respaldo; ofrecemos migración segura.' },
+        { q: '¿Instalan drivers?', a: 'Sí, instalamos y configuramos drivers y utilidades necesarias.' }
+      ]}
     />
   );
 }
