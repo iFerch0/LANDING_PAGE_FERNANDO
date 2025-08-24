@@ -108,8 +108,8 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement 
                             ></textarea>
                         </div>
 
-                        <button type="submit" className="btn btn--primary btn--full-width btn--large">
-                            Enviar Solicitud
+                        <button type="submit" className="btn btn--primary btn--full-width btn--large btn--disabled" disabled aria-disabled="true">
+                            Envío deshabilitado
                         </button>
                     </form>
                 </div>
