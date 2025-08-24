@@ -32,6 +32,8 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# Google/Google Cloud credentials naming pattern - do not commit
+client_secret*.json
 
 # vercel
 .vercel
