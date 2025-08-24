@@ -1257,6 +1257,31 @@ select.form-control {
   z-index: 2;
 }
 
+/* Layout helpers for hero: copy + media side-by-side on large screens */
+.hero__layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: var(--space-24);
+  align-items: center;
+}
+
+.hero__copy {
+  /* keep original spacing */
+}
+
+.hero__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__image {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  max-width: 100%;
+  height: auto;
+}
+
 .hero__title {
   margin-bottom: var(--space-24);
 }
@@ -2086,6 +2111,20 @@ textarea.form-control {
 @media (max-width: 768px) {
   .hero {
     padding: 120px 0 60px;
+  }
+
+  /* Stack hero content in mobile */
+  .hero__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+
+  .hero__media {
+    order: 2;
+  }
+
+  .hero__copy {
+    order: 1;
   }
 
   .features__grid {
