@@ -2,6 +2,7 @@ import ClientLayout from "./ClientLayout";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 
 
 const geistSans = Geist({
@@ -27,7 +28,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-  <ClientLayout>{children}</ClientLayout>
+        <LocalBusinessSchema />
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );
