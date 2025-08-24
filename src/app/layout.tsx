@@ -133,10 +133,14 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+        <meta name="keywords" content="servicio técnico computadores montería, reparación pc montería, técnico domicilio córdoba, mantenimiento portátiles, fernando técnico, diagnóstico gratuito" />
+        <link rel="canonical" href="https://www.ferchotecnico.com" />
+        <meta property="og:title" content="Fernando - Técnico Computadores Montería | Servicio a Domicilio" />
+        <meta property="og:description" content="⭐ 5.0 estrellas - Técnico especialista en reparación de computadores en Montería. Diagnóstico gratuito, garantía 30 días. +573008474121" />
+        <meta property="og:image" content="https://www.ferchotecnico.com/fernando-tecnico-monteria.jpg" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Fernando - Técnico Computadores Montería" />
+        <meta name="twitter:description" content="⭐ 5.0 estrellas - Servicio técnico a domicilio en Montería. Diagnóstico gratuito +573008474121" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
   <LocalBusinessSchema />

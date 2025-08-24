@@ -1,5 +1,37 @@
 /** @type {import('next').NextConfig} */
+const path = require('path');
 const nextConfig = {
+  outputFileTracingRoot: path.resolve(__dirname, '..'),
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.ferchotecnico.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ferchotecnico.com',
+        port: '',
+        pathname: '/**',
+      },
+    ],
+    formats: ['image/webp', 'image/avif'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'X-Robots-Tag',
+            value: 'index, follow',
+          },
+        ],
+      },
+    ];
+  },
   async redirects() {
     return [
       {

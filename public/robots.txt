@@ -1,5 +1,9 @@
 User-agent: *
-Disallow:
+Allow: /
 
 Sitemap: https://www.ferchotecnico.com/sitemap.xml
-Host: https://www.ferchotecnico.com
+
+# Specific directives for Googlebot
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1

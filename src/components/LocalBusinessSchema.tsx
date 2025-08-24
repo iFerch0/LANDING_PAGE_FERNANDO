@@ -30,11 +30,13 @@ export default function LocalBusinessSchema() {
       { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "18:00" }
     ],
     "priceRange": "$$",
-    "serviceArea": {
-      "@type": "City",
-      "name": "Montería"
-    },
+    "serviceArea": "Montería, Córdoba, Colombia",
     "areaServed": "Montería, Córdoba, Colombia",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "92"
+    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Servicios Técnicos",
