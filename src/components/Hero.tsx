@@ -9,11 +9,7 @@ const Hero = () => {
       <div className="container">
         <div className="hero__content hero__layout">
           <div className="hero__copy">
-            <h1 className="hero__title">
-              <span className="hero__title-line" data-aos="fade-up" data-aos-delay="100">Tu Computador</span>
-              <span className="hero__title-line" data-aos="fade-up" data-aos-delay="200">Funcionando</span>
-              <span className="hero__title-line hero__title-highlight" data-aos="fade-up" data-aos-delay="300">Como Nuevo</span>
-            </h1>
+            <h1 className="hero__title" data-aos="fade-up">Reparación de computadores en Montería</h1>
 
             <p className="hero__subtitle">
               Más de <strong>10 años</strong> solucionando problemas tecnológicos en <strong>Montería</strong>. 
@@ -22,8 +18,8 @@ const Hero = () => {
             </p>
 
             <div className="hero__stats">
-              <span className="hero__stat"><CountUpClient end={2000} suffix="+" /> equipos reparados</span>
-              <span className="hero__stat">Garantía de <CountUpClient end={30} suffix=" días" /></span>
+              <span className="hero__stat"><CountUpClient end={2000} ssrValue={2000} suffix="+" /> equipos reparados</span>
+              <span className="hero__stat">Garantía de <CountUpClient end={30} ssrValue={30} suffix=" días" /></span>
             </div>
 
             <div className="hero__actions" data-aos="fade-up" data-aos-delay="400">
@@ -40,7 +36,7 @@ const Hero = () => {
           </div>
 
           <div className="hero__media" data-aos="zoom-in" aria-hidden>
-            <Image src="/hero-poster.jpg" alt="Poster hero" width={560} height={420} className="hero__image" priority />
+            <Image src="/hero-poster.jpg" alt="Poster hero" width={560} height={420} className="hero__image" priority loading="eager" />
           </div>
         </div>
       </div>

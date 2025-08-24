@@ -45,6 +45,7 @@ export default function HomePage() {
           <div data-aos="fade-up">
             <ContactForm />
           </div>
+          {/* ...existing code... */}
       </main>
     </>
   );

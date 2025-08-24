@@ -10,6 +10,7 @@ type CountUpProps = {
   className?: string;
   start?: number;
   separator?: boolean;
+  ssrValue?: number | string;
 };
 
 const CountUp: React.FC<CountUpProps> = ({
@@ -20,12 +21,15 @@ const CountUp: React.FC<CountUpProps> = ({
   className = '',
   start = 0,
   separator = true,
+  ssrValue,
 }) => {
   const ref = useRef<HTMLSpanElement | null>(null);
   const [value, setValue] = useState<number>(start);
+  const [mounted, setMounted] = useState(false);
   const started = useRef(false);
 
   useEffect(() => {
+  setMounted(true);
     const el = ref.current;
     if (!el) return;
 
@@ -68,6 +72,16 @@ const CountUp: React.FC<CountUpProps> = ({
   const formatted = separator
     ? value.toLocaleString(undefined, { minimumFractionDigits: decimals, maximumFractionDigits: decimals })
     : value.toFixed(decimals);
+
+  // During SSR (not mounted) avoid rendering 0; use ssrValue if provided or render empty string
+  if (!mounted) {
+    const ssr = typeof ssrValue !== 'undefined' ? ssrValue : '';
+    return (
+      <span ref={ref} className={className} aria-hidden>
+        {ssr}{suffix}
+      </span>
+    );
+  }
 
   return (
     <span ref={ref} className={className} aria-hidden>

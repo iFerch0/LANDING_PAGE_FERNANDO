@@ -4,7 +4,7 @@ const Services = () => {
     return (
     <section id="servicios" className="services">
         <div className="container">
-            <h2 className="section-title">Nuestros Servicios Profesionales</h2>
+            <h2 className="section-title">Nuestros Servicios Profesionales en Montería</h2>
             <div className="services__grid">
                 <div className="service-card service-card--popular">
                     <div className="service-card__popular-badge">Popular</div>

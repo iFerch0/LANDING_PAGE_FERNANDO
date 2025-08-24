@@ -27,7 +27,7 @@ const Navbar = () => {
                     <Image src="/logo.png" alt="Logo Fernando" width={50} height={50} className="navbar__logo" />
                     <div className="navbar__text">
                         <span className="navbar__name">Fernando</span>
-                        <span className="navbar__title">Técnico en Computadores</span>
+                        <span className="navbar__title">Técnico en Computadores — Montería</span>
                     </div>
                 </div>
 

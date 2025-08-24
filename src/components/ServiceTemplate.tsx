@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 
 type CaseItem = { title: string; text: string };
 type FaqItem = { q: string; a: string };
@@ -28,9 +29,9 @@ export default function ServiceTemplate(props: {
   return (
     <main className="container service-page">
       {/* Preload hero image for better LCP */}
-      <head>
+      <Head>
         <link rel="preload" as="image" href={image} />
-      </head>
+      </Head>
       <section className="service-hero">
         <div className="service-copy">
           <h1>{title}</h1>

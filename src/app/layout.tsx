@@ -4,7 +4,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import OrganizationSchema from '@/components/OrganizationSchema';
-
+import WebVitalsReporter from '@/components/WebVitalsReporter';
+import Footer from '@/components/Footer';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Servicio Técnico Computadores Montería | FerchoTecnico | 10+ Años Experiencia",
-  description: "Servicio técnico de computadores en Montería con más de 10 años de experiencia. Reparación PC y portátiles, recuperación datos, eliminación virus. ¡Diagnóstico GRATIS!",
+  title: "Técnico en computadores en Montería | Reparación y mantenimiento a domicilio",
+  description: "Servicio técnico de PC y laptops en Montería. Formateo, limpieza, cambio de partes y recuperación de datos. Agenda por WhatsApp.",
   "keywords": [
     "servicio técnico computadores Montería",
     "técnico computadores Montería",
@@ -87,8 +88,8 @@ export const metadata: Metadata = {
     canonical: "https://www.ferchotecnico.com"
   },
   openGraph: {
-    title: "Servicio Técnico Computadores Montería | 10+ Años",
-    description: "Reparación y mantenimiento de computadores en Montería. Diagnóstico gratuito, servicio a domicilio, garantía 30 días.",
+  title: "Técnico en computadores en Montería | Reparación y mantenimiento a domicilio",
+  description: "Servicio técnico de PC y laptops en Montería. Formateo, limpieza, cambio de partes y recuperación de datos. Agenda por WhatsApp.",
     url: "https://www.ferchotecnico.com",
     siteName: "FerchoTecnico",
     images: [
@@ -104,8 +105,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Servicio Técnico Computadores Montería",
-    description: "Más de 10 años solucionando problemas tecnológicos en Montería",
+  title: "Técnico en computadores en Montería",
+  description: "Servicio técnico de PC y laptops en Montería. Formateo, limpieza, cambio de partes y recuperación de datos. Agenda por WhatsApp.",
   images: ["https://www.ferchotecnico.com/hero-poster.jpg"]
   },
   robots: {
@@ -130,11 +131,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
   <LocalBusinessSchema />
   <OrganizationSchema />
-        <ClientLayout>{children}</ClientLayout>
+  <ClientLayout>{children}</ClientLayout>
+  <Footer />
+  <WebVitalsReporter />
       </body>
     </html>
   );
