@@ -1,41 +1,18 @@
 import React from "react";
+import Script from 'next/script';
 
 const Testimonials = () => {
     return (
-            <section id="testimonios" className="testimonials">
-        <div className="container">
-            <h2 className="section-title">Lo Que Dicen Nuestros Clientes</h2>
-            
-            <div className="testimonials__grid">
-                <div className="testimonial-card">
-                    <div className="testimonial__quote">&quot;</div>
-                    <p className="testimonial__text">Fernando salvó mi computador cuando pensé que había perdido años de trabajo. Excelente servicio y muy confiable.</p>
-                    <div className="testimonial__author">
-                        <strong>idalver Gómez</strong>
-                        <span>Local Guide</span>
-                    </div>
-                </div>
-                
-                <div className="testimonial-card">
-                    <div className="testimonial__quote">&quot;</div>
-                    <p className="testimonial__text">Mi portátil estaba súper lento y ahora funciona como nuevo. Precios justos y atención personalizada.</p>
-                    <div className="testimonial__author">
-                        <strong>luz karime mendivil</strong>
-                        <span>Cliente Satisfecho</span>
-                    </div>
-                </div>
-                
-                <div className="testimonial-card">
-                    <div className="testimonial__quote">&quot;</div>
-                    <p className="testimonial__text">Recuperó todos mis archivos importantes de un disco dañado. Un profesional de verdad, lo recomiendo 100%.</p>
-                    <div className="testimonial__author">
-                        <strong>MARCELA MORELO</strong>
-                        <span>Empresaria</span>
-                    </div>
-                </div>
+        <section id="testimonios" className="testimonials">
+            <div className="container">
+                <h2 className="section-title">Lo Que Dicen Nuestros Clientes</h2>
+
+                {/* Elfsight Google Reviews widget */}
+                <Script src="https://elfsightcdn.com/platform.js" strategy="afterInteractive" async />
+                <div className="elfsight-app-d4a2b5a4-3734-4c3c-bd68-010b5bf39151" data-elfsight-app-lazy></div>
+
             </div>
-        </div>
-    </section>
+        </section>
     );
 };
 
