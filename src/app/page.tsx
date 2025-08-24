@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Services from '@/components/Services';
@@ -13,6 +14,7 @@ import ContactForm from '@/components/ContactForm';
 export default function HomePage() {
   return (
     <>
+  <FaqJsonLd />
       <Navbar />
       <main>
           <div data-aos="fade-down">
