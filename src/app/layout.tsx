@@ -16,8 +16,58 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Fernando — Técnico en Computadores",
-  description: "Reparación, mantenimiento y soporte técnico de computadores. Diagnóstico gratuito y garantía de servicio.",
+  title: "Servicio Técnico Computadores Montería | FerchoTecnico | 10+ Años Experiencia",
+  description: "Servicio técnico de computadores en Montería con más de 10 años de experiencia. Reparación PC y portátiles, recuperación datos, eliminación virus. ¡Diagnóstico GRATIS!",
+  keywords: [
+    "servicio técnico computadores Montería",
+    "reparación PC Montería",
+    "técnico computadores Córdoba",
+    "mantenimiento computadores Montería",
+    "recuperación datos Montería",
+    "servicio domicilio computadores"
+  ],
+  authors: [{ name: "Fernando - FerchoTecnico" }],
+  creator: "FerchoTecnico",
+  publisher: "FerchoTecnico",
+  alternates: {
+    canonical: "https://www.ferchotecnico.com"
+  },
+  openGraph: {
+    title: "Servicio Técnico Computadores Montería | 10+ Años",
+    description: "Reparación y mantenimiento de computadores en Montería. Diagnóstico gratuito, servicio a domicilio, garantía 30 días.",
+    url: "https://www.ferchotecnico.com",
+    siteName: "FerchoTecnico",
+    images: [
+      {
+        url: "/hero-poster.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Servicio técnico computadores Montería"
+      }
+    ],
+    locale: "es_CO",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Servicio Técnico Computadores Montería",
+    description: "Más de 10 años solucionando problemas tecnológicos en Montería",
+    images: ["/hero-poster.jpg"]
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  verification: {
+    google: "googlee574810efb2ecc4a.html"
+  }
 };
 
 export default function RootLayout({

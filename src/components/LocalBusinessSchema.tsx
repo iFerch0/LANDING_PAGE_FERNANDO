@@ -14,8 +14,8 @@ export default function LocalBusinessSchema() {
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "8.7479",
-      "longitude": "-75.8814"
+      "latitude": "8.7478",
+      "longitude": "-75.8895"
     },
     "telephone": "+57-300-8474121",
     "openingHours": "Mo-Sa 08:00-18:00",
@@ -60,7 +60,7 @@ export default function LocalBusinessSchema() {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.8",
+      "ratingValue": "5.0",
       "reviewCount": "92"
     }
   };
