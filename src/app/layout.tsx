@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "FerchoTecnico",
     images: [
       {
-        url: "/hero-poster.jpg",
+  url: "https://www.ferchotecnico.com/hero-poster.jpg",
         width: 1200,
         height: 630,
         alt: "Servicio técnico computadores Montería"
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Servicio Técnico Computadores Montería",
     description: "Más de 10 años solucionando problemas tecnológicos en Montería",
-    images: ["/hero-poster.jpg"]
+  images: ["https://www.ferchotecnico.com/hero-poster.jpg"]
   },
   robots: {
     index: true,
