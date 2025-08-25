@@ -1962,6 +1962,54 @@ select.form-control {
   font-size: var(--font-size-sm);
 }
 
+/* Ensure testimonials area remains light and readable even when user OS is in dark mode.
+   This overrides dark-mode variables only within this section so embedded widgets
+   (third-party scripts) remain legible. */
+.testimonials {
+  /* use an explicit light surface color defined in :root so it's stable */
+  background: var(--color-cream-100);
+  color: var(--color-slate-900);
+}
+.testimonials .testimonial-card {
+  background: var(--color-cream-100);
+  color: var(--color-slate-900);
+  border: 1px solid rgba(var(--color-brown-600-rgb), 0.06);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+}
+.testimonials :where(.testimonial__text, .testimonial__author strong, .testimonial__author span) {
+  color: inherit;
+}
+
+/* Dark-mode tuned variant for testimonials: keep them readable but less stark than pure white */
+@media (prefers-color-scheme: dark) {
+  .testimonials {
+    /* subtle lightening over dark background so it reads as a card */
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+    color: var(--color-gray-200);
+    border: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .testimonials .testimonial-card {
+    background: rgba(255,255,255,0.02);
+    color: var(--color-gray-200);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+  }
+}
+
+/* Also support manual theme switch via data attribute */
+[data-color-scheme="dark"] .testimonials {
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+  color: var(--color-gray-200);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+[data-color-scheme="dark"] .testimonials .testimonial-card {
+  background: rgba(255,255,255,0.02);
+  color: var(--color-gray-200);
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.55);
+}
+
 /* FAQ Section */
 .faq {
   padding: var(--space-32) 0;
