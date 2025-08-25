@@ -208,7 +208,7 @@
     --color-warning: var(--color-orange-400);
     --color-info: var(--color-gray-300);
   --color-focus-ring: rgba(58,110,147,0.28);
-    --color-btn-primary-text: var(--color-slate-900);
+  --color-btn-primary-text: var(--color-white);
     --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
     --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
     --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -269,7 +269,7 @@
   --color-warning: var(--color-orange-400);
   --color-info: var(--color-gray-300);
   --color-focus-ring: rgba(58,110,147,0.28);
-  --color-btn-primary-text: var(--color-slate-900);
+  --color-btn-primary-text: var(--color-white);
   --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
   --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
   --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
@@ -333,6 +333,8 @@ html {
   line-height: var(--line-height-normal);
   color: var(--color-text);
   background-color: var(--color-background);
+  /* Let the UA know this site supports both light and dark form control rendering */
+  color-scheme: light dark;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
 }
