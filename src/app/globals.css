@@ -2010,6 +2010,49 @@ select.form-control {
   box-shadow: 0 8px 24px rgba(0,0,0,0.55);
 }
 
+/* Force readable text and link colors for testimonials and third-party widgets
+   when the site or OS is in dark mode. Some embedded widgets (Elfsight)
+   inject their own styles; these rules use !important sparingly to ensure
+   legibility without impacting other sections. */
+@media (prefers-color-scheme: dark) {
+  .testimonials,
+  .testimonials * {
+    color: var(--color-gray-200) !important;
+    background-color: transparent !important;
+  }
+
+  .testimonials a,
+  .testimonials a * {
+    color: var(--color-primary) !important;
+  }
+
+  /* Target the Elfsight container added in the Testimonials component so
+     texts inside the widget are readable in dark theme. Update the selector
+     if the widget ID changes. */
+  .testimonials .elfsight-app-d4a2b5a4-3734-4c3c-bd68-010b5bf39151,
+  .testimonials .elfsight-app-d4a2b5a4-3734-4c3c-bd68-010b5bf39151 * {
+    color: var(--color-gray-200) !important;
+    background: transparent !important;
+  }
+}
+
+[data-color-scheme="dark"] .testimonials,
+[data-color-scheme="dark"] .testimonials * {
+  color: var(--color-gray-200) !important;
+  background-color: transparent !important;
+}
+
+[data-color-scheme="dark"] .testimonials a,
+[data-color-scheme="dark"] .testimonials a * {
+  color: var(--color-primary) !important;
+}
+
+[data-color-scheme="dark"] .testimonials .elfsight-app-d4a2b5a4-3734-4c3c-bd68-010b5bf39151,
+[data-color-scheme="dark"] .testimonials .elfsight-app-d4a2b5a4-3734-4c3c-bd68-010b5bf39151 * {
+  color: var(--color-gray-200) !important;
+  background: transparent !important;
+}
+
 /* FAQ Section */
 .faq {
   padding: var(--space-32) 0;
