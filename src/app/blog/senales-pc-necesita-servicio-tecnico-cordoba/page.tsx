@@ -40,9 +40,9 @@ export default function SenalesPCNecesitaServicio() {
             <h3 className="text-xl font-semibold mb-3 text-red-800">Síntomas:</h3>
             <ul className="space-y-2">
               <li>• El computador tarda más de 5 minutos en encender</li>
-              <li>• Los programas se "cuelgan" constantemente</li>
-              <li>• El cursor se queda "pensando" por largos períodos</li>
-              <li>• Múltiples ventanas de "No responde"</li>
+              <li>• Los programas se &quot;cuelgan&quot; constantemente</li>
+              <li>• El cursor se queda &quot;pensando&quot; por largos períodos</li>
+              <li>• Múltiples ventanas de &quot;No responde&quot;</li>
             </ul>
           </div>
           <p><strong>Posibles causas en Córdoba:</strong></p>
@@ -138,7 +138,7 @@ export default function SenalesPCNecesitaServicio() {
               <ul className="space-y-1">
                 <li>• Apaga el equipo inmediatamente si hay sobrecalentamiento</li>
                 <li>• Respalda tus datos importantes urgentemente</li>
-                <li>• No intentes "arreglos caseros" complicados</li>
+                <li>• No intentes &quot;arreglos caseros&quot; complicados</li>
                 <li>• Documenta los errores y síntomas</li>
               </ul>
             </div>
