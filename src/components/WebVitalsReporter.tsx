@@ -1,33 +1,70 @@
-"use client";
+'use client';
+
+import { useReportWebVitals } from 'next/web-vitals';
 import { useEffect } from 'react';
-import type { Metric as WVMetric } from 'web-vitals';
+import type { Metric } from 'web-vitals';
+
+// Enhanced Web Vitals tracking with analytics
+function sendToAnalytics(metric: Metric) {
+  // Send to Google Analytics 4
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag('event', metric.name, {
+      event_category: 'Web Vitals',
+      event_label: metric.id,
+      value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+      custom_map: {
+        metric_delta: metric.delta
+      },
+      // Enhanced GA4 parameters
+      engagement_time_msec: metric.value,
+      custom_parameter_1: 'web_vitals'
+    });
+  }
+
+  // Send to console for development
+  console.log('📊 Web Vital:', {
+    name: metric.name,
+    value: metric.value,
+    delta: metric.delta,
+    id: metric.id
+  });
+
+  // Send to custom analytics endpoint (optional)
+  if (process.env.NODE_ENV === 'production') {
+    try {
+      fetch('/api/analytics/web-vitals', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          metric: metric.name,
+          value: metric.value,
+          delta: metric.delta,
+          id: metric.id,
+          url: window.location.href,
+          timestamp: Date.now(),
+          userAgent: navigator.userAgent
+        })
+      }).catch(console.error);
+    } catch (error) {
+      console.error('Error sending web vitals:', error);
+    }
+  }
+}
 
 export default function WebVitalsReporter() {
-  useEffect(() => {
-  const send = (metric: WVMetric) => {
-      try {
-        const body = JSON.stringify(metric);
-        if (navigator && typeof navigator.sendBeacon === 'function') {
-          navigator.sendBeacon('/api/web-vitals', body);
-          return;
-        }
-        fetch('/api/web-vitals', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body,
-        }).catch(() => {});
-      } catch {
-        // ignore serialization errors
-      }
-    };
+  useReportWebVitals((metric) => {
+    sendToAnalytics(metric);
+  });
 
-    import('web-vitals').then((wv: typeof import('web-vitals')) => {
-      const { getCLS, getFID, getLCP, getINP, getFCP } = wv;
-      if (typeof getCLS === 'function') getCLS((m: WVMetric) => send(m));
-      if (typeof getFID === 'function') getFID((m: WVMetric) => send(m));
-      if (typeof getLCP === 'function') getLCP((m: WVMetric) => send(m));
-      if (typeof getINP === 'function') getINP((m: WVMetric) => send(m));
-      if (typeof getFCP === 'function') getFCP((m: WVMetric) => send(m));
+  useEffect(() => {
+    // Collect all Core Web Vitals on page load
+    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP }) => {
+      getCLS(sendToAnalytics);
+      getFID(sendToAnalytics);
+      getFCP(sendToAnalytics);
+      getLCP(sendToAnalytics);
     });
   }, []);
 

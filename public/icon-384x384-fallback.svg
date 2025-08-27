@@ -1,0 +1,28 @@
+
+<svg width="384" height="384" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fondo con gradiente -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d2b384;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3a6e93;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Fondo redondeado -->
+  <rect width="384" height="384" rx="57.599999999999994" fill="url(#bgGrad)"/>
+  
+  <!-- Computador simplificado -->
+  <rect x="57.599999999999994" y="96" width="268.79999999999995" height="153.60000000000002" rx="11.52" fill="#ffffff" opacity="0.95"/>
+  <rect x="76.80000000000001" y="115.19999999999999" width="230.39999999999998" height="96" fill="#3a6e93"/>
+  
+  <!-- Letra F -->
+  <text x="192" y="192" font-family="Arial, sans-serif" font-size="57.599999999999994" font-weight="bold" text-anchor="middle" fill="#ffffff">F</text>
+  
+  <!-- Base -->
+  <rect x="161.28" y="249.60000000000002" width="61.44" height="23.04" fill="#ffffff"/>
+  <rect x="134.39999999999998" y="272.64" width="115.19999999999999" height="11.52" rx="5.76" fill="#ffffff"/>
+  
+  <!-- Borde -->
+  <rect width="384" height="384" rx="57.599999999999994" fill="none" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+</svg>
+  

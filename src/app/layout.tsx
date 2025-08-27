@@ -5,6 +5,8 @@ import "./globals.css";
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import OrganizationSchema from '@/components/OrganizationSchema';
 import WebVitalsReporter from '@/components/WebVitalsReporter';
+import PWAInstaller from '@/components/PWAInstaller';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
 
 const geistSans = Geist({
@@ -135,6 +137,12 @@ export default function RootLayout({
       <head>
         <meta name="keywords" content="servicio técnico computadores montería, reparación pc montería, técnico domicilio córdoba, mantenimiento portátiles, fernando técnico, diagnóstico gratuito" />
         <link rel="canonical" href="https://www.ferchotecnico.com" />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#3a6e93" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="apple-mobile-web-app-title" content="FerchoTécnico" />
+        <link rel="apple-touch-icon" href="/icon-192x192.png" />
         <meta property="og:title" content="Fernando - Técnico Computadores Montería | Servicio a Domicilio" />
         <meta property="og:description" content="⭐ 5.0 estrellas - Técnico especialista en reparación de computadores en Montería. Diagnóstico gratuito, garantía 30 días. +573008474121" />
         <meta property="og:image" content="https://www.ferchotecnico.com/fernando-tecnico-monteria.jpg" />
@@ -143,10 +151,12 @@ export default function RootLayout({
         <meta name="twitter:description" content="⭐ 5.0 estrellas - Servicio técnico a domicilio en Montería. Diagnóstico gratuito +573008474121" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
+  <GoogleAnalytics />
   <LocalBusinessSchema />
   <OrganizationSchema />
   <ClientLayout>{children}</ClientLayout>
   <Footer />
+  <PWAInstaller />
   <WebVitalsReporter />
       </body>
     </html>
