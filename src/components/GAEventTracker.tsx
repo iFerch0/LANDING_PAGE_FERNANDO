@@ -4,8 +4,8 @@ import { useEffect } from 'react';
 
 // Helper functions for Google Analytics event tracking
 export const trackEvent = (eventName: string, parameters?: Record<string, string | number>) => {
-  if (typeof window !== 'undefined' && (window as unknown as { gtag?: Function }).gtag) {
-    (window as unknown as { gtag: Function }).gtag('event', eventName, {
+  if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+    (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', eventName, {
       event_category: 'engagement',
       ...parameters
     });
