@@ -8,6 +8,7 @@ const Navbar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -19,6 +20,13 @@ const Navbar = () => {
         // Limpiar el evento al desmontar el componente
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Cerrar el submenú cuando se cierre el menú principal
+    useEffect(() => {
+        if (!isMenuOpen) {
+            setIsServicesOpen(false);
+        }
+    }, [isMenuOpen]);
 
     return (
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} id="navbar">
@@ -33,16 +41,86 @@ const Navbar = () => {
 
                 <ul className={`navbar__menu ${isMenuOpen ? 'mobile-open' : ''}`} id="navbar-menu">
                     <li className="navbar__item">
-                        <Link href="#inicio" className="navbar__link" data-section="inicio">
+                        <Link href="/" className="navbar__link" data-section="inicio">
                             <span className="navbar__icon">🏠</span>
                             <span className="navbar__text">Inicio</span>
                         </Link>
                     </li>
-                    <li className="navbar__item">
-                        <Link href="#servicios" className="navbar__link" data-section="servicios">
+                    <li className={`navbar__item navbar__item--dropdown ${isServicesOpen ? 'mobile-open' : ''}`}>
+                        <div 
+                            className="navbar__link navbar__link--dropdown" 
+                            data-section="servicios"
+                            onClick={() => setIsServicesOpen(!isServicesOpen)}
+                        >
                             <span className="navbar__icon">🛠️</span>
                             <span className="navbar__text">Servicios</span>
-                        </Link>
+                            <span className="navbar__dropdown-arrow">▼</span>
+                        </div>
+                        <ul className="navbar__submenu">
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">🏠💼</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Mantenimiento Doméstico y Corporativo</span>
+                                        <span className="navbar__submenu-desc">Limpieza y optimización de equipos en casa y oficina</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">🎮⚡</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Optimización Gaming</span>
+                                        <span className="navbar__submenu-desc">Mejora de rendimiento para equipos de juegos</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">💾📋</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Instalación de Software</span>
+                                        <span className="navbar__submenu-desc">Programas, drivers y actualizaciones del sistema</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">🌐🔧</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Soporte Remoto</span>
+                                        <span className="navbar__submenu-desc">Asistencia técnica a distancia nacional e internacional</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">🔧⚙️</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Ensamble Personalizado</span>
+                                        <span className="navbar__submenu-desc">Construcción de equipos a medida según necesidades</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">💿🔄</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Recuperación de Datos</span>
+                                        <span className="navbar__submenu-desc">Restauración de archivos perdidos o dañados</span>
+                                    </div>
+                                </Link>
+                            </li>
+                            <li className="navbar__submenu-item">
+                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                    <span className="navbar__submenu-icon">🔨🖥️</span>
+                                    <div className="navbar__submenu-content">
+                                        <span className="navbar__submenu-title">Reparación Física</span>
+                                        <span className="navbar__submenu-desc">Arreglo de carcasas, bisagras y componentes físicos</span>
+                                    </div>
+                                </Link>
+                            </li>
+                        </ul>
                     </li>
                     <li className="navbar__item">
                         <Link href="#proceso" className="navbar__link" data-section="proceso">
