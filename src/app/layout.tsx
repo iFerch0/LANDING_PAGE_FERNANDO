@@ -22,6 +22,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Técnico en computadores en Montería | Reparación y mantenimiento a domicilio",
   description: "Servicio técnico de PC y laptops en Montería. Formateo, limpieza, cambio de partes y recuperación de datos. Agenda por WhatsApp.",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/icon-192x192.png',
+  },
   "keywords": [
     "servicio técnico computadores Montería",
     "técnico computadores Montería",
