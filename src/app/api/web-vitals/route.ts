@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+// Legacy endpoint - redirects to analytics endpoint
 export async function POST(request: NextRequest) {
   try {
     // Validate request body
@@ -10,24 +11,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
     
-    // Log web vitals data (in production, you might want to send to a database or analytics service)
-    console.log('📊 Web Vitals Data:', {
+    // Log web vitals data
+    console.log('📊 Web Vitals Data (Legacy Endpoint):', {
       metric: data.metric,
       value: data.value,
       delta: data.delta,
       id: data.id,
       url: data.url,
       timestamp: new Date(data.timestamp).toISOString(),
-      userAgent: data.userAgent?.substring(0, 100) // Truncate for logging
+      userAgent: data.userAgent?.substring(0, 100)
     });
 
-    // Here you could send to external analytics services like:
-    // - Google Analytics Measurement Protocol
-    // - DataDog
-    // - New Relic
-    // - Custom database
-    
-    return NextResponse.json({ success: true, received: data.metric });
+    return NextResponse.json({ success: true, received: data.metric, note: 'Legacy endpoint' });
   } catch (error) {
     console.error('Error processing web vitals:', error);
     return NextResponse.json({ error: 'Failed to process web vitals' }, { status: 500 });
@@ -36,7 +31,7 @@ export async function POST(request: NextRequest) {
 
 // Handle other HTTP methods
 export async function GET() {
-  return NextResponse.json({ message: 'Web Vitals endpoint - POST only' }, { status: 405 });
+  return NextResponse.json({ message: 'Web Vitals legacy endpoint - POST only' }, { status: 405 });
 }
 
 export async function PUT() {
