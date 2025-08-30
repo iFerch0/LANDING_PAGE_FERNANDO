@@ -58,4 +58,38 @@ export const ChevronDown: React.FC<IconProps> = ({ className, size = 20, title =
   </svg>
 );
 
+export const ChevronLeftIcon: React.FC<IconProps> = ({ className, size = 24, title = 'Previous' }) => (
+  <svg
+    className={className}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label={title}
+    focusable="false"
+  >
+    <title>{title}</title>
+    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+export const ChevronRightIcon: React.FC<IconProps> = ({ className, size = 24, title = 'Next' }) => (
+  <svg
+    className={className}
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label={title}
+    focusable="false"
+  >
+    <title>{title}</title>
+    <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export default WhatsAppIcon;

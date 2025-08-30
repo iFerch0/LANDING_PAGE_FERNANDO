@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run generate:images && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
@@ -12,7 +12,8 @@
     "test:coverage": "jest --coverage",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "e2e": "start-server-and-test dev http://localhost:3000 cypress:run"
+    "e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
+    "generate:images": "node scripts/generate-images.js"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -20,6 +21,7 @@
     "next": "15.5.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "swiper": "^11.2.10",
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
@@ -31,6 +33,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/swiper": "^5.4.3",
     "cypress": "^15.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
