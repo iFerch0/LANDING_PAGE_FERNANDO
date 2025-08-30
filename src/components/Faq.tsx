@@ -78,9 +78,23 @@ const Faq: React.FC = () => {
   return (
     <section id="faq" className="faq" aria-labelledby="faq-title">
       <div className="container">
-        <h2 id="faq-title" className="section-title">Preguntas Frecuentes</h2>
+        {/* Enhanced Header */}
+        <div className="faq__header" data-aos="fade-up">
+          <div className="faq__badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <path d="M12 17h.01"/>
+            </svg>
+            Resuelve Tus Dudas
+          </div>
+          <h2 id="faq-title" className="section-title">Preguntas Frecuentes</h2>
+          <p className="faq__subtitle">
+            Encuentra respuestas a las consultas más comunes sobre nuestros servicios de mantenimiento y reparación
+          </p>
+        </div>
 
-        <div className="faq__list">
+        <div className="faq__list" data-aos="fade-up" data-aos-delay="100">
           {FAQ_ITEMS.map((it, idx) => (
             <FaqItem
               key={idx}
@@ -92,6 +106,25 @@ const Faq: React.FC = () => {
               {typeof it.answer === 'string' ? <p>{it.answer}</p> : it.answer}
             </FaqItem>
           ))}
+        </div>
+
+        {/* Contact CTA */}
+        <div className="faq__cta" data-aos="fade-up" data-aos-delay="200">
+          <div className="faq-cta__content">
+            <h3>¿Tienes otra pregunta?</h3>
+            <p>Si no encontraste la respuesta que buscabas, contáctame directamente por WhatsApp</p>
+            <a 
+              href="https://wa.me/573015218139?text=Hola%2C%20tengo%20una%20consulta%20sobre%20los%20servicios%20de%20mantenimiento%20de%20computadores"
+              className="btn btn--secondary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"/>
+              </svg>
+              Hacer Otra Consulta
+            </a>
+          </div>
         </div>
       </div>
     </section>
