@@ -1,5 +1,5 @@
 // Auto-generated file - Do not edit manually
-// Generated on: 2025-08-30T05:57:34.325Z
+// Generated on: 2025-08-30T14:21:53.071Z
 
 export interface SlideData {
   id: number;

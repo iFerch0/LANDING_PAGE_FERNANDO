@@ -42,13 +42,13 @@ const Footer = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className="brand-title">Fernando Ingeniero de Sistemas</h3>
-                  <p className="brand-subtitle">Especialista en Tecnología</p>
+                  <h3 className="brand-title">Fernando Rhenals</h3>
+                  <p className="brand-subtitle">Ingeniero de Sistemas</p>
                 </div>
               </div>
               
               <p className="brand-description">
-                Más de 8 años de experiencia ofreciendo soluciones tecnológicas 
+                Más de 10 años de experiencia ofreciendo soluciones tecnológicas 
                 confiables en Montería. Tu computador en las mejores manos profesionales.
               </p>
               
