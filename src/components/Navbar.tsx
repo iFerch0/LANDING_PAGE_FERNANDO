@@ -32,7 +32,7 @@ const Navbar = () => {
         <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`} id="navbar">
             <div className="navbar__container">
                 <div className="navbar__brand">
-                    <Image src="/logo.png" alt="Logo Fernando" width={50} height={50} className="navbar__logo" />
+                    <Image src="/logo.png" alt="Logo Fernando" width={50} height={50} className="navbar__logo" priority />
                     <div className="navbar__text">
                         <span className="navbar__name">Fernando</span>
                         <span className="navbar__title">Técnico en Computadores — Montería</span>

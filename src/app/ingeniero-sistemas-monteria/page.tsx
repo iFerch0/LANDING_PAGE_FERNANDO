@@ -3,78 +3,78 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Servicio Técnico Computadores Montería ⭐ | Reparación PC a Domicilio 24/7',
-  description: '⭐ Servicio técnico computadores Montería especializado. Diagnóstico GRATIS, reparación PC, soporte a domicilio, mantenimiento. Técnico certificado +8 años experiencia 📱',
+  title: 'Ingeniero de Sistemas Montería ⭐ | Consultoría IT y Desarrollo de Software',
+  description: '⭐ Ingeniero de sistemas Montería especializado en consultoría IT, desarrollo de software, soporte técnico y soluciones tecnológicas. Más de 8 años de experiencia en Córdoba 📱',
   keywords: [
-    'servicio técnico computadores montería',
-    'servicio tecnico computadores monteria',
-    'servicio técnico de computadores montería',
-    'servicio tecnico de computadores monteria',
-    'técnico computadores montería',
-    'reparación pc montería',
-    'soporte técnico pc montería',
-    'servicio a domicilio montería',
-    'diagnóstico gratuito montería',
-    'técnico pc montería barato',
-    'servicio técnico confiable montería',
-    'reparación computadores montería urgente',
-    'técnico computadores montería 24 horas',
-    'servicio técnico montería economico'
+    'ingeniero de sistemas montería',
+    'ingeniero sistemas montería',
+    'consultor it montería',
+    'desarrollo software montería',
+    'consultoría tecnológica montería',
+    'ingeniero informático montería',
+    'especialista sistemas montería',
+    'programador montería',
+    'desarrollador software montería',
+    'consultor informático montería',
+    'ingeniero de sistemas córdoba',
+    'consultoría it montería',
+    'desarrollo aplicaciones montería',
+    'ingeniero sistemas montería colombia'
   ].join(', '),
   alternates: {
-    canonical: 'https://www.ferchotecnico.com/servicios/servicio-tecnico-computadores-monteria'
+    canonical: 'https://www.ferchotecnico.com/ingeniero-sistemas-monteria'
   },
   openGraph: {
-    title: '🔧 Servicio Técnico Computadores Montería | Fernando ⭐ 5.0',
-    description: '⭐ Servicio técnico computadores Montería profesional. Reparación PC, soporte a domicilio, diagnóstico gratuito. +8 años experiencia 📱',
-    url: 'https://www.ferchotecnico.com/servicios/servicio-tecnico-computadores-monteria',
+    title: '🔧 Ingeniero de Sistemas Montería | Fernando - Consultor IT ⭐',
+    description: '⭐ Ingeniero de sistemas Montería con 8+ años experiencia. Consultoría IT, desarrollo software, soporte técnico especializado 📱 +573008474121',
+    url: 'https://www.ferchotecnico.com/ingeniero-sistemas-monteria',
     type: 'website'
   }
 };
 
-export default function ServicioTecnicoComputadoresMonteria() {
+export default function IngenieroSistemasMonteria() {
   const servicios = [
     {
-      icon: '🔧',
-      titulo: 'Reparación de PC',
-      descripcion: 'Reparación completa de computadores de escritorio y portátiles'
-    },
-    {
-      icon: '🛠️',
-      titulo: 'Soporte Técnico',
-      descripcion: 'Asistencia técnica especializada para cualquier problema'
-    },
-    {
-      icon: '🏠',
-      titulo: 'Servicio a Domicilio',
-      descripcion: 'Atención técnica en tu hogar u oficina en Montería'
-    },
-    {
       icon: '💻',
-      titulo: 'Mantenimiento Preventivo',
-      descripcion: 'Limpieza y optimización para prevenir problemas futuros'
+      titulo: 'Consultoría IT',
+      descripcion: 'Asesoría especializada en infraestructura tecnológica, migración a la nube y optimización de sistemas'
+    },
+    {
+      icon: '⚙️',
+      titulo: 'Desarrollo de Software',
+      descripcion: 'Creación de aplicaciones personalizadas, sistemas web y soluciones empresariales'
+    },
+    {
+      icon: '🔧',
+      titulo: 'Soporte Técnico Avanzado',
+      descripcion: 'Resolución de problemas complejos de hardware, software y redes'
+    },
+    {
+      icon: '📊',
+      titulo: 'Análisis de Sistemas',
+      descripcion: 'Evaluación y optimización de procesos tecnológicos empresariales'
     },
     {
       icon: '🛡️',
-      titulo: 'Eliminación de Virus',
-      descripcion: 'Limpieza completa de malware y protección antivirus'
+      titulo: 'Seguridad Informática',
+      descripcion: 'Implementación de medidas de ciberseguridad y protección de datos'
     },
     {
-      icon: '⚡',
-      titulo: 'Optimización de Rendimiento',
-      descripcion: 'Mejora la velocidad y rendimiento de tu computador'
+      icon: '☁️',
+      titulo: 'Migración a la Nube',
+      descripcion: 'Transición segura a servicios cloud y optimización de recursos'
     }
   ];
 
-  const ventajas = [
-    '✅ Diagnóstico gratuito en el mismo día',
-    '✅ Servicio técnico computadores Montería 24/7',
-    '✅ Técnico certificado con 8+ años experiencia',
-    '✅ Garantía de 30 días en todas las reparaciones',
-    '✅ Servicio a domicilio sin costo adicional',
-    '✅ Precios transparentes sin sorpresas',
-    '✅ Atención personalizada y profesional',
-    '✅ Repuestos originales y compatibles'
+  const tecnologias = [
+    'Desarrollo Web (React, Next.js, Node.js)',
+    'Bases de Datos (MySQL, PostgreSQL, MongoDB)',
+    'Lenguajes (JavaScript, Python, PHP, Java)',
+    'Cloud Computing (AWS, Azure, Google Cloud)',
+    'DevOps (Docker, Kubernetes, CI/CD)',
+    'Ciberseguridad (Firewalls, Antivirus, VPN)',
+    'Redes (Cisco, Mikrotik, configuración avanzada)',
+    'Sistemas Operativos (Windows Server, Linux, macOS)'
   ];
 
   return (
@@ -85,19 +85,19 @@ export default function ServicioTecnicoComputadoresMonteria() {
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                🔧 Servicio Técnico
-                <span className="block text-yellow-300">Computadores Montería</span>
+                🔧 Ingeniero de Sistemas
+                <span className="block text-yellow-300">Montería, Córdoba</span>
               </h1>
               <p className="text-xl mb-8 leading-relaxed">
-                Servicio técnico computadores Montería especializado con más de 8 años de experiencia.
-                Reparación PC, soporte técnico, mantenimiento y diagnóstico gratuito a domicilio 24/7.
+                Ingeniero de sistemas Montería con más de 8 años de experiencia en consultoría IT,
+                desarrollo de software y soporte técnico especializado. Soluciones tecnológicas integrales para empresas y particulares.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   href="tel:+573008474121"
                   className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-colors duration-200 text-center"
                 >
-                  📞 Llamar Ahora
+                  📞 Consultar Ahora
                 </Link>
                 <Link
                   href="https://wa.me/573008474121"
@@ -110,7 +110,7 @@ export default function ServicioTecnicoComputadoresMonteria() {
             <div className="lg:w-1/2">
               <Image
                 src="/hero-poster.jpg"
-                alt="Servicio técnico computadores Montería"
+                alt="Ingeniero de sistemas Montería - Consultoría IT"
                 width={600}
                 height={400}
                 className="rounded-xl shadow-2xl"
@@ -125,7 +125,7 @@ export default function ServicioTecnicoComputadoresMonteria() {
       <section className="py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-gray-900">
-            Servicios Técnicos Especializados
+            Servicios de Ingeniería de Sistemas
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicios.map((servicio, index) => (
@@ -139,61 +139,61 @@ export default function ServicioTecnicoComputadoresMonteria() {
         </div>
       </section>
 
-      {/* Ventajas */}
+      {/* Tecnologías */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
-              ¿Por Qué Elegir Nuestro Servicio Técnico Computadores Montería?
+              Tecnologías y Especialidades
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Más de 8 años ofreciendo el mejor servicio técnico computadores Montería con garantía y profesionalismo
+              Como ingeniero de sistemas Montería, domino las tecnologías más actuales para ofrecer soluciones completas
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {ventajas.map((ventaja, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {tecnologias.map((tech, index) => (
               <div key={index} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
-                <span className="text-lg font-semibold text-gray-800">{ventaja}</span>
+                <span className="text-blue-600 font-semibold">{tech}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Precios */}
+      {/* Experiencia */}
       <section className="py-16">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold mb-8 text-gray-900">
-                Precios Transparentes - Servicio Técnico Computadores Montería
+                +8 Años de Experiencia en Ingeniería de Sistemas
               </h2>
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <span className="text-2xl">💰</span>
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold mb-2">Sin Costos Ocultos</h3>
-                    <p className="text-gray-600">Precios fijos y transparentes en todo nuestro servicio técnico computadores Montería</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-start gap-4">
                   <div className="bg-blue-100 p-3 rounded-full">
-                    <span className="text-2xl">🎯</span>
+                    <span className="text-2xl">🎓</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Cotización Gratuita</h3>
-                    <p className="text-gray-600">Evaluación gratuita de tu computador antes de cualquier reparación</p>
+                    <h3 className="text-xl font-bold mb-2">Formación Académica</h3>
+                    <p className="text-gray-600">Ingeniero de Sistemas graduado con especialización en Tecnologías de Información</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  <div className="bg-yellow-100 p-3 rounded-full">
-                    <span className="text-2xl">⭐</span>
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 p-3 rounded-full">
+                    <span className="text-2xl">💼</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Garantía Incluida</h3>
-                    <p className="text-gray-600">30 días de garantía en mano de obra y componentes</p>
+                    <h3 className="text-xl font-bold mb-2">Experiencia Profesional</h3>
+                    <p className="text-gray-600">Más de 8 años desarrollando soluciones tecnológicas para empresas en Córdoba</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="bg-yellow-100 p-3 rounded-full">
+                    <span className="text-2xl">🏆</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold mb-2">Certificaciones</h3>
+                    <p className="text-gray-600">Certificado en ciberseguridad, cloud computing y desarrollo de software</p>
                   </div>
                 </div>
               </div>
@@ -201,28 +201,24 @@ export default function ServicioTecnicoComputadoresMonteria() {
             <div className="lg:w-1/2">
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <h3 className="text-2xl font-bold mb-6 text-center text-gray-900">
-                  💰 Tabla de Precios
+                  ¿Necesitas un Ingeniero de Sistemas?
                 </h3>
                 <div className="space-y-4">
                   <div className="flex justify-between items-center border-b pb-2">
-                    <span>Diagnóstico</span>
-                    <span className="font-bold text-green-600">GRATIS</span>
+                    <span>Consultoría IT</span>
+                    <span className="font-bold text-blue-600">Desde $80.000</span>
                   </div>
                   <div className="flex justify-between items-center border-b pb-2">
-                    <span>Soporte Básico</span>
-                    <span className="font-bold">Desde $30.000</span>
+                    <span>Desarrollo Software</span>
+                    <span className="font-bold text-blue-600">Desde $150.000</span>
                   </div>
                   <div className="flex justify-between items-center border-b pb-2">
-                    <span>Reparación PC</span>
-                    <span className="font-bold">Desde $50.000</span>
-                  </div>
-                  <div className="flex justify-between items-center border-b pb-2">
-                    <span>Mantenimiento Completo</span>
-                    <span className="font-bold">Desde $80.000</span>
+                    <span>Soporte Técnico</span>
+                    <span className="font-bold text-blue-600">Desde $50.000</span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span>Servicio a Domicilio</span>
-                    <span className="font-bold text-blue-600">INCLUIDO</span>
+                    <span>Mantenimiento Sistemas</span>
+                    <span className="font-bold text-blue-600">Desde $100.000</span>
                   </div>
                 </div>
               </div>
@@ -235,10 +231,10 @@ export default function ServicioTecnicoComputadoresMonteria() {
       <section className="py-16 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            ¿Necesitas Servicio Técnico Computadores Montería?
+            ¿Buscas un Ingeniero de Sistemas en Montería?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contacta ahora para el mejor servicio técnico computadores Montería. Diagnóstico gratuito y atención inmediata.
+            Contacta ahora para consultoría IT especializada, desarrollo de software o soporte técnico avanzado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

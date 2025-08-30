@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, KeyboardEvent } from 'react';
+import Image from 'next/image';
 
 type Props = {
   images: string[];
@@ -48,7 +49,13 @@ export default function SliderSimple({ images, height = 420, interval = 3500 }: 
         <div className="slider__track" style={{transform: `translateX(-${index * 100}%)`}}>
           {images.map((src, i) => (
             <div key={i} className="slider__slide" role="group" aria-roledescription="slide" aria-label={`Imagen ${i + 1} de ${images.length}`}>
-              <img src={src} alt={`slide-${i + 1}`} style={{width: '100%', height: '100%', objectFit: 'cover', display: 'block'}} />
+              <Image 
+                src={src} 
+                alt={`slide-${i + 1}`} 
+                fill
+                style={{objectFit: 'cover'}} 
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              />
             </div>
           ))}
         </div>

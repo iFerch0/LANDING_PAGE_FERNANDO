@@ -21,13 +21,15 @@ function sendToAnalytics(metric: Metric) {
     });
   }
 
-  // Send to console for development
-  console.log('📊 Web Vital:', {
-    name: metric.name,
-    value: metric.value,
-    delta: metric.delta,
-    id: metric.id
-  });
+  // Send to console for development (only in development mode)
+  if (process.env.NODE_ENV === 'development') {
+    console.log('📊 Web Vital:', {
+      name: metric.name,
+      value: metric.value,
+      delta: metric.delta,
+      id: metric.id
+    });
+  }
 
   // Send to custom analytics endpoint (optional)
   if (process.env.NODE_ENV === 'production') {

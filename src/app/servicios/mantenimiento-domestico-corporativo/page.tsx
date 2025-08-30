@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import CtaFinal from '@/components/CtaFinal';
 import ContactForm from '@/components/ContactForm';
 import SliderSimple from '@/components/SliderSimple';
+import Image from 'next/image';
 
 export default function MantenimientoDomesticoCorporativoPage() {
   return (
@@ -110,9 +111,9 @@ export default function MantenimientoDomesticoCorporativoPage() {
         <section className="container" style={{paddingTop: '40px'}}>
           <h2 className="section-title">Galería</h2>
           <div className="grid grid--3" style={{gap: '12px', marginTop: '16px'}}>
-            <img src="/illustration-hero.svg" alt="Ilustración mantenimiento" style={{width: '100%', borderRadius: 12}} />
-            <img src="/hero-poster.png" alt="Técnico trabajando" style={{width: '100%', borderRadius: 12}} />
-            <img src="/logo.png" alt="Logo" style={{width: '100%', borderRadius: 12, background: '#fff', padding: 12}} />
+            <Image src="/illustration-hero.svg" alt="Ilustración mantenimiento" width={400} height={300} style={{width: '100%', borderRadius: 12, height: 'auto'}} />
+            <Image src="/hero-poster.png" alt="Técnico trabajando" width={400} height={300} style={{width: '100%', borderRadius: 12, height: 'auto'}} />
+            <Image src="/logo.png" alt="Logo" width={200} height={150} style={{width: '100%', borderRadius: 12, background: '#fff', padding: 12, height: 'auto'}} />
           </div>
         </section>
 
