@@ -2076,119 +2076,306 @@ select.form-control {
 .features {
   padding: var(--space-32) 0;
   background: var(--color-bg-1);
+  position: relative;
 }
 
+.features::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+/* Features Header */
+.features__header {
+  text-align: center;
+  margin-bottom: var(--space-32);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features__eyebrow {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  color: white;
+  padding: var(--space-6) var(--space-16);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-16);
+}
+
+.features__title {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: var(--space-16);
+}
+
+.features__title-highlight {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.features__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Features Grid */
 .features__grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: var(--space-24);
-  align-items: stretch;
+  align-items: start;
+  margin-bottom: var(--space-32);
 }
 
 /* New professional cards for features */
 .feature-card {
   background: var(--color-surface);
   border-radius: var(--radius-lg);
-  padding: var(--space-20);
+  padding: var(--space-24);
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  gap: var(--space-12);
+  gap: var(--space-16);
+  border: 1px solid var(--color-card-border);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hover micro-interaction */
-.feature-card {
-  transition: transform 220ms cubic-bezier(0.16,1,0.3,1), box-shadow 220ms, border-color 220ms;
-}
 .feature-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 18px 40px rgba(20,30,80,0.08);
-  border-color: rgba(0,0,0,0.04);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary-light);
 }
 
-/* CTA pulse */
-@keyframes ctaPulse {
-  0%{ transform: scale(1); box-shadow: none; }
-  40%{ transform: scale(1.02); box-shadow: 0 10px 34px rgba(58,110,147,0.10); }
-  100%{ transform: scale(1); box-shadow: none; }
-}
-.cta-pulse {
-  animation: ctaPulse 4s ease-in-out infinite;
+.feature-card--primary {
+  background: linear-gradient(135deg, var(--color-primary-light), var(--color-surface));
+  border-color: var(--color-primary);
 }
 
-.feature-badge:hover {
-  transform: translateY(-3px);
-  transition: transform 180ms ease;
+.feature-card--primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
 }
 
+/* Feature Card Elements */
 .feature-card__head {
   display: flex;
-  gap: var(--space-12);
-  align-items: center;
+  gap: var(--space-16);
+  align-items: flex-start;
 }
 
 .feature-card__icon {
   color: var(--color-primary);
   flex: 0 0 48px;
+  padding: var(--space-8);
+  background: var(--color-primary-light);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .feature-card__title {
   font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
   margin: 0;
+  line-height: 1.3;
 }
 
 .feature-card__subtitle {
-  margin: 0;
+  margin: var(--space-4) 0 0;
   color: var(--color-text-secondary);
   font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
 }
 
 .feature-card__desc {
   color: var(--color-text);
   line-height: 1.6;
   margin: 0;
+  flex-grow: 1;
 }
 
 .feature-card__actions {
   display: flex;
   gap: var(--space-12);
   align-items: center;
+  flex-wrap: wrap;
   margin-top: auto;
 }
 
-.feature-badge {
-  background: linear-gradient(90deg, var(--color-accent), var(--color-accent-strong));
-  color: var(--color-btn-primary-text);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-full);
-  font-weight: var(--font-weight-semibold);
+.feature-card__stats {
+  margin-top: var(--space-16);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-border);
 }
 
+/* Feature Badges */
+.feature-badge {
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.feature-badge--success {
+  background: linear-gradient(90deg, #10b981, #059669);
+  color: white;
+}
+
+.feature-badge--primary {
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  color: white;
+}
+
+.feature-badge--premium {
+  background: linear-gradient(90deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.feature-link {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  transition: color 0.2s ease;
+}
+
+.feature-link:hover {
+  color: var(--color-accent);
+}
+
+/* Stat Cards in Features */
 .stat-card {
   background: transparent;
-  padding: var(--space-16);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 .stat-card__number {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   font-weight: var(--font-weight-bold);
-  color: var(--color-accent-strong);
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+  line-height: 1;
+}
+
+.stat-card__unit {
+  font-size: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-left: var(--space-2);
 }
 
 .stat-card__label {
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  margin-top: var(--space-4);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--space-4);
 }
 
 .stat-card__desc {
+  font-size: var(--font-size-xs);
   color: var(--color-text-secondary);
-  text-align: center;
-  margin-top: var(--space-8);
-  max-width: 220px;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Credentials Section */
+.features__credentials {
+  margin-top: var(--space-32);
+  padding-top: var(--space-32);
+  border-top: 1px solid var(--color-border);
+}
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-20);
+}
+
+.credential-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  padding: var(--space-16);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  transition: all 0.2s ease;
+}
+
+.credential-item:hover {
+  background: var(--color-primary-light);
+  border-color: var(--color-primary);
+}
+
+.credential-icon {
+  font-size: 1.5rem;
+  flex: 0 0 auto;
+}
+
+.credential-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-2);
+}
+
+.credential-desc {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .features__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-20);
+  }
+  
+  .feature-card {
+    padding: var(--space-20);
+  }
+  
+  .feature-card__head {
+    gap: var(--space-12);
+  }
+  
+  .credentials-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+  
+  .credential-item {
+    padding: var(--space-12);
+  }
 }
 
 .feature-item {
