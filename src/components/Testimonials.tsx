@@ -13,7 +13,25 @@ const Testimonials = () => {
                         </svg>
                         Testimonios Verificados
                     </div>
-                    <h2 className="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                    <div style={{
+                        textAlign: 'center',
+                        marginBottom: '1.5rem'
+                    }}>
+                        <h2 style={{
+                            fontSize: '2.5rem',
+                            fontWeight: '700',
+                            background: 'linear-gradient(135deg, #1e40af, #3b82f6)',
+                            backgroundClip: 'text',
+                            WebkitBackgroundClip: 'text',
+                            color: 'transparent',
+                            margin: '0',
+                            padding: '1rem 0',
+                            letterSpacing: '-0.025em',
+                            lineHeight: '1.2'
+                        }}>
+                            Lo Que Dicen Nuestros Clientes
+                        </h2>
+                    </div>
                     <p className="testimonials__subtitle">
                         Más de 500 clientes satisfechos en Montería y alrededores confían en nuestro servicio técnico especializado
                     </p>

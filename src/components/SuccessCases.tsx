@@ -32,10 +32,10 @@ const SuccessCases = () => {
                                 <div className="before-after__label">ANTES</div>
                                 <div className="before-after__image">
                                     <Image 
-                                        src="/img/antes-despues/1-mantenimiento-antes.JPG" 
+                                        src="/img/antes-despues/optimized/1-mantenimiento-antes.JPG" 
                                         alt="PC con polvo antes del mantenimiento"
-                                        width={280}
-                                        height={180}
+                                        width={320}
+                                        height={200}
                                         className="case-image"
                                     />
                                 </div>
@@ -61,10 +61,10 @@ const SuccessCases = () => {
                                 <div className="before-after__label">DESPUÉS</div>
                                 <div className="before-after__image">
                                     <Image 
-                                        src="/img/antes-despues/1-manteniento-despues.JPG" 
+                                        src="/img/antes-despues/optimized/1-manteniento-despues.JPG" 
                                         alt="PC limpia después del mantenimiento"
-                                        width={280}
-                                        height={180}
+                                        width={320}
+                                        height={200}
                                         className="case-image"
                                     />
                                 </div>
@@ -233,7 +233,7 @@ const SuccessCases = () => {
                                 <div className="before-after__label">COMPONENTES</div>
                                 <div className="before-after__image">
                                     <Image 
-                                        src="/img/antes-despues/2-ensamble-antes.jpg" 
+                                        src="/img/antes-despues/optimized/2-ensamble-antes.jpg" 
                                         alt="Componentes AMD Ryzen 8500G, DDR5 32GB, SSD M.2 1TB antes del ensamble"
                                         width={280}
                                         height={180}
@@ -252,7 +252,7 @@ const SuccessCases = () => {
                                 <div className="before-after__label">PC TERMINADA</div>
                                 <div className="before-after__image">
                                     <Image 
-                                        src="/img/antes-despues/2-ensamble-despues.jpg" 
+                                        src="/img/antes-despues/optimized/2-ensamble-despues.jpg" 
                                         alt="PC para diseño gráfico con AMD Ryzen 8500G ensamblada y funcionando"
                                         width={280}
                                         height={180}
@@ -414,7 +414,7 @@ const SuccessCases = () => {
                                 <div className="before-after__label">ESTADO INICIAL</div>
                                 <div className="before-after__image">
                                     <Image 
-                                        src="/img/antes-despues/3-mantenimiento-pc-sencillo-antes.JPG" 
+                                        src="/img/antes-despues/optimized/3-mantenimiento-pc-sencillo-antes.JPG" 
                                         alt="PC archivado extremadamente sucio antes del mantenimiento"
                                         width={280}
                                         height={180}
@@ -433,7 +433,7 @@ const SuccessCases = () => {
                                 <div className="before-after__label">RECUPERADO</div>
                                 <div className="before-after__image">
                                     <Image 
-                                        src="/img/antes-despues/3-mantenimiento-pc-sencillo-despues.jpg" 
+                                        src="/img/antes-despues/optimized/3-mantenimiento-pc-sencillo-despues.jpg" 
                                         alt="PC recuperado después del mantenimiento completo, listo para regalo"
                                         width={280}
                                         height={180}

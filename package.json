@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run generate:images && next build",
+    "build": "npm run optimize:images && npm run update:image-paths && npm run generate:images && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
@@ -13,7 +13,9 @@
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
-    "generate:images": "node scripts/generate-images.js"
+    "generate:images": "node scripts/generate-images.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "update:image-paths": "node scripts/update-image-paths.js"
   },
   "dependencies": {
     "aos": "^2.3.4",
@@ -39,6 +41,7 @@
     "eslint-config-next": "15.5.0",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
+    "sharp": "^0.34.3",
     "start-server-and-test": "^2.0.13",
     "typescript": "^5"
   }
