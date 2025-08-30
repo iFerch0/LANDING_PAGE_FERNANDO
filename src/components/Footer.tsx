@@ -175,39 +175,28 @@ const Footer = () => {
                 Nuestra Ubicación
               </h4>
               
-              <div className="location-map">
-                <iframe
-                  title="Ubicación Fernando Ingeniero de Sistemas - Especialista en Tecnología"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.000000000000!2d-75.8895!3d8.7478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zODfCsDQ0JzU2LjgiTiA3NcKwNTMnMDkuNiJX!5e0!3m2!1ses!2sco!4v0000000000000"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0, borderRadius: 'var(--radius-lg)' }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                />
-              </div>
-              
               <div className="location-actions">
                 <a 
-                  href="https://maps.google.com/?q=Dg.+7+%237+-+50,+Monter%C3%ADa" 
+                  href="https://www.google.com/maps/search/Montería,+Córdoba,+Colombia" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="location-link"
+                  aria-label="Ver ubicación en Google Maps"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
                     <polyline points="15,3 21,3 21,9"/>
                     <line x1="10" y1="14" x2="21" y2="3"/>
                   </svg>
-                  Abrir en Google Maps
+                  Ver en Google Maps
                 </a>
                 
                 <a 
-                  href="https://waze.com/ul?q=Dg.+7+%237+-+50,+Monter%C3%ADa" 
+                  href="https://www.waze.com/ul?q=Montería%20Córdoba%20Colombia&navigate=yes" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="location-link"
+                  aria-label="Navegar a Montería con Waze"
                 >
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M3 11l19-9-9 19-2-8-8-2z"/>
