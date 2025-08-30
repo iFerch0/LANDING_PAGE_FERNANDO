@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 
 interface FormData {
     name: string;
@@ -29,12 +29,45 @@ const ContactForm = () => {
 
     const [errors, setErrors] = useState<FormErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const formRef = useRef<HTMLFormElement>(null);
+
+    // Estilos inline para asegurar que no haya interferencias CSS
+    const inputStyles: React.CSSProperties = {
+        width: '100%',
+        padding: '12px 16px',
+        border: '2px solid var(--color-border)',
+        borderRadius: '8px',
+        fontSize: '16px',
+        fontFamily: 'system-ui, -apple-system, sans-serif',
+        backgroundColor: 'var(--color-surface)',
+        color: 'var(--color-text)',
+        outline: 'none',
+        transition: 'all 0.2s ease',
+        boxSizing: 'border-box'
+    };
+
+    const textareaStyles: React.CSSProperties = {
+        ...inputStyles,
+        minHeight: '100px',
+        resize: 'vertical' as const,
+        lineHeight: '1.5',
+        whiteSpace: 'pre-wrap' as const
+    };
+
+    const selectStyles: React.CSSProperties = {
+        ...inputStyles,
+        cursor: 'pointer',
+        appearance: 'none',
+        backgroundImage: "url(\"data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='var(--color-text-secondary)' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e\")",
+        backgroundPosition: 'right 12px center',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: '16px',
+        paddingRight: '40px'
+    };
 
     const validateField = (name: string, value: string): string => {
         switch (name) {
             case 'name':
-                return value.length < 2 ? 'El nombre debe tener al menos 2 caracteres' : '';
+                return value.trim().length < 2 ? 'El nombre debe tener al menos 2 caracteres' : '';
             case 'phone':
                 const phoneRegex = /^[+]?[\d\s\-\(\)]{10,}$/;
                 return !phoneRegex.test(value) ? 'Ingresa un número de teléfono válido' : '';
@@ -44,7 +77,7 @@ const ContactForm = () => {
             case 'deviceType':
                 return !value ? 'Selecciona el tipo de equipo' : '';
             case 'problem':
-                return value.length < 10 ? 'Describe el problema con más detalle (mín. 10 caracteres)' : '';
+                return value.trim().length < 10 ? 'Describe el problema con más detalle (mín. 10 caracteres)' : '';
             case 'urgency':
                 return !value ? 'Selecciona el nivel de urgencia' : '';
             default:
@@ -52,38 +85,88 @@ const ContactForm = () => {
         }
     };
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         
-        // Update form data immediately without any interference
-        setFormData(prev => ({ 
-            ...prev, 
-            [name]: value 
+        console.log(`Campo: ${name}, Valor: "${value}", Longitud: ${value.length}`); // Debug
+        
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
         }));
         
-        // Clear errors only if they exist (less interference)
+        // Clear error when user starts typing
         if (errors[name]) {
-            setErrors(prev => ({ 
-                ...prev, 
-                [name]: '' 
+            setErrors(prev => ({
+                ...prev,
+                [name]: ''
             }));
+        }
+    };
+
+    const handleInput = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.currentTarget;
+        
+        console.log(`Input event - Campo: ${name}, Valor: "${value}", Longitud: ${value.length}`); // Debug adicional
+        
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        
+        // Clear error when user starts typing
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: ''
+            }));
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        // Forzar la captura de espacios
+        if (e.key === ' ') {
+            const { name, value } = e.currentTarget;
+            const newValue = value + ' ';
+            
+            console.log(`Espacio presionado - Campo: ${name}, Nuevo valor: "${newValue}"`); // Debug
+            
+            setFormData(prev => ({
+                ...prev,
+                [name]: newValue
+            }));
+            
+            // Clear error when user starts typing
+            if (errors[name]) {
+                setErrors(prev => ({
+                    ...prev,
+                    [name]: ''
+                }));
+            }
         }
     };
 
     const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
         const error = validateField(name, value);
-        setErrors(prev => ({ ...prev, [name]: error }));
+        if (error) {
+            setErrors(prev => ({ ...prev, [name]: error }));
+        }
     };
 
     const validateForm = (): boolean => {
         const newErrors: FormErrors = {};
-        Object.keys(formData).forEach(key => {
-            if (key !== 'location') { // location is optional
-                const error = validateField(key, formData[key as keyof FormData]);
-                if (error) newErrors[key] = error;
+        
+        // Validate required fields
+        const requiredFields = ['name', 'phone', 'email', 'deviceType', 'problem', 'urgency'];
+        
+        requiredFields.forEach(field => {
+            const error = validateField(field, formData[field as keyof FormData]);
+            if (error) {
+                newErrors[field] = error;
             }
         });
+
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
@@ -91,40 +174,45 @@ const ContactForm = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         
+        console.log('Datos del formulario:', formData); // Debug
+        
         if (!validateForm()) {
-            // Focus first error field
-            const firstErrorField = Object.keys(errors)[0];
-            if (firstErrorField) {
-                const element = formRef.current?.querySelector(`[name="${firstErrorField}"]`) as HTMLElement;
-                element?.focus();
-            }
             return;
         }
 
         setIsSubmitting(true);
 
         try {
-            // Simulate API delay for better UX
+            // Simulate API delay
             await new Promise(resolve => setTimeout(resolve, 800));
             
             const urgencyEmoji = formData.urgency === 'alta' ? '🚨' : formData.urgency === 'media' ? '⚡' : '📅';
             const deviceEmoji = formData.deviceType === 'laptop' ? '💻' : formData.deviceType === 'pc-desktop' ? '🖥️' : '💿';
             
+            const deviceText = {
+                'pc-desktop': 'PC de Escritorio',
+                'laptop': 'Portátil',
+                'all-in-one': 'All-in-One',
+                'gaming': 'PC Gaming',
+                'server': 'Servidor',
+                'other': 'Otro'
+            }[formData.deviceType] || 'Otro';
+
+            const urgencyText = {
+                'alta': 'ALTA - Requiere atención inmediata',
+                'media': 'MEDIA - En 24-48 horas',
+                'baja': 'BAJA - Esta semana'
+            }[formData.urgency] || '';
+
             const message = `${urgencyEmoji} NUEVA SOLICITUD DE SERVICIO TÉCNICO
 
 👤 *Cliente:* ${formData.name}
 📱 *WhatsApp:* ${formData.phone}
 📧 *Email:* ${formData.email}
 
-${deviceEmoji} *Equipo:* ${formData.deviceType === 'pc-desktop' ? 'PC de Escritorio' : 
-                formData.deviceType === 'laptop' ? 'Portátil' : 
-                formData.deviceType === 'all-in-one' ? 'All-in-One' : 
-                formData.deviceType === 'gaming' ? 'PC Gaming' : 
-                formData.deviceType === 'server' ? 'Servidor' : 'Otro'}
+${deviceEmoji} *Equipo:* ${deviceText}
 
-${urgencyEmoji} *Urgencia:* ${formData.urgency === 'alta' ? 'ALTA - Requiere atención inmediata' : 
-                formData.urgency === 'media' ? 'MEDIA - En 24-48 horas' : 
-                'BAJA - Esta semana'}
+${urgencyEmoji} *Urgencia:* ${urgencyText}
 
 🔧 *Problema:*
 ${formData.problem}
@@ -137,7 +225,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
             const whatsappUrl = `https://wa.me/573008474121?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
             
-            // Reset form after successful submission
+            // Reset form
             setFormData({
                 name: '', phone: '', email: '', deviceType: '', 
                 problem: '', urgency: '', location: ''
@@ -151,12 +239,36 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
     };
 
     return (
-        <section id="contacto" className="contact-form">
-            <div className="container">
-                <div className="contact-form__content">
-                    {/* Enhanced Header */}
-                    <div className="contact-form__header" data-aos="fade-up">
-                        <div className="contact-form__badge">
+        <section id="contacto" style={{
+            padding: '80px 0',
+            background: 'var(--color-background)'
+        }}>
+            <div style={{
+                maxWidth: '800px',
+                margin: '0 auto',
+                padding: '0 20px'
+            }}>
+                <div style={{
+                    background: 'var(--color-surface)',
+                    borderRadius: '16px',
+                    padding: '48px',
+                    boxShadow: 'var(--shadow-lg)',
+                    border: '1px solid var(--color-border)'
+                }}>
+                    {/* Header */}
+                    <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+                        <div style={{
+                            display: 'inline-flex',
+                            alignItems: 'center',
+                            gap: '8px',
+                            background: 'var(--color-primary)',
+                            color: 'var(--color-btn-primary-text)',
+                            padding: '8px 16px',
+                            borderRadius: '50px',
+                            fontSize: '14px',
+                            fontWeight: '500',
+                            marginBottom: '16px'
+                        }}>
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                 <path d="M3 8l7.89 7.89a2.85 2.85 0 0 0 4.04 0L20 11"/>
                                 <path d="M9 21h6"/>
@@ -164,114 +276,163 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                             </svg>
                             Solicitud Profesional
                         </div>
-                        <h2>Agenda tu Servicio Técnico</h2>
-                        <p>Completa el formulario detallado y te contactaremos para coordinar la cita</p>
+                        <h2 style={{
+                            fontSize: '32px',
+                            fontWeight: 'bold',
+                            marginBottom: '12px',
+                            color: 'var(--color-text)',
+                            textAlign: 'center'
+                        }}>
+                            Agenda tu Servicio Técnico
+                        </h2>
+                        <p style={{
+                            color: 'var(--color-text-secondary)',
+                            fontSize: '18px',
+                            maxWidth: '500px',
+                            margin: '0 auto'
+                        }}>
+                            Completa el formulario y te contactaremos para coordinar la cita
+                        </p>
                     </div>
 
-                    {/* Enhanced Form */}
-                    <form 
-                        ref={formRef}
-                        className="enhanced-form" 
-                        onSubmit={handleSubmit}
-                        data-aos="fade-up" 
-                        data-aos-delay="100"
-                        noValidate
-                    >
-                        {/* Personal Info Section */}
-                        <div className="form-section">
-                            <h3 className="section-title">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    {/* Form */}
+                    <form onSubmit={handleSubmit} style={{ width: '100%' }}>
+                        {/* Personal Info */}
+                        <div style={{ marginBottom: '32px' }}>
+                            <h3 style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                fontSize: '18px',
+                                fontWeight: '600',
+                                color: 'var(--color-text)',
+                                marginBottom: '20px',
+                                paddingBottom: '8px',
+                                borderBottom: '2px solid var(--color-border)'
+                            }}>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                     <circle cx="12" cy="7" r="4"/>
                                 </svg>
                                 Información Personal
                             </h3>
                             
-                            <div className="form-grid">
-                                <div className="form-field">
-                                    <label className="form-label">
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                                gap: '20px',
+                                marginBottom: '20px'
+                            }}>
+                                <div>
+                                    <label style={{
+                                        display: 'block',
+                                        fontWeight: '500',
+                                        color: 'var(--color-text)',
+                                        fontSize: '14px',
+                                        marginBottom: '8px'
+                                    }}>
                                         Nombre completo *
                                     </label>
-                                    <div className={`input-wrapper ${errors.name ? 'error' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                            <circle cx="12" cy="7" r="4"/>
-                                        </svg>
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={formData.name}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            placeholder="Ej: Juan Pérez"
-                                            autoComplete="name"
-                                            required
-                                        />
-                                    </div>
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        placeholder="Ej: Fernando Rhenals"
+                                        required
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        onInput={handleInput}
+                                        onKeyDown={handleKeyDown}
+                                        onBlur={handleBlur}
+                                        style={{
+                                            ...inputStyles,
+                                            borderColor: errors.name ? 'var(--color-error)' : 'var(--color-border)'
+                                        }}
+                                    />
                                     {errors.name && (
-                                        <div className="field-error show">
+                                        <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                             {errors.name}
-                                        </div>
+                                        </span>
                                     )}
                                 </div>
 
-                                <div className="form-field">
-                                    <label className="form-label">
+                                <div>
+                                    <label style={{
+                                        display: 'block',
+                                        fontWeight: '500',
+                                        color: 'var(--color-text)',
+                                        fontSize: '14px',
+                                        marginBottom: '8px'
+                                    }}>
                                         WhatsApp / Teléfono *
                                     </label>
-                                    <div className={`input-wrapper ${errors.phone ? 'error' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                        </svg>
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            value={formData.phone}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            placeholder="300 123 4567"
-                                            required
-                                        />
-                                    </div>
+                                    <input
+                                        type="tel"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleInputChange}
+                                        onInput={handleInput}
+                                        onBlur={handleBlur}
+                                        placeholder="300 123 4567"
+                                        style={{
+                                            ...inputStyles,
+                                            borderColor: errors.phone ? 'var(--color-error)' : 'var(--color-border)'
+                                        }}
+                                        required
+                                    />
                                     {errors.phone && (
-                                        <div className="field-error show">
+                                        <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                             {errors.phone}
-                                        </div>
+                                        </span>
                                     )}
                                 </div>
                             </div>
 
-                            <div className="form-field">
-                                <label className="form-label">
+                            <div>
+                                <label style={{
+                                    display: 'block',
+                                    fontWeight: '500',
+                                    color: 'var(--color-text)',
+                                    fontSize: '14px',
+                                    marginBottom: '8px'
+                                }}>
                                     Correo electrónico *
                                 </label>
-                                <div className={`input-wrapper ${errors.email ? 'error' : ''}`}>
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2 2V6c0-1.1.9-2 2-2z"/>
-                                        <polyline points="22,6 12,13 2,6"/>
-                                    </svg>
-                                    <input
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        placeholder="correo@ejemplo.com"
-                                        required
-                                    />
-                                </div>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    onInput={handleInput}
+                                    onBlur={handleBlur}
+                                    placeholder="correo@ejemplo.com"
+                                    style={{
+                                        ...inputStyles,
+                                        borderColor: errors.email ? 'var(--color-error)' : 'var(--color-border)'
+                                    }}
+                                    required
+                                />
                                 {errors.email && (
-                                    <div className="field-error show">
+                                    <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                         {errors.email}
-                                    </div>
+                                    </span>
                                 )}
                             </div>
                         </div>
 
-                        {/* Service Details Section */}
-                        <div className="form-section">
-                            <h3 className="section-title">
-                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        {/* Service Details */}
+                        <div style={{ marginBottom: '32px' }}>
+                            <h3 style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '8px',
+                                fontSize: '18px',
+                                fontWeight: '600',
+                                color: 'var(--color-text)',
+                                marginBottom: '20px',
+                                paddingBottom: '8px',
+                                borderBottom: '2px solid var(--color-border)'
+                            }}>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
                                     <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
                                     <line x1="8" y1="21" x2="16" y2="21"/>
                                     <line x1="12" y1="17" x2="12" y2="21"/>
@@ -279,134 +440,180 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 Detalles del Servicio
                             </h3>
 
-                            <div className="form-grid">
-                                <div className="form-field">
-                                    <label className="form-label">
+                            <div style={{
+                                display: 'grid',
+                                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                                gap: '20px',
+                                marginBottom: '20px'
+                            }}>
+                                <div>
+                                    <label style={{
+                                        display: 'block',
+                                        fontWeight: '500',
+                                        color: 'var(--color-text)',
+                                        fontSize: '14px',
+                                        marginBottom: '8px'
+                                    }}>
                                         Tipo de equipo *
                                     </label>
-                                    <div className={`select-wrapper ${errors.deviceType ? 'error' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                                            <line x1="8" y1="21" x2="16" y2="21"/>
-                                            <line x1="12" y1="17" x2="12" y2="21"/>
-                                        </svg>
-                                        <select
-                                            name="deviceType"
-                                            value={formData.deviceType}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            required
-                                        >
-                                            <option value="">Selecciona tu equipo</option>
-                                            <option value="laptop">💻 Portátil / Laptop</option>
-                                            <option value="pc-desktop">🖥️ PC de Escritorio</option>
-                                            <option value="all-in-one">📱 All-in-One</option>
-                                            <option value="gaming">🎮 PC Gaming</option>
-                                            <option value="server">🖧 Servidor</option>
-                                            <option value="other">💿 Otro</option>
-                                        </select>
-                                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="select-arrow">
-                                            <polyline points="6,9 12,15 18,9"/>
-                                        </svg>
-                                    </div>
+                                    <select
+                                        name="deviceType"
+                                        value={formData.deviceType}
+                                        onChange={handleInputChange}
+                                        onBlur={handleBlur}
+                                        style={{
+                                            ...selectStyles,
+                                            borderColor: errors.deviceType ? 'var(--color-error)' : 'var(--color-border)'
+                                        }}
+                                        required
+                                    >
+                                        <option value="">Selecciona tu equipo</option>
+                                        <option value="laptop">💻 Portátil / Laptop</option>
+                                        <option value="pc-desktop">🖥️ PC de Escritorio</option>
+                                        <option value="all-in-one">📱 All-in-One</option>
+                                        <option value="gaming">🎮 PC Gaming</option>
+                                        <option value="server">🖧 Servidor</option>
+                                        <option value="other">💿 Otro</option>
+                                    </select>
                                     {errors.deviceType && (
-                                        <div className="field-error show">
+                                        <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                             {errors.deviceType}
-                                        </div>
+                                        </span>
                                     )}
                                 </div>
 
-                                <div className="form-field">
-                                    <label className="form-label">
+                                <div>
+                                    <label style={{
+                                        display: 'block',
+                                        fontWeight: '500',
+                                        color: 'var(--color-text)',
+                                        fontSize: '14px',
+                                        marginBottom: '8px'
+                                    }}>
                                         Nivel de urgencia *
                                     </label>
-                                    <div className={`select-wrapper ${errors.urgency ? 'error' : ''}`}>
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <circle cx="12" cy="12" r="10"/>
-                                            <polyline points="12,6 12,12 16,14"/>
-                                        </svg>
-                                        <select
-                                            name="urgency"
-                                            value={formData.urgency}
-                                            onChange={handleChange}
-                                            onBlur={handleBlur}
-                                            required
-                                        >
-                                            <option value="">¿Qué tan urgente es?</option>
-                                            <option value="alta">🚨 ALTA - Necesito ayuda hoy</option>
-                                            <option value="media">⚡ MEDIA - En 24-48 horas</option>
-                                            <option value="baja">📅 BAJA - Esta semana</option>
-                                        </select>
-                                        <svg className="select-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                            <polyline points="6,9 12,15 18,9"/>
-                                        </svg>
-                                    </div>
+                                    <select
+                                        name="urgency"
+                                        value={formData.urgency}
+                                        onChange={handleInputChange}
+                                        onBlur={handleBlur}
+                                        style={{
+                                            ...selectStyles,
+                                            borderColor: errors.urgency ? 'var(--color-error)' : 'var(--color-border)'
+                                        }}
+                                        required
+                                    >
+                                        <option value="">¿Qué tan urgente es?</option>
+                                        <option value="alta">🚨 ALTA - Necesito ayuda hoy</option>
+                                        <option value="media">⚡ MEDIA - En 24-48 horas</option>
+                                        <option value="baja">📅 BAJA - Esta semana</option>
+                                    </select>
                                     {errors.urgency && (
-                                        <div className="field-error show">
+                                        <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                             {errors.urgency}
-                                        </div>
+                                        </span>
                                     )}
                                 </div>
                             </div>
 
-                            <div className="form-field">
-                                <label className="form-label">
+                            <div style={{ marginBottom: '20px' }}>
+                                <label style={{
+                                    display: 'block',
+                                    fontWeight: '500',
+                                    color: 'var(--color-text)',
+                                    fontSize: '14px',
+                                    marginBottom: '8px'
+                                }}>
                                     Describe el problema *
                                 </label>
-                                <div className={`textarea-wrapper ${errors.problem ? 'error' : ''}`}>
-                                    <textarea
-                                        name="problem"
-                                        value={formData.problem}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        placeholder="Cuéntanos exactamente qué está pasando con tu computador. Mientras más detalles, mejor podremos ayudarte..."
-                                        rows={4}
-                                        autoComplete="off"
-                                        spellCheck="true"
-                                        required
-                                    />
-                                    <div className="char-counter">
-                                        {formData.problem.length}/500
-                                    </div>
+                                <textarea
+                                    name="problem"
+                                    placeholder="Cuéntanos exactamente qué está pasando con tu computador. Mientras más detalles, mejor podremos ayudarte..."
+                                    required
+                                    value={formData.problem}
+                                    onChange={handleInputChange}
+                                    onInput={handleInput}
+                                    onKeyDown={handleKeyDown}
+                                    onBlur={handleBlur}
+                                    style={{
+                                        ...textareaStyles,
+                                        borderColor: errors.problem ? 'var(--color-error)' : 'var(--color-border)'
+                                    }}
+                                    rows={4}
+                                />
+                                <div style={{
+                                    fontSize: '12px',
+                                    color: 'var(--color-text-secondary)',
+                                    textAlign: 'right',
+                                    marginTop: '4px'
+                                }}>
+                                    {formData.problem.length}/500
                                 </div>
                                 {errors.problem && (
-                                    <div className="field-error show">
+                                    <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                         {errors.problem}
-                                    </div>
+                                    </span>
                                 )}
                             </div>
 
-                            <div className="form-field">
-                                <label className="form-label">
+                            <div>
+                                <label style={{
+                                    display: 'block',
+                                    fontWeight: '500',
+                                    color: 'var(--color-text)',
+                                    fontSize: '14px',
+                                    marginBottom: '8px'
+                                }}>
                                     Ubicación específica (opcional)
                                 </label>
-                                <div className="input-wrapper">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                                        <circle cx="12" cy="10" r="3"/>
-                                    </svg>
-                                    <input
-                                        type="text"
-                                        name="location"
-                                        value={formData.location}
-                                        onChange={handleChange}
-                                        onBlur={handleBlur}
-                                        placeholder="Ej: Barrio Centro, cerca al banco..."
-                                        autoComplete="address-line1"
-                                    />
-                                </div>
+                                <input
+                                    name="location"
+                                    type="text"
+                                    placeholder="Ej: Barrio Centro, cerca al banco..."
+                                    value={formData.location}
+                                    onChange={handleInputChange}
+                                    onInput={handleInput}
+                                    onKeyDown={handleKeyDown}
+                                    onBlur={handleBlur}
+                                    style={inputStyles}
+                                />
                             </div>
                         </div>
 
                         {/* Submit Button */}
                         <button 
                             type="submit" 
-                            className={`btn-submit ${isSubmitting ? 'submitting' : ''}`}
                             disabled={isSubmitting}
+                            style={{
+                                width: '100%',
+                                background: isSubmitting 
+                                    ? 'var(--color-text-secondary)' 
+                                    : 'var(--color-primary)',
+                                color: 'var(--color-btn-primary-text)',
+                                border: 'none',
+                                padding: '16px 24px',
+                                borderRadius: '8px',
+                                fontSize: '18px',
+                                fontWeight: '600',
+                                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                                transition: 'all 0.3s ease',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                gap: '8px',
+                                marginTop: '24px'
+                            }}
                         >
                             {isSubmitting ? (
                                 <>
-                                    <div className="spinner"></div>
+                                    <div style={{
+                                        width: '20px',
+                                        height: '20px',
+                                        border: '2px solid transparent',
+                                        borderTop: '2px solid currentColor',
+                                        borderRadius: '50%',
+                                        animation: 'spin 1s linear infinite'
+                                    }}></div>
                                     Enviando solicitud...
                                 </>
                             ) : (
@@ -420,22 +627,52 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                         </button>
 
                         {/* Trust Indicators */}
-                        <div className="form-trust">
-                            <div className="trust-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <div style={{
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            gap: '24px',
+                            marginTop: '20px',
+                            paddingTop: '16px',
+                            borderTop: '1px solid var(--color-border)',
+                            flexWrap: 'wrap'
+                        }}>
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                fontSize: '12px',
+                                color: 'var(--color-text-secondary)',
+                                fontWeight: '500'
+                            }}>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                                 </svg>
                                 <span>Información segura</span>
                             </div>
-                            <div className="trust-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                fontSize: '12px',
+                                color: 'var(--color-text-secondary)',
+                                fontWeight: '500'
+                            }}>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12,6 12,12 16,14"/>
                                 </svg>
-                                <span>Respuesta en 2 horas</span>
+                                <span>Respuesta en 5 minutos</span>
                             </div>
-                            <div className="trust-item">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <div style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '6px',
+                                fontSize: '12px',
+                                color: 'var(--color-text-secondary)',
+                                fontWeight: '500'
+                            }}>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
                                     <path d="M9 12l2 2 4-4"/>
                                     <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
                                     <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
@@ -446,6 +683,66 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                     </form>
                 </div>
             </div>
+
+            <style jsx>{`
+                @keyframes spin {
+                    to {
+                        transform: rotate(360deg);
+                    }
+                }
+                
+                /* Estilos para inputs en modo oscuro */
+                input::placeholder,
+                textarea::placeholder,
+                select::placeholder {
+                    color: var(--color-text-secondary);
+                    opacity: 0.7;
+                }
+                
+                /* Estilos de focus para mejor accesibilidad */
+                input:focus,
+                textarea:focus,
+                select:focus {
+                    border-color: var(--color-primary);
+                    box-shadow: 0 0 0 3px var(--color-focus-ring);
+                    outline: none;
+                }
+                
+                /* Estilos para select en modo oscuro */
+                select option {
+                    background-color: var(--color-surface);
+                    color: var(--color-text);
+                }
+                
+                /* Estilos para el botón hover */
+                button:not(:disabled):hover {
+                    background: var(--color-primary-hover);
+                    transform: translateY(-1px);
+                    box-shadow: var(--shadow-md);
+                }
+                
+                /* Estilos para el botón active */
+                button:not(:disabled):active {
+                    background: var(--color-primary-active);
+                    transform: translateY(0);
+                }
+                
+                /* Estilos para el contenedor del formulario en modo oscuro */
+                @media (prefers-color-scheme: dark) {
+                    section {
+                        background: var(--color-background);
+                    }
+                }
+                
+                /* Soporte para data-color-scheme */
+                [data-color-scheme="dark"] section {
+                    background: var(--color-background);
+                }
+                
+                [data-color-scheme="light"] section {
+                    background: var(--color-background);
+                }
+            `}</style>
         </section>
     );
 };

@@ -32,7 +32,7 @@ export default function EnConstruccionPage() {
                     <strong>75%</strong>
                   </div>
                   <div className="construccion-progress-bar" style={{height: '8px', background: 'rgba(255,255,255,0.08)', borderRadius: '999px', overflow: 'hidden'}}>
-                    <div style={{width: '75%', height: '100%', background: 'linear-gradient(90deg,#64ffda,#00bcd4)'}}></div>
+                    <div style={{width: '75%', height: '100%', background: 'linear-gradient(90deg,var(--brand-azul_vibrante),var(--color-teal-500))'}}></div>
                   </div>
                 </div>
               </div>

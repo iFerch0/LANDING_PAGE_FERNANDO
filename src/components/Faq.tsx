@@ -95,7 +95,7 @@ const Faq: React.FC = () => {
             <h2 id="faq-title" style={{
               fontSize: '2.5rem',
               fontWeight: '700',
-              background: 'linear-gradient(135deg, #1e40af, #3b82f6)',
+              background: 'linear-gradient(135deg, var(--brand-azul_vibrante), var(--brand-azul_oscuro))',
               backgroundClip: 'text',
               WebkitBackgroundClip: 'text',
               color: 'transparent',
@@ -118,20 +118,20 @@ const Faq: React.FC = () => {
             gap: '1rem',
             margin: '2rem 0',
             padding: '1.5rem',
-            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.02))',
+            background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.05), rgba(var(--brand-azul_oscuro-rgb), 0.02))',
             borderRadius: '1rem',
-            border: '1px solid rgba(59, 130, 246, 0.1)'
+            border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.1)'
           }} data-aos="fade-up" data-aos-delay="50">
             <div style={{ textAlign: 'center' }}>
               <div style={{ 
                 fontSize: '2rem', 
                 fontWeight: '700', 
-                color: '#1e40af',
+                color: 'var(--brand-azul_vibrante)',
                 marginBottom: '0.25rem'
               }}>500+</div>
               <div style={{ 
                 fontSize: '0.875rem', 
-                color: '#64748b',
+                color: 'var(--color-text-secondary)',
                 fontWeight: '500'
               }}>Clientes Satisfechos</div>
             </div>
@@ -139,12 +139,12 @@ const Faq: React.FC = () => {
               <div style={{ 
                 fontSize: '2rem', 
                 fontWeight: '700', 
-                color: '#059669',
+                color: 'var(--brand-azul_vibrante)',
                 marginBottom: '0.25rem'
               }}>98%</div>
               <div style={{ 
                 fontSize: '0.875rem', 
-                color: '#64748b',
+                color: 'var(--color-text-secondary)',
                 fontWeight: '500'
               }}>Problemas Resueltos</div>
             </div>
@@ -152,12 +152,12 @@ const Faq: React.FC = () => {
               <div style={{ 
                 fontSize: '2rem', 
                 fontWeight: '700', 
-                color: '#dc2626',
+                color: 'var(--brand-rojo_intenso)',
                 marginBottom: '0.25rem'
               }}>30</div>
               <div style={{ 
                 fontSize: '0.875rem', 
-                color: '#64748b',
+                color: 'var(--color-text-secondary)',
                 fontWeight: '500'
               }}>Días de Garantía</div>
             </div>
@@ -170,19 +170,19 @@ const Faq: React.FC = () => {
             textAlign: 'center',
             marginBottom: '2rem',
             padding: '1rem',
-            background: 'rgba(59, 130, 246, 0.05)',
+            background: 'rgba(var(--brand-azul_vibrante-rgb), 0.05)',
             borderRadius: '0.75rem',
-            border: '1px solid rgba(59, 130, 246, 0.1)'
+            border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.1)'
           }}>
             <div style={{
               fontSize: '0.875rem',
-              color: '#1e40af',
+              color: 'var(--brand-azul_vibrante)',
               fontWeight: '600',
               marginBottom: '0.5rem'
             }}>💡 Tip Profesional</div>
             <div style={{
               fontSize: '0.875rem',
-              color: '#64748b',
+              color: 'var(--color-text-secondary)',
               lineHeight: '1.4'
             }}>
               Haz clic en cualquier pregunta para ver la respuesta detallada. Si tu duda no está aquí, contáctame directamente.
@@ -208,11 +208,11 @@ const Faq: React.FC = () => {
             return (
               <div key={idx} style={{
                 marginBottom: '0.75rem',
-                border: '1px solid rgba(229, 231, 235, 0.8)',
+                border: '1px solid var(--color-border)',
                 borderRadius: '0.75rem',
                 overflow: 'hidden',
-                background: 'white',
-                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.05)',
+                background: 'var(--color-surface)',
+                boxShadow: 'var(--shadow-sm)',
                 transition: 'all 0.2s ease'
               }}>
                 <FaqItem
@@ -231,8 +231,8 @@ const Faq: React.FC = () => {
         {/* Enhanced Contact CTA */}
         <div className="faq__cta" data-aos="fade-up" data-aos-delay="200">
           <div style={{
-            background: 'linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(37, 99, 235, 0.02))',
-            border: '1px solid rgba(59, 130, 246, 0.1)',
+            background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.05), rgba(var(--brand-azul_oscuro-rgb), 0.02))',
+            border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.1)',
             borderRadius: '1.5rem',
             padding: '2rem',
             textAlign: 'center'
@@ -244,11 +244,11 @@ const Faq: React.FC = () => {
             <h3 style={{
               fontSize: '1.5rem',
               fontWeight: '700',
-              color: '#1e40af',
+              color: 'var(--brand-azul_vibrante)',
               marginBottom: '0.75rem'
             }}>¿Tienes una consulta específica?</h3>
             <p style={{
-              color: '#64748b',
+              color: 'var(--color-text-secondary)',
               marginBottom: '1.5rem',
               lineHeight: '1.6'
             }}>
@@ -269,7 +269,7 @@ const Faq: React.FC = () => {
                   alignItems: 'center',
                   gap: '0.5rem',
                   background: '#25D366',
-                  color: 'white',
+                  color: 'var(--color-btn-primary-text)',
                   padding: '0.75rem 1.5rem',
                   borderRadius: '0.75rem',
                   textDecoration: 'none',
@@ -300,14 +300,14 @@ const Faq: React.FC = () => {
                 alignItems: 'center',
                 gap: '1rem',
                 fontSize: '0.875rem',
-                color: '#64748b'
+                color: 'var(--color-text-secondary)'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <span style={{ color: '#059669' }}>✓</span>
+                  <span style={{ color: 'var(--brand-azul_vibrante)' }}>✓</span>
                   <span>Respuesta inmediata</span>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <span style={{ color: '#059669' }}>✓</span>
+                  <span style={{ color: 'var(--brand-azul_vibrante)' }}>✓</span>
                   <span>Diagnóstico gratuito</span>
                 </div>
               </div>

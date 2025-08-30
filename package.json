@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run optimize:images && npm run update:image-paths && npm run generate:images && next build",
+    "build": "npm run optimize:images && npm run update:image-paths && npm run update:colors && npm run generate:images && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
@@ -15,7 +15,8 @@
     "e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
     "generate:images": "node scripts/generate-images.js",
     "optimize:images": "node scripts/optimize-images.js",
-    "update:image-paths": "node scripts/update-image-paths.js"
+    "update:image-paths": "node scripts/update-image-paths.js",
+    "update:colors": "node scripts/update-colors.js"
   },
   "dependencies": {
     "aos": "^2.3.4",

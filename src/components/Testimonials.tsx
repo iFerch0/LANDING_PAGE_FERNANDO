@@ -20,7 +20,7 @@ const Testimonials = () => {
                         <h2 style={{
                             fontSize: '2.5rem',
                             fontWeight: '700',
-                            background: 'linear-gradient(135deg, #1e40af, #3b82f6)',
+                            background: 'linear-gradient(135deg, var(--brand-azul_vibrante), var(--brand-azul_oscuro))',
                             backgroundClip: 'text',
                             WebkitBackgroundClip: 'text',
                             color: 'transparent',
