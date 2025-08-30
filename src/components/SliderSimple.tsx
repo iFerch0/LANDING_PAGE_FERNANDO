@@ -25,7 +25,7 @@ export default function SliderSimple({ images, height = 420, interval = 3500 }: 
       setIndex((i) => (i + 1) % images.length);
     }, interval);
     return () => clearInterval(id);
-  }, [images.length, paused, interval]);
+  }, [images, images.length, paused, interval]);
 
   if (!images || images.length === 0) return null;
 

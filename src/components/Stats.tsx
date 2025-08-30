@@ -36,10 +36,10 @@ const Stats = () => {
                 {/* Header de estadísticas */}
                 <div className="stats__header" data-aos="fade-up">
                     <h2 id="stats-title" className="stats__title">
-                        Números que hablan por sí solos
+                        Confianza respaldada por resultados
                     </h2>
                     <p className="stats__subtitle">
-                        Más de 3 años ayudando a familias y empresas de Montería con sus computadores
+                        Más de 10 años sirviendo a Montería con soluciones técnicas profesionales
                     </p>
                 </div>
 
@@ -55,7 +55,7 @@ const Stats = () => {
                             </div>
                             <div className="stat__label">PCs reparadas</div>
                             <div className="stat__description">
-                                En Montería y alrededores desde 2015
+                                Desde 2015 en Montería
                             </div>
                         </div>
                     </div>
@@ -109,35 +109,13 @@ const Stats = () => {
                     </div>
                 </div>
 
-                {/* Credenciales adicionales */}
-                <div className="stats__credentials" data-aos="fade-up" data-aos-delay="500">
-                    <div className="credentials-row">
-                        <div className="credential-badge">
-                            <span className="credential-icon">🏆</span>
-                            <span>Técnico certificado</span>
-                        </div>
-                        <div className="credential-badge">
-                            <span className="credential-icon">📍</span>
-                            <span>Cobertura Montería</span>
-                        </div>
-                        <div className="credential-badge">
-                            <span className="credential-icon">⚡</span>
-                            <span>Servicio mismo día</span>
-                        </div>
-                        <div className="credential-badge">
-                            <span className="credential-icon">💯</span>
-                            <span>Repuestos originales</span>
-                        </div>
-                    </div>
-                </div>
-
                 {/* CTA en la sección de stats */}
-                <div className="stats__cta" data-aos="fade-up" data-aos-delay="600">
+                <div className="stats__cta" data-aos="fade-up" data-aos-delay="500">
                     <div className="stats-cta__content">
-                        <h3 className="stats-cta__title">¿Quieres ser parte de estas estadísticas?</h3>
-                        <p className="stats-cta__desc">Únete a los cientos de clientes satisfechos en Montería</p>
+                        <h3 className="stats-cta__title">¿Necesitas una solución similar?</h3>
+                        <p className="stats-cta__desc">Contáctanos hoy y únete a nuestros clientes satisfechos</p>
                         <a href="https://wa.me/573008474121" className="btn btn--secondary btn--large">
-                            Solicitar servicio ahora
+                            Solicitar diagnóstico
                         </a>
                     </div>
                 </div>

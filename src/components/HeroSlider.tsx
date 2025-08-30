@@ -103,7 +103,7 @@ const HeroSlider: React.FC = () => {
       try {
         await Promise.all(imagePromises);
         setIsLoaded(true);
-      } catch (error) {
+      } catch {
         console.warn('Some images failed to preload');
         setIsLoaded(true);
       }

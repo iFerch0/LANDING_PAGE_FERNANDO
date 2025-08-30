@@ -1,18 +1,12 @@
 import React from 'react';
 import { WhatsAppIcon, PhoneIcon } from './Icons';
-import CountUpClient from './CountUpClient';
 import HeroSliderStatic from './HeroSliderStatic';
+import TrustBadges from './TrustBadges';
 
 // Nuevos iconos para badges
 const VerifiedIcon = () => (
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const StarIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
   </svg>
 );
 
@@ -45,45 +39,22 @@ const Hero = () => {
                 <span className="hero__title-location">en Montería</span>
               </h1>
               
-              {/* Propuesta de valor */}
+              {/* Propuesta de valor concisa */}
               <div className="hero__value-prop">
                 <span className="hero__value-prop-badge">
                   <ClockIcon />
-                  Asesoría especializada las 24 horas
+                  Técnico certificado con 10+ años de experiencia
                 </span>
               </div>
             </div>
 
             <p className="hero__subtitle" data-aos="fade-up" data-aos-delay="200">
-              Más de <strong>10 años</strong> devolviendo la vida a computadores en <strong>Montería</strong>. 
-              Especialistas en reparación rápida, mantenimiento preventivo y optimización completa. 
-              <strong>¡Garantía de 30 días o te devolvemos tu dinero!</strong>
+              Servicio técnico especializado en Montería. Diagnóstico gratuito, 
+              reparación garantizada y atención a domicilio sin costo adicional.
             </p>
 
-            {/* Stats mejoradas */}
-            <div className="hero__stats" data-aos="fade-up" data-aos-delay="300">
-              <div className="hero__stat">
-                <div className="hero__stat-number">
-                  <CountUpClient end={10} ssrValue={10} suffix="+" />
-                </div>
-                <div className="hero__stat-label">Años de experiencia</div>
-              </div>
-              <div className="hero__stat">
-                <div className="hero__stat-number">
-                  <CountUpClient end={30} ssrValue={30} suffix=" días" />
-                </div>
-                <div className="hero__stat-label">Garantía escrita</div>
-              </div>
-              <div className="hero__stat">
-                <div className="hero__stat-number">
-                  95%
-                </div>
-                <div className="hero__stat-label">Reparación exitosa</div>
-              </div>
-            </div>
-
             {/* CTAs optimizados */}
-            <div className="hero__actions" data-aos="fade-up" data-aos-delay="400">
+            <div className="hero__actions" data-aos="fade-up" data-aos-delay="300">
               <a 
                 href="http://wa.link/n8et4q" 
                 target="_blank" 
@@ -111,16 +82,21 @@ const Hero = () => {
               </a>
             </div>
 
-            {/* Beneficios clave */}
-            <div className="hero__urgency" data-aos="fade-up" data-aos-delay="500">
+            {/* Beneficios clave simplificados */}
+            <div className="hero__urgency" data-aos="fade-up" data-aos-delay="400">
               <div className="hero__urgency-item">
                 <span className="hero__urgency-dot"></span>
-                <span>🏠 <strong>Atención a domicilio</strong> sin costo adicional en Montería</span>
+                <span>🏠 <strong>Servicio a domicilio</strong> gratuito en Montería</span>
               </div>
               <div className="hero__urgency-item">
                 <span className="hero__urgency-dot"></span>
-                <span>⚡ <strong>Respuesta inmediata</strong> por WhatsApp las 24 horas</span>
+                <span>⚡ <strong>Reparación express</strong> mismo día</span>
               </div>
+            </div>
+
+            {/* Trust Badges consolidados */}
+            <div data-aos="fade-up" data-aos-delay="500">
+              <TrustBadges />
             </div>
           </div>
 

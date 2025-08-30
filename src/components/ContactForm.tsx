@@ -283,7 +283,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                             color: 'var(--color-text)',
                             textAlign: 'center'
                         }}>
-                            Agenda tu Servicio Técnico
+                            Solicita tu Servicio Técnico
                         </h2>
                         <p style={{
                             color: 'var(--color-text-secondary)',
@@ -291,7 +291,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                             maxWidth: '500px',
                             margin: '0 auto'
                         }}>
-                            Completa el formulario y te contactaremos para coordinar la cita
+                            Completa el formulario y recibe atención inmediata
                         </p>
                     </div>
 
@@ -646,23 +646,10 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 fontWeight: '500'
                             }}>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                                </svg>
-                                <span>Información segura</span>
-                            </div>
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '6px',
-                                fontSize: '12px',
-                                color: 'var(--color-text-secondary)',
-                                fontWeight: '500'
-                            }}>
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12,6 12,12 16,14"/>
                                 </svg>
-                                <span>Respuesta en 5 minutos</span>
+                                <span>Respuesta rápida</span>
                             </div>
                             <div style={{
                                 display: 'flex',
@@ -673,9 +660,8 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 fontWeight: '500'
                             }}>
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3a6e93" strokeWidth="2">
-                                    <path d="M9 12l2 2 4-4"/>
-                                    <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
-                                    <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                    <path d="M9 11l3 3L22 4"/>
+                                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
                                 </svg>
                                 <span>Sin compromiso</span>
                             </div>

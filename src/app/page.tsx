@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
-import Services from '@/components/Services';
 import Process from '@/components/Process';
 import SuccessCases from '@/components/SuccessCases';
 import Stats from '@/components/Stats';
@@ -22,9 +21,6 @@ export default function HomePage() {
           </div>
           <div data-aos="zoom-in-up">
             <Features />
-          </div>
-          <div data-aos="fade-right">
-            <Services />
           </div>
           <div data-aos="fade-left">
             <Process />

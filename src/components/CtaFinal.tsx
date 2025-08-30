@@ -1,5 +1,4 @@
 import React from "react";
-import CountUpClient from './CountUpClient';
 
 const CtaFinal = () => {
     return (
@@ -14,9 +13,9 @@ const CtaFinal = () => {
                             </svg>
                             ¡Actúa Ahora!
                         </div>
-                        <h2 className="cta-final__title">Tu Computador Te Está Esperando</h2>
+                        <h2 className="cta-final__title">¿Listo para solucionar tu problema técnico?</h2>
                         <p className="cta-final__subtitle">
-                            No dejes que un problema técnico arruine tu productividad. Resolvámoslo hoy mismo.
+                            Servicio profesional, rápido y garantizado en Montería
                         </p>
                     </div>
 
@@ -30,8 +29,8 @@ const CtaFinal = () => {
                                     </svg>
                                 </div>
                                 <div className="value-content">
-                                    <h4>Servicio Profesional</h4>
-                                    <span>Técnico certificado y experimentado</span>
+                                    <h4>Experiencia comprobada</h4>
+                                    <span>10+ años solucionando problemas técnicos</span>
                                 </div>
                             </div>
                             
@@ -43,8 +42,8 @@ const CtaFinal = () => {
                                     </svg>
                                 </div>
                                 <div className="value-content">
-                                    <h4>Atención Inmediata</h4>
-                                    <span>Respuesta en menos de 2 horas</span>
+                                    <h4>Respuesta inmediata</h4>
+                                    <span>Atención en menos de 2 horas</span>
                                 </div>
                             </div>
                             
@@ -59,8 +58,8 @@ const CtaFinal = () => {
                                     </svg>
                                 </div>
                                 <div className="value-content">
-                                    <h4>Garantía Escrita</h4>
-                                    <span><CountUpClient end={30} ssrValue={30} suffix=" días" /> sin letra pequeña</span>
+                                    <h4>Garantía extendida</h4>
+                                    <span>30 días de cobertura completa</span>
                                 </div>
                             </div>
                         </div>
@@ -116,17 +115,7 @@ const CtaFinal = () => {
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                                 </svg>
-                                <span>Técnico Certificado</span>
-                            </div>
-                            
-                            <div className="trust-item">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="9" cy="7" r="4"/>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                                </svg>
-                                <span>500+ Clientes Satisfechos</span>
+                                <span>Certificación técnica</span>
                             </div>
                             
                             <div className="trust-item">
@@ -134,7 +123,7 @@ const CtaFinal = () => {
                                     <circle cx="12" cy="12" r="10"/>
                                     <polyline points="12,6 12,12 16,14"/>
                                 </svg>
-                                <span>Atención 7 Días</span>
+                                <span>Disponible 7 días</span>
                             </div>
                             
                             <div className="trust-item">
@@ -142,7 +131,7 @@ const CtaFinal = () => {
                                     <path d="M9 11l3 3L22 4"/>
                                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
                                 </svg>
-                                <span>Trabajo Garantizado</span>
+                                <span>Trabajo garantizado</span>
                             </div>
                         </div>
                     </div>

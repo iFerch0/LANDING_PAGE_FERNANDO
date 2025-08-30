@@ -32,7 +32,7 @@ function sendToAnalytics(metric: Metric) {
   // Send to custom analytics endpoint (optional)
   if (process.env.NODE_ENV === 'production') {
     try {
-      fetch('/api/analytics/web-vitals', {
+      fetch('/api/web-vitals', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

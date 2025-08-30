@@ -33,7 +33,7 @@ const Testimonials = () => {
                         </h2>
                     </div>
                     <p className="testimonials__subtitle">
-                        Más de 500 clientes satisfechos en Montería y alrededores confían en nuestro servicio técnico especializado
+                        Experiencias reales de clientes que confían en nuestro servicio técnico
                     </p>
                 </div>
 
@@ -64,21 +64,6 @@ const Testimonials = () => {
                         <div className="trust-text">
                             <strong>4.9/5 Estrellas</strong>
                             <span>Calificación promedio</span>
-                        </div>
-                    </div>
-
-                    <div className="trust-item">
-                        <div className="trust-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                <circle cx="9" cy="7" r="4" />
-                                <path d="m22 11-3-3 3-3" />
-                                <path d="M16 8h4" />
-                            </svg>
-                        </div>
-                        <div className="trust-text">
-                            <strong>92% Recomendación</strong>
-                            <span>Clientes que regresan</span>
                         </div>
                     </div>
                 </div>

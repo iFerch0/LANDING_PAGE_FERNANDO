@@ -105,48 +105,6 @@ const Process = () => {
                         <div className="process-step__number">04</div>
                     </div>
                 </div>
-
-                {/* CTA del proceso */}
-                <div className="process__cta" data-aos="fade-up" data-aos-delay="500">
-                    <div className="process__cta-content">
-                        <div className="process__cta-header">
-                            <h3 className="process__cta-title">¿Tu PC tiene problemas?</h3>
-                            <p className="process__cta-desc">No esperes más. Cuéntame qué le pasa y te ayudo hoy mismo</p>
-                        </div>
-                        
-                        <div className="process__cta-benefits">
-                            <div className="cta-benefit">
-                                <span className="cta-benefit__icon">💬</span>
-                                <span>Respuesta inmediata</span>
-                            </div>
-                            <div className="cta-benefit">
-                                <span className="cta-benefit__icon">🔍</span>
-                                <span>Revisión el mismo día</span>
-                            </div>
-                            <div className="cta-benefit">
-                                <span className="cta-benefit__icon">✅</span>
-                                <span>Trabajo garantizado</span>
-                            </div>
-                        </div>
-
-                        <div className="process__cta-actions">
-                            <a href="https://wa.me/573008474121" className="btn btn--primary btn--large cta-pulse">
-                                <span className="btn__icon">📱</span>
-                                Escribir por WhatsApp
-                            </a>
-                            <div className="process__cta-trust">
-                                <div className="trust-indicator">
-                                    <span className="trust-icon">⭐</span>
-                                    <span>92% clientes satisfechos</span>
-                                </div>
-                                <div className="trust-indicator">
-                                    <span className="trust-icon">🏆</span>
-                                    <span>+500 PCs reparadas</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     );

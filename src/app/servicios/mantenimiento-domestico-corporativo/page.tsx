@@ -1,16 +1,7 @@
-import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
-import Hero from '@/components/Hero';
-import Features from '@/components/Features';
-import Services from '@/components/Services';
-import Process from '@/components/Process';
-import SuccessCases from '@/components/SuccessCases';
-import Stats from '@/components/Stats';
-import Testimonials from '@/components/Testimonials';
-import Faq from '@/components/Faq';
+import Navbar from '@/components/Navbar';
 import CtaFinal from '@/components/CtaFinal';
 import ContactForm from '@/components/ContactForm';
-import Image from 'next/image';
 import SliderSimple from '@/components/SliderSimple';
 
 export default function MantenimientoDomesticoCorporativoPage() {

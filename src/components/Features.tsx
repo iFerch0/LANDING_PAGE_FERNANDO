@@ -1,37 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
-
-function useCountOnView(targetNumber: number) {
-    const ref = useRef<HTMLDivElement | null>(null);
-    const [count, setCount] = useState(0);
-
-    useEffect(() => {
-        if (!ref.current) return;
-        let started = false;
-        const el = ref.current;
-        const io = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !started) {
-                    started = true;
-                    const duration = 900; // ms
-                    const step = (timestampStart: number | null) => {
-                        const now = performance.now();
-                        if (!timestampStart) timestampStart = now;
-                        const progress = Math.min((now - timestampStart) / duration, 1);
-                        setCount(Math.floor(progress * targetNumber));
-                        if (progress < 1) requestAnimationFrame(() => step(timestampStart));
-                        else setCount(targetNumber);
-                    };
-                    requestAnimationFrame(() => step(null));
-                }
-            })
-        }, { threshold: 0.4 });
-        io.observe(el);
-        return () => io.disconnect();
-    }, [targetNumber]);
-
-    return { ref, count };
-}
+import React from "react";
 
 // Iconos optimizados para cada feature
 const HomeIcon = () => (
@@ -63,11 +31,11 @@ const Features = () => {
                 <div className="features__header" data-aos="fade-up">
                     <div className="features__eyebrow">Por qué elegirnos</div>
                     <h2 id="features-title" className="features__title">
-                        Soluciones tecnológicas que 
-                        <span className="features__title-highlight"> realmente funcionan</span>
+                        Servicio técnico que 
+                        <span className="features__title-highlight"> realmente funciona</span>
                     </h2>
                     <p className="features__subtitle">
-                        Más de 500 computadores reparados en Montería con tecnología profesional y garantía total
+                        Especialistas certificados con años de experiencia solucionando problemas técnicos en Montería
                     </p>
                 </div>
 
@@ -79,19 +47,16 @@ const Features = () => {
                                 <HomeIcon />
                             </div>
                             <div>
-                                <h3 className="feature-card__title">Mejor en el taller</h3>
-                                <p className="feature-card__subtitle">Más concentración</p>
+                                <h3 className="feature-card__title">Servicio completo</h3>
+                                <p className="feature-card__subtitle">Taller equipado profesionalmente</p>
                             </div>
                         </div>
                         <p className="feature-card__desc">
-                            En el taller trabajo sin distracciones y tengo todo lo necesario a mano. Esto se traduce 
-                            en mejor atención y precios más cómodos. ¿No puedes venir? También voy a domicilio.
+                            Contamos con herramientas especializadas y repuestos originales para cualquier tipo de reparación. 
+                            Tu equipo queda como nuevo con respaldo técnico completo.
                         </p>
                         <div className="feature-card__actions">
-                            <span className="feature-badge feature-badge--success">Precio preferencial</span>
-                            <a href="https://wa.me/573008474121" className="feature-link">
-                                Consultar ubicación →
-                            </a>
+                            <span className="feature-badge feature-badge--success">Equipos especializados</span>
                         </div>
                     </article>
 
@@ -102,19 +67,16 @@ const Features = () => {
                                 <ClockIcon />
                             </div>
                             <div>
-                                <h3 className="feature-card__title">Respuesta rápida</h3>
-                                <p className="feature-card__subtitle">Mismo día</p>
+                                <h3 className="feature-card__title">Atención inmediata</h3>
+                                <p className="feature-card__subtitle">Respuesta en menos de 2 horas</p>
                             </div>
                         </div>
                         <p className="feature-card__desc">
-                            Reviso tu equipo rápidamente y te digo qué tiene. La mayoría de problemas los resuelvo 
-                            el mismo día para que no pierdas tiempo sin tu PC.
+                            Diagnosticamos tu problema rápidamente y te damos una solución clara. 
+                            La mayoría de reparaciones se completan el mismo día para que recuperes tu productividad.
                         </p>
                         <div className="feature-card__actions">
-                            <span className="feature-badge feature-badge--primary">Atención inmediata</span>
-                        </div>
-                        <div className="feature-card__stats">
-                            <StatCard number={24} label="Horas">Tiempo promedio de reparación</StatCard>
+                            <span className="feature-badge feature-badge--primary">Servicio express</span>
                         </div>
                     </article>
 
@@ -125,73 +87,21 @@ const Features = () => {
                                 <ShieldIcon />
                             </div>
                             <div>
-                                <h3 className="feature-card__title">Con garantía</h3>
+                                <h3 className="feature-card__title">Garantía total</h3>
                                 <p className="feature-card__subtitle">Trabajo respaldado</p>
                             </div>
                         </div>
                         <p className="feature-card__desc">
-                            Si después de la reparación el mismo problema vuelve a aparecer, lo reviso sin costo 
-                            adicional. Mi trabajo tiene respaldo porque confío en lo que hago.
+                            Todas nuestras reparaciones incluyen garantía escrita. Si el mismo problema vuelve, 
+                            lo solucionamos sin costo adicional. Tu inversión está completamente protegida.
                         </p>
                         <div className="feature-card__actions">
-                            <span className="feature-badge feature-badge--premium">Garantía incluida</span>
-                        </div>
-                        <div className="feature-card__stats">
-                            <StatCard number={92} label="Satisfacción">Clientes recomiendan el servicio</StatCard>
+                            <span className="feature-badge feature-badge--premium">30 días de garantía</span>
                         </div>
                     </article>
                 </div>
-
-                {/* Sección de credenciales */}
-                <div className="features__credentials" data-aos="fade-up" data-aos-delay="300">
-                    <div className="credentials-grid">
-                        <div className="credential-item">
-                            <div className="credential-icon">🏆</div>
-                            <div>
-                                <div className="credential-title">Técnico Certificado</div>
-                                <div className="credential-desc">Formación profesional en reparación</div>
-                            </div>
-                        </div>
-                        <div className="credential-item">
-                            <div className="credential-icon">⚡</div>
-                            <div>
-                                <div className="credential-title">Herramientas Pro</div>
-                                <div className="credential-desc">Equipos especializados para diagnóstico</div>
-                            </div>
-                        </div>
-                        <div className="credential-item">
-                            <div className="credential-icon">📍</div>
-                            <div>
-                                <div className="credential-title">Cobertura Montería</div>
-                                <div className="credential-desc">Llegamos a toda la ciudad</div>
-                            </div>
-                        </div>
-                        <div className="credential-item">
-                            <div className="credential-icon">💯</div>
-                            <div>
-                                <div className="credential-title">Repuestos Originales</div>
-                                <div className="credential-desc">Piezas de calidad garantizada</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
-    );
-};
-
-const StatCard: React.FC<{ number: number; label: string; children?: React.ReactNode }> = ({ number, label, children }) => {
-    const { ref, count } = useCountOnView(number);
-    return (
-        <div className="stat-card" role="listitem">
-            <div className="stat-card__number" ref={ref as React.RefObject<HTMLDivElement>}>
-                {count}
-                {label === 'Horas' && <span className="stat-card__unit">h</span>}
-                {label === 'Satisfacción' && <span className="stat-card__unit">%</span>}
-            </div>
-            <div className="stat-card__label">{label}</div>
-            {children && <p className="stat-card__desc">{children}</p>}
-        </div>
     );
 };
 
