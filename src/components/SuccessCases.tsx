@@ -14,7 +14,7 @@ const SuccessCases = () => {
                         <span className="success-cases__title-highlight"> funcionando perfecta</span>
                     </h2>
                     <p className="success-cases__subtitle">
-                        Casos reales de PCs que parecían "perdidas" y ahora funcionan como nuevas
+                        Casos reales de PCs que parecían &ldquo;perdidas&rdquo; y ahora funcionan como nuevas
                     </p>
                 </div>
 
@@ -25,7 +25,7 @@ const SuccessCases = () => {
                         <div className="success-case__header">
                             <div className="success-case__tag">🧹 Mantenimiento</div>
                             <h3 className="success-case__title">PC de oficina saturada de polvo</h3>
-                            <p className="success-case__client">"Mi computador se sobrecalentaba y hacía mucho ruido. Pensé que se iba a dañar"</p>
+                            <p className="success-case__client">&ldquo;Mi computador se sobrecalentaba y hacía mucho ruido. Pensé que se iba a dañar&rdquo;</p>
                         </div>
 
                         <div className="before-after">
@@ -84,7 +84,7 @@ const SuccessCases = () => {
 
                         <div className="success-case__result">
                             <div className="result-quote">
-                                "¡Increíble la diferencia! Ahora no se escucha nada y está súper rápida. Fernando es muy cuidadoso con su trabajo."
+                                &ldquo;¡Increíble la diferencia! Ahora no se escucha nada y está súper rápida. Fernando es muy cuidadoso con su trabajo.&rdquo;
                             </div>
                             <div className="result-author">- María Elena, Secretaria</div>
                         </div>
@@ -110,7 +110,7 @@ const SuccessCases = () => {
                         <div className="success-case__header">
                             <div className="success-case__tag">� Ensamble</div>
                             <h3 className="success-case__title">PC gaming personalizada</h3>
-                            <p className="success-case__client">"Quería una PC para jugar pero no sabía cómo armarla. Fernando me ayudó con todo"</p>
+                            <p className="success-case__client">&ldquo;Quería una PC para jugar pero no sabía cómo armarla. Fernando me ayudó con todo&rdquo;</p>
                         </div>
 
                         <div className="before-after">
@@ -149,7 +149,7 @@ const SuccessCases = () => {
 
                         <div className="success-case__result">
                             <div className="result-quote">
-                                "Mi PC quedó perfecta. Fernando me explicó cada paso y me ayudó a elegir las mejores piezas para mi presupuesto."
+                                &ldquo;Mi PC quedó perfecta. Fernando me explicó cada paso y me ayudó a elegir las mejores piezas para mi presupuesto.&rdquo;
                             </div>
                             <div className="result-author">- Andrés, Estudiante</div>
                         </div>
@@ -171,7 +171,7 @@ const SuccessCases = () => {
                         <div className="success-case__header">
                             <div className="success-case__tag">⚡ Mantenimiento básico</div>
                             <h3 className="success-case__title">PC familiar con mantenimiento preventivo</h3>
-                            <p className="success-case__client">"Quería que revisaran mi PC para que no se dañe. La uso para trabajo y estudios"</p>
+                            <p className="success-case__client">&ldquo;Quería que revisaran mi PC para que no se dañe. La uso para trabajo y estudios&rdquo;</p>
                         </div>
 
                         <div className="before-after">
@@ -210,7 +210,7 @@ const SuccessCases = () => {
 
                         <div className="success-case__result">
                             <div className="result-quote">
-                                "Fernando fue muy honesto. Mi PC no necesitaba mucho, solo una limpieza básica. Quedó como nueva."
+                                &ldquo;Fernando fue muy honesto. Mi PC no necesitaba mucho, solo una limpieza básica. Quedó como nueva.&rdquo;
                             </div>
                             <div className="result-author">- Carmen, Profesora</div>
                         </div>
