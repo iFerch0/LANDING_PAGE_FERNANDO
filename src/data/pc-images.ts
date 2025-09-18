@@ -20,47 +20,22 @@ export const PC_IMAGES: SlideData[] = [
   },
   {
     "id": 3,
-    "src": "/img/pc-hogar-oficina/11.JPG",
+    "src": "/img/pc-hogar-oficina/2.jpg",
     "alt": "Reparación de computadores - Imagen 3"
   },
   {
     "id": 4,
-    "src": "/img/pc-hogar-oficina/2.jpg",
+    "src": "/img/pc-hogar-oficina/3.JPG",
     "alt": "Reparación de computadores - Imagen 4"
   },
   {
     "id": 5,
-    "src": "/img/pc-hogar-oficina/3.JPG",
+    "src": "/img/pc-hogar-oficina/4.JPG",
     "alt": "Reparación de computadores - Imagen 5"
   },
   {
     "id": 6,
-    "src": "/img/pc-hogar-oficina/4.JPG",
-    "alt": "Reparación de computadores - Imagen 6"
-  },
-  {
-    "id": 7,
-    "src": "/img/pc-hogar-oficina/5.JPG",
-    "alt": "Reparación de computadores - Imagen 7"
-  },
-  {
-    "id": 8,
-    "src": "/img/pc-hogar-oficina/6.JPG",
-    "alt": "Reparación de computadores - Imagen 8"
-  },
-  {
-    "id": 9,
     "src": "/img/pc-hogar-oficina/7.JPG",
-    "alt": "Reparación de computadores - Imagen 9"
-  },
-  {
-    "id": 10,
-    "src": "/img/pc-hogar-oficina/8.JPG",
-    "alt": "Reparación de computadores - Imagen 10"
-  },
-  {
-    "id": 11,
-    "src": "/img/pc-hogar-oficina/9.JPG",
-    "alt": "Reparación de computadores - Imagen 11"
+    "alt": "Reparación de computadores - Imagen 6"
   }
 ];

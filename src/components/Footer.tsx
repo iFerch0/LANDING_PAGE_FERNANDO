@@ -174,10 +174,10 @@ const Footer = () => {
                 </svg>
                 Nuestra Ubicación
               </h4>
-              
+            
               <div className="location-actions">
                 <a 
-                  href="https://www.google.com/maps/search/Montería,+Córdoba,+Colombia" 
+                  href="https://maps.app.goo.gl/Conw4aWkYd7m1Pf79" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="location-link"
@@ -279,7 +279,7 @@ const Footer = () => {
               <div className="footer-links">
                 <a href="/privacy" className="footer-link">Política de Privacidad</a>
                 <a href="/terms" className="footer-link">Términos de Servicio</a>
-                <a href="/sitemap" className="footer-link">Mapa del Sitio</a>
+                <a href="https://maps.app.goo.gl/Conw4aWkYd7m1Pf79" target="_blank" rel="noopener noreferrer" className="footer-link">Mapa del Sitio</a>
               </div>
               
               <div className="certifications-mini">
