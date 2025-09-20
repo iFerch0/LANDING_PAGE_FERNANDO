@@ -324,7 +324,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 marginBottom: '20px'
                             }}>
                                 <div>
-                                    <label htmlFor="name" style={{
+                                    <label style={{
                                         display: 'block',
                                         fontWeight: '500',
                                         color: 'var(--color-text)',
@@ -334,7 +334,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                         Nombre completo *
                                     </label>
                                     <input
-                                        id="name"
                                         name="name"
                                         type="text"
                                         placeholder="Ej: Fernando Rhenals"
@@ -357,7 +356,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 </div>
 
                                 <div>
-                                    <label htmlFor="phone" style={{
+                                    <label style={{
                                         display: 'block',
                                         fontWeight: '500',
                                         color: 'var(--color-text)',
@@ -367,7 +366,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                         WhatsApp / Teléfono *
                                     </label>
                                     <input
-                                        id="phone"
                                         type="tel"
                                         name="phone"
                                         value={formData.phone}
@@ -390,7 +388,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                             </div>
 
                             <div>
-                                <label htmlFor="email" style={{
+                                <label style={{
                                     display: 'block',
                                     fontWeight: '500',
                                     color: 'var(--color-text)',
@@ -400,7 +398,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                     Correo electrónico *
                                 </label>
                                 <input
-                                    id="email"
                                     type="email"
                                     name="email"
                                     value={formData.email}
@@ -450,7 +447,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 marginBottom: '20px'
                             }}>
                                 <div>
-                                    <label htmlFor="deviceType" style={{
+                                    <label style={{
                                         display: 'block',
                                         fontWeight: '500',
                                         color: 'var(--color-text)',
@@ -460,7 +457,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                         Tipo de equipo *
                                     </label>
                                     <select
-                                        id="deviceType"
                                         name="deviceType"
                                         value={formData.deviceType}
                                         onChange={handleInputChange}
@@ -487,7 +483,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                 </div>
 
                                 <div>
-                                    <label htmlFor="urgency" style={{
+                                    <label style={{
                                         display: 'block',
                                         fontWeight: '500',
                                         color: 'var(--color-text)',
@@ -497,7 +493,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                         Nivel de urgencia *
                                     </label>
                                     <select
-                                        id="urgency"
                                         name="urgency"
                                         value={formData.urgency}
                                         onChange={handleInputChange}
@@ -522,7 +517,7 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                             </div>
 
                             <div style={{ marginBottom: '20px' }}>
-                                <label htmlFor="problem" style={{
+                                <label style={{
                                     display: 'block',
                                     fontWeight: '500',
                                     color: 'var(--color-text)',
@@ -532,7 +527,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                     Describe el problema *
                                 </label>
                                 <textarea
-                                    id="problem"
                                     name="problem"
                                     placeholder="Cuéntanos exactamente qué está pasando con tu computador. Mientras más detalles, mejor podremos ayudarte..."
                                     required
@@ -556,14 +550,14 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                     {formData.problem.length}/500
                                 </div>
                                 {errors.problem && (
-                                    <span data-testid="error-problem" style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
+                                    <span style={{ color: 'var(--color-error)', fontSize: '12px', marginTop: '4px', display: 'block' }}>
                                         {errors.problem}
                                     </span>
                                 )}
                             </div>
 
                             <div>
-                                <label htmlFor="location" style={{
+                                <label style={{
                                     display: 'block',
                                     fontWeight: '500',
                                     color: 'var(--color-text)',
@@ -573,7 +567,6 @@ ${formData.location ? `📍 *Ubicación:* ${formData.location}` : ''}
                                     Ubicación específica (opcional)
                                 </label>
                                 <input
-                                    id="location"
                                     name="location"
                                     type="text"
                                     placeholder="Ej: Barrio Centro, cerca al banco..."

@@ -52,7 +52,7 @@ export default function MantenimientoDomesticoCorporativoPage() {
                     '/img/pc-hogar-oficina/2.jpg',
                     '/img/pc-hogar-oficina/3.JPG',
                     '/img/pc-hogar-oficina/4.JPG',
-                    '/img/pc-hogar-oficina/7.JPG',
+                    '/img/pc-hogar-oficina/5.JPG',
                   ]} height={480} />
 
                   <div className="service-card" aria-hidden>

@@ -5,6 +5,7 @@ import "./globals.css";
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import OrganizationSchema from '@/components/OrganizationSchema';
 import WebVitalsReporter from '@/components/WebVitalsReporter';
+import PWAInstaller from '@/components/PWAInstaller';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
 
@@ -355,6 +356,7 @@ export default function RootLayout({
   <OrganizationSchema />
   <ClientLayout>{children}</ClientLayout>
   <Footer />
+  <PWAInstaller />
   <WebVitalsReporter />
       </body>
     </html>

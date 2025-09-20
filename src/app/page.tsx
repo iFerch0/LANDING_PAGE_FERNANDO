@@ -3,7 +3,6 @@ import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
 import Process from '@/components/Process';
-import WorkflowSection from '@/components/WorkflowSection';
 import SuccessCases from '@/components/SuccessCases';
 import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
@@ -40,9 +39,6 @@ export default function HomePage() {
           </div>
           <div data-aos="fade-left">
             <Process />
-          </div>
-          <div data-aos="fade-up">
-            <WorkflowSection />
           </div>
           <div data-aos="flip-up">
             <SuccessCases />
