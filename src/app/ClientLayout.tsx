@@ -2,6 +2,7 @@
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
+import WelcomeModal from "@/components/WelcomeModal";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -31,5 +32,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     return () => clearTimeout(timeoutId);
   }, []);
 
-  return <>{children}</>;
+  return (
+    <>
+      <WelcomeModal />
+      {children}
+    </>
+  );
 }
