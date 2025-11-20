@@ -1,9 +1,11 @@
 import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
+import TrustBar from '@/components/TrustBar';
 import Features from '@/components/Features';
-import Process from '@/components/Process';
 import SuccessCases from '@/components/SuccessCases';
+import Process from '@/components/Process';
+import ServicesGrid from '@/components/ServicesGrid';
 import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
@@ -28,22 +30,45 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-  <FaqJsonLd />
+      <FaqJsonLd />
       <Navbar />
       <main>
-          <div data-aos="fade-up">
-            <Hero />
-          </div>
-          <Features />
-          <Process />
-          <SuccessCases />
-          <Stats />
-          <Testimonials />
-          <Faq />
-          <div data-aos="fade-up">
-            <CtaFinal />
-          </div>
-          <ContactForm />
+        {/* Hero - Primera impresión con headline mejorado */}
+        <div data-aos="fade-up">
+          <Hero />
+        </div>
+
+        {/* TrustBar - Construcción de confianza inmediata */}
+        <TrustBar />
+
+        {/* Features - Por qué elegirnos */}
+        <Features />
+
+        {/* SuccessCases - Prueba visual con antes/después */}
+        <SuccessCases />
+
+        {/* Process - Cómo funciona el servicio */}
+        <Process />
+
+        {/* ServicesGrid - Qué ofrecemos + precios */}
+        <ServicesGrid />
+
+        {/* Stats - Números de confianza */}
+        <Stats />
+
+        {/* Testimonials - Reviews verificadas */}
+        <Testimonials />
+
+        {/* FAQ - Resolver objeciones */}
+        <Faq />
+
+        {/* CTA Final - Último empujón */}
+        <div data-aos="fade-up">
+          <CtaFinal />
+        </div>
+
+        {/* ContactForm - Captura de leads */}
+        <ContactForm />
       </main>
     </>
   );

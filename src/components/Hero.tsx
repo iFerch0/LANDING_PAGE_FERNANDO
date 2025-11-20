@@ -34,50 +34,50 @@ const Hero = () => {
             {/* Headline optimizado */}
             <div className="hero__headline" data-aos="fade-up" data-aos-delay="100">
               <h1 className="hero__title">
-                <span className="hero__title-emphasis">¿Tu PC está lenta?</span>
-                <span className="hero__title-main">La reparamos en 24h</span>
-                <span className="hero__title-location">en Montería</span>
+                <span className="hero__title-emphasis">¿Tu PC tarda más de 5 minutos en encender?</span>
+                <span className="hero__title-main">Lo arreglamos HOY en Montería</span>
+                <span className="hero__title-location">Diagnóstico gratuito + Garantía 30 días</span>
               </h1>
-              
+
               {/* Propuesta de valor concisa */}
               <div className="hero__value-prop">
                 <span className="hero__value-prop-badge">
                   <ClockIcon />
-                  Técnico certificado con 10+ años de experiencia
+                  Ingeniero certificado con 10+ años de experiencia
                 </span>
               </div>
             </div>
 
             <p className="hero__subtitle" data-aos="fade-up" data-aos-delay="200">
-              Servicio técnico especializado en Montería. Diagnóstico gratuito, 
-              reparación garantizada y atención a domicilio sin costo adicional.
+              Servicio técnico profesional con 500+ computadores reparados.
+              Diagnóstico gratuito, repuestos originales y servicio a domicilio incluido.
             </p>
 
             {/* CTAs optimizados */}
             <div className="hero__actions" data-aos="fade-up" data-aos-delay="300">
-              <a 
-                href="http://wa.link/n8et4q" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                aria-label="Solicitar asesoría profesional por WhatsApp" 
+              <a
+                href="http://wa.link/n8et4q"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Solicitar diagnóstico gratuito por WhatsApp"
                 className="btn btn--primary btn--cta-primary cta-pulse"
               >
                 <WhatsAppIcon className="btn__icon" />
                 <div className="btn__content">
-                  <span className="btn__text">Asesoría Profesional</span>
-                  <span className="btn__subtext">Respuesta inmediata</span>
+                  <span className="btn__text">Diagnóstico Gratuito</span>
+                  <span className="btn__subtext">Respuesta en minutos</span>
                 </div>
               </a>
 
-              <a 
-                href="tel:+573008474121" 
-                aria-label="Llamar para emergencias" 
+              <a
+                href="tel:+573008474121"
+                aria-label="Llamar para agendar revisión"
                 className="btn btn--secondary btn--cta-secondary"
               >
                 <PhoneIcon className="btn__icon" />
                 <div className="btn__content">
-                  <span className="btn__text">Llamar Ahora</span>
-                  <span className="btn__subtext">Emergencias 24/7</span>
+                  <span className="btn__text">Agendar Hoy</span>
+                  <span className="btn__subtext">Disponible 24/7</span>
                 </div>
               </a>
             </div>
@@ -86,11 +86,15 @@ const Hero = () => {
             <div className="hero__urgency" data-aos="fade-up" data-aos-delay="400">
               <div className="hero__urgency-item">
                 <span className="hero__urgency-dot"></span>
-                <span>🏠 <strong>Servicio a domicilio</strong> gratuito en Montería</span>
+                <span><strong>Servicio a domicilio</strong> sin costo adicional en Montería</span>
               </div>
               <div className="hero__urgency-item">
                 <span className="hero__urgency-dot"></span>
-                <span>⚡ <strong>Reparación express</strong> mismo día</span>
+                <span><strong>Reparación express</strong> completada el mismo día</span>
+              </div>
+              <div className="hero__urgency-item">
+                <span className="hero__urgency-dot"></span>
+                <span><strong>Solo 3 cupos disponibles</strong> para hoy</span>
               </div>
             </div>
 
