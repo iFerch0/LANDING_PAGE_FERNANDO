@@ -67,8 +67,8 @@ const Breadcrumbs: React.FC = () => {
             fontSize: '14px'
           }}
         >
-          {breadcrumbs.map((breadcrumb, index) => {
-            const isLast = index === breadcrumbs.length - 1;
+          {breadcrumbs.map((breadcrumb, idx) => {
+            const isLast = idx === breadcrumbs.length - 1;
 
             return (
               <li
@@ -97,7 +97,7 @@ const Breadcrumbs: React.FC = () => {
                     >
                       <span itemProp="name">{breadcrumb.label}</span>
                     </Link>
-                    <meta itemProp="position" content={String(index + 1)} />
+                    <meta itemProp="position" content={String(idx + 1)} />
                     <span
                       style={{
                         color: 'var(--color-text-secondary)',
@@ -120,7 +120,7 @@ const Breadcrumbs: React.FC = () => {
                     >
                       {breadcrumb.label}
                     </span>
-                    <meta itemProp="position" content={String(index + 1)} />
+                    <meta itemProp="position" content={String(idx + 1)} />
                   </>
                 )}
               </li>

@@ -28,13 +28,13 @@ class ErrorBoundary extends Component<Props, State> {
     };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, _errorInfo: ErrorInfo) {
     // Log error to analytics service
     if (typeof window !== 'undefined') {
       // Safe check for gtag
-      const gtag = (window as any).gtag;
-      if (typeof gtag === 'function') {
-        gtag('event', 'exception', {
+      const windowWithGtag = window as Window & { gtag?: (...args: unknown[]) => void };
+      if (typeof windowWithGtag.gtag === 'function') {
+        windowWithGtag.gtag('event', 'exception', {
           description: error.message,
           fatal: false
         });
@@ -120,8 +120,8 @@ class ErrorBoundary extends Component<Props, State> {
               Intentar de nuevo
             </button>
 
-            <a
-              href="/"
+            <button
+              onClick={() => window.location.href = '/'}
               style={{
                 padding: '12px 24px',
                 background: 'transparent',
@@ -130,8 +130,7 @@ class ErrorBoundary extends Component<Props, State> {
                 borderRadius: '8px',
                 fontSize: '16px',
                 fontWeight: '500',
-                textDecoration: 'none',
-                display: 'inline-block',
+                cursor: 'pointer',
                 transition: 'all 0.2s'
               }}
               onMouseOver={(e) => {
@@ -144,7 +143,7 @@ class ErrorBoundary extends Component<Props, State> {
               }}
             >
               Volver al inicio
-            </a>
+            </button>
 
             <a
               href="http://wa.link/n8et4q"
