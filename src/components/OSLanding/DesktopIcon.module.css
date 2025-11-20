@@ -1,0 +1,110 @@
+.desktopIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-width: 100px;
+  max-width: 120px;
+}
+
+.desktopIcon:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: translateY(-4px);
+}
+
+.desktopIcon:hover .iconWrapper {
+  transform: scale(1.1);
+  filter: drop-shadow(0 8px 16px rgba(96, 165, 250, 0.4));
+}
+
+.desktopIcon:active {
+  transform: translateY(-2px);
+}
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(96, 165, 250, 0.2), rgba(59, 130, 246, 0.1));
+  border-radius: 16px;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.iconWrapper svg {
+  width: 36px;
+  height: 36px;
+  color: #60a5fa;
+}
+
+.iconLabel {
+  font-size: 0.85rem;
+  color: #f8fafc;
+  text-align: center;
+  font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktopIcon {
+    min-width: 80px;
+    max-width: 90px;
+    padding: 0.75rem;
+    gap: 0.4rem;
+  }
+
+  .iconWrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+  }
+
+  .iconWrapper svg {
+    width: 32px;
+    height: 32px;
+  }
+
+  .iconLabel {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktopIcon {
+    min-width: 70px;
+    max-width: 80px;
+    padding: 0.5rem;
+  }
+
+  .iconWrapper {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .iconWrapper svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .iconLabel {
+    font-size: 0.7rem;
+  }
+}

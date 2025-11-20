@@ -1,0 +1,293 @@
+.desktop {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Desktop Background */
+.desktopBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    #0f172a 0%,
+    #1e293b 25%,
+    #334155 50%,
+    #1e293b 75%,
+    #0f172a 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+.gridOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: gridMove 30s linear infinite;
+}
+
+.gradientOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 40%);
+  animation: gradientFloat 20s ease-in-out infinite;
+}
+
+/* Desktop Icons Grid */
+.desktopIcons {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  right: 2rem;
+  bottom: 70px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  grid-auto-rows: 120px;
+  gap: 1.5rem;
+  padding: 1rem;
+  align-content: start;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(96, 165, 250, 0.3) transparent;
+}
+
+.desktopIcons::-webkit-scrollbar {
+  width: 8px;
+}
+
+.desktopIcons::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.desktopIcons::-webkit-scrollbar-thumb {
+  background: rgba(96, 165, 250, 0.3);
+  border-radius: 4px;
+}
+
+.desktopIcons::-webkit-scrollbar-thumb:hover {
+  background: rgba(96, 165, 250, 0.5);
+}
+
+/* Window Section Styles */
+.windowSection {
+  width: 100%;
+}
+
+.windowSection h2 {
+  margin: 0 0 1.5rem;
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+}
+
+/* About Content */
+.aboutContent {
+  color: #e2e8f0;
+}
+
+.aboutText {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.aboutText strong {
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.servicesList {
+  background: rgba(96, 165, 250, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.servicesList h3 {
+  margin: 0 0 1rem;
+  color: #f8fafc;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.servicesList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.servicesList li {
+  padding: 0.5rem 0;
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.ctaButton {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(96, 165, 250, 0.5);
+}
+
+/* Portfolio Grid */
+.portfolioGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.portfolioItem {
+  background: rgba(96, 165, 250, 0.05);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.portfolioItem:hover {
+  background: rgba(96, 165, 250, 0.1);
+  border-color: rgba(96, 165, 250, 0.4);
+  transform: translateY(-4px);
+}
+
+.portfolioItem h3 {
+  margin: 0 0 0.75rem;
+  color: #60a5fa;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.portfolioItem p {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(60px, 60px);
+  }
+}
+
+@keyframes gradientFloat {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .desktopIcons {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    grid-auto-rows: 110px;
+    gap: 1.25rem;
+  }
+
+  .portfolioGrid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .desktopIcons {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    bottom: 70px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    grid-auto-rows: 100px;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+
+  .windowSection h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .portfolioGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .servicesList {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktopIcons {
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    grid-auto-rows: 90px;
+    gap: 0.75rem;
+  }
+
+  .windowSection h2 {
+    font-size: 1.1rem;
+  }
+
+  .aboutText {
+    font-size: 0.9rem;
+  }
+
+  .ctaButton {
+    width: 100%;
+    padding: 0.75rem 1.5rem;
+  }
+}

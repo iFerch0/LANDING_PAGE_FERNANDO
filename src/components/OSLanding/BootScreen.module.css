@@ -1,0 +1,254 @@
+.bootScreen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.bootContainer {
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Logo Styles */
+.logo {
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.logoIcon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto 1.5rem;
+  color: #60a5fa;
+  filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.brandName {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f8fafc;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+  letter-spacing: 0.05em;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: #94a3b8;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+/* Boot Messages */
+.messages {
+  min-height: 150px;
+  text-align: left;
+  margin: 2rem 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+}
+
+.message {
+  color: #22d3ee;
+  margin: 0.5rem 0;
+  opacity: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.messageIndicator {
+  color: #60a5fa;
+  font-weight: bold;
+}
+
+/* Progress Bar */
+.progressContainer {
+  margin: 2rem 0 1rem;
+}
+
+.progressBar {
+  width: 100%;
+  height: 4px;
+  background: rgba(148, 163, 184, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #3b82f6);
+  background-size: 200% 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  animation: shimmer 2s linear infinite;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
+}
+
+.progressText {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+}
+
+/* Loading Dots */
+.loadingDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.loadingDots span {
+  width: 8px;
+  height: 8px;
+  background: #60a5fa;
+  border-radius: 50%;
+  animation: bounce 1.4s ease-in-out infinite both;
+  box-shadow: 0 0 10px rgba(96, 165, 250, 0.6);
+}
+
+.loadingDots span:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.loadingDots span:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+/* Background Effects */
+.backgroundGrid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(96, 165, 250, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridScroll 20s linear infinite;
+  z-index: 1;
+}
+
+.scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(96, 165, 250, 0.05) 50%,
+    transparent 100%
+  );
+  animation: scanline 3s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.5));
+  }
+  50% {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.8));
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+@keyframes gridScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .brandName {
+    font-size: 2rem;
+  }
+
+  .logoIcon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .messages {
+    font-size: 0.8rem;
+    min-height: 120px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
