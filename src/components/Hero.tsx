@@ -2,6 +2,7 @@ import React from 'react';
 import { WhatsAppIcon, PhoneIcon } from './Icons';
 import HeroSliderStatic from './HeroSliderStatic';
 import TrustBadges from './TrustBadges';
+import styles from './Hero.module.css';
 
 // Nuevos iconos para badges
 const VerifiedIcon = () => (
@@ -19,42 +20,42 @@ const ClockIcon = () => (
 
 const Hero = () => {
   return (
-    <section id="inicio" className="hero" data-aos="fade-up">
+    <section id="inicio" className={styles.hero} data-aos="fade-up">
       <div className="container">
-        <div className="hero__content hero__layout">
-          <div className="hero__copy">
+        <div className={`${styles.content} ${styles.layout}`}>
+          <div className={styles.copy}>
             {/* Badges de credibilidad */}
-            <div className="hero__badges" data-aos="fade-up">
-              <div className="hero__badge hero__badge--verified">
+            <div className={styles.badges} data-aos="fade-up">
+              <div className={`${styles.badge} ${styles.badgeVerified}`}>
                 <VerifiedIcon />
                 <span>Técnico Certificado</span>
               </div>
             </div>
 
             {/* Headline optimizado */}
-            <div className="hero__headline" data-aos="fade-up" data-aos-delay="100">
-              <h1 className="hero__title">
-                <span className="hero__title-emphasis">¿Tu PC tarda más de 5 minutos en encender?</span>
-                <span className="hero__title-main">Lo arreglamos HOY en Montería</span>
-                <span className="hero__title-location">Diagnóstico gratuito + Garantía 30 días</span>
+            <div className={styles.headline} data-aos="fade-up" data-aos-delay="100">
+              <h1 className={styles.title}>
+                <span className={styles.titleEmphasis}>¿Tu PC tarda más de 5 minutos en encender?</span>
+                <span className={styles.titleMain}>Lo arreglamos HOY en Montería</span>
+                <span className={styles.titleLocation}>Diagnóstico gratuito + Garantía 30 días</span>
               </h1>
 
               {/* Propuesta de valor concisa */}
-              <div className="hero__value-prop">
-                <span className="hero__value-prop-badge">
+              <div className={styles.valueProp}>
+                <span className={styles.valuePropBadge}>
                   <ClockIcon />
                   Ingeniero certificado con 10+ años de experiencia
                 </span>
               </div>
             </div>
 
-            <p className="hero__subtitle" data-aos="fade-up" data-aos-delay="200">
+            <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="200">
               Servicio técnico profesional con 500+ computadores reparados.
               Diagnóstico gratuito, repuestos originales y servicio a domicilio incluido.
             </p>
 
             {/* CTAs optimizados */}
-            <div className="hero__actions" data-aos="fade-up" data-aos-delay="300">
+            <div className={styles.actions} data-aos="fade-up" data-aos-delay="300">
               <a
                 href="http://wa.link/n8et4q"
                 target="_blank"
@@ -83,17 +84,17 @@ const Hero = () => {
             </div>
 
             {/* Beneficios clave simplificados */}
-            <div className="hero__urgency" data-aos="fade-up" data-aos-delay="400">
-              <div className="hero__urgency-item">
-                <span className="hero__urgency-dot"></span>
+            <div className={styles.urgency} data-aos="fade-up" data-aos-delay="400">
+              <div className={styles.urgencyItem}>
+                <span className={styles.urgencyDot}></span>
                 <span><strong>Servicio a domicilio</strong> sin costo adicional en Montería</span>
               </div>
-              <div className="hero__urgency-item">
-                <span className="hero__urgency-dot"></span>
+              <div className={styles.urgencyItem}>
+                <span className={styles.urgencyDot}></span>
                 <span><strong>Reparación express</strong> completada el mismo día</span>
               </div>
-              <div className="hero__urgency-item">
-                <span className="hero__urgency-dot"></span>
+              <div className={styles.urgencyItem}>
+                <span className={styles.urgencyDot}></span>
                 <span><strong>Solo 3 cupos disponibles</strong> para hoy</span>
               </div>
             </div>
@@ -104,7 +105,7 @@ const Hero = () => {
             </div>
           </div>
 
-          <div className="hero__media" data-aos="zoom-in" data-aos-delay="200">
+          <div className={styles.media} data-aos="zoom-in" data-aos-delay="200">
             <HeroSliderStatic />
           </div>
         </div>
