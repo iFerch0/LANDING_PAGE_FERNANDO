@@ -2,6 +2,7 @@
 import React from "react";
 import CountUpClient from './CountUpClient';
 import { stats, statsHeader, statsCTA } from '@/data/stats';
+import styles from './Stats.module.css';
 
 // Iconos para cada estadística
 const RepairIcon = () => (
@@ -32,34 +33,34 @@ const ShieldIcon = () => (
 
 const Stats = () => {
     return (
-        <section className="stats" aria-labelledby="stats-title">
-            <div className="container">
+        <section className={styles.stats} aria-labelledby="stats-title">
+            <div className={`container ${styles.container}`}>
                 {/* Header de estadísticas */}
-                <div className="stats__header" data-aos="fade-up">
-                    <h2 id="stats-title" className="stats__title">
+                <div className={styles.header} data-aos="fade-up">
+                    <h2 id="stats-title" className={styles.title}>
                         {statsHeader.title}
                     </h2>
-                    <p className="stats__subtitle">
+                    <p className={styles.subtitle}>
                         {statsHeader.subtitle}
                     </p>
                 </div>
 
-                <div className="stats__grid">
+                <div className={styles.grid}>
                     {stats.map((stat, index) => {
                         const icons = [RepairIcon, StarIcon, ClockIcon, ShieldIcon];
                         const IconComponent = icons[index];
 
                         return (
-                            <div key={stat.id} className="stat-item" data-aos="zoom-in" data-aos-delay={stat.aosDelay}>
-                                <div className="stat-item__icon">
+                            <div key={stat.id} className={styles.statItem} data-aos="zoom-in" data-aos-delay={stat.aosDelay}>
+                                <div className={styles.statItemIcon}>
                                     <IconComponent />
                                 </div>
-                                <div className="stat-item__content">
-                                    <div className="stat__number">
+                                <div className={styles.statItemContent}>
+                                    <div className={styles.statNumber}>
                                         <CountUpClient end={stat.end} ssrValue={stat.end} suffix={stat.suffix} />
                                     </div>
-                                    <div className="stat__label">{stat.label}</div>
-                                    <div className="stat__description">
+                                    <div className={styles.statLabel}>{stat.label}</div>
+                                    <div className={styles.statDescription}>
                                         {stat.description}
                                     </div>
                                 </div>
@@ -69,10 +70,10 @@ const Stats = () => {
                 </div>
 
                 {/* CTA en la sección de stats */}
-                <div className="stats__cta" data-aos="fade-up" data-aos-delay="500">
-                    <div className="stats-cta__content">
-                        <h3 className="stats-cta__title">{statsCTA.title}</h3>
-                        <p className="stats-cta__desc">{statsCTA.description}</p>
+                <div className={styles.cta} data-aos="fade-up" data-aos-delay="500">
+                    <div className={styles.ctaContent}>
+                        <h3 className={styles.ctaTitle}>{statsCTA.title}</h3>
+                        <p className={styles.ctaDesc}>{statsCTA.description}</p>
                         <a href={statsCTA.buttonLink} className="btn btn--secondary btn--large">
                             {statsCTA.buttonText}
                         </a>
@@ -84,4 +85,3 @@ const Stats = () => {
 }
 
 export default Stats;
-
