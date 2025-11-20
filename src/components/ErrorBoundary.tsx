@@ -30,11 +30,15 @@ class ErrorBoundary extends Component<Props, State> {
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     // Log error to analytics service
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'exception', {
-        description: error.message,
-        fatal: false
-      });
+    if (typeof window !== 'undefined') {
+      // Safe check for gtag
+      const gtag = (window as any).gtag;
+      if (typeof gtag === 'function') {
+        gtag('event', 'exception', {
+          description: error.message,
+          fatal: false
+        });
+      }
     }
   }
 
