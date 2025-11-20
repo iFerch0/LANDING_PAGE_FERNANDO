@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { services } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Servicios Técnicos en Computadores Montería | Soporte PC a Domicilio ⭐',
-  description: '⭐ Servicios técnicos computadores Montería: reparación PC, mantenimiento, eliminación virus, formateo Windows, recuperación datos. Domicilio 24/7 📱',
+  title: 'Servicios Técnicos en Computadores Montería | Soporte PC a Domicilio',
+  description: 'Servicios técnicos computadores Montería: reparación PC, mantenimiento, eliminación virus, formateo Windows, recuperación datos. Domicilio 24/7',
   keywords: [
     'servicios técnicos computadores Montería',
     'reparación computadores Montería',
@@ -23,51 +24,20 @@ export const metadata: Metadata = {
     canonical: 'https://www.ferchotecnico.com/servicios'
   },
   openGraph: {
-    title: '🔧 Servicios Técnicos Computadores Montería | Fernando Tech ⭐',
-    description: '⭐ Todos los servicios técnicos para computadores en Montería. Reparación, mantenimiento, soporte a domicilio. Diagnóstico GRATIS 📱',
+    title: 'Servicios Técnicos Computadores Montería | Fernando Tech',
+    description: 'Todos los servicios técnicos para computadores en Montería. Reparación, mantenimiento, soporte a domicilio. Diagnóstico GRATIS',
     url: 'https://www.ferchotecnico.com/servicios',
     type: 'website'
   }
 };
 
 export default function ServiciosIndex() {
-  const servicios = [
-    { 
-      href: '/servicios/reparacion-pc-monteria', 
-      title: 'Reparación de PC y Portátiles en Montería',
-      description: 'Diagnóstico y reparación especializada de computadores y laptops a domicilio'
-    },
-    { 
-      href: '/servicios/recuperacion-datos-monteria', 
-      title: 'Recuperación de Datos en Montería',
-      description: 'Recuperamos archivos, fotos, documentos de discos dañados'
-    },
-    { 
-      href: '/servicios/eliminacion-virus-monteria', 
-      title: 'Eliminación de Virus en Montería',
-      description: 'Limpieza completa de malware, virus y programas maliciosos'
-    },
-    { 
-      href: '/servicios/mantenimiento-preventivo-monteria', 
-      title: 'Mantenimiento Preventivo en Montería',
-      description: 'Limpieza, optimización y cuidado preventivo de tu PC'
-    },
-    { 
-      href: '/servicios/soporte-tecnico-monteria', 
-      title: 'Soporte Técnico en Montería',
-      description: 'Asesoría técnica especializada y resolución de problemas'
-    },
-    { 
-      href: '/servicios/formateo-windows-monteria', 
-      title: 'Formateo Windows en Montería',
-      description: 'Instalación limpia de Windows con programas esenciales'
-    },
-    { 
-      href: '/servicios/mantenimiento-hogar-oficina', 
-      title: 'Mantenimiento Hogar y Oficina',
-      description: 'Servicio especializado para hogares y empresas en Montería'
-    }
-  ];
+  // Use centralized data - show top 7 services
+  const mainServices = services.slice(0, 7).map(service => ({
+    href: `/servicios/${service.slug}`,
+    title: service.serviceName,
+    description: service.description.split('.')[0] + '.'
+  }));
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
@@ -95,7 +65,7 @@ export default function ServiciosIndex() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {servicios.map((servicio) => (
+          {mainServices.map((servicio) => (
             <div key={servicio.href} className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100">
               <h2 className="text-xl font-bold text-gray-900 mb-3">
                 {servicio.title}
@@ -103,7 +73,7 @@ export default function ServiciosIndex() {
               <p className="text-gray-600 mb-4 leading-relaxed">
                 {servicio.description}
               </p>
-              <Link 
+              <Link
                 href={servicio.href}
                 className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
               >

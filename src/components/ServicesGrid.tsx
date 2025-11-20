@@ -3,7 +3,7 @@
 import React from 'react';
 
 interface Service {
-  icon: JSX.Element;
+  icon: React.ReactElement;
   title: string;
   description: string;
   priceFrom: string;
