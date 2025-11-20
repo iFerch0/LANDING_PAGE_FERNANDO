@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run optimize:images && npm run update:image-paths && npm run update:colors && npm run generate:images && next build",
+    "build": "next build",
+    "build:full": "npm run optimize:images && npm run update:image-paths && npm run update:colors && npm run generate:images && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
@@ -20,11 +21,9 @@
   },
   "dependencies": {
     "aos": "^2.3.4",
-    "gtag": "^1.0.1",
     "next": "15.5.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "swiper": "^11.2.10",
     "web-vitals": "^2.1.0"
   },
   "devDependencies": {
@@ -36,7 +35,6 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@types/swiper": "^5.4.3",
     "cypress": "^15.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
