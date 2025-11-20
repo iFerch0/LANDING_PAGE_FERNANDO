@@ -58,16 +58,17 @@ const Navbar = () => {
                         </div>
                         <ul className="navbar__submenu">
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <div className="navbar__submenu-link" style={{cursor: 'default', opacity: 0.6}}>
                                     <span className="navbar__submenu-icon">🏠💼</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Mantenimiento Doméstico y Corporativo</span>
-                                        <span className="navbar__submenu-desc">Limpieza y optimización de equipos en casa y oficina</span>
+                                        <span className="navbar__submenu-desc">Proximamente disponible - Contáctanos por WhatsApp</span>
                                     </div>
-                                </Link>
+                                </div>
                             </li>
+                            {/* Servicios temporalmente ocultos - activar cuando estén disponibles
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <Link href="/servicios/gaming" className="navbar__submenu-link">
                                     <span className="navbar__submenu-icon">🎮⚡</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Optimización Gaming</span>
@@ -76,7 +77,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <Link href="/servicios/software" className="navbar__submenu-link">
                                     <span className="navbar__submenu-icon">💾📋</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Instalación de Software</span>
@@ -85,7 +86,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <Link href="/servicios/soporte-remoto" className="navbar__submenu-link">
                                     <span className="navbar__submenu-icon">🌐🔧</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Soporte Remoto</span>
@@ -94,7 +95,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <Link href="/servicios/ensamble" className="navbar__submenu-link">
                                     <span className="navbar__submenu-icon">🔧⚙️</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Ensamble Personalizado</span>
@@ -103,7 +104,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <Link href="/servicios/recuperacion-datos" className="navbar__submenu-link">
                                     <span className="navbar__submenu-icon">💿🔄</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Recuperación de Datos</span>
@@ -112,7 +113,7 @@ const Navbar = () => {
                                 </Link>
                             </li>
                             <li className="navbar__submenu-item">
-                                <Link href="/en-construccion" className="navbar__submenu-link">
+                                <Link href="/servicios/reparacion-fisica" className="navbar__submenu-link">
                                     <span className="navbar__submenu-icon">🔨🖥️</span>
                                     <div className="navbar__submenu-content">
                                         <span className="navbar__submenu-title">Reparación Física</span>
@@ -120,6 +121,7 @@ const Navbar = () => {
                                     </div>
                                 </Link>
                             </li>
+                            */}
                         </ul>
                     </li>
                     <li className="navbar__item">
