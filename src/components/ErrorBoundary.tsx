@@ -28,7 +28,9 @@ class ErrorBoundary extends Component<Props, State> {
     };
   }
 
-  componentDidCatch(error: Error, _errorInfo: ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    // Log error info for debugging
+    console.error('Error boundary caught:', error, errorInfo);
     // Log error to analytics service
     if (typeof window !== 'undefined') {
       // Safe check for gtag
