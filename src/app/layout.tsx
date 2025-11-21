@@ -1,6 +1,5 @@
 import ClientLayout from "./ClientLayout";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import OrganizationSchema from '@/components/OrganizationSchema';
@@ -9,15 +8,8 @@ import PWAInstaller from '@/components/PWAInstaller';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// Using system fonts as fallback for better performance and offline support
+const fontVariables = "font-sans";
 
 export const metadata: Metadata = {
   title: "Técnico en Computadores Montería | Servicio Técnico PC a Domicilio",
@@ -99,7 +91,6 @@ export default function RootLayout({
         {/* Preload recursos críticos */}
         <link rel="preload" href="/logo.png" as="image" />
         <link rel="preload" href="/hero-poster.jpg" as="image" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://api.whatsapp.com" />
 
@@ -124,7 +115,7 @@ export default function RootLayout({
         <meta name="availability" content="24/7" />
         <meta name="service-area" content="Montería, Córdoba, Colombia" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`} suppressHydrationWarning={true}>
+      <body className={fontVariables} suppressHydrationWarning={true}>
   <GoogleAnalytics />
   <LocalBusinessSchema />
   <OrganizationSchema />
