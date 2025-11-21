@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import styles from './Features.module.css';
 
 // Iconos optimizados para cada feature
 const HomeIcon = () => (
@@ -25,78 +26,78 @@ const ShieldIcon = () => (
 
 const Features = () => {
     return (
-        <section className="features" aria-labelledby="features-title">
+        <section className={styles.features} aria-labelledby="features-title">
             <div className="container">
                 {/* Encabezado de sección optimizado */}
-                <div className="features__header" data-aos="fade-up">
-                    <div className="features__eyebrow">Por qué elegirnos</div>
-                    <h2 id="features-title" className="features__title">
-                        Servicio técnico que 
-                        <span className="features__title-highlight"> realmente funciona</span>
+                <div className={styles.header} data-aos="fade-up">
+                    <div className={styles.eyebrow}>Por qué elegirnos</div>
+                    <h2 id="features-title" className={styles.title}>
+                        Servicio técnico que
+                        <span className={styles.titleHighlight}> realmente funciona</span>
                     </h2>
-                    <p className="features__subtitle">
+                    <p className={styles.subtitle}>
                         Especialistas certificados con años de experiencia solucionando problemas técnicos en Montería
                     </p>
                 </div>
 
-                <div className="features__grid" role="list">
+                <div className={styles.grid} role="list">
                     {/* Feature 1: Servicio en Taller */}
-                    <article className="feature-card feature-card--primary" role="listitem" data-aos="fade-up">
-                        <div className="feature-card__head">
-                            <div className="feature-card__icon">
+                    <article className={`${styles.card} ${styles.cardPrimary}`} role="listitem" data-aos="fade-up">
+                        <div className={styles.cardHead}>
+                            <div className={styles.cardIcon}>
                                 <HomeIcon />
                             </div>
                             <div>
-                                <h3 className="feature-card__title">Servicio completo</h3>
-                                <p className="feature-card__subtitle">Taller equipado profesionalmente</p>
+                                <h3 className={styles.cardTitle}>Servicio completo</h3>
+                                <p className={styles.cardSubtitle}>Taller equipado profesionalmente</p>
                             </div>
                         </div>
-                        <p className="feature-card__desc">
-                            Contamos con herramientas especializadas y repuestos originales para cualquier tipo de reparación. 
+                        <p className={styles.cardDesc}>
+                            Contamos con herramientas especializadas y repuestos originales para cualquier tipo de reparación.
                             Tu equipo queda como nuevo con respaldo técnico completo.
                         </p>
-                        <div className="feature-card__actions">
-                            <span className="feature-badge feature-badge--success">Equipos especializados</span>
+                        <div className={styles.cardActions}>
+                            <span className={`${styles.badge} ${styles.badgeSuccess}`}>Equipos especializados</span>
                         </div>
                     </article>
 
                     {/* Feature 2: Respuesta Rápida */}
-                    <article className="feature-card" role="listitem" data-aos="fade-up" data-aos-delay="100">
-                        <div className="feature-card__head">
-                            <div className="feature-card__icon">
+                    <article className={styles.card} role="listitem" data-aos="fade-up" data-aos-delay="100">
+                        <div className={styles.cardHead}>
+                            <div className={styles.cardIcon}>
                                 <ClockIcon />
                             </div>
                             <div>
-                                <h3 className="feature-card__title">Atención inmediata</h3>
-                                <p className="feature-card__subtitle">Respuesta en menos de 2 horas</p>
+                                <h3 className={styles.cardTitle}>Atención inmediata</h3>
+                                <p className={styles.cardSubtitle}>Respuesta en menos de 2 horas</p>
                             </div>
                         </div>
-                        <p className="feature-card__desc">
-                            Diagnosticamos tu problema rápidamente y te damos una solución clara. 
+                        <p className={styles.cardDesc}>
+                            Diagnosticamos tu problema rápidamente y te damos una solución clara.
                             La mayoría de reparaciones se completan el mismo día para que recuperes tu productividad.
                         </p>
-                        <div className="feature-card__actions">
-                            <span className="feature-badge feature-badge--primary">Servicio express</span>
+                        <div className={styles.cardActions}>
+                            <span className={`${styles.badge} ${styles.badgePrimary}`}>Servicio express</span>
                         </div>
                     </article>
 
                     {/* Feature 3: Garantía y Confianza */}
-                    <article className="feature-card" role="listitem" data-aos="fade-up" data-aos-delay="200">
-                        <div className="feature-card__head">
-                            <div className="feature-card__icon">
+                    <article className={styles.card} role="listitem" data-aos="fade-up" data-aos-delay="200">
+                        <div className={styles.cardHead}>
+                            <div className={styles.cardIcon}>
                                 <ShieldIcon />
                             </div>
                             <div>
-                                <h3 className="feature-card__title">Garantía total</h3>
-                                <p className="feature-card__subtitle">Trabajo respaldado</p>
+                                <h3 className={styles.cardTitle}>Garantía total</h3>
+                                <p className={styles.cardSubtitle}>Trabajo respaldado</p>
                             </div>
                         </div>
-                        <p className="feature-card__desc">
-                            Todas nuestras reparaciones incluyen garantía escrita. Si el mismo problema vuelve, 
+                        <p className={styles.cardDesc}>
+                            Todas nuestras reparaciones incluyen garantía escrita. Si el mismo problema vuelve,
                             lo solucionamos sin costo adicional. Tu inversión está completamente protegida.
                         </p>
-                        <div className="feature-card__actions">
-                            <span className="feature-badge feature-badge--premium">30 días de garantía</span>
+                        <div className={styles.cardActions}>
+                            <span className={`${styles.badge} ${styles.badgePremium}`}>30 días de garantía</span>
                         </div>
                     </article>
                 </div>

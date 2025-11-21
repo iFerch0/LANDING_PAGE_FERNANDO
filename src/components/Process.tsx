@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import styles from './Process.module.css';
 
 // Iconos modernos para cada paso del proceso
 const ChatIcon = () => (
@@ -34,75 +35,75 @@ const CheckIcon = () => (
 
 const Process = () => {
     return (
-        <section id="proceso" className="process" aria-labelledby="process-title">
+        <section id="proceso" className={styles.process} aria-labelledby="process-title">
             <div className="container">
                 {/* Header optimizado */}
-                <div className="process__header" data-aos="fade-up">
-                    <div className="process__eyebrow">Proceso simple</div>
-                    <h2 id="process-title" className="process__title">
+                <div className={styles.header} data-aos="fade-up">
+                    <div className={styles.eyebrow}>Proceso simple</div>
+                    <h2 id="process-title" className={styles.title}>
                         ¿Cómo trabajo contigo?
                     </h2>
-                    <p className="process__subtitle">
+                    <p className={styles.subtitle}>
                         Un proceso claro y directo, sin complicaciones ni sorpresas
                     </p>
                 </div>
 
                 {/* Steps con conectores visuales */}
-                <div className="process__timeline" role="list">
-                    <div className="process-step" role="listitem" data-aos="fade-up" data-aos-delay="100">
-                        <div className="process-step__icon">
+                <div className={styles.timeline} role="list">
+                    <div className={styles.step} role="listitem" data-aos="fade-up" data-aos-delay="100">
+                        <div className={styles.stepIcon}>
                             <ChatIcon />
                         </div>
-                        <div className="process-step__content">
-                            <h3 className="process-step__title">Me escribes</h3>
-                            <p className="process-step__description">
+                        <div className={styles.stepContent}>
+                            <h3 className={styles.stepTitle}>Me escribes</h3>
+                            <p className={styles.stepDescription}>
                                 Por WhatsApp me cuentas qué le pasa a tu PC. Entre más detalles, mejor puedo ayudarte.
                             </p>
-                            <div className="process-step__time">⏱️ Respuesta inmediata</div>
+                            <div className={styles.stepTime}>⏱️ Respuesta inmediata</div>
                         </div>
-                        <div className="process-step__number">01</div>
+                        <div className={styles.stepNumber}>01</div>
                     </div>
 
-                    <div className="process-step" role="listitem" data-aos="fade-up" data-aos-delay="200">
-                        <div className="process-step__icon">
+                    <div className={styles.step} role="listitem" data-aos="fade-up" data-aos-delay="200">
+                        <div className={styles.stepIcon}>
                             <SearchIcon />
                         </div>
-                        <div className="process-step__content">
-                            <h3 className="process-step__title">Reviso el equipo</h3>
-                            <p className="process-step__description">
+                        <div className={styles.stepContent}>
+                            <h3 className={styles.stepTitle}>Reviso el equipo</h3>
+                            <p className={styles.stepDescription}>
                                 Hago una revisión completa para saber exactamente qué tiene y cuánto cuesta arreglarlo.
                             </p>
-                            <div className="process-step__time">⏱️ 15-30 minutos</div>
+                            <div className={styles.stepTime}>⏱️ 15-30 minutos</div>
                         </div>
-                        <div className="process-step__number">02</div>
+                        <div className={styles.stepNumber}>02</div>
                     </div>
 
-                    <div className="process-step" role="listitem" data-aos="fade-up" data-aos-delay="300">
-                        <div className="process-step__icon">
+                    <div className={styles.step} role="listitem" data-aos="fade-up" data-aos-delay="300">
+                        <div className={styles.stepIcon}>
                             <ToolIcon />
                         </div>
-                        <div className="process-step__content">
-                            <h3 className="process-step__title">Arreglo el problema</h3>
-                            <p className="process-step__description">
+                        <div className={styles.stepContent}>
+                            <h3 className={styles.stepTitle}>Arreglo el problema</h3>
+                            <p className={styles.stepDescription}>
                                 Una vez apruebes el presupuesto, me pongo a trabajar hasta que tu PC quede funcionando bien.
                             </p>
-                            <div className="process-step__time">⏱️ Mismo día (mayoría)</div>
+                            <div className={styles.stepTime}>⏱️ Mismo día (mayoría)</div>
                         </div>
-                        <div className="process-step__number">03</div>
+                        <div className={styles.stepNumber}>03</div>
                     </div>
 
-                    <div className="process-step" role="listitem" data-aos="fade-up" data-aos-delay="400">
-                        <div className="process-step__icon">
+                    <div className={styles.step} role="listitem" data-aos="fade-up" data-aos-delay="400">
+                        <div className={styles.stepIcon}>
                             <CheckIcon />
                         </div>
-                        <div className="process-step__content">
-                            <h3 className="process-step__title">Listo para usar</h3>
-                            <p className="process-step__description">
+                        <div className={styles.stepContent}>
+                            <h3 className={styles.stepTitle}>Listo para usar</h3>
+                            <p className={styles.stepDescription}>
                                 Te entrego tu equipo funcionando y te explico qué le hice. Si algo falla después, lo reviso gratis.
                             </p>
-                            <div className="process-step__time">✅ Con respaldo</div>
+                            <div className={styles.stepTime}>✅ Con respaldo</div>
                         </div>
-                        <div className="process-step__number">04</div>
+                        <div className={styles.stepNumber}>04</div>
                     </div>
                 </div>
             </div>
