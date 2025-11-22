@@ -202,7 +202,6 @@ const Navbar = () => {
               className={styles.logo}
               priority
             />
-            <span className={styles.logoBadge}>Pro</span>
           </div>
           <div className={styles.brandText}>
             <span className={styles.brandName}>Fernando</span>
