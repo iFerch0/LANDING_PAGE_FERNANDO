@@ -1,7 +1,6 @@
 import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
-import TrustBar from '@/components/TrustBar';
 import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
@@ -37,9 +36,6 @@ export default function HomePage() {
         <div data-aos="fade-up">
           <Hero />
         </div>
-
-        {/* TrustBar - Construcción de confianza inmediata */}
-        <TrustBar />
 
         {/* Features - Por qué elegirnos */}
         <Features />
