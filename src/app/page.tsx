@@ -1,12 +1,10 @@
 import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
-import TrustBar from '@/components/TrustBar';
 import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
 import ServicesGrid from '@/components/ServicesGrid';
-import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 import CtaFinal from '@/components/CtaFinal';
@@ -38,9 +36,6 @@ export default function HomePage() {
           <Hero />
         </div>
 
-        {/* TrustBar - Construcción de confianza inmediata */}
-        <TrustBar />
-
         {/* Features - Por qué elegirnos */}
         <Features />
 
@@ -53,9 +48,6 @@ export default function HomePage() {
         {/* ServicesGrid - Qué ofrecemos + precios */}
         <ServicesGrid />
 
-        {/* Stats - Números de confianza */}
-        <Stats />
-
         {/* Testimonials - Reviews verificadas */}
         <Testimonials />
 
@@ -63,9 +55,7 @@ export default function HomePage() {
         <Faq />
 
         {/* CTA Final - Último empujón */}
-        <div data-aos="fade-up">
-          <CtaFinal />
-        </div>
+        <CtaFinal />
 
         {/* ContactForm - Captura de leads */}
         <ContactForm />

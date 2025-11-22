@@ -1,117 +1,184 @@
+"use client";
+
 import React from 'react';
 import { WhatsAppIcon, PhoneIcon } from './Icons';
 import HeroSliderStatic from './HeroSliderStatic';
-import TrustBadges from './TrustBadges';
 import styles from './Hero.module.css';
 
-// Nuevos iconos para badges
-const VerifiedIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+/* Icons */
+const CheckCircleIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
 );
 
-const ClockIcon = () => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
-    <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+const MapPinIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+    </svg>
 );
 
-const Hero = () => {
-  return (
-    <section id="inicio" className={styles.hero} data-aos="fade-up">
-      <div className="container">
-        <div className={`${styles.content} ${styles.layout}`}>
-          <div className={styles.copy}>
-            {/* Badges de credibilidad */}
-            <div className={styles.badges} data-aos="fade-up">
-              <div className={`${styles.badge} ${styles.badgeVerified}`}>
-                <VerifiedIcon />
-                <span>Técnico Certificado</span>
-              </div>
+const StarIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+    </svg>
+);
+
+const TruckIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="5.5" cy="18.5" r="2.5"/>
+        <circle cx="18.5" cy="18.5" r="2.5"/>
+    </svg>
+);
+
+const ShieldIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+    </svg>
+);
+
+const ClockIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <circle cx="12" cy="12" r="10"/>
+        <path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+const Hero: React.FC = () => {
+    return (
+        <section id="inicio" className={styles.hero}>
+            {/* Background */}
+            <div className={styles.background}>
+                <div className={`${styles.gradientOrb} ${styles.gradientOrb1}`} />
+                <div className={`${styles.gradientOrb} ${styles.gradientOrb2}`} />
             </div>
 
-            {/* Headline optimizado */}
-            <div className={styles.headline} data-aos="fade-up" data-aos-delay="100">
-              <h1 className={styles.title}>
-                <span className={styles.titleEmphasis}>¿Tu PC tarda más de 5 minutos en encender?</span>
-                <span className={styles.titleMain}>Lo arreglamos HOY en Montería</span>
-                <span className={styles.titleLocation}>Diagnóstico gratuito + Garantía 30 días</span>
-              </h1>
+            <div className={styles.container}>
+                <div className={styles.grid}>
+                    {/* Content */}
+                    <div className={styles.content}>
+                        <div className={styles.badge}>
+                            <CheckCircleIcon className={styles.badgeIcon} />
+                            <span className={styles.badgeText}>Técnico Certificado</span>
+                            <span className={styles.badgePulse} />
+                        </div>
 
-              {/* Propuesta de valor concisa */}
-              <div className={styles.valueProp}>
-                <span className={styles.valuePropBadge}>
-                  <ClockIcon />
-                  Ingeniero certificado con 10+ años de experiencia
-                </span>
-              </div>
-            </div>
+                        <div className={styles.headlines}>
+                            <p className={styles.question}>
+                                ¿Tu PC tarda más de 5 minutos en encender?
+                            </p>
+                            <h1 className={styles.title}>
+                                <span className={styles.titleLine1}>Lo arreglamos</span>
+                                <span className={styles.titleLine2}>HOY mismo</span>
+                            </h1>
+                            <p className={styles.subtitle}>
+                                <MapPinIcon className={styles.subtitleIcon} />
+                                Montería, Córdoba
+                            </p>
+                        </div>
 
-            <p className={styles.subtitle} data-aos="fade-up" data-aos-delay="200">
-              Servicio técnico profesional con 500+ computadores reparados.
-              Diagnóstico gratuito, repuestos originales y servicio a domicilio incluido.
-            </p>
+                        <p className={styles.description}>
+                            Ingeniero de sistemas con{' '}
+                            <span className={styles.descriptionStrong}>10+ años de experiencia</span>.
+                            Diagnóstico gratuito, repuestos originales y servicio a domicilio incluido.
+                        </p>
 
-            {/* CTAs optimizados */}
-            <div className={styles.actions} data-aos="fade-up" data-aos-delay="300">
-              <a
-                href="http://wa.link/n8et4q"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Solicitar diagnóstico gratuito por WhatsApp"
-                className="btn btn--primary btn--cta-primary cta-pulse"
-              >
-                <WhatsAppIcon className="btn__icon" />
-                <div className="btn__content">
-                  <span className="btn__text">Diagnóstico Gratuito</span>
-                  <span className="btn__subtext">Respuesta en minutos</span>
+                        <div className={styles.ctaGroup}>
+                            <div className={styles.ctas}>
+                                <a
+                                    href="http://wa.link/n8et4q"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn--primary btn--cta-primary cta-pulse"
+                                >
+                                    <WhatsAppIcon className="btn__icon" />
+                                    <div className="btn__content">
+                                        <span className="btn__text">Diagnóstico Gratuito</span>
+                                        <span className="btn__subtext">Respuesta en minutos</span>
+                                    </div>
+                                </a>
+                                <a
+                                    href="tel:+573008474121"
+                                    className="btn btn--secondary btn--cta-secondary"
+                                >
+                                    <PhoneIcon className="btn__icon" />
+                                    <div className="btn__content">
+                                        <span className="btn__text">Llamar Ahora</span>
+                                        <span className="btn__subtext">Disponible 24/7</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Slider */}
+                    <div className={styles.sliderColumn}>
+                        <div className={styles.sliderFrame} />
+                        <div className={styles.sliderWrapper}>
+                            <HeroSliderStatic />
+                        </div>
+                    </div>
                 </div>
-              </a>
 
-              <a
-                href="tel:+573008474121"
-                aria-label="Llamar para agendar revisión"
-                className="btn btn--secondary btn--cta-secondary"
-              >
-                <PhoneIcon className="btn__icon" />
-                <div className="btn__content">
-                  <span className="btn__text">Agendar Hoy</span>
-                  <span className="btn__subtext">Disponible 24/7</span>
+                {/* Stats Bento Grid */}
+                <div className={styles.statsGrid}>
+                    <div className={`${styles.statCard} ${styles.statCardPrimary}`}>
+                        <div className={styles.statIconWrapper}>
+                            <CheckCircleIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>500+</span>
+                            <span className={styles.statTitle}>PCs Reparadas</span>
+                            <span className={styles.statDesc}>Clientes satisfechos</span>
+                        </div>
+                        <div className={styles.statGlow} />
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <StarIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>4.9<span className={styles.statUnit}>/5</span></span>
+                            <span className={styles.statTitle}>Calificación</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <ClockIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>&lt;24<span className={styles.statUnit}>h</span></span>
+                            <span className={styles.statTitle}>Respuesta</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <ShieldIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>30<span className={styles.statUnit}>días</span></span>
+                            <span className={styles.statTitle}>Garantía</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <TruckIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>Gratis</span>
+                            <span className={styles.statTitle}>Domicilio</span>
+                        </div>
+                    </div>
                 </div>
-              </a>
             </div>
-
-            {/* Beneficios clave simplificados */}
-            <div className={styles.urgency} data-aos="fade-up" data-aos-delay="400">
-              <div className={styles.urgencyItem}>
-                <span className={styles.urgencyDot}></span>
-                <span><strong>Servicio a domicilio</strong> sin costo adicional en Montería</span>
-              </div>
-              <div className={styles.urgencyItem}>
-                <span className={styles.urgencyDot}></span>
-                <span><strong>Reparación express</strong> completada el mismo día</span>
-              </div>
-              <div className={styles.urgencyItem}>
-                <span className={styles.urgencyDot}></span>
-                <span><strong>Solo 3 cupos disponibles</strong> para hoy</span>
-              </div>
-            </div>
-
-            {/* Trust Badges consolidados */}
-            <div data-aos="fade-up" data-aos-delay="500">
-              <TrustBadges />
-            </div>
-          </div>
-
-          <div className={styles.media} data-aos="zoom-in" data-aos-delay="200">
-            <HeroSliderStatic />
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+        </section>
+    );
 };
 
 export default Hero;

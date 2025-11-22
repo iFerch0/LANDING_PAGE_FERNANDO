@@ -1,233 +1,208 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
-import { PC_IMAGES } from '../data/pc-images';
+import { HERO_SLIDES } from '../data/heroSlides';
+import styles from './HeroSlider.module.css';
 
-// Custom SVG Icons
-const ChevronLeft = ({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
+/* Icons */
+const ChevronLeftIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M15 18L9 12L15 6" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
 );
 
-const ChevronRight = ({ size = 24 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const Play = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <polygon points="5,3 19,12 5,21" fill="currentColor"/>
-  </svg>
-);
-
-const Pause = ({ size = 20 }: { size?: number }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="6" y="4" width="4" height="16" fill="currentColor"/>
-    <rect x="14" y="4" width="4" height="16" fill="currentColor"/>
-  </svg>
+const ChevronRightIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M9 18L15 12L9 6" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
 );
 
 const HeroSliderStatic: React.FC = () => {
-  // Usar las imágenes generadas automáticamente
-  const slides = PC_IMAGES;
-  
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+    const slides = HERO_SLIDES;
+    const [current, setCurrent] = useState(0);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [isPaused, setIsPaused] = useState(false);
+    const [progressKey, setProgressKey] = useState(0);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Auto-play functionality
-  useEffect(() => {
-    if (!isPlaying || isHovered) return;
+    const DURATION = 5000;
 
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 4000);
+    // Auto-advance
+    useEffect(() => {
+        if (isPaused) {
+            if (timerRef.current) clearInterval(timerRef.current);
+            return;
+        }
 
-    return () => clearInterval(interval);
-  }, [isPlaying, isHovered, slides.length]);
+        timerRef.current = setInterval(() => {
+            setCurrent(prev => (prev + 1) % slides.length);
+            setProgressKey(prev => prev + 1);
+        }, DURATION);
 
-  // Preload images for better performance
-  useEffect(() => {
-    const preloadImages = async () => {
-      const imagePromises = slides.map((slide) => {
-        return new Promise((resolve, reject) => {
-          const img = new window.Image();
-          img.onload = resolve;
-          img.onerror = reject;
-          img.src = slide.src;
-        });
-      });
+        return () => {
+            if (timerRef.current) clearInterval(timerRef.current);
+        };
+    }, [isPaused, slides.length]);
 
-      try {
-        await Promise.all(imagePromises);
-        setIsLoaded(true);
-      } catch {
-        console.warn('Some images failed to preload');
-        setIsLoaded(true);
-      }
+    // Preload images
+    useEffect(() => {
+        const preload = async () => {
+            try {
+                await Promise.all(
+                    slides.map(slide => {
+                        return new Promise((resolve, reject) => {
+                            const img = new window.Image();
+                            img.onload = resolve;
+                            img.onerror = reject;
+                            img.src = slide.src;
+                        });
+                    })
+                );
+            } catch {
+                // Continue anyway
+            }
+            setIsLoaded(true);
+        };
+        preload();
+    }, [slides]);
+
+    const goTo = useCallback((index: number) => {
+        setCurrent(index);
+        setProgressKey(prev => prev + 1);
+    }, []);
+
+    const prev = useCallback(() => {
+        setCurrent(c => (c - 1 + slides.length) % slides.length);
+        setProgressKey(p => p + 1);
+    }, [slides.length]);
+
+    const next = useCallback(() => {
+        setCurrent(c => (c + 1) % slides.length);
+        setProgressKey(p => p + 1);
+    }, [slides.length]);
+
+    // Touch support
+    const touchStart = useRef(0);
+    const touchEnd = useRef(0);
+
+    const handleTouchStart = (e: React.TouchEvent) => {
+        touchStart.current = e.touches[0].clientX;
     };
 
-    preloadImages();
-  }, [slides]);
-
-  const goToSlide = useCallback((index: number) => {
-    setCurrentSlide(index);
-  }, []);
-
-  const goToPrevious = useCallback(() => {
-    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-  }, [slides.length]);
-
-  const goToNext = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
-
-  const togglePlayPause = useCallback(() => {
-    setIsPlaying((prev) => !prev);
-  }, []);
-
-  // Mouse hover handlers
-  const handleMouseEnter = useCallback(() => {
-    setIsHovered(true);
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setIsHovered(false);
-  }, []);
-
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      switch (event.key) {
-        case 'ArrowLeft':
-          goToPrevious();
-          break;
-        case 'ArrowRight':
-          goToNext();
-          break;
-        case ' ':
-          event.preventDefault();
-          togglePlayPause();
-          break;
-      }
+    const handleTouchEnd = () => {
+        const diff = touchStart.current - touchEnd.current;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                next();
+            } else {
+                prev();
+            }
+        }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [goToPrevious, goToNext, togglePlayPause]);
+    // Keyboard
+    useEffect(() => {
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowLeft') prev();
+            if (e.key === 'ArrowRight') next();
+        };
+        window.addEventListener('keydown', handleKey);
+        return () => window.removeEventListener('keydown', handleKey);
+    }, [prev, next]);
 
-  if (!isLoaded) {
-    return (
-      <div className="hero-slider__loading">
-        <div className="hero-slider__skeleton"></div>
-      </div>
-    );
-  }
-
-  return (
-    <div 
-      className="hero-slider" 
-      role="region" 
-      aria-label="Galería de servicios de reparación"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Main slider container */}
-      <div className="hero-slider__container">
-        <div 
-          className="hero-slider__track"
-          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-        >
-          {slides.map((slide, index) => (
-            <div
-              key={slide.id}
-              className={`hero-slider__slide ${index === currentSlide ? 'active' : ''}`}
-              aria-hidden={index !== currentSlide}
-            >
-              <Image
-                src={slide.src}
-                alt={slide.alt}
-                fill
-                className="hero-slider__image"
-                priority={index === 0}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 40vw"
-                quality={85}
-              />
-              {/* Gradient overlay for better text readability */}
-              <div className="hero-slider__overlay"></div>
+    if (!isLoaded) {
+        return (
+            <div className={styles.slider}>
+                <div className={styles.loading}>
+                    <div className={styles.skeleton} />
+                </div>
             </div>
-          ))}
+        );
+    }
+
+    return (
+        <div
+            className={styles.slider}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+            onTouchStart={handleTouchStart}
+            onTouchMove={e => { touchEnd.current = e.touches[0].clientX; }}
+            onTouchEnd={handleTouchEnd}
+        >
+            {/* Progress Bar */}
+            <div className={styles.progress}>
+                <div
+                    key={progressKey}
+                    className={`${styles.progressFill} ${!isPaused ? styles.animate : ''}`}
+                />
+            </div>
+
+            {/* Counter */}
+            <div className={styles.counter}>
+                <span className={styles.counterCurrent}>{current + 1}</span>
+                <span className={styles.counterDivider}>/</span>
+                <span className={styles.counterTotal}>{slides.length}</span>
+            </div>
+
+            {/* Slides */}
+            <div className={styles.slides}>
+                {slides.map((slide, index) => (
+                    <div
+                        key={slide.id}
+                        className={`${styles.slide} ${index === current ? styles.active : ''}`}
+                    >
+                        <Image
+                            src={slide.src}
+                            alt={slide.alt}
+                            fill
+                            className={styles.image}
+                            priority={index === 0}
+                            sizes="(max-width: 768px) 100vw, 600px"
+                            quality={85}
+                            style={{ objectPosition: slide.objectPosition || 'center center' }}
+                        />
+                        <div className={styles.overlay} />
+                        <div className={styles.caption}>
+                            <span className={styles.captionTag}>{slide.category}</span>
+                            <h3 className={styles.captionTitle}>{slide.title}</h3>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Navigation */}
+            <button
+                className={`${styles.navButton} ${styles.navPrev}`}
+                onClick={prev}
+                aria-label="Anterior"
+                type="button"
+            >
+                <ChevronLeftIcon className={styles.navIcon} />
+            </button>
+            <button
+                className={`${styles.navButton} ${styles.navNext}`}
+                onClick={next}
+                aria-label="Siguiente"
+                type="button"
+            >
+                <ChevronRightIcon className={styles.navIcon} />
+            </button>
+
+            {/* Dots */}
+            <div className={styles.dots}>
+                {slides.map((_, index) => (
+                    <button
+                        key={index}
+                        className={`${styles.dot} ${index === current ? styles.active : ''}`}
+                        onClick={() => goTo(index)}
+                        aria-label={`Ir a imagen ${index + 1}`}
+                        type="button"
+                    />
+                ))}
+            </div>
         </div>
-
-        {/* Navigation arrows */}
-        <button
-          className="hero-slider__nav hero-slider__nav--prev"
-          onClick={goToPrevious}
-          aria-label="Imagen anterior"
-          type="button"
-        >
-          <ChevronLeft size={24} />
-        </button>
-
-        <button
-          className="hero-slider__nav hero-slider__nav--next"
-          onClick={goToNext}
-          aria-label="Siguiente imagen"
-          type="button"
-        >
-          <ChevronRight size={24} />
-        </button>
-
-        {/* Play/Pause button */}
-        <button
-          className="hero-slider__play-pause"
-          onClick={togglePlayPause}
-          aria-label={isPlaying ? 'Pausar slideshow' : 'Reproducir slideshow'}
-          type="button"
-        >
-          {isPlaying ? <Pause size={20} /> : <Play size={20} />}
-        </button>
-
-        {/* Progress bar */}
-        <div className="hero-slider__progress">
-          <div 
-            className="hero-slider__progress-bar"
-            style={{ 
-              width: `${((currentSlide + 1) / slides.length) * 100}%`,
-              animationDuration: (isPlaying && !isHovered) ? '4000ms' : 'paused',
-              opacity: isHovered ? 0.5 : 1
-            }}
-          ></div>
-        </div>
-      </div>
-
-      {/* Dots indicator */}
-      <div className="hero-slider__dots" role="tablist" aria-label="Seleccionar imagen">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`hero-slider__dot ${index === currentSlide ? 'active' : ''}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Ir a imagen ${index + 1}`}
-            aria-selected={index === currentSlide}
-            role="tab"
-            type="button"
-          />
-        ))}
-      </div>
-
-      {/* Slide counter */}
-      <div className="hero-slider__counter" aria-live="polite">
-        <span className="hero-slider__counter-current">{currentSlide + 1}</span>
-        <span className="hero-slider__counter-separator">/</span>
-        <span className="hero-slider__counter-total">{slides.length}</span>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default HeroSliderStatic;

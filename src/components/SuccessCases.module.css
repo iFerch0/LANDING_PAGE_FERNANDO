@@ -353,54 +353,95 @@
     background: var(--color-border);
 }
 
-/* CTA */
+/* CTA - Contextual Design */
 .cta {
-    text-align: center;
+    position: relative;
+    margin-top: 3rem;
 }
 
 .ctaContent {
-    display: inline-flex;
-    flex-direction: column;
+    position: relative;
+    display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 2rem 3rem;
-    background: linear-gradient(135deg, var(--color-surface) 0%, rgba(var(--color-primary-rgb), 0.05) 100%);
-    border-radius: 1rem;
-    border: 1px solid var(--color-card-border);
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2.5rem 3rem;
+    background: linear-gradient(135deg, rgba(58, 110, 147, 0.08) 0%, rgba(34, 197, 94, 0.05) 100%);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border: 1px solid rgba(58, 110, 147, 0.2);
+    overflow: hidden;
+}
+
+.ctaContent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), #22c55e, var(--color-accent));
+}
+
+.ctaContent::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.1) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 .ctaTitle {
-    font-size: 1.25rem;
-    font-weight: 600;
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--color-text);
     margin: 0;
+    line-height: 1.2;
 }
 
 .ctaText {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: var(--color-text-secondary);
-    margin: 0;
+    margin: 0.5rem 0 0;
 }
 
 .ctaButton {
+    position: relative;
+    z-index: 1;
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    background: #25D366;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
     color: white;
-    padding: 0.875rem 1.75rem;
-    border-radius: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 14px;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 4px 14px rgba(37, 211, 102, 0.3),
+        0 0 0 0 rgba(37, 211, 102, 0.4);
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .ctaButton:hover {
-    background: #20bd5a;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow:
+        0 8px 25px rgba(37, 211, 102, 0.4),
+        0 0 0 3px rgba(37, 211, 102, 0.15);
+}
+
+.ctaButton svg {
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover svg {
+    transform: scale(1.1);
 }
 
 /* Responsive */
@@ -457,13 +498,20 @@
     }
 
     .ctaContent {
-        padding: 1.5rem;
-        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .ctaTitle {
+        font-size: 1.25rem;
     }
 
     .ctaButton {
         width: 100%;
         justify-content: center;
+        padding: 1rem 1.5rem;
     }
 }
 
@@ -489,10 +537,14 @@
 
 :global([data-color-scheme="dark"]) .featured,
 :global([data-color-scheme="dark"]) .card,
-:global([data-color-scheme="dark"]) .statsBar,
-:global([data-color-scheme="dark"]) .ctaContent {
+:global([data-color-scheme="dark"]) .statsBar {
     background: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.08);
+}
+
+:global([data-color-scheme="dark"]) .ctaContent {
+    background: linear-gradient(135deg, rgba(58, 110, 147, 0.1) 0%, rgba(34, 197, 94, 0.06) 100%);
+    border-color: rgba(58, 110, 147, 0.15);
 }
 
 :global([data-color-scheme="dark"]) .metric,
