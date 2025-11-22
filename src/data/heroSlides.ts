@@ -8,6 +8,7 @@ export interface HeroSlide {
     title: string;
     subtitle: string;
     category: string;
+    objectPosition?: string; // Punto focal: "center", "top", "center top", etc.
 }
 
 export const HERO_SLIDES: HeroSlide[] = [
@@ -17,7 +18,8 @@ export const HERO_SLIDES: HeroSlide[] = [
         alt: "Setup dual monitor profesional con laptop y monitor externo Acer configurado",
         title: "Configuración Profesional",
         subtitle: "Setups optimizados para productividad máxima",
-        category: "Setup"
+        category: "Setup",
+        objectPosition: "center 30%" // Monitores arriba
     },
     {
         id: 2,
@@ -25,7 +27,8 @@ export const HERO_SLIDES: HeroSlide[] = [
         alt: "Laptop Lenovo Windows completamente funcional después de reparación",
         title: "Laptop Restaurada",
         subtitle: "Rendimiento como nuevo garantizado",
-        category: "Reparación"
+        category: "Reparación",
+        objectPosition: "center 25%" // Pantalla en la parte superior
     },
     {
         id: 3,
@@ -33,7 +36,8 @@ export const HERO_SLIDES: HeroSlide[] = [
         alt: "Interior de laptop mostrando motherboard, disco duro y RAM durante mantenimiento",
         title: "Mantenimiento Profundo",
         subtitle: "Diagnóstico y limpieza de componentes internos",
-        category: "Mantenimiento"
+        category: "Mantenimiento",
+        objectPosition: "center center" // Componentes centrados
     },
     {
         id: 4,
@@ -41,7 +45,8 @@ export const HERO_SLIDES: HeroSlide[] = [
         alt: "MacBook Air con instalación de macOS Monterey en progreso",
         title: "Instalación de Sistemas",
         subtitle: "Windows, macOS y Linux configurados a medida",
-        category: "Software"
+        category: "Software",
+        objectPosition: "center 20%" // MacBook pantalla arriba
     },
     {
         id: 5,
@@ -49,6 +54,7 @@ export const HERO_SLIDES: HeroSlide[] = [
         alt: "Mini PC Dell abierta mostrando disco duro 500GB y sistema de ventilación",
         title: "Upgrade de Hardware",
         subtitle: "Ampliación de almacenamiento y memoria",
-        category: "Upgrade"
+        category: "Upgrade",
+        objectPosition: "center 40%" // Disco duro y ventilador
     }
 ];

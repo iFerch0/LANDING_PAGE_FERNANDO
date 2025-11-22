@@ -160,6 +160,7 @@ const HeroSliderStatic: React.FC = () => {
                             priority={index === 0}
                             sizes="(max-width: 768px) 100vw, 600px"
                             quality={85}
+                            style={{ objectPosition: slide.objectPosition || 'center center' }}
                         />
                         <div className={styles.overlay} />
                         <div className={styles.caption}>
