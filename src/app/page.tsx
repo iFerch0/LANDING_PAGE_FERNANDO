@@ -55,9 +55,7 @@ export default function HomePage() {
         <Faq />
 
         {/* CTA Final - Último empujón */}
-        <div data-aos="fade-up">
-          <CtaFinal />
-        </div>
+        <CtaFinal />
 
         {/* ContactForm - Captura de leads */}
         <ContactForm />
