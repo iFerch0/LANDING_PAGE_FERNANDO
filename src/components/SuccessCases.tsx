@@ -138,24 +138,6 @@ const SuccessCases: React.FC = () => {
                     />
                 </div>
 
-                {/* Stats Bar */}
-                <div className={styles.statsBar} data-aos="fade-up">
-                    <div className={styles.statItem}>
-                        <span className={styles.statNumber}>500+</span>
-                        <span className={styles.statText}>Equipos reparados</span>
-                    </div>
-                    <div className={styles.statDivider} />
-                    <div className={styles.statItem}>
-                        <span className={styles.statNumber}>98%</span>
-                        <span className={styles.statText}>Clientes satisfechos</span>
-                    </div>
-                    <div className={styles.statDivider} />
-                    <div className={styles.statItem}>
-                        <span className={styles.statNumber}>24h</span>
-                        <span className={styles.statText}>Tiempo promedio</span>
-                    </div>
-                </div>
-
                 {/* CTA */}
                 <div className={styles.cta} data-aos="fade-up">
                     <div className={styles.ctaContent}>
