@@ -5,7 +5,6 @@ import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
 import ServicesGrid from '@/components/ServicesGrid';
-import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 import CtaFinal from '@/components/CtaFinal';
@@ -48,9 +47,6 @@ export default function HomePage() {
 
         {/* ServicesGrid - Qué ofrecemos + precios */}
         <ServicesGrid />
-
-        {/* Stats - Números de confianza */}
-        <Stats />
 
         {/* Testimonials - Reviews verificadas */}
         <Testimonials />
