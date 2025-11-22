@@ -1,646 +1,179 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import BeforeAfterSlider from "./BeforeAfterSlider";
+import styles from "./SuccessCases.module.css";
 
-const SuccessCases = () => {
+// Metric Component
+const Metric: React.FC<{ value: string; label: string; highlight?: boolean }> = ({
+    value, label, highlight
+}) => (
+    <div className={`${styles.metric} ${highlight ? styles.metricHighlight : ''}`}>
+        <span className={styles.metricValue}>{value}</span>
+        <span className={styles.metricLabel}>{label}</span>
+    </div>
+);
+
+// Case Card Component for secondary cases
+const CaseCard: React.FC<{
+    image: string;
+    alt: string;
+    tag: string;
+    title: string;
+    metrics: { value: string; label: string }[];
+    index: number;
+}> = ({ image, alt, tag, title, metrics, index }) => (
+    <article className={styles.card} data-aos="fade-up" data-aos-delay={index * 100}>
+        <div className={styles.cardImage}>
+            <Image src={image} alt={alt} fill style={{ objectFit: "cover" }} />
+            <div className={styles.cardOverlay}>
+                <span className={styles.cardTag}>{tag}</span>
+            </div>
+        </div>
+        <div className={styles.cardContent}>
+            <h3 className={styles.cardTitle}>{title}</h3>
+            <div className={styles.cardMetrics}>
+                {metrics.map((m, i) => (
+                    <div key={i} className={styles.cardMetric}>
+                        <span className={styles.cardMetricValue}>{m.value}</span>
+                        <span className={styles.cardMetricLabel}>{m.label}</span>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </article>
+);
+
+const SuccessCases: React.FC = () => {
     return (
-        <section id="casos" className="success-cases" aria-labelledby="cases-title">
-            <div className="container">
-                {/* Header optimizado */}
-                <div className="success-cases__header" data-aos="fade-up">
-                    <div className="success-cases__eyebrow">Casos de éxito reales</div>
-                    <h2 id="cases-title" className="success-cases__title">
-                        Transformaciones técnicas
-                        <span className="success-cases__title-highlight"> documentadas</span>
+        <section id="casos" className={styles.section}>
+            <div className={styles.container}>
+                {/* Header */}
+                <header className={styles.header} data-aos="fade-up">
+                    <span className={styles.eyebrow}>Resultados reales</span>
+                    <h2 className={styles.title}>
+                        Transformaciones que
+                        <span className={styles.titleAccent}> hablan por sí solas</span>
                     </h2>
-                    <p className="success-cases__subtitle">
-                        Trabajos reales con resultados medibles: desde mantenimiento profesional hasta ensambles especializados
+                    <p className={styles.subtitle}>
+                        Cada reparación documentada. Cada resultado medible.
                     </p>
+                </header>
+
+                {/* Featured Case */}
+                <div className={styles.featured} data-aos="fade-up" data-aos-delay="100">
+                    <div className={styles.featuredSlider}>
+                        <BeforeAfterSlider
+                            beforeImage="/img/antes-despues/optimized/1-mantenimiento-antes.JPG"
+                            afterImage="/img/antes-despues/optimized/1-manteniento-despues.JPG"
+                            beforeAlt="PC con sobrecalentamiento antes del mantenimiento"
+                            afterAlt="PC funcionando a temperatura óptima después del mantenimiento"
+                        />
+                    </div>
+
+                    <div className={styles.featuredContent}>
+                        <div className={styles.featuredBadge}>
+                            <span className={styles.badgeIcon}>🔥</span>
+                            <span>Caso Destacado</span>
+                        </div>
+
+                        <h3 className={styles.featuredTitle}>
+                            Reducción Térmica Crítica
+                        </h3>
+
+                        <p className={styles.featuredDesc}>
+                            PC que se apagaba constantemente por sobrecalentamiento.
+                            Intervención completa con resultados inmediatos.
+                        </p>
+
+                        <div className={styles.metricsGrid}>
+                            <Metric value="85°C" label="Temp. inicial" />
+                            <Metric value="45°C" label="Temp. final" highlight />
+                            <Metric value="-47%" label="Reducción" highlight />
+                            <Metric value="0dB" label="Ruido final" />
+                        </div>
+
+                        <div className={styles.processList}>
+                            <div className={styles.processItem}>
+                                <span className={styles.processIcon}>✓</span>
+                                <span>Limpieza profunda de componentes</span>
+                            </div>
+                            <div className={styles.processItem}>
+                                <span className={styles.processIcon}>✓</span>
+                                <span>Reemplazo de pasta térmica premium</span>
+                            </div>
+                            <div className={styles.processItem}>
+                                <span className={styles.processIcon}>✓</span>
+                                <span>Calibración de sistema de ventilación</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Grid de casos mejorado */}
-                <div className="success-cases__grid">
-                    {/* Caso 1: Mantenimiento Completo */}
-                    <article className="success-case success-case--featured" data-aos="fade-up" data-aos-delay="100">
-                        <div className="success-case__header">
-                            <div className="success-case__tag">🧹 Mantenimiento Profundo</div>
-                            <h3 className="success-case__title">Reducción térmica crítica: 85°C → 45°C</h3>
-                        </div>
-
-                        <div className="before-after">
-                            <div className="before-after__item">
-                                <div className="before-after__label">ANTES</div>
-                                <div className="before-after__image">
-                                    <Image 
-                                        src="/img/antes-despues/optimized/1-mantenimiento-antes.JPG" 
-                                        alt="PC con polvo antes del mantenimiento"
-                                        width={320}
-                                        height={200}
-                                        className="case-image"
-                                    />
-                                </div>
-                                <div className="before-after__stats">
-                                    <div className="stat">
-                                        <span className="stat-value">85°C</span>
-                                        <span className="stat-label">Temperatura CPU</span>
-                                    </div>
-                                    <div className="stat">
-                                        <span className="stat-value">Muy alto</span>
-                                        <span className="stat-label">Ruido ventiladores</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="before-after__arrow">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </div>
-
-                            <div className="before-after__item">
-                                <div className="before-after__label">DESPUÉS</div>
-                                <div className="before-after__image">
-                                    <Image 
-                                        src="/img/antes-despues/optimized/1-manteniento-despues.JPG" 
-                                        alt="PC limpia después del mantenimiento"
-                                        width={320}
-                                        height={200}
-                                        className="case-image"
-                                    />
-                                </div>
-                                <div className="before-after__stats">
-                                    <div className="stat">
-                                        <span className="stat-value">45°C</span>
-                                        <span className="stat-label">Temperatura CPU</span>
-                                    </div>
-                                    <div className="stat">
-                                        <span className="stat-value">Silencioso</span>
-                                        <span className="stat-label">Funcionamiento</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="success-case__details">
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                gap: '0.5rem',
-                                marginBottom: '0.75rem',
-                                padding: '0.5rem 0'
-                            }}>
-                                <span style={{
-                                    fontSize: '0.875rem',
-                                    fontWeight: '700',
-                                    color: 'var(--brand-azul_vibrante)',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                    padding: '0.375rem 0.75rem',
-                                    borderRadius: '0.375rem',
-                                    border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.375rem'
-                                }}>
-                                    <span style={{ fontSize: '1rem' }}>🔧</span>
-                                    Proceso Técnico
-                                </span>
-                            </div>
-                            
-                            <div className="detail-item">
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '0.5rem'
-                                }}>
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-rojo_anaranjado-rgb), 0.1), rgba(var(--brand-rojo_intenso-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-rojo_anaranjado-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🌡️</span>
-                                        <span>DIAGNÓSTICO TÉRMICO</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🧹</span>
-                                        <span>LIMPIEZA PROFUNDA</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>❄️</span>
-                                        <span>PASTA TÉRMICA NUEVA</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-marron_calido-rgb), 0.1), rgba(var(--brand-marron_calido-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-marron_calido-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>⚡</span>
-                                        <span>CALIBRACIÓN FANS</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-naranja_quemado-rgb), 0.1), rgba(var(--brand-piel_bronceada-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-naranja_quemado-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>📊</span>
-                                        <span>PRUEBAS TÉRMICAS</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-gris_oscuro-rgb), 0.1), rgba(var(--brand-gris_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-gris_oscuro-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>✅</span>
-                                        <span>VALIDACIÓN FINAL</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Diagnóstico inicial:</span>
-                                <span>Sobrecalentamiento crítico por obstrucción total de ventiladores y degradación de pasta térmica</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Intervención especializada:</span>
-                                <span>Limpieza profunda con aire comprimido + reemplazo pasta térmica + calibración ventiladores</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Resultado medible:</span>
-                                <span>Reducción 47% temperatura CPU (85°C→45°C) + eliminación 100% ruido operativo</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    {/* Caso 2: Ensamble PC */}
-                    <article className="success-case" data-aos="fade-up" data-aos-delay="200">
-                        <div className="success-case__header">
-                            <div className="success-case__tag">🔧 Ensamble Especializado</div>
-                            <h3 className="success-case__title">Workstation diseño: AMD Ryzen 8500G + DDR5 32GB</h3>
-                        </div>
-
-                        <div className="before-after">
-                            <div className="before-after__item">
-                                <div className="before-after__label">COMPONENTES</div>
-                                <div className="before-after__image">
-                                    <Image 
-                                        src="/img/antes-despues/optimized/2-ensamble-antes.jpg" 
-                                        alt="Componentes AMD Ryzen 8500G, DDR5 32GB, SSD M.2 1TB antes del ensamble"
-                                        width={280}
-                                        height={180}
-                                        className="case-image"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="before-after__arrow">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </div>
-
-                            <div className="before-after__item">
-                                <div className="before-after__label">PC TERMINADA</div>
-                                <div className="before-after__image">
-                                    <Image 
-                                        src="/img/antes-despues/optimized/2-ensamble-despues.jpg" 
-                                        alt="PC para diseño gráfico con AMD Ryzen 8500G ensamblada y funcionando"
-                                        width={280}
-                                        height={180}
-                                        className="case-image"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="success-case__details">
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                gap: '0.5rem',
-                                marginBottom: '0.75rem',
-                                padding: '0.5rem 0'
-                            }}>
-                                <span style={{
-                                    fontSize: '0.875rem',
-                                    fontWeight: '700',
-                                    color: 'var(--brand-azul_vibrante)',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                    padding: '0.375rem 0.75rem',
-                                    borderRadius: '0.375rem',
-                                    border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.375rem'
-                                }}>
-                                    <span style={{ fontSize: '1rem' }}>🔧</span>
-                                    Componentes Técnicos
-                                </span>
-                            </div>
-                            
-                            <div className="detail-item">
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '0.5rem'
-                                }}>
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-rojo_anaranjado-rgb), 0.1), rgba(var(--brand-rojo_intenso-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-rojo_anaranjado-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🔥</span>
-                                        <span>AMD RYZEN 8500G</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🔌</span>
-                                        <span>BOARD A620</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>❄️</span>
-                                        <span>REFRIGERACIÓN LÍQUIDA</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-marron_calido-rgb), 0.1), rgba(var(--brand-marron_calido-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-marron_calido-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>⚡</span>
-                                        <span>DDR5 32GB 6400MHZ</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-naranja_quemado-rgb), 0.1), rgba(var(--brand-piel_bronceada-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-naranja_quemado-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>💾</span>
-                                        <span>SSD M.2 1TB</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-gris_oscuro-rgb), 0.1), rgba(var(--brand-gris_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-gris_oscuro-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>📦</span>
-                                        <span>COOLER MASTER Q300L</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Aplicación específica:</span>
-                                <span>Workstation diseño gráfico profesional con arquitectura escalable para GPU dedicada</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Configuración entregada:</span>
-                                <span>Sistema operativo optimizado + suite Adobe + drivers especializados + pruebas rendimiento</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Garantía técnica:</span>
-                                <span>6 meses hardware + soporte configuración + asesoría upgrade futuro</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    {/* Caso 3: Mantenimiento Sencillo */}
-                    <article className="success-case" data-aos="fade-up" data-aos-delay="300">
-                        <div className="success-case__header">
-                            <div className="success-case__tag">🔄 Restauración Completa</div>
-                            <h3 className="success-case__title">Rescate técnico: PC archivado → Estado regalo</h3>
-                        </div>
-
-                        <div className="before-after">
-                            <div className="before-after__item">
-                                <div className="before-after__label">ESTADO INICIAL</div>
-                                <div className="before-after__image">
-                                    <Image 
-                                        src="/img/antes-despues/optimized/3-mantenimiento-pc-sencillo-antes.JPG" 
-                                        alt="PC archivado extremadamente sucio antes del mantenimiento"
-                                        width={280}
-                                        height={180}
-                                        className="case-image"
-                                    />
-                                </div>
-                            </div>
-
-                            <div className="before-after__arrow">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
-                                    <path d="M5 12h14m-7-7l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                                </svg>
-                            </div>
-
-                            <div className="before-after__item">
-                                <div className="before-after__label">RECUPERADO</div>
-                                <div className="before-after__image">
-                                    <Image 
-                                        src="/img/antes-despues/optimized/3-mantenimiento-pc-sencillo-despues.jpg" 
-                                        alt="PC recuperado después del mantenimiento completo, listo para regalo"
-                                        width={280}
-                                        height={180}
-                                        className="case-image"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="success-case__details">
-                            <div style={{
-                                display: 'flex',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                gap: '0.5rem',
-                                marginBottom: '0.75rem',
-                                padding: '0.5rem 0'
-                            }}>
-                                <span style={{
-                                    fontSize: '0.875rem',
-                                    fontWeight: '700',
-                                    color: 'var(--brand-azul_vibrante)',
-                                    textTransform: 'uppercase',
-                                    letterSpacing: '0.05em',
-                                    background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                    padding: '0.375rem 0.75rem',
-                                    borderRadius: '0.375rem',
-                                    border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.375rem'
-                                }}>
-                                    <span style={{ fontSize: '1rem' }}>🛠️</span>
-                                    Proceso de Restauración
-                                </span>
-                            </div>
-                            
-                            <div className="detail-item">
-                                <div style={{
-                                    display: 'grid',
-                                    gridTemplateColumns: '1fr 1fr',
-                                    gap: '0.5rem'
-                                }}>
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🧹</span>
-                                        <span>LIMPIEZA PROFUNDA</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.1), rgba(var(--brand-azul_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🔍</span>
-                                        <span>DIAGNÓSTICO COMPLETO</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-naranja_quemado-rgb), 0.1), rgba(var(--brand-piel_bronceada-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-naranja_quemado-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>💾</span>
-                                        <span>INSTALACIÓN WINDOWS</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-marron_calido-rgb), 0.1), rgba(var(--brand-marron_calido-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-marron_calido-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>⚡</span>
-                                        <span>OPTIMIZACIÓN SISTEMA</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-rojo_anaranjado-rgb), 0.1), rgba(var(--brand-rojo_intenso-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-rojo_anaranjado-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>🔥</span>
-                                        <span>PASTA TÉRMICA NUEVA</span>
-                                    </div>
-                                    
-                                    <div style={{
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '0.5rem',
-                                        padding: '0.5rem 0.75rem',
-                                        background: 'linear-gradient(135deg, rgba(var(--brand-gris_oscuro-rgb), 0.1), rgba(var(--brand-gris_oscuro-rgb), 0.05))',
-                                        border: '1px solid rgba(var(--brand-gris_oscuro-rgb), 0.2)',
-                                        borderRadius: '0.5rem',
-                                        fontSize: '0.75rem',
-                                        fontWeight: '600'
-                                    }}>
-                                        <span style={{ fontSize: '1rem' }}>✅</span>
-                                        <span>PRUEBAS COMPLETAS</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Situación inicial:</span>
-                                <span>PC archivado durante años, extremadamente sucio, destinado para regalo familiar</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Intervención técnica:</span>
-                                <span>Desmontaje completo + limpieza especializada + reemplazo pasta térmica + instalación Windows limpio</span>
-                            </div>
-                            <div className="detail-item">
-                                <span className="detail-label">Entrega final:</span>
-                                <span>PC completamente funcional como nuevo, optimizado y listo para regalo con garantía</span>
-                            </div>
-                        </div>
-                    </article>
+                {/* Secondary Cases Grid */}
+                <div className={styles.grid}>
+                    <CaseCard
+                        image="/img/antes-despues/optimized/2-ensamble-despues.jpg"
+                        alt="Workstation AMD Ryzen ensamblada"
+                        tag="Ensamble"
+                        title="Workstation Diseño Gráfico"
+                        metrics={[
+                            { value: "Ryzen 8500G", label: "Procesador" },
+                            { value: "32GB DDR5", label: "Memoria" },
+                            { value: "1TB NVMe", label: "Almacenamiento" }
+                        ]}
+                        index={0}
+                    />
+                    <CaseCard
+                        image="/img/antes-despues/optimized/3-mantenimiento-pc-sencillo-despues.jpg"
+                        alt="PC restaurado completamente"
+                        tag="Restauración"
+                        title="Rescate Total de Equipo"
+                        metrics={[
+                            { value: "100%", label: "Funcionalidad" },
+                            { value: "Nuevo", label: "Estado final" },
+                            { value: "30 días", label: "Garantía" }
+                        ]}
+                        index={1}
+                    />
                 </div>
 
-                {/* CTA de casos de éxito */}
-                <div className="success-cases__cta" data-aos="fade-up" data-aos-delay="400">
-                    <div className="success-cta__content">
-                        <div className="success-cta__header">
-                            <h3 className="success-cta__title">¿Necesitas una intervención técnica similar?</h3>
-                            <p className="success-cta__desc">
-                                Diagnóstico profesional inmediato: describe tu situación y obtienes evaluación técnica en 5 minutos
-                            </p>
-                        </div>
+                {/* Stats Bar */}
+                <div className={styles.statsBar} data-aos="fade-up">
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>500+</span>
+                        <span className={styles.statText}>Equipos reparados</span>
+                    </div>
+                    <div className={styles.statDivider} />
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>98%</span>
+                        <span className={styles.statText}>Clientes satisfechos</span>
+                    </div>
+                    <div className={styles.statDivider} />
+                    <div className={styles.statItem}>
+                        <span className={styles.statNumber}>24h</span>
+                        <span className={styles.statText}>Tiempo promedio</span>
+                    </div>
+                </div>
 
-                        <div className="success-cta__benefits">
-                            <div className="cta-benefit-item">
-                                <span className="benefit-icon">💬</span>
-                                <span>Diagnóstico técnico inmediato</span>
-                            </div>
-                            <div className="cta-benefit-item">
-                                <span className="benefit-icon">💰</span>
-                                <span>Cotización profesional gratuita</span>
-                            </div>
-                            <div className="cta-benefit-item">
-                                <span className="benefit-icon">🚀</span>
-                                <span>Resultados documentados como estos</span>
-                            </div>
-                        </div>
-
-                        <div className="success-cta__actions">
-                            <a href="https://wa.me/573008474121" className="btn btn--primary btn--large cta-pulse">
-                                <span className="btn__icon">📱</span>
-                                Solicitar evaluación técnica
-                            </a>
-                            
-                            <div className="success-cta__social-proof">
-                                <div className="social-proof-item">
-                                    <span className="social-icon">⭐</span>
-                                    <span>92% clientes satisfechos</span>
-                                </div>
-                                <div className="social-proof-item">
-                                    <span className="social-icon">📸</span>
-                                    <span>Trabajo documentado</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="success-cta__guarantee">
-                            <div className="guarantee-badge">
-                                <span className="guarantee-icon">🛡️</span>
-                                <div className="guarantee-text">
-                                    <div className="guarantee-title">Garantía sin riesgo</div>
-                                    <div className="guarantee-desc">Si no tiene solución, no pagas nada</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="success-cta__urgency">
-                            <span className="urgency-icon">⏰</span>
-                            <span>Disponible hoy - Respuesta inmediata por WhatsApp</span>
-                        </div>
+                {/* CTA */}
+                <div className={styles.cta} data-aos="fade-up">
+                    <div className={styles.ctaContent}>
+                        <h3 className={styles.ctaTitle}>¿Tu equipo necesita atención?</h3>
+                        <p className={styles.ctaText}>
+                            Diagnóstico gratuito y presupuesto sin compromiso
+                        </p>
+                        <a
+                            href="https://wa.me/573015218139?text=Hola%20Fernando%2C%20vi%20los%20casos%20de%20éxito%20y%20necesito%20ayuda%20con%20mi%20equipo"
+                            className={styles.ctaButton}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"/>
+                            </svg>
+                            Solicitar diagnóstico
+                        </a>
                     </div>
                 </div>
             </div>
