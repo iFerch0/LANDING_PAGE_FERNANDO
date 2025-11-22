@@ -19,9 +19,9 @@ const LocationIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const ShieldIcon = ({ className }: { className?: string }) => (
+const CheckIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -29,12 +29,6 @@ const ClockIcon = ({ className }: { className?: string }) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
         <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    </svg>
-);
-
-const CheckIcon = ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
 );
 
@@ -52,54 +46,66 @@ const StarIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
+const ShieldIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+const CreditCardIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="1" y="4" width="22" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
+        <line x1="1" y1="10" x2="23" y2="10" stroke="currentColor" strokeWidth="2"/>
+    </svg>
+);
+
 const Hero = () => {
     return (
         <section id="inicio" className={styles.hero}>
             {/* Animated Background */}
-            <div className={styles.heroBackground}>
-                <div className={styles.meshGradient} />
-                <div className={`${styles.orb} ${styles.orb1}`} />
-                <div className={`${styles.orb} ${styles.orb2}`} />
-                <div className={`${styles.orb} ${styles.orb3}`} />
-                <div className={styles.gridPattern} />
+            <div className={styles.background}>
+                <div className={styles.gradient1} />
+                <div className={styles.gradient2} />
+                <div className={styles.gradient3} />
+                <div className={styles.noise} />
             </div>
 
-            <div className={styles.content}>
-                <div className={styles.layout}>
-                    {/* Copy Section */}
-                    <div className={styles.copy} data-aos="fade-right">
+            <div className={styles.container}>
+                <div className={styles.grid}>
+                    {/* Text Column */}
+                    <div className={styles.textColumn} data-aos="fade-right">
                         {/* Eyebrow */}
                         <div className={styles.eyebrow}>
                             <VerifiedIcon className={styles.eyebrowIcon} />
                             <span className={styles.eyebrowText}>Técnico Certificado</span>
-                            <span className={styles.eyebrowDot} />
+                            <span className={styles.eyebrowPulse} />
                         </div>
 
                         {/* Headlines */}
-                        <div className={styles.headline}>
-                            <span className={styles.painPoint}>
+                        <div className={styles.headlines}>
+                            <p className={styles.question}>
                                 ¿Tu PC tarda más de 5 minutos en encender?
-                            </span>
-                            <h1 className={styles.mainTitle}>
-                                <span className={styles.titleGradient}>
+                            </p>
+                            <h1 className={styles.mainHeadline}>
+                                <span className={styles.headlineGradient}>
                                     Lo arreglamos HOY
                                 </span>
                             </h1>
-                            <div className={styles.locationBadge}>
+                            <div className={styles.location}>
                                 <LocationIcon className={styles.locationIcon} />
                                 <span>Montería, Córdoba</span>
                             </div>
                         </div>
 
-                        {/* Subtitle */}
-                        <p className={styles.subtitle}>
-                            Ingeniero de sistemas con <strong>10+ años de experiencia</strong> y más de
-                            500 equipos reparados. Diagnóstico gratuito, repuestos originales y
-                            servicio a domicilio incluido.
+                        {/* Description */}
+                        <p className={styles.description}>
+                            Ingeniero de sistemas con{' '}
+                            <span className={styles.highlight}>10+ años de experiencia</span>.
+                            Diagnóstico gratuito, repuestos originales y servicio a domicilio incluido.
                         </p>
 
                         {/* CTAs */}
-                        <div className={styles.actions}>
+                        <div className={styles.ctas}>
                             <a
                                 href="http://wa.link/n8et4q"
                                 target="_blank"
@@ -116,7 +122,7 @@ const Hero = () => {
 
                             <a
                                 href="tel:+573008474121"
-                                aria-label="Llamar para agendar revisión"
+                                aria-label="Llamar ahora"
                                 className="btn btn--secondary btn--cta-secondary"
                             >
                                 <PhoneIcon className="btn__icon" />
@@ -127,69 +133,74 @@ const Hero = () => {
                             </a>
                         </div>
 
-                        {/* Stats Cards */}
-                        <div className={styles.statsRow}>
-                            <div className={styles.statCard}>
-                                <div className={`${styles.statIcon} ${styles.statIconGreen}`}>
-                                    <CheckIcon className={styles.statIconSvg} />
-                                </div>
-                                <div className={`${styles.statValue} ${styles.statValueGreen}`}>500+</div>
-                                <div className={styles.statLabel}>PCs Reparados</div>
+                        {/* Quick Stats */}
+                        <div className={styles.quickStats}>
+                            <div className={styles.quickStat}>
+                                <span className={styles.quickStatValue}>500+</span>
+                                <span className={styles.quickStatLabel}>PCs reparados</span>
                             </div>
-
-                            <div className={styles.statCard}>
-                                <div className={`${styles.statIcon} ${styles.statIconBlue}`}>
-                                    <ClockIcon className={styles.statIconSvg} />
-                                </div>
-                                <div className={`${styles.statValue} ${styles.statValueBlue}`}>24h</div>
-                                <div className={styles.statLabel}>Respuesta</div>
+                            <div className={styles.quickStat}>
+                                <span className={styles.quickStatValue}>24h</span>
+                                <span className={styles.quickStatLabel}>Respuesta</span>
                             </div>
-
-                            <div className={styles.statCard}>
-                                <div className={`${styles.statIcon} ${styles.statIconPurple}`}>
-                                    <ShieldIcon className={styles.statIconSvg} />
-                                </div>
-                                <div className={`${styles.statValue} ${styles.statValuePurple}`}>30</div>
-                                <div className={styles.statLabel}>Días Garantía</div>
-                            </div>
-                        </div>
-
-                        {/* Trust Strip */}
-                        <div className={styles.trustStrip}>
-                            <div className={styles.trustItem}>
-                                <StarIcon className={styles.trustIcon} />
-                                <span>5.0 en Google</span>
-                            </div>
-                            <div className={styles.trustItem}>
-                                <TruckIcon className={styles.trustIcon} />
-                                <span>Domicilio gratis</span>
-                            </div>
-                            <div className={styles.trustItem}>
-                                <ShieldIcon className={styles.trustIcon} />
-                                <span>Pago contraentrega</span>
+                            <div className={styles.quickStat}>
+                                <span className={styles.quickStatValue}>30</span>
+                                <span className={styles.quickStatLabel}>Días garantía</span>
                             </div>
                         </div>
                     </div>
 
-                    {/* Media Section */}
-                    <div className={styles.media} data-aos="fade-left" data-aos-delay="200">
-                        {/* Floating Feature Pills */}
-                        <div className={styles.featurePills}>
-                            <div className={styles.featurePill}>
-                                <CheckIcon className={`${styles.featurePillIcon} ${styles.featurePillIconGreen}`} />
-                                <span>Diagnóstico gratuito</span>
+                    {/* Slider Column */}
+                    <div className={styles.sliderColumn} data-aos="fade-left" data-aos-delay="200">
+                        <div className={styles.sliderWrapper}>
+                            {/* Floating Cards */}
+                            <div className={styles.floatingCards}>
+                                <div className={`${styles.floatingCard} ${styles.floatingCard1}`}>
+                                    <div className={`${styles.cardIcon} ${styles.cardIconGreen}`}>
+                                        <CheckIcon />
+                                    </div>
+                                    <span>Diagnóstico gratis</span>
+                                </div>
+                                <div className={`${styles.floatingCard} ${styles.floatingCard2}`}>
+                                    <div className={`${styles.cardIcon} ${styles.cardIconBlue}`}>
+                                        <ClockIcon />
+                                    </div>
+                                    <span>Mismo día</span>
+                                </div>
+                                <div className={`${styles.floatingCard} ${styles.floatingCard3}`}>
+                                    <div className={`${styles.cardIcon} ${styles.cardIconOrange}`}>
+                                        <TruckIcon />
+                                    </div>
+                                    <span>A domicilio</span>
+                                </div>
                             </div>
-                            <div className={styles.featurePill}>
-                                <ClockIcon className={`${styles.featurePillIcon} ${styles.featurePillIconBlue}`} />
-                                <span>Mismo día</span>
-                            </div>
-                            <div className={styles.featurePill}>
-                                <TruckIcon className={`${styles.featurePillIcon} ${styles.featurePillIconOrange}`} />
-                                <span>A domicilio</span>
-                            </div>
-                        </div>
 
-                        <HeroSliderStatic />
+                            {/* Slider with 3D effect */}
+                            <div className={styles.sliderInner}>
+                                <HeroSliderStatic />
+                            </div>
+                            <div className={styles.sliderShadow} />
+                        </div>
+                    </div>
+
+                    {/* Trust Row */}
+                    <div className={styles.trustRow}>
+                        <div className={styles.trustItem}>
+                            <StarIcon className={styles.trustIcon} />
+                            <span>5.0 en Google</span>
+                        </div>
+                        <div className={styles.trustItem}>
+                            <TruckIcon className={styles.trustIcon} />
+                            <span>Domicilio gratis</span>
+                        </div>
+                        <div className={styles.trustItem}>
+                            <ShieldIcon className={styles.trustIcon} />
+                            <span>Garantía 30 días</span>
+                        </div>
+                        <div className={styles.trustItem}>
+                            <CreditCardIcon className={styles.trustIcon} />
+                            <span>Pago contraentrega</span>
+                        </div>
                     </div>
                 </div>
             </div>
