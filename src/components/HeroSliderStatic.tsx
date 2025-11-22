@@ -257,7 +257,7 @@ const HeroSliderStatic: React.FC = () => {
                             fill
                             className={styles.thumbnailImage}
                             sizes="48px"
-                            quality={50}
+                            quality={75}
                         />
                     </button>
                 ))}
