@@ -95,24 +95,8 @@ const Faq: React.FC = () => {
             </h2>
           </div>
           <p className={styles.subtitle}>
-            Respuestas directas a las 10 consultas más frecuentes sobre servicios técnicos especializados
+            Respuestas directas a las consultas más frecuentes sobre servicios técnicos
           </p>
-
-          {/* Trust Stats */}
-          <div className={styles.trustStats} data-aos="fade-up" data-aos-delay="50">
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>500+</div>
-              <div className={styles.statLabel}>Clientes Satisfechos</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumber}>98%</div>
-              <div className={styles.statLabel}>Problemas Resueltos</div>
-            </div>
-            <div className={styles.statItem}>
-              <div className={styles.statNumberRed}>30</div>
-              <div className={styles.statLabel}>Días de Garantía</div>
-            </div>
-          </div>
         </div>
 
         <div className={styles.list} data-aos="fade-up" data-aos-delay="100">
