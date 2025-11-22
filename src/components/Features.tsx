@@ -21,9 +21,11 @@ const ShieldCheckIcon = ({ className }: { className?: string }) => (
     </svg>
 );
 
-const CheckIcon = ({ className }: { className?: string }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <polyline points="20 6 9 17 4 12" strokeLinecap="round" strokeLinejoin="round"/>
+const TruckIcon = ({ className }: { className?: string }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+        <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="5.5" cy="18.5" r="2.5"/>
+        <circle cx="18.5" cy="18.5" r="2.5"/>
     </svg>
 );
 
@@ -44,65 +46,97 @@ const Features = () => {
                     </p>
                 </div>
 
-                {/* Bento Grid */}
+                {/* Bento Grid 2x2 */}
                 <div className={styles.bentoGrid}>
-                    {/* Card 1 - Large */}
-                    <article className={`${styles.card} ${styles.cardLarge}`} data-aos="fade-up">
-                        <div className={styles.cardGlow} />
-                        <div className={styles.iconBox}>
-                            <WrenchIcon className={styles.icon} />
+                    {/* Card 1 - Servicio Completo */}
+                    <article className={styles.card} data-aos="fade-up">
+                        <div className={styles.cardHeader}>
+                            <div className={styles.iconBox}>
+                                <WrenchIcon className={styles.icon} />
+                            </div>
+                            <span className={styles.badge}>Equipado</span>
                         </div>
                         <div className={styles.cardContent}>
                             <h3 className={styles.cardTitle}>Servicio Completo</h3>
-                            <p className={styles.cardSubtitle}>Taller equipado profesionalmente</p>
+                            <p className={styles.cardSubtitle}>Taller profesional</p>
                             <p className={styles.cardDesc}>
-                                Herramientas especializadas y repuestos originales para
-                                cualquier tipo de reparación. Tu equipo queda como nuevo.
+                                Herramientas especializadas y repuestos originales para cualquier reparación.
                             </p>
-                            <ul className={styles.checkList}>
-                                <li><CheckIcon className={styles.checkIcon} /> Herramientas profesionales</li>
-                                <li><CheckIcon className={styles.checkIcon} /> Repuestos originales</li>
-                                <li><CheckIcon className={styles.checkIcon} /> Respaldo técnico completo</li>
-                            </ul>
                         </div>
-                        <span className={styles.badge}>Equipado</span>
+                        <div className={styles.cardFooter}>
+                            <div className={styles.metric}>
+                                <span className={styles.metricValue}>100%</span>
+                                <span className={styles.metricLabel}>Original</span>
+                            </div>
+                        </div>
                     </article>
 
-                    {/* Card 2 - Medium */}
-                    <article className={`${styles.card} ${styles.cardMedium}`} data-aos="fade-up" data-aos-delay="100">
-                        <div className={styles.iconBox}>
-                            <ZapIcon className={styles.icon} />
+                    {/* Card 2 - Atención Express */}
+                    <article className={styles.card} data-aos="fade-up" data-aos-delay="100">
+                        <div className={styles.cardHeader}>
+                            <div className={styles.iconBox}>
+                                <ZapIcon className={styles.icon} />
+                            </div>
+                            <span className={`${styles.badge} ${styles.badgeAccent}`}>Express</span>
                         </div>
                         <div className={styles.cardContent}>
-                            <h3 className={styles.cardTitle}>Atención Express</h3>
-                            <p className={styles.cardSubtitle}>Respuesta en menos de 2 horas</p>
+                            <h3 className={styles.cardTitle}>Atención Rápida</h3>
+                            <p className={styles.cardSubtitle}>Mismo día</p>
                             <p className={styles.cardDesc}>
-                                Diagnóstico rápido y solución clara. La mayoría de
-                                reparaciones se completan el mismo día.
+                                Diagnóstico inmediato y solución clara. Mayoría de reparaciones el mismo día.
                             </p>
                         </div>
-                        <div className={styles.metric}>
-                            <span className={styles.metricValue}>&lt;2h</span>
-                            <span className={styles.metricLabel}>tiempo respuesta</span>
+                        <div className={styles.cardFooter}>
+                            <div className={styles.metric}>
+                                <span className={styles.metricValue}>&lt;2h</span>
+                                <span className={styles.metricLabel}>Respuesta</span>
+                            </div>
                         </div>
                     </article>
 
-                    {/* Card 3 - Medium */}
-                    <article className={`${styles.card} ${styles.cardMedium}`} data-aos="fade-up" data-aos-delay="200">
-                        <div className={styles.iconBox}>
-                            <ShieldCheckIcon className={styles.icon} />
+                    {/* Card 3 - Garantía */}
+                    <article className={styles.card} data-aos="fade-up" data-aos-delay="200">
+                        <div className={styles.cardHeader}>
+                            <div className={styles.iconBox}>
+                                <ShieldCheckIcon className={styles.icon} />
+                            </div>
+                            <span className={`${styles.badge} ${styles.badgeSuccess}`}>Protegido</span>
                         </div>
                         <div className={styles.cardContent}>
                             <h3 className={styles.cardTitle}>Garantía Total</h3>
-                            <p className={styles.cardSubtitle}>Trabajo 100% respaldado</p>
+                            <p className={styles.cardSubtitle}>Trabajo respaldado</p>
                             <p className={styles.cardDesc}>
-                                Garantía escrita en todas las reparaciones. Si el problema
-                                vuelve, lo solucionamos sin costo.
+                                Garantía escrita en todas las reparaciones. Si vuelve el problema, lo arreglamos gratis.
                             </p>
                         </div>
-                        <div className={styles.metric}>
-                            <span className={styles.metricValue}>30</span>
-                            <span className={styles.metricLabel}>días garantía</span>
+                        <div className={styles.cardFooter}>
+                            <div className={styles.metric}>
+                                <span className={styles.metricValue}>30</span>
+                                <span className={styles.metricLabel}>Días</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    {/* Card 4 - Domicilio */}
+                    <article className={styles.card} data-aos="fade-up" data-aos-delay="300">
+                        <div className={styles.cardHeader}>
+                            <div className={styles.iconBox}>
+                                <TruckIcon className={styles.icon} />
+                            </div>
+                            <span className={`${styles.badge} ${styles.badgePrimary}`}>Gratis</span>
+                        </div>
+                        <div className={styles.cardContent}>
+                            <h3 className={styles.cardTitle}>Servicio a Domicilio</h3>
+                            <p className={styles.cardSubtitle}>Vamos a tu ubicación</p>
+                            <p className={styles.cardDesc}>
+                                Recogemos tu equipo y lo entregamos reparado. Sin costo adicional en Montería.
+                            </p>
+                        </div>
+                        <div className={styles.cardFooter}>
+                            <div className={styles.metric}>
+                                <span className={styles.metricValue}>$0</span>
+                                <span className={styles.metricLabel}>Envío</span>
+                            </div>
                         </div>
                     </article>
                 </div>
