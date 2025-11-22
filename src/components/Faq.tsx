@@ -100,14 +100,6 @@ const Faq: React.FC = () => {
         </div>
 
         <div className={styles.list} data-aos="fade-up" data-aos-delay="100">
-          {/* Category hint */}
-          <div className={styles.tipBox}>
-            <div className={styles.tipTitle}>💡 Tip Profesional</div>
-            <div className={styles.tipText}>
-              Haz clic en cualquier pregunta para ver la respuesta detallada. Si tu duda no está aquí, contáctame directamente.
-            </div>
-          </div>
-
           {FAQ_ITEMS.map((it, idx) => {
             // Assign icons based on content
             const getQuestionIcon = (question: string) => {
@@ -125,16 +117,15 @@ const Faq: React.FC = () => {
             };
 
             return (
-              <div key={idx} className={styles.itemWrapper}>
-                <FaqItem
-                  id={`${idx}`}
-                  question={`${getQuestionIcon(it.question)} ${it.question}`}
-                  isOpen={openIndex === idx}
-                  onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
-                >
-                  {typeof it.answer === 'string' ? <p>{it.answer}</p> : it.answer}
-                </FaqItem>
-              </div>
+              <FaqItem
+                key={idx}
+                id={`${idx}`}
+                question={`${getQuestionIcon(it.question)} ${it.question}`}
+                isOpen={openIndex === idx}
+                onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+              >
+                {typeof it.answer === 'string' ? <p>{it.answer}</p> : it.answer}
+              </FaqItem>
             );
           })}
         </div>
