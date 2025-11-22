@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ChevronDown } from './Icons';
 import { FAQ_ITEMS } from '@/data/faq';
+import styles from './Faq.module.css';
 
 function useResizeObserver(ref: React.RefObject<HTMLElement | null>, callback: () => void) {
   useEffect(() => {
@@ -44,17 +45,17 @@ const FaqItem: React.FC<{
   });
 
   return (
-    <div className={`faq-item ${isOpen ? "active" : ""}`}>
+    <div className={`${styles.item} ${isOpen ? styles.itemActive : ""}`}>
       <h3>
         <button
           id={`faq-question-${id}`}
           aria-expanded={isOpen}
           aria-controls={`faq-answer-${id}`}
-          className="faq-item__question"
+          className={styles.question}
           onClick={onToggle}
         >
           <span>{question}</span>
-          <span className="faq-item__icon" aria-hidden>
+          <span className={`${styles.icon} ${isOpen ? styles.iconActive : ""}`} aria-hidden>
             <ChevronDown />
           </span>
         </button>
@@ -64,7 +65,7 @@ const FaqItem: React.FC<{
         role="region"
         aria-labelledby={`faq-question-${id}`}
         ref={contentRef}
-        className="faq-item__answer"
+        className={styles.answer}
       >
         {children}
       </div>
@@ -76,11 +77,11 @@ const Faq: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="faq" aria-labelledby="faq-title">
+    <section id="faq" className={styles.faq} aria-labelledby="faq-title">
       <div className="container">
         {/* Enhanced Header */}
-        <div className="faq__header" data-aos="fade-up">
-          <div className="faq__badge">
+        <div className={styles.header} data-aos="fade-up">
+          <div className={styles.badge}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10"/>
               <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
@@ -88,103 +89,37 @@ const Faq: React.FC = () => {
             </svg>
             Resuelve Tus Dudas
           </div>
-          <div style={{
-            textAlign: 'center',
-            marginBottom: '1.5rem'
-          }}>
-            <h2 id="faq-title" style={{
-              fontSize: '2.5rem',
-              fontWeight: '700',
-              background: 'linear-gradient(135deg, var(--brand-azul_vibrante), var(--brand-azul_oscuro))',
-              backgroundClip: 'text',
-              WebkitBackgroundClip: 'text',
-              color: 'transparent',
-              margin: '0',
-              padding: '1rem 0',
-              letterSpacing: '-0.025em',
-              lineHeight: '1.2'
-            }}>
+          <div className={styles.titleContainer}>
+            <h2 id="faq-title" className={styles.title}>
               Preguntas Frecuentes
             </h2>
           </div>
-          <p className="faq__subtitle">
+          <p className={styles.subtitle}>
             Respuestas directas a las 10 consultas más frecuentes sobre servicios técnicos especializados
           </p>
-          
+
           {/* Trust Stats */}
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1rem',
-            margin: '2rem 0',
-            padding: '1.5rem',
-            background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.05), rgba(var(--brand-azul_oscuro-rgb), 0.02))',
-            borderRadius: '1rem',
-            border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.1)'
-          }} data-aos="fade-up" data-aos-delay="50">
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ 
-                fontSize: '2rem', 
-                fontWeight: '700', 
-                color: 'var(--brand-azul_vibrante)',
-                marginBottom: '0.25rem'
-              }}>500+</div>
-              <div style={{ 
-                fontSize: '0.875rem', 
-                color: 'var(--color-text-secondary)',
-                fontWeight: '500'
-              }}>Clientes Satisfechos</div>
+          <div className={styles.trustStats} data-aos="fade-up" data-aos-delay="50">
+            <div className={styles.statItem}>
+              <div className={styles.statNumber}>500+</div>
+              <div className={styles.statLabel}>Clientes Satisfechos</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ 
-                fontSize: '2rem', 
-                fontWeight: '700', 
-                color: 'var(--brand-azul_vibrante)',
-                marginBottom: '0.25rem'
-              }}>98%</div>
-              <div style={{ 
-                fontSize: '0.875rem', 
-                color: 'var(--color-text-secondary)',
-                fontWeight: '500'
-              }}>Problemas Resueltos</div>
+            <div className={styles.statItem}>
+              <div className={styles.statNumber}>98%</div>
+              <div className={styles.statLabel}>Problemas Resueltos</div>
             </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ 
-                fontSize: '2rem', 
-                fontWeight: '700', 
-                color: 'var(--brand-rojo_intenso)',
-                marginBottom: '0.25rem'
-              }}>30</div>
-              <div style={{ 
-                fontSize: '0.875rem', 
-                color: 'var(--color-text-secondary)',
-                fontWeight: '500'
-              }}>Días de Garantía</div>
+            <div className={styles.statItem}>
+              <div className={styles.statNumberRed}>30</div>
+              <div className={styles.statLabel}>Días de Garantía</div>
             </div>
           </div>
         </div>
 
-        <div className="faq__list" data-aos="fade-up" data-aos-delay="100">
+        <div className={styles.list} data-aos="fade-up" data-aos-delay="100">
           {/* Category hint */}
-          <div style={{
-            textAlign: 'center',
-            marginBottom: '2rem',
-            padding: '1rem',
-            background: 'rgba(var(--brand-azul_vibrante-rgb), 0.05)',
-            borderRadius: '0.75rem',
-            border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.1)'
-          }}>
-            <div style={{
-              fontSize: '0.875rem',
-              color: 'var(--brand-azul_vibrante)',
-              fontWeight: '600',
-              marginBottom: '0.5rem'
-            }}>💡 Tip Profesional</div>
-            <div style={{
-              fontSize: '0.875rem',
-              color: 'var(--color-text-secondary)',
-              lineHeight: '1.4'
-            }}>
+          <div className={styles.tipBox}>
+            <div className={styles.tipTitle}>💡 Tip Profesional</div>
+            <div className={styles.tipText}>
               Haz clic en cualquier pregunta para ver la respuesta detallada. Si tu duda no está aquí, contáctame directamente.
             </div>
           </div>
@@ -206,15 +141,7 @@ const Faq: React.FC = () => {
             };
 
             return (
-              <div key={idx} style={{
-                marginBottom: '0.75rem',
-                border: '1px solid var(--color-border)',
-                borderRadius: '0.75rem',
-                overflow: 'hidden',
-                background: 'var(--color-surface)',
-                boxShadow: 'var(--shadow-sm)',
-                transition: 'all 0.2s ease'
-              }}>
+              <div key={idx} className={styles.itemWrapper}>
                 <FaqItem
                   id={`${idx}`}
                   question={`${getQuestionIcon(it.question)} ${it.question}`}
@@ -229,63 +156,19 @@ const Faq: React.FC = () => {
         </div>
 
         {/* Enhanced Contact CTA */}
-        <div className="faq__cta" data-aos="fade-up" data-aos-delay="200">
-          <div style={{
-            background: 'linear-gradient(135deg, rgba(var(--brand-azul_vibrante-rgb), 0.05), rgba(var(--brand-azul_oscuro-rgb), 0.02))',
-            border: '1px solid rgba(var(--brand-azul_vibrante-rgb), 0.1)',
-            borderRadius: '1.5rem',
-            padding: '2rem',
-            textAlign: 'center'
-          }}>
-            <div style={{
-              fontSize: '2rem',
-              marginBottom: '0.5rem'
-            }}>💬</div>
-            <h3 style={{
-              fontSize: '1.5rem',
-              fontWeight: '700',
-              color: 'var(--brand-azul_vibrante)',
-              marginBottom: '0.75rem'
-            }}>¿Tienes una consulta específica?</h3>
-            <p style={{
-              color: 'var(--color-text-secondary)',
-              marginBottom: '1.5rem',
-              lineHeight: '1.6'
-            }}>
-              Si tu pregunta no está en la lista o necesitas asesoría técnica personalizada, 
+        <div className={styles.cta} data-aos="fade-up" data-aos-delay="200">
+          <div className={styles.ctaContent}>
+            <div className={styles.ctaEmoji}>💬</div>
+            <h3 className={styles.ctaTitle}>¿Tienes una consulta específica?</h3>
+            <p className={styles.ctaText}>
+              Si tu pregunta no está en la lista o necesitas asesoría técnica personalizada,
               contáctame directamente. <strong>Respondo en menos de 5 minutos.</strong>
             </p>
-            
-            <div style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '1rem',
-              alignItems: 'center'
-            }}>
-              <a 
+
+            <div className={styles.ctaActions}>
+              <a
                 href="https://wa.me/573015218139?text=Hola%20Fernando%2C%20tengo%20una%20consulta%20técnica%20específica%20sobre..."
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  background: '#25D366',
-                  color: 'var(--color-btn-primary-text)',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '0.75rem',
-                  textDecoration: 'none',
-                  fontWeight: '600',
-                  fontSize: '1rem',
-                  transition: 'all 0.2s ease',
-                  boxShadow: '0 4px 12px rgba(37, 211, 102, 0.3)'
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 6px 20px rgba(37, 211, 102, 0.4)';
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(37, 211, 102, 0.3)';
-                }}
+                className={styles.whatsappBtn}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -294,20 +177,14 @@ const Faq: React.FC = () => {
                 </svg>
                 Consulta Técnica WhatsApp
               </a>
-              
-              <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                fontSize: '0.875rem',
-                color: 'var(--color-text-secondary)'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <span style={{ color: 'var(--brand-azul_vibrante)' }}>✓</span>
+
+              <div className={styles.ctaBenefits}>
+                <div className={styles.ctaBenefit}>
+                  <span className={styles.ctaBenefitIcon}>✓</span>
                   <span>Respuesta inmediata</span>
                 </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-                  <span style={{ color: 'var(--brand-azul_vibrante)' }}>✓</span>
+                <div className={styles.ctaBenefit}>
+                  <span className={styles.ctaBenefitIcon}>✓</span>
                   <span>Diagnóstico gratuito</span>
                 </div>
               </div>

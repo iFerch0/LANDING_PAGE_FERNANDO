@@ -1,9 +1,11 @@
 import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
+import TrustBar from '@/components/TrustBar';
 import Features from '@/components/Features';
-import Process from '@/components/Process';
 import SuccessCases from '@/components/SuccessCases';
+import Process from '@/components/Process';
+import ServicesGrid from '@/components/ServicesGrid';
 import Stats from '@/components/Stats';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
@@ -12,14 +14,14 @@ import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: "Técnico en Computadores Montería | Servicio Técnico PC a Domicilio ⭐",
-  description: "⭐ Fernando - Técnico especialista en computadores Montería. Reparación PC, soporte técnico, mantenimiento. Servicio a domicilio 24/7. Diagnóstico GRATIS 📱",
+  title: "Técnico en Computadores Montería | Servicio Técnico PC a Domicilio",
+  description: "Fernando - Técnico especialista en computadores Montería. Reparación PC, soporte técnico, mantenimiento. Servicio a domicilio 24/7. Diagnóstico gratuito.",
   alternates: {
     canonical: "https://www.ferchotecnico.com"
   },
   openGraph: {
-    title: "🔧 Técnico en Computadores Montería | Fernando ⭐ 5.0",
-    description: "⭐ Servicio técnico computadores Montería a domicilio. Reparación PC, soporte técnico, mantenimiento. Diagnóstico gratuito 📱 +573008474121",
+    title: "Técnico en Computadores Montería | Fernando",
+    description: "Servicio técnico computadores Montería a domicilio. Reparación PC, soporte técnico, mantenimiento. Diagnóstico gratuito +573008474121",
     url: "https://www.ferchotecnico.com",
     type: "website"
   }
@@ -28,37 +30,45 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-  <FaqJsonLd />
+      <FaqJsonLd />
       <Navbar />
       <main>
-          <div data-aos="fade-down">
-            <Hero />
-          </div>
-          <div data-aos="zoom-in-up">
-            <Features />
-          </div>
-          <div data-aos="fade-left">
-            <Process />
-          </div>
-          <div data-aos="flip-up">
-            <SuccessCases />
-          </div>
-          <div data-aos="zoom-in">
-            <Stats />
-          </div>
-          <div data-aos="fade-up">
-            <Testimonials />
-          </div>
-          <div data-aos="fade-down">
-            <Faq />
-          </div>
-          <div data-aos="zoom-in-up">
-            <CtaFinal />
-          </div>
-          <div data-aos="fade-up">
-            <ContactForm />
-          </div>
-          {/* ...existing code... */}
+        {/* Hero - Primera impresión con headline mejorado */}
+        <div data-aos="fade-up">
+          <Hero />
+        </div>
+
+        {/* TrustBar - Construcción de confianza inmediata */}
+        <TrustBar />
+
+        {/* Features - Por qué elegirnos */}
+        <Features />
+
+        {/* SuccessCases - Prueba visual con antes/después */}
+        <SuccessCases />
+
+        {/* Process - Cómo funciona el servicio */}
+        <Process />
+
+        {/* ServicesGrid - Qué ofrecemos + precios */}
+        <ServicesGrid />
+
+        {/* Stats - Números de confianza */}
+        <Stats />
+
+        {/* Testimonials - Reviews verificadas */}
+        <Testimonials />
+
+        {/* FAQ - Resolver objeciones */}
+        <Faq />
+
+        {/* CTA Final - Último empujón */}
+        <div data-aos="fade-up">
+          <CtaFinal />
+        </div>
+
+        {/* ContactForm - Captura de leads */}
+        <ContactForm />
       </main>
     </>
   );

@@ -87,9 +87,7 @@ const ContactForm = () => {
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
-        
-        console.log(`Campo: ${name}, Valor: "${value}", Longitud: ${value.length}`); // Debug
-        
+
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -106,9 +104,7 @@ const ContactForm = () => {
 
     const handleInput = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.currentTarget;
-        
-        console.log(`Input event - Campo: ${name}, Valor: "${value}", Longitud: ${value.length}`); // Debug adicional
-        
+
         setFormData(prev => ({
             ...prev,
             [name]: value
@@ -128,9 +124,7 @@ const ContactForm = () => {
         if (e.key === ' ') {
             const { name, value } = e.currentTarget;
             const newValue = value + ' ';
-            
-            console.log(`Espacio presionado - Campo: ${name}, Nuevo valor: "${newValue}"`); // Debug
-            
+
             setFormData(prev => ({
                 ...prev,
                 [name]: newValue
@@ -173,9 +167,7 @@ const ContactForm = () => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        
-        console.log('Datos del formulario:', formData); // Debug
-        
+
         if (!validateForm()) {
             return;
         }

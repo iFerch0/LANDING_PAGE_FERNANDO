@@ -1,6 +1,8 @@
 "use client";
 import React from "react";
 import CountUpClient from './CountUpClient';
+import { stats, statsHeader, statsCTA } from '@/data/stats';
+import styles from './Stats.module.css';
 
 // Iconos para cada estadística
 const RepairIcon = () => (
@@ -31,91 +33,49 @@ const ShieldIcon = () => (
 
 const Stats = () => {
     return (
-        <section className="stats" aria-labelledby="stats-title">
-            <div className="container">
+        <section className={styles.stats} aria-labelledby="stats-title">
+            <div className={`container ${styles.container}`}>
                 {/* Header de estadísticas */}
-                <div className="stats__header" data-aos="fade-up">
-                    <h2 id="stats-title" className="stats__title">
-                        Confianza respaldada por resultados
+                <div className={styles.header} data-aos="fade-up">
+                    <h2 id="stats-title" className={styles.title}>
+                        {statsHeader.title}
                     </h2>
-                    <p className="stats__subtitle">
-                        Más de 10 años sirviendo a Montería con soluciones técnicas profesionales
+                    <p className={styles.subtitle}>
+                        {statsHeader.subtitle}
                     </p>
                 </div>
 
-                <div className="stats__grid">
-                    {/* Estadística 1: Equipos Reparados */}
-                    <div className="stat-item" data-aos="zoom-in" data-aos-delay="100">
-                        <div className="stat-item__icon">
-                            <RepairIcon />
-                        </div>
-                        <div className="stat-item__content">
-                            <div className="stat__number">
-                                <CountUpClient end={500} ssrValue={500} suffix="+" />
-                            </div>
-                            <div className="stat__label">PCs reparadas</div>
-                            <div className="stat__description">
-                                Desde 2015 en Montería
-                            </div>
-                        </div>
-                    </div>
+                <div className={styles.grid}>
+                    {stats.map((stat, index) => {
+                        const icons = [RepairIcon, StarIcon, ClockIcon, ShieldIcon];
+                        const IconComponent = icons[index];
 
-                    {/* Estadística 2: Satisfacción */}
-                    <div className="stat-item" data-aos="zoom-in" data-aos-delay="200">
-                        <div className="stat-item__icon">
-                            <StarIcon />
-                        </div>
-                        <div className="stat-item__content">
-                            <div className="stat__number">
-                                <CountUpClient end={92} ssrValue={92} suffix="%" />
+                        return (
+                            <div key={stat.id} className={styles.statItem} data-aos="zoom-in" data-aos-delay={stat.aosDelay}>
+                                <div className={styles.statItemIcon}>
+                                    <IconComponent />
+                                </div>
+                                <div className={styles.statItemContent}>
+                                    <div className={styles.statNumber}>
+                                        <CountUpClient end={stat.end} ssrValue={stat.end} suffix={stat.suffix} />
+                                    </div>
+                                    <div className={styles.statLabel}>{stat.label}</div>
+                                    <div className={styles.statDescription}>
+                                        {stat.description}
+                                    </div>
+                                </div>
                             </div>
-                            <div className="stat__label">Satisfacción</div>
-                            <div className="stat__description">
-                                Clientes que recomiendan el servicio
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Estadística 3: Tiempo de Respuesta */}
-                    <div className="stat-item" data-aos="zoom-in" data-aos-delay="300">
-                        <div className="stat-item__icon">
-                            <ClockIcon />
-                        </div>
-                        <div className="stat-item__content">
-                            <div className="stat__number">
-                                <CountUpClient end={24} ssrValue={24} suffix="h" />
-                            </div>
-                            <div className="stat__label">Tiempo promedio</div>
-                            <div className="stat__description">
-                                Mayoría de problemas resueltos
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Estadística 4: Garantía */}
-                    <div className="stat-item" data-aos="zoom-in" data-aos-delay="400">
-                        <div className="stat-item__icon">
-                            <ShieldIcon />
-                        </div>
-                        <div className="stat-item__content">
-                            <div className="stat__number">
-                                <CountUpClient end={30} ssrValue={30} suffix=" días" />
-                            </div>
-                            <div className="stat__label">Garantía</div>
-                            <div className="stat__description">
-                                En todas las reparaciones
-                            </div>
-                        </div>
-                    </div>
+                        );
+                    })}
                 </div>
 
                 {/* CTA en la sección de stats */}
-                <div className="stats__cta" data-aos="fade-up" data-aos-delay="500">
-                    <div className="stats-cta__content">
-                        <h3 className="stats-cta__title">¿Necesitas una solución similar?</h3>
-                        <p className="stats-cta__desc">Contáctanos hoy y únete a nuestros clientes satisfechos</p>
-                        <a href="https://wa.me/573008474121" className="btn btn--secondary btn--large">
-                            Solicitar diagnóstico
+                <div className={styles.cta} data-aos="fade-up" data-aos-delay="500">
+                    <div className={styles.ctaContent}>
+                        <h3 className={styles.ctaTitle}>{statsCTA.title}</h3>
+                        <p className={styles.ctaDesc}>{statsCTA.description}</p>
+                        <a href={statsCTA.buttonLink} className="btn btn--secondary btn--large">
+                            {statsCTA.buttonText}
                         </a>
                     </div>
                 </div>
@@ -125,4 +85,3 @@ const Stats = () => {
 }
 
 export default Stats;
-
