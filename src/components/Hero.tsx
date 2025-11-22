@@ -110,21 +110,6 @@ const Hero: React.FC = () => {
                                     </div>
                                 </a>
                             </div>
-
-                            <div className={styles.statsStrip}>
-                                <div className={styles.stat}>
-                                    <span className={styles.statValue}>500+</span>
-                                    <span className={styles.statLabel}>PCs reparados</span>
-                                </div>
-                                <div className={styles.stat}>
-                                    <span className={styles.statValue}>24h</span>
-                                    <span className={styles.statLabel}>Respuesta</span>
-                                </div>
-                                <div className={styles.stat}>
-                                    <span className={styles.statValue}>30d</span>
-                                    <span className={styles.statLabel}>Garantía</span>
-                                </div>
-                            </div>
                         </div>
                     </div>
 
@@ -137,32 +122,57 @@ const Hero: React.FC = () => {
                     </div>
                 </div>
 
-                {/* Trust Bar */}
-                <div className={styles.trustBar}>
-                    <div className={styles.trustItems}>
-                        <div className={styles.trustItem}>
-                            <StarIcon className={styles.trustIcon} />
-                            <span className={styles.trustText}>
-                                <span className={styles.trustHighlight}>5.0</span> en Google
-                            </span>
+                {/* Stats Bento Grid */}
+                <div className={styles.statsGrid}>
+                    <div className={`${styles.statCard} ${styles.statCardPrimary}`}>
+                        <div className={styles.statIconWrapper}>
+                            <CheckCircleIcon className={styles.statIcon} />
                         </div>
-                        <div className={styles.trustItem}>
-                            <TruckIcon className={styles.trustIcon} />
-                            <span className={styles.trustText}>
-                                Domicilio <span className={styles.trustHighlight}>gratis</span>
-                            </span>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>500+</span>
+                            <span className={styles.statTitle}>PCs Reparadas</span>
+                            <span className={styles.statDesc}>Clientes satisfechos</span>
                         </div>
-                        <div className={styles.trustItem}>
-                            <ShieldIcon className={styles.trustIcon} />
-                            <span className={styles.trustText}>
-                                Garantía <span className={styles.trustHighlight}>30 días</span>
-                            </span>
+                        <div className={styles.statGlow} />
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <StarIcon className={styles.statIcon} />
                         </div>
-                        <div className={styles.trustItem}>
-                            <ClockIcon className={styles.trustIcon} />
-                            <span className={styles.trustText}>
-                                Mismo <span className={styles.trustHighlight}>día</span>
-                            </span>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>4.9<span className={styles.statUnit}>/5</span></span>
+                            <span className={styles.statTitle}>Calificación</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <ClockIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>&lt;24<span className={styles.statUnit}>h</span></span>
+                            <span className={styles.statTitle}>Respuesta</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <ShieldIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>30<span className={styles.statUnit}>días</span></span>
+                            <span className={styles.statTitle}>Garantía</span>
+                        </div>
+                    </div>
+
+                    <div className={styles.statCard}>
+                        <div className={styles.statIconWrapper}>
+                            <TruckIcon className={styles.statIcon} />
+                        </div>
+                        <div className={styles.statContent}>
+                            <span className={styles.statNumber}>Gratis</span>
+                            <span className={styles.statTitle}>Domicilio</span>
                         </div>
                     </div>
                 </div>
