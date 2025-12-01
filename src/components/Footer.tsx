@@ -178,8 +178,7 @@ const Footer = () => {
               © {currentYear} Fernando Rhenals
             </p>
             <div className={styles.links}>
-              <a href="/privacy" className={styles.link}>Privacidad</a>
-              <a href="/terms" className={styles.link}>Términos</a>
+              <a href="#contacto" className={styles.link}>Contacto</a>
             </div>
           </div>
         </div>

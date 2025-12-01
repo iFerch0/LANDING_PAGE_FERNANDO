@@ -39,7 +39,7 @@ export default function ServiceTemplate(props: {
           <p className="price">Desde: <strong>{priceFrom}</strong></p>
           <div className="cta-row">
             <a href="https://wa.me/573008474121" className="btn btn-primary">Pedir presupuesto por WhatsApp</a>
-            <Link href="/contacto" className="btn btn-outline">Contacto</Link>
+            <Link href="/#contacto" className="btn btn-outline">Contacto</Link>
           </div>
         </div>
         <div className="service-media">
