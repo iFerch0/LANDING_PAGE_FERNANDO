@@ -4,12 +4,18 @@ export function GET() {
   const body = `User-agent: *
 Allow: /
 
-# Block static assets from indexing
+# Block static assets and technical files from indexing
 Disallow: /_next/static/
 Disallow: /_next/image/
 Disallow: /api/
+Disallow: /manifest.json
+Disallow: /favicon.ico
+Disallow: /*.woff
+Disallow: /*.woff2
+Disallow: /*.ttf
+Disallow: /*.eot
 
-# Allow important files
+# Allow important image files
 Allow: /_next/static/media/*.jpg
 Allow: /_next/static/media/*.jpeg
 Allow: /_next/static/media/*.png
