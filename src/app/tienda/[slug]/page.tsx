@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getProductBySlug, getProducts, incrementViews } from '@/lib/db';
+import { getProductBySlug, getProducts, getRelatedProducts, incrementViews } from '@/lib/db';
 import { ImageGallery } from '@/components/tienda/ImageGallery';
 import { WhatsAppButton } from '@/components/tienda/WhatsAppButton';
 import { Breadcrumbs } from '@/components/tienda/Breadcrumbs';
 import { ProductJsonLd } from '@/components/tienda/ProductJsonLd';
+import { ShareButtons } from '@/components/tienda/ShareButtons';
+import { FavoriteButton } from '@/components/tienda/FavoriteButton';
+import { RelatedProducts } from '@/components/tienda/RelatedProducts';
 import styles from './page.module.css';
 
 interface ProductPageProps {
@@ -61,6 +64,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
   // Increment views (fire and forget)
   incrementViews(product.id).catch(console.error);
+
+  // Get related products
+  const relatedProducts = await getRelatedProducts(product.category, product.id);
 
   const STATUS_LABELS = {
     nuevo: 'Nuevo',
@@ -184,6 +190,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <WhatsAppButton product={product} />
               )}
 
+              {/* Favorite Button */}
+              <FavoriteButton productId={product.id} />
+
+              {/* Share Buttons */}
+              <ShareButtons product={product} />
+
               {/* Additional Info */}
               <div className={styles.additionalInfo}>
                 <div className={styles.infoItem}>
@@ -201,6 +213,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             </div>
           </div>
+
+          {/* Related Products */}
+          <RelatedProducts products={relatedProducts} currentProductId={product.id} />
         </div>
       </div>
     </>

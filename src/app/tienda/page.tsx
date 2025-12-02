@@ -1,5 +1,5 @@
 import { getProducts } from '@/lib/db';
-import { ProductGrid } from '@/components/tienda/ProductGrid';
+import { TiendaClient } from '@/components/tienda/TiendaClient';
 import styles from './page.module.css';
 
 export const metadata = {
@@ -20,7 +20,7 @@ export default async function TiendaPage() {
           </p>
         </header>
 
-        <ProductGrid products={products} />
+        <TiendaClient initialProducts={products} />
       </div>
     </div>
   );

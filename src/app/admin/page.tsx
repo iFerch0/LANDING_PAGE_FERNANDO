@@ -3,23 +3,18 @@
 import { useEffect, useState } from 'react';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { AuthGuard } from '@/components/admin/AuthGuard';
-import { getCurrentUser } from '@/lib/auth';
-import { getProducts } from '@/lib/db';
+import { getAllProducts } from '@/lib/db';
 import type { Product } from '@/lib/types';
 import styles from './page.module.css';
 
 export default function AdminDashboardPage() {
-  const [userEmail, setUserEmail] = useState('');
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const user = await getCurrentUser();
-        setUserEmail(user?.email || '');
-
-        const productsData = await getProducts();
+        const productsData = await getAllProducts();
         setProducts(productsData);
       } catch (error) {
         console.error('Error loading data:', error);
@@ -94,7 +89,7 @@ export default function AdminDashboardPage() {
 
   return (
     <AuthGuard>
-      <AdminLayout userEmail={userEmail}>
+      <AdminLayout>
         <div className={styles.dashboard}>
           {/* Header */}
           <div className={styles.header}>

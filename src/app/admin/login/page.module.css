@@ -121,6 +121,10 @@
   background: white;
 }
 
+.inputPassword {
+  padding-right: 3rem;
+}
+
 .input:focus {
   outline: none;
   border-color: #667eea;
@@ -135,6 +139,83 @@
 
 .input::placeholder {
   color: #9ca3af;
+}
+
+/* Password Toggle Button */
+.passwordToggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: #9ca3af;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+
+.passwordToggle:hover {
+  color: #667eea;
+}
+
+.passwordToggle:focus {
+  outline: none;
+  color: #667eea;
+}
+
+/* Remember Email Checkbox */
+.checkboxGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+.checkboxLabel {
+  font-size: 0.875rem;
+  color: #6b7280;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Options Row */
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.options .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #6b7280;
+  cursor: pointer;
+  user-select: none;
+}
+
+.options .checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: #667eea;
+  cursor: pointer;
+}
+
+.checkmark {
+  display: none;
 }
 
 /* Button */
@@ -231,6 +312,18 @@
     background: #374151;
   }
 
+  .passwordToggle {
+    color: #9ca3af;
+  }
+
+  .passwordToggle:hover {
+    color: #a78bfa;
+  }
+
+  .checkboxLabel {
+    color: #9ca3af;
+  }
+
   .footer {
     background: #111827;
     border-top-color: #374151;
@@ -258,4 +351,19 @@
   .title {
     font-size: 1.25rem;
   }
+}
+
+/* Branding */
+.branding {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.branding p {
+  margin: 0;
 }

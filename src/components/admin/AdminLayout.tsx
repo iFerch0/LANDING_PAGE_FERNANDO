@@ -3,31 +3,33 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { signOut } from '@/lib/auth';
+import { useAuth } from '@/contexts/AuthContext';
 import styles from './AdminLayout.module.css';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
-  userEmail?: string;
 }
 
-export function AdminLayout({ children, userEmail }: AdminLayoutProps) {
+export function AdminLayout({ children }: AdminLayoutProps) {
   const pathname = usePathname();
   const router = useRouter();
+  const { user, logout } = useAuth();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [loggingOut, setLoggingOut] = useState(false);
 
   const handleLogout = async () => {
     setLoggingOut(true);
     try {
-      await signOut();
+      await logout();
       router.push('/admin/login');
-      router.refresh();
     } catch (error) {
       console.error('Error logging out:', error);
       setLoggingOut(false);
     }
   };
+
+  // Obtener email del usuario
+  const userEmail = user?.email || 'admin@ferchotecnico.com';
 
   const navigation = [
     {

@@ -8,7 +8,10 @@ export const supabase: SupabaseClient | null =
   supabaseUrl && supabaseAnonKey
     ? createClient(supabaseUrl, supabaseAnonKey, {
         auth: {
-          persistSession: false,
+          persistSession: true,
+          storageKey: 'fercho-admin-auth',
+          autoRefreshToken: true,
+          detectSessionInUrl: true,
         },
       })
     : null;

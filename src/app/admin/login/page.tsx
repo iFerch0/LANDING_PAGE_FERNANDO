@@ -2,48 +2,77 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { signIn, getSession } from '@/lib/auth';
+import { useAuth } from '@/contexts/AuthContext';
 import styles from './page.module.css';
 
 export default function AdminLoginPage() {
   const router = useRouter();
+  const { signIn, isAuthenticated, isLoading: authLoading } = useAuth();
+  
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
+  const [rememberMe, setRememberMe] = useState(true);
 
-  // Check if already authenticated
+  // Redirect if already authenticated
   useEffect(() => {
-    const checkAuth = async () => {
-      const session = await getSession();
-      if (session) {
-        router.push('/admin');
-      } else {
-        setIsCheckingAuth(false);
-      }
-    };
+    if (!authLoading && isAuthenticated) {
+      router.push('/admin');
+    }
+  }, [authLoading, isAuthenticated, router]);
 
-    checkAuth();
-  }, [router]);
+  // Load saved email
+  useEffect(() => {
+    const savedEmail = localStorage.getItem('adminEmail');
+    if (savedEmail) {
+      setEmail(savedEmail);
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     setLoading(true);
 
+    // Basic validation
+    if (!email.trim()) {
+      setError('Ingresa tu correo electrónico');
+      setLoading(false);
+      return;
+    }
+
+    if (!password) {
+      setError('Ingresa tu contraseña');
+      setLoading(false);
+      return;
+    }
+
     try {
-      await signIn(email, password);
-      router.push('/admin');
-      router.refresh();
+      const result = await signIn(email, password);
+      
+      if (!result.success) {
+        setError(result.error || 'Error al iniciar sesión');
+        setLoading(false);
+        return;
+      }
+
+      // Save email if remember me is checked
+      if (rememberMe) {
+        localStorage.setItem('adminEmail', email);
+      } else {
+        localStorage.removeItem('adminEmail');
+      }
+
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'Error al iniciar sesión';
-      setError(errorMessage);
+      setError('Error de conexión. Por favor intenta de nuevo.');
       setLoading(false);
     }
   };
 
-  if (isCheckingAuth) {
+  // Show loading while checking auth
+  if (authLoading) {
     return (
       <div className={styles.container}>
         <div className={styles.loadingBox}>
@@ -52,6 +81,11 @@ export default function AdminLoginPage() {
         </div>
       </div>
     );
+  }
+
+  // Don't render login form if already authenticated
+  if (isAuthenticated) {
+    return null;
   }
 
   return (
@@ -76,11 +110,11 @@ export default function AdminLoginPage() {
 
         <form onSubmit={handleSubmit} className={styles.form}>
           {error && (
-            <div className={styles.error}>
+            <div className={styles.error} role="alert">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
               </svg>
-              {error}
+              <span>{error}</span>
             </div>
           )}
 
@@ -111,6 +145,7 @@ export default function AdminLoginPage() {
                 className={styles.input}
                 disabled={loading}
                 autoComplete="email"
+                autoFocus
               />
             </div>
           </div>
@@ -134,7 +169,7 @@ export default function AdminLoginPage() {
               </svg>
               <input
                 id="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
@@ -143,7 +178,37 @@ export default function AdminLoginPage() {
                 disabled={loading}
                 autoComplete="current-password"
               />
+              <button
+                type="button"
+                className={styles.passwordToggle}
+                onClick={() => setShowPassword(!showPassword)}
+                aria-label={showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'}
+              >
+                {showPassword ? (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24" />
+                    <line x1="1" y1="1" x2="23" y2="23" />
+                  </svg>
+                ) : (
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                    <circle cx="12" cy="12" r="3" />
+                  </svg>
+                )}
+              </button>
             </div>
+          </div>
+
+          <div className={styles.options}>
+            <label className={styles.checkbox}>
+              <input
+                type="checkbox"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+              />
+              <span className={styles.checkmark}></span>
+              Recordar mi email
+            </label>
           </div>
 
           <button type="submit" className={styles.button} disabled={loading}>
@@ -175,6 +240,11 @@ export default function AdminLoginPage() {
             ¿Olvidaste tu contraseña? Contacta al administrador del sistema.
           </p>
         </div>
+      </div>
+
+      {/* Branding */}
+      <div className={styles.branding}>
+        <p>© {new Date().getFullYear()} FerchoTécnico. Todos los derechos reservados.</p>
       </div>
     </div>
   );
