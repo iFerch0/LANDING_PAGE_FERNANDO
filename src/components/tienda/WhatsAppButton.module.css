@@ -1,0 +1,87 @@
+.whatsappButton {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.25rem 2rem;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+  overflow: hidden;
+}
+
+.whatsappButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.whatsappButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+}
+
+.whatsappButton:hover::before {
+  left: 100%;
+}
+
+.whatsappButton:active {
+  transform: translateY(0);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.text {
+  font-size: 1.125rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+  .whatsappButton {
+    position: sticky;
+    bottom: 1rem;
+    z-index: 50;
+    margin-top: 2rem;
+  }
+}
+
+/* Dark Mode - WhatsApp button stays the same */
+@media (prefers-color-scheme: dark) {
+  .whatsappButton {
+    box-shadow: 0 4px 14px rgba(37, 211, 102, 0.3);
+  }
+
+  .whatsappButton:hover {
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+}
