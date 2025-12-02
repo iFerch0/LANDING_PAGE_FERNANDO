@@ -30,6 +30,31 @@ const nextConfig: NextConfig = {
         hostname: 'www.ferchotecnico.com',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: '*.asus.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.hp.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.lenovo.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.dell.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        pathname: '/**',
+      },
     ],
   },
   experimental: {
