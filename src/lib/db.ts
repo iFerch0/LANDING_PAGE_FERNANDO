@@ -209,10 +209,18 @@ export async function getProducts(): Promise<Product[]> {
 
   if (error) {
     console.error('Error fetching products:', error);
-    return [];
+    // Return mock products if there's an error (e.g., table doesn't exist yet)
+    console.log('📦 Using mock products (Supabase error)');
+    return MOCK_PRODUCTS.filter(p => p.availability);
   }
 
-  return data || [];
+  // If no products in database, return mock products
+  if (!data || data.length === 0) {
+    console.log('📦 Using mock products (no products in Supabase)');
+    return MOCK_PRODUCTS.filter(p => p.availability);
+  }
+
+  return data;
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
@@ -230,7 +238,21 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
 
   if (error) {
     console.error('Error fetching product:', error);
-    return null;
+    // Return mock product if there's an error
+    const product = MOCK_PRODUCTS.find(p => p.slug === slug);
+    if (product) {
+      console.log('📦 Using mock product (Supabase error)');
+    }
+    return product || null;
+  }
+
+  // If no product found, try mock products
+  if (!data) {
+    const product = MOCK_PRODUCTS.find(p => p.slug === slug);
+    if (product) {
+      console.log('📦 Using mock product (not found in Supabase)');
+    }
+    return product || null;
   }
 
   return data;
