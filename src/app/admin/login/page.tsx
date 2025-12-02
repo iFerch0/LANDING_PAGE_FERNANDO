@@ -100,12 +100,12 @@ export default function AdminLoginPage() {
               stroke="currentColor"
               strokeWidth="2"
             >
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M9 12l2 2 4-4" />
             </svg>
           </div>
           <h1 className={styles.title}>Panel de Administración</h1>
-          <p className={styles.subtitle}>FerchoTécnico</p>
+          <p className={styles.subtitle}>Acceso exclusivo para administradores</p>
         </div>
 
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -225,7 +225,7 @@ export default function AdminLoginPage() {
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                 >
                   <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M13.8 12H3" />
                 </svg>
@@ -233,18 +233,25 @@ export default function AdminLoginPage() {
               </>
             )}
           </button>
+
+          <div className={styles.securityBadge}>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            Conexión segura SSL
+          </div>
         </form>
 
         <div className={styles.footer}>
           <p className={styles.footerText}>
-            ¿Olvidaste tu contraseña? Contacta al administrador del sistema.
+            🔒 Acceso restringido • ¿Problemas? Contacta al administrador
           </p>
         </div>
       </div>
 
       {/* Branding */}
       <div className={styles.branding}>
-        <p>© {new Date().getFullYear()} FerchoTécnico. Todos los derechos reservados.</p>
+        <p>© {new Date().getFullYear()} FerchoTécnico</p>
       </div>
     </div>
   );

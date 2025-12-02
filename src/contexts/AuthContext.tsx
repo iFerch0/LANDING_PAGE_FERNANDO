@@ -17,6 +17,7 @@ interface AuthContextType {
   isAuthenticated: boolean;
   signIn: (email: string, password: string) => Promise<AuthResult>;
   signOut: () => Promise<void>;
+  logout: () => Promise<void>; // Alias de signOut
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -88,6 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     isAuthenticated: !!user,
     signIn,
     signOut,
+    logout: signOut, // Alias para compatibilidad
   };
 
   return (
@@ -109,14 +111,14 @@ export function useAuth() {
     }
     
     // Devolver valores por defecto seguros para SSR
+    const noopLogout = async () => {};
     return {
       user: null,
-      session: null,
       isLoading: true,
       isAuthenticated: false,
       signIn: async () => ({ success: false, error: 'AuthProvider not mounted' }),
-      logout: async () => {},
-      refreshSession: async () => null,
+      signOut: noopLogout,
+      logout: noopLogout,
     };
   }
   

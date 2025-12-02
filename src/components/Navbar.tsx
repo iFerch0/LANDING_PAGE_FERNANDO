@@ -299,17 +299,6 @@ const Navbar = () => {
 
         {/* CTA Section */}
         <div className={styles.actions}>
-          {/* Rating Badge */}
-          <div className={styles.ratingBadge} aria-label="Calificación 5.0 de 92 reseñas">
-            <span className={styles.ratingStars}>
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className={styles.ratingStar}>{Icons.star}</span>
-              ))}
-            </span>
-            <span className={styles.ratingScore}>5.0</span>
-            <span className={styles.ratingCount}>(92)</span>
-          </div>
-
           {/* Tienda CTA */}
           <Link
             href="/tienda"
