@@ -377,9 +377,10 @@
 .actions {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   position: relative;
   z-index: 10;
+  flex-shrink: 0;
 }
 
 /* Rating Badge */
@@ -424,10 +425,99 @@
   font-weight: 500;
 }
 
+/* Tienda CTA Button */
+.tiendaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 10px;
+  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow:
+    0 4px 12px rgba(102, 126, 234, 0.35),
+    0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tiendaButton:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(102, 126, 234, 0.45),
+    0 4px 8px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.tiendaButton:active {
+  transform: translateY(0);
+}
+
+.tiendaIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.tiendaIcon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.tiendaButton:hover .tiendaIcon {
+  animation: iconBounce 0.4s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.tiendaText {
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.tiendaBadge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a5a);
+  color: white;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 8px rgba(238, 90, 90, 0.4);
+  animation: badgePulse 2s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes badgePulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
 /* WhatsApp CTA Button */
 .ctaButton {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   padding: 10px 20px;
   background: linear-gradient(135deg, #25d366, #128c7e);
@@ -437,7 +527,8 @@
   text-decoration: none;
   border-radius: 10px;
   position: relative;
-  overflow: hidden;
+  white-space: nowrap;
+  flex-shrink: 0;
   box-shadow:
     0 4px 12px rgba(37, 211, 102, 0.3),
     0 2px 4px rgba(0, 0, 0, 0.1);
@@ -456,12 +547,22 @@
 }
 
 .ctaIcon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+}
+
+.ctaIcon svg {
+  width: 18px;
+  height: 18px;
 }
 
 .ctaText {
   line-height: 1;
+  white-space: nowrap;
 }
 
 .ctaPulse {
@@ -674,6 +775,21 @@
   .ratingBadge {
     display: none;
   }
+
+  .tiendaButton {
+    padding: 10px 14px;
+  }
+
+  .tiendaText {
+    display: none;
+  }
+
+  .tiendaBadge {
+    top: -4px;
+    right: -4px;
+    font-size: 8px;
+    padding: 2px 5px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -691,6 +807,10 @@
 
   .ctaText {
     display: none;
+  }
+
+  .tiendaButton {
+    padding: 10px 12px;
   }
 
   .nav {
@@ -711,6 +831,14 @@
 
   .ctaButton {
     padding: 8px 12px;
+  }
+
+  .tiendaButton {
+    padding: 8px 10px;
+  }
+
+  .tiendaBadge {
+    display: none;
   }
 
   .toggle {
