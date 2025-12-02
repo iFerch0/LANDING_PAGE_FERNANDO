@@ -47,17 +47,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const { unsubscribe } = onAuthStateChange((newUser) => {
       setUser(newUser);
-      
-      // If user logged out, redirect to login
-      if (!newUser && !isLoading) {
-        router.push('/admin/login');
-      }
+      // No redirigimos aquí - eso lo maneja el AuthGuard
     });
 
     return () => {
       unsubscribe();
     };
-  }, [router, isLoading]);
+  }, []);
 
   const signIn = useCallback(async (email: string, password: string): Promise<AuthResult> => {
     setIsLoading(true);

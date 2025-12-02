@@ -2,7 +2,6 @@
 import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
-import { AuthProvider } from "@/contexts/AuthContext";
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -32,5 +31,5 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     return () => clearTimeout(timeoutId);
   }, []);
 
-  return <AuthProvider>{children}</AuthProvider>;
+  return <>{children}</>;
 }
