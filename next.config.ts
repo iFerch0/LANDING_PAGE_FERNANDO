@@ -9,6 +9,53 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.supabase.co',
+        pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'ejemplo.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.ferchotecnico.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.asus.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.hp.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.lenovo.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.dell.com',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        pathname: '/**',
+      },
+    ],
   },
   experimental: {
     optimizePackageImports: ['web-vitals'],

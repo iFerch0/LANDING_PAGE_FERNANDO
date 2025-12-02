@@ -79,6 +79,13 @@ const Icons = {
       <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5" />
     </svg>
   ),
+  shoppingBag: (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <path d="M16 10a4 4 0 0 1-8 0" />
+    </svg>
+  ),
 };
 
 // Datos de navegación
@@ -292,16 +299,16 @@ const Navbar = () => {
 
         {/* CTA Section */}
         <div className={styles.actions}>
-          {/* Rating Badge */}
-          <div className={styles.ratingBadge} aria-label="Calificación 5.0 de 92 reseñas">
-            <span className={styles.ratingStars}>
-              {[...Array(5)].map((_, i) => (
-                <span key={i} className={styles.ratingStar}>{Icons.star}</span>
-              ))}
-            </span>
-            <span className={styles.ratingScore}>5.0</span>
-            <span className={styles.ratingCount}>(92)</span>
-          </div>
+          {/* Tienda CTA */}
+          <Link
+            href="/tienda"
+            className={styles.tiendaButton}
+            aria-label="Ver tienda de productos"
+          >
+            <span className={styles.tiendaIcon}>{Icons.shoppingBag}</span>
+            <span className={styles.tiendaText}>Ver Tienda</span>
+            <span className={styles.tiendaBadge}>Nuevo</span>
+          </Link>
 
           {/* WhatsApp CTA */}
           <Link

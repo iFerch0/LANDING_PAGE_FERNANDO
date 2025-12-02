@@ -1,0 +1,269 @@
+.item {
+  display: flex;
+  gap: 1.5rem;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.item:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.imageLink {
+  flex-shrink: 0;
+  width: 180px;
+  height: 180px;
+  display: block;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f3f4f6;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.item:hover .image {
+  transform: scale(1.05);
+}
+
+.outOfStock {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.nuevo {
+  background: rgba(34, 197, 94, 0.15);
+  color: #15803d;
+}
+
+.badge.reacondicionado {
+  background: rgba(59, 130, 246, 0.15);
+  color: #1e40af;
+}
+
+.badge.usado {
+  background: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+.badge.exhibicion {
+  background: rgba(168, 85, 247, 0.15);
+  color: #7e22ce;
+}
+
+.badge.lowStock {
+  background: rgba(239, 68, 68, 0.15);
+  color: #b91c1c;
+}
+
+/* Actions */
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.actionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: #f3f4f6;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.actionBtn:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.actionBtn.isFavorite {
+  background: #fef2f2;
+  color: #ef4444;
+}
+
+.actionBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Title */
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 0.25rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.titleLink:hover .title {
+  color: var(--color-primary, #3a6e93);
+}
+
+.category {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  margin: 0 0 0.5rem;
+  text-transform: capitalize;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: auto;
+  flex-wrap: wrap;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary, #3a6e93);
+}
+
+.currency {
+  font-size: 0.875rem;
+  color: #6b7280;
+}
+
+.availability {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.available {
+  color: #15803d;
+}
+
+.unavailable {
+  color: #b91c1c;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.625rem 1.25rem;
+  background: var(--color-primary, #3a6e93);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-left: auto;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: var(--color-primary-dark, #2b495d);
+  transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .item {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .imageLink {
+    width: 100%;
+    height: 200px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .button {
+    width: 100%;
+    justify-content: center;
+    margin-left: 0;
+  }
+}

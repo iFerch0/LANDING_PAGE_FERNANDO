@@ -1,3 +1,4 @@
+// src/lib/types.ts
 export type ProductStatus = 'nuevo' | 'reacondicionado' | 'usado' | 'exhibicion';
 
 export interface Product {
