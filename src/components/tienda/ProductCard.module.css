@@ -1,0 +1,245 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  .card {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .card:hover {
+    background: rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* Image */
+.imageLink {
+  display: block;
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 Aspect Ratio */
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.outOfStock {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  flex: 1;
+}
+
+/* Badges */
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge.nuevo {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(22, 163, 74, 0.15));
+  color: #15803d;
+}
+
+.badge.reacondicionado {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(37, 99, 235, 0.15));
+  color: #1e40af;
+}
+
+.badge.usado {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.15));
+  color: #b45309;
+}
+
+.badge.exhibicion {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(147, 51, 234, 0.15));
+  color: #7e22ce;
+}
+
+.badge.lowStock {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(220, 38, 38, 0.15));
+  color: #b91c1c;
+}
+
+/* Title */
+.titleLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text, #1a1a1a);
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.titleLink:hover .title {
+  color: var(--color-primary, #3a6e93);
+}
+
+.category {
+  font-size: 13px;
+  color: var(--color-text-secondary, #666);
+  margin: 0 0 16px 0;
+  text-transform: capitalize;
+}
+
+/* Footer */
+.footer {
+  margin-top: auto;
+  margin-bottom: 16px;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-primary, #3a6e93);
+  line-height: 1;
+}
+
+.currency {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-text-secondary, #666);
+}
+
+.availability {
+  display: flex;
+  align-items: center;
+}
+
+.available,
+.unavailable {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.available {
+  color: #15803d;
+}
+
+.unavailable {
+  color: #b91c1c;
+}
+
+.dot {
+  font-size: 8px;
+  line-height: 1;
+}
+
+/* Button */
+.button {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--color-primary, #3a6e93);
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background: var(--color-primary-dark, #2b495d);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(58, 110, 147, 0.3);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 16px;
+  }
+
+  .title {
+    font-size: 16px;
+  }
+
+  .price {
+    font-size: 20px;
+  }
+}
