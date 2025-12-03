@@ -13,9 +13,6 @@ export interface AuthResult {
   user?: AdminUser;
 }
 
-/**
- * Sign in with email and password
- */
 export async function signIn(email: string, password: string): Promise<AuthResult> {
   if (!supabase) {
     return { success: false, error: 'Sistema no configurado' };
@@ -51,9 +48,6 @@ export async function signIn(email: string, password: string): Promise<AuthResul
   }
 }
 
-/**
- * Sign out the current user
- */
 export async function signOut(): Promise<{ success: boolean; error?: string }> {
   if (!supabase) {
     return { success: false, error: 'Sistema no configurado' };
@@ -73,9 +67,6 @@ export async function signOut(): Promise<{ success: boolean; error?: string }> {
   }
 }
 
-/**
- * Get the current session
- */
 export async function getSession(): Promise<Session | null> {
   if (!supabase) {
     return null;
@@ -96,9 +87,6 @@ export async function getSession(): Promise<Session | null> {
   }
 }
 
-/**
- * Get the current user from session
- */
 export async function getCurrentUser(): Promise<AdminUser | null> {
   const session = await getSession();
 
@@ -112,17 +100,11 @@ export async function getCurrentUser(): Promise<AdminUser | null> {
   };
 }
 
-/**
- * Check if user is authenticated
- */
 export async function isAuthenticated(): Promise<boolean> {
   const session = await getSession();
   return !!session;
 }
 
-/**
- * Refresh the session token
- */
 export async function refreshSession(): Promise<Session | null> {
   if (!supabase) {
     return null;
@@ -143,9 +125,6 @@ export async function refreshSession(): Promise<Session | null> {
   }
 }
 
-/**
- * Subscribe to auth state changes
- */
 export function onAuthStateChange(callback: (user: User | null) => void) {
   if (!supabase) {
     return { unsubscribe: () => {} };
@@ -160,9 +139,6 @@ export function onAuthStateChange(callback: (user: User | null) => void) {
   return { unsubscribe: () => subscription.unsubscribe() };
 }
 
-/**
- * Translate Supabase auth errors to Spanish
- */
 function getAuthErrorMessage(error: AuthError): string {
   const errorMessages: Record<string, string> = {
     'Invalid login credentials': 'Credenciales inválidas. Verifica tu email y contraseña.',

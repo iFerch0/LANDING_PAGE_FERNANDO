@@ -14,15 +14,16 @@ interface ProductPageProps {
   params: Promise<{ slug: string }>;
 }
 
-// Generate static params for all products at build time
+export const dynamicParams = true;
+
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const products = await getProducts();
   return products.map((product) => ({
     slug: product.slug,
   }));
 }
-
-// Generate metadata for SEO
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
@@ -62,10 +63,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
     notFound();
   }
 
-  // Increment views (fire and forget)
   incrementViews(product.id).catch(console.error);
 
-  // Get related products
   const relatedProducts = await getRelatedProducts(product.category, product.id);
 
   const STATUS_LABELS = {
@@ -90,14 +89,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
           />
 
           <div className={styles.productLayout}>
-            {/* Image Gallery */}
             <div className={styles.gallerySection}>
               <ImageGallery images={product.images} alt={product.title} />
             </div>
 
-            {/* Product Info */}
             <div className={styles.infoSection}>
-              {/* Status Badge */}
               <div className={styles.badges}>
                 <span className={`${styles.statusBadge} ${styles[product.status]}`}>
                   {STATUS_LABELS[product.status]}
@@ -109,10 +105,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 )}
               </div>
 
-              {/* Title */}
               <h1 className={styles.title}>{product.title}</h1>
 
-              {/* Brand and Model */}
               {(product.brand || product.model) && (
                 <div className={styles.brandModel}>
                   {product.brand && <span className={styles.brand}>{product.brand}</span>}
@@ -120,7 +114,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               )}
 
-              {/* Price */}
               <div className={styles.priceSection}>
                 <div className={styles.price}>
                   <span className={styles.amount}>
@@ -135,7 +128,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 )}
               </div>
 
-              {/* Availability */}
               <div className={styles.availability}>
                 {product.availability ? (
                   <div className={styles.inStock}>
@@ -150,13 +142,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 )}
               </div>
 
-              {/* Description */}
               <div className={styles.description}>
                 <h2 className={styles.sectionTitle}>Descripción</h2>
                 <p>{product.description}</p>
               </div>
 
-              {/* Specifications */}
               {Object.keys(product.specs).length > 0 && (
                 <div className={styles.specs}>
                   <h2 className={styles.sectionTitle}>Especificaciones</h2>
@@ -171,7 +161,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               )}
 
-              {/* Payment Methods */}
               {product.payment_methods.length > 0 && (
                 <div className={styles.payment}>
                   <h2 className={styles.sectionTitle}>Métodos de pago</h2>
@@ -185,18 +174,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               )}
 
-              {/* WhatsApp CTA */}
               {product.availability && (
                 <WhatsAppButton product={product} />
               )}
 
-              {/* Favorite Button */}
               <FavoriteButton productId={product.id} />
 
-              {/* Share Buttons */}
               <ShareButtons product={product} />
 
-              {/* Additional Info */}
               <div className={styles.additionalInfo}>
                 <div className={styles.infoItem}>
                   <span className={styles.infoIcon}>📍</span>
@@ -214,7 +199,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
             </div>
           </div>
 
-          {/* Related Products */}
           <RelatedProducts products={relatedProducts} currentProductId={product.id} />
         </div>
       </div>

@@ -1,10 +1,6 @@
-// src/lib/db.ts
 import { supabase } from './supabase';
 import type { Product } from './types';
 
-/**
- * Get available products for public store
- */
 export async function getProducts(): Promise<Product[]> {
   if (!supabase) {
     console.error('❌ Supabase not configured');
@@ -25,9 +21,6 @@ export async function getProducts(): Promise<Product[]> {
   return data || [];
 }
 
-/**
- * Get product by slug for product detail page
- */
 export async function getProductBySlug(slug: string): Promise<Product | null> {
   if (!supabase) {
     console.error('❌ Supabase not configured');
@@ -97,13 +90,6 @@ export async function getRelatedProducts(category: string, excludeId: string, li
   return data || [];
 }
 
-// ============================================
-// CRUD Operations for Admin
-// ============================================
-
-/**
- * Get ALL products (including unavailable) - for admin panel
- */
 export async function getAllProducts(): Promise<Product[]> {
   if (!supabase) {
     console.error('❌ Supabase not configured');
@@ -123,9 +109,6 @@ export async function getAllProducts(): Promise<Product[]> {
   return data || [];
 }
 
-/**
- * Get product by ID
- */
 export async function getProductById(id: string): Promise<Product | null> {
   if (!supabase) {
     console.error('❌ Supabase not configured');
@@ -146,23 +129,17 @@ export async function getProductById(id: string): Promise<Product | null> {
   return data;
 }
 
-/**
- * Generate URL-friendly slug from title
- */
 function generateSlug(title: string): string {
   return title
     .toLowerCase()
     .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '') // Remove accents
-    .replace(/[^a-z0-9\s-]/g, '') // Remove special chars
-    .replace(/\s+/g, '-') // Replace spaces with hyphens
-    .replace(/-+/g, '-') // Replace multiple hyphens
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
     .trim();
 }
 
-/**
- * Create new product
- */
 export async function createProduct(productData: Partial<Product>): Promise<Product> {
   if (!supabase) {
     throw new Error('Supabase not configured');
@@ -206,9 +183,6 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
   return data;
 }
 
-/**
- * Update existing product
- */
 export async function updateProduct(id: string, productData: Partial<Product>): Promise<Product> {
   if (!supabase) {
     throw new Error('Supabase not configured');
@@ -219,12 +193,10 @@ export async function updateProduct(id: string, productData: Partial<Product>): 
     updated_at: new Date().toISOString(),
   };
   
-  // Regenerate slug if title changed
   if (productData.title && !productData.slug) {
     updateData.slug = generateSlug(productData.title);
   }
 
-  // Remove fields that shouldn't be updated directly
   delete updateData.id;
   delete updateData.created_at;
   delete updateData.views;
@@ -245,9 +217,6 @@ export async function updateProduct(id: string, productData: Partial<Product>): 
   return data;
 }
 
-/**
- * Delete product by ID
- */
 export async function deleteProduct(id: string): Promise<void> {
   if (!supabase) {
     throw new Error('Supabase not configured');
@@ -264,9 +233,6 @@ export async function deleteProduct(id: string): Promise<void> {
   }
 }
 
-/**
- * Toggle product availability
- */
 export async function toggleProductAvailability(id: string): Promise<Product> {
   const product = await getProductById(id);
   
@@ -277,9 +243,6 @@ export async function toggleProductAvailability(id: string): Promise<Product> {
   return updateProduct(id, { availability: !product.availability });
 }
 
-/**
- * Get unique categories from products
- */
 export async function getCategories(): Promise<string[]> {
   const products = await getAllProducts();
   const categories = [...new Set(products.map(p => p.category))];
