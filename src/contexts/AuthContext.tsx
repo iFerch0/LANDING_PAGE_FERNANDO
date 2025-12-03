@@ -27,7 +27,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
-  // Check initial session
   useEffect(() => {
     const initAuth = async () => {
       try {
@@ -44,11 +43,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     initAuth();
   }, []);
 
-  // Subscribe to auth changes
   useEffect(() => {
     const { unsubscribe } = onAuthStateChange((newUser) => {
       setUser(newUser);
-      // No redirigimos aquí - eso lo maneja el AuthGuard
     });
 
     return () => {
@@ -61,7 +58,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const result = await authSignIn(email, password);
       if (result.success) {
-        // The onAuthStateChange will update the user
         router.push('/admin');
         router.refresh();
       }
@@ -89,7 +85,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     isAuthenticated: !!user,
     signIn,
     signOut,
-    logout: signOut, // Alias para compatibilidad
+    logout: signOut,
   };
 
   return (
@@ -103,14 +99,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 export function useAuth() {
   const context = useContext(AuthContext);
   
-  // En SSR o cuando el provider no está montado, devolver valores por defecto
   if (context === undefined) {
-    // Solo mostrar warning en desarrollo para debugging
     if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
       console.warn('useAuth was called outside of AuthProvider. Returning default values.');
     }
     
-    // Devolver valores por defecto seguros para SSR
     const noopLogout = async () => {};
     return {
       user: null,

@@ -8,6 +8,8 @@ export const metadata = {
   description: 'Computadores, componentes y accesorios tecnológicos en Montería. Equipos nuevos y reacondicionados con garantía.',
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function TiendaPage() {
   const products = await getProducts();
 

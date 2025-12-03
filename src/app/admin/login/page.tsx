@@ -16,14 +16,12 @@ export default function AdminLoginPage() {
   const [loading, setLoading] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
 
-  // Redirect if already authenticated
   useEffect(() => {
     if (!authLoading && isAuthenticated) {
       router.push('/admin');
     }
   }, [authLoading, isAuthenticated, router]);
 
-  // Load saved email
   useEffect(() => {
     const savedEmail = localStorage.getItem('adminEmail');
     if (savedEmail) {
@@ -36,7 +34,6 @@ export default function AdminLoginPage() {
     setError('');
     setLoading(true);
 
-    // Basic validation
     if (!email.trim()) {
       setError('Ingresa tu correo electrónico');
       setLoading(false);
@@ -71,7 +68,6 @@ export default function AdminLoginPage() {
     }
   };
 
-  // Show loading while checking auth
   if (authLoading) {
     return (
       <div className={styles.container}>
@@ -83,7 +79,6 @@ export default function AdminLoginPage() {
     );
   }
 
-  // Don't render login form if already authenticated
   if (isAuthenticated) {
     return null;
   }
