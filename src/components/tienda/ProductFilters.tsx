@@ -35,11 +35,11 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
   const [showFilters, setShowFilters] = useState(false);
 
   // Get unique categories from products
-  const categories = ['all', ...new Set(products.map(p => p.category).filter(Boolean))];
+  const categories = ['all', ...new Set(products.map((p) => p.category).filter(Boolean))];
 
   // Get price range from products
-  const maxPrice = Math.max(...products.map(p => p.price), 0);
-  const minPrice = Math.min(...products.map(p => p.price), 0);
+  const maxPrice = Math.max(...products.map((p) => p.price), 0);
+  const minPrice = Math.min(...products.map((p) => p.price), 0);
 
   // Initialize price range
   useEffect(() => {
@@ -54,28 +54,29 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
     // Search filter
     if (searchTerm.trim()) {
       const search = searchTerm.toLowerCase();
-      filtered = filtered.filter(p =>
-        p.title.toLowerCase().includes(search) ||
-        p.description.toLowerCase().includes(search) ||
-        p.brand?.toLowerCase().includes(search) ||
-        p.model?.toLowerCase().includes(search) ||
-        p.category.toLowerCase().includes(search)
+      filtered = filtered.filter(
+        (p) =>
+          p.title.toLowerCase().includes(search) ||
+          p.description.toLowerCase().includes(search) ||
+          p.brand?.toLowerCase().includes(search) ||
+          p.model?.toLowerCase().includes(search) ||
+          p.category.toLowerCase().includes(search)
       );
     }
 
     // Category filter
     if (selectedCategory !== 'all') {
-      filtered = filtered.filter(p => p.category === selectedCategory);
+      filtered = filtered.filter((p) => p.category === selectedCategory);
     }
 
     // Status filter
     if (selectedStatus !== 'all') {
-      filtered = filtered.filter(p => p.status === selectedStatus);
+      filtered = filtered.filter((p) => p.status === selectedStatus);
     }
 
     // Price range filter
     if (priceRange.min > minPrice || priceRange.max < maxPrice) {
-      filtered = filtered.filter(p => p.price >= priceRange.min && p.price <= priceRange.max);
+      filtered = filtered.filter((p) => p.price >= priceRange.min && p.price <= priceRange.max);
     }
 
     // Sort
@@ -91,11 +92,23 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
         break;
       case 'recent':
       default:
-        filtered.sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+        filtered.sort(
+          (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+        );
     }
 
     onFilter(filtered);
-  }, [products, searchTerm, selectedCategory, selectedStatus, sortBy, priceRange, minPrice, maxPrice, onFilter]);
+  }, [
+    products,
+    searchTerm,
+    selectedCategory,
+    selectedStatus,
+    sortBy,
+    priceRange,
+    minPrice,
+    maxPrice,
+    onFilter,
+  ]);
 
   // Apply filters when any filter changes
   useEffect(() => {
@@ -110,8 +123,12 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
     setPriceRange({ min: minPrice, max: maxPrice });
   };
 
-  const hasActiveFilters = searchTerm || selectedCategory !== 'all' || selectedStatus !== 'all' || 
-    priceRange.min > minPrice || priceRange.max < maxPrice;
+  const hasActiveFilters =
+    searchTerm ||
+    selectedCategory !== 'all' ||
+    selectedStatus !== 'all' ||
+    priceRange.min > minPrice ||
+    priceRange.max < maxPrice;
 
   const formatPrice = (price: number) => {
     if (price >= 1000000) {
@@ -136,7 +153,7 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           {searchTerm && (
-            <button 
+            <button
               className={styles.clearSearch}
               onClick={() => setSearchTerm('')}
               aria-label="Limpiar búsqueda"
@@ -150,8 +167,10 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
 
         <div className={styles.sortSelect}>
           <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortOption)}>
-            {SORT_OPTIONS.map(opt => (
-              <option key={opt.value} value={opt.value}>{opt.label}</option>
+            {SORT_OPTIONS.map((opt) => (
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
+              </option>
             ))}
           </select>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -159,7 +178,7 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
           </svg>
         </div>
 
-        <button 
+        <button
           className={`${styles.filterToggle} ${showFilters ? styles.active : ''}`}
           onClick={() => setShowFilters(!showFilters)}
         >
@@ -177,28 +196,34 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
           {/* Category Filter */}
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Categoría</label>
-            <select 
-              value={selectedCategory} 
+            <select
+              value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
               className={styles.filterSelect}
             >
               <option value="all">Todas las categorías</option>
-              {categories.filter(c => c !== 'all').map(cat => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
+              {categories
+                .filter((c) => c !== 'all')
+                .map((cat) => (
+                  <option key={cat} value={cat}>
+                    {cat}
+                  </option>
+                ))}
             </select>
           </div>
 
           {/* Status Filter */}
           <div className={styles.filterGroup}>
             <label className={styles.filterLabel}>Estado</label>
-            <select 
-              value={selectedStatus} 
+            <select
+              value={selectedStatus}
               onChange={(e) => setSelectedStatus(e.target.value as ProductStatus | 'all')}
               className={styles.filterSelect}
             >
-              {STATUS_OPTIONS.map(opt => (
-                <option key={opt.value} value={opt.value}>{opt.label}</option>
+              {STATUS_OPTIONS.map((opt) => (
+                <option key={opt.value} value={opt.value}>
+                  {opt.label}
+                </option>
               ))}
             </select>
           </div>
@@ -225,11 +250,11 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
               <div className={styles.priceRange}>
                 <div className={styles.rangeTrack} />
                 {maxPrice > minPrice && (
-                  <div 
+                  <div
                     className={styles.rangeProgress}
                     style={{
                       left: `${Math.max(0, Math.min(100, ((priceRange.min - minPrice) / (maxPrice - minPrice)) * 100))}%`,
-                      width: `${Math.max(0, Math.min(100, ((priceRange.max - priceRange.min) / (maxPrice - minPrice)) * 100))}%`
+                      width: `${Math.max(0, Math.min(100, ((priceRange.max - priceRange.min) / (maxPrice - minPrice)) * 100))}%`,
                     }}
                   />
                 )}
@@ -238,10 +263,12 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
                   min={minPrice}
                   max={maxPrice}
                   value={priceRange.min}
-                  onChange={(e) => setPriceRange(prev => ({ 
-                    ...prev, 
-                    min: Math.min(Number(e.target.value), prev.max - 10000) 
-                  }))}
+                  onChange={(e) =>
+                    setPriceRange((prev) => ({
+                      ...prev,
+                      min: Math.min(Number(e.target.value), prev.max - 10000),
+                    }))
+                  }
                   className={styles.rangeSlider}
                 />
                 <input
@@ -249,20 +276,22 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
                   min={minPrice}
                   max={maxPrice}
                   value={priceRange.max}
-                  onChange={(e) => setPriceRange(prev => ({ 
-                    ...prev, 
-                    max: Math.max(Number(e.target.value), prev.min + 10000) 
-                  }))}
+                  onChange={(e) =>
+                    setPriceRange((prev) => ({
+                      ...prev,
+                      max: Math.max(Number(e.target.value), prev.min + 10000),
+                    }))
+                  }
                   className={styles.rangeSlider}
                 />
               </div>
             </div>
           </div>
         </div>
-        
+
         {/* Clear Filters - Fuera del grid para evitar reflow */}
         <div className={styles.clearFilterRow}>
-          <button 
+          <button
             className={`${styles.clearButton} ${!hasActiveFilters ? styles.clearButtonDisabled : ''}`}
             onClick={clearFilters}
             disabled={!hasActiveFilters}
@@ -292,7 +321,7 @@ export function ProductFilters({ products, onFilter }: ProductFiltersProps) {
           )}
           {selectedStatus !== 'all' && (
             <span className={styles.tag}>
-              {STATUS_OPTIONS.find(s => s.value === selectedStatus)?.label}
+              {STATUS_OPTIONS.find((s) => s.value === selectedStatus)?.label}
               <button onClick={() => setSelectedStatus('all')}>×</button>
             </span>
           )}

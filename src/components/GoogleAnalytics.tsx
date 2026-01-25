@@ -4,9 +4,11 @@ import Script from 'next/script';
 
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-ZJN4B4BQ20';
 
-export default function GoogleAnalytics() {
+export function GoogleAnalytics() {
   if (!GA_MEASUREMENT_ID) {
-    console.warn('Google Analytics Measurement ID not found. Please set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local');
+    console.warn(
+      'Google Analytics Measurement ID not found. Please set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local'
+    );
     return null;
   }
 

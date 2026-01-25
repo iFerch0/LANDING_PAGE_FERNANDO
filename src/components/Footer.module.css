@@ -3,10 +3,12 @@
    ========================================================================== */
 
 .footer {
-  background: linear-gradient(135deg,
+  background: linear-gradient(
+    135deg,
     var(--brand-negro) 0%,
     var(--brand-gris_oscuro) 50%,
-    var(--brand-azul_oscuro) 100%);
+    var(--brand-azul_oscuro) 100%
+  );
   color: #fff;
   position: relative;
 }
@@ -40,7 +42,7 @@
 .brandIcon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, var(--color-primary), #25D366);
+  background: linear-gradient(135deg, var(--color-primary), #25d366);
   border-radius: 16px;
   display: flex;
   align-items: center;
@@ -97,7 +99,7 @@
 }
 
 .socialWhatsapp:hover {
-  background: #25D366;
+  background: #25d366;
 }
 
 /* Contact Section */
@@ -150,7 +152,7 @@
 }
 
 .whatsappItem:hover svg {
-  color: #25D366;
+  color: #25d366;
   opacity: 1;
 }
 

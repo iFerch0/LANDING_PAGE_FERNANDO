@@ -27,8 +27,8 @@ export default function AdminDashboardPage() {
   }, []);
 
   const totalProducts = products.length;
-  const availableProducts = products.filter(p => p.availability).length;
-  const totalValue = products.reduce((sum, p) => sum + (p.price * p.stock), 0);
+  const availableProducts = products.filter((p) => p.availability).length;
+  const totalValue = products.reduce((sum, p) => sum + p.price * p.stock, 0);
   const totalViews = products.reduce((sum, p) => sum + p.views, 0);
   const totalWhatsAppClicks = products.reduce((sum, p) => sum + p.whatsapp_clicks, 0);
 
@@ -85,7 +85,7 @@ export default function AdminDashboardPage() {
     .sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime())
     .slice(0, 5);
 
-  const lowStockProducts = products.filter(p => p.stock <= 3 && p.stock > 0);
+  const lowStockProducts = products.filter((p) => p.stock <= 3 && p.stock > 0);
 
   return (
     <AuthGuard>
@@ -168,7 +168,9 @@ export default function AdminDashboardPage() {
                   </h2>
                   <div className={styles.productList}>
                     {lowStockProducts.length === 0 ? (
-                      <p className={styles.emptyText}>Todos los productos tienen stock suficiente</p>
+                      <p className={styles.emptyText}>
+                        Todos los productos tienen stock suficiente
+                      </p>
                     ) : (
                       lowStockProducts.map((product) => (
                         <div key={product.id} className={styles.productItem}>
@@ -178,9 +180,7 @@ export default function AdminDashboardPage() {
                               Quedan solo {product.stock} unidades
                             </p>
                           </div>
-                          <div className={styles.stockBadge}>
-                            {product.stock} unid.
-                          </div>
+                          <div className={styles.stockBadge}>{product.stock} unid.</div>
                         </div>
                       ))
                     )}
@@ -198,13 +198,14 @@ export default function AdminDashboardPage() {
                     <div className={styles.quickStatItem}>
                       <span className={styles.quickStatLabel}>Conversión</span>
                       <span className={styles.quickStatValue}>
-                        {totalViews > 0 ? ((totalWhatsAppClicks / totalViews) * 100).toFixed(1) : 0}%
+                        {totalViews > 0 ? ((totalWhatsAppClicks / totalViews) * 100).toFixed(1) : 0}
+                        %
                       </span>
                     </div>
                     <div className={styles.quickStatItem}>
                       <span className={styles.quickStatLabel}>Productos Agotados</span>
                       <span className={styles.quickStatValue}>
-                        {products.filter(p => p.stock === 0).length}
+                        {products.filter((p) => p.stock === 0).length}
                       </span>
                     </div>
                   </div>

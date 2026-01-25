@@ -19,8 +19,20 @@ export const WhatsAppIcon: React.FC<IconProps> = ({ className, size = 18, title 
     focusable="false"
   >
     <title>{title}</title>
-    <path d="M21 15a4 4 0 0 1-4 4h-1l-4 2v-2H9a6 6 0 0 1-6-6V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M7 9h.01M11 9h.01M15 9h.01" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M21 15a4 4 0 0 1-4 4h-1l-4 2v-2H9a6 6 0 0 1-6-6V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4v8z"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M7 9h.01M11 9h.01M15 9h.01"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -37,7 +49,13 @@ export const PhoneIcon: React.FC<IconProps> = ({ className, size = 18, title = '
     focusable="false"
   >
     <title>{title}</title>
-    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.38 2.07.75 3.03a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.05-1.05a2 2 0 0 1 2.11-.45c.96.37 1.98.63 3.03.75A2 2 0 0 1 22 16.92z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M22 16.92v3a2 2 0 0 1-2.18 2 19.78 19.78 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.78 19.78 0 0 1 2.08 4.18 2 2 0 0 1 4 2h3a2 2 0 0 1 2 1.72c.12 1.05.38 2.07.75 3.03a2 2 0 0 1-.45 2.11L8.09 11.91a16 16 0 0 0 6 6l1.05-1.05a2 2 0 0 1 2.11-.45c.96.37 1.98.63 3.03.75A2 2 0 0 1 22 16.92z"
+      stroke="currentColor"
+      strokeWidth="1.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -54,11 +72,21 @@ export const ChevronDown: React.FC<IconProps> = ({ className, size = 20, title =
     focusable="false"
   >
     <title>{title}</title>
-    <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M6 9l6 6 6-6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
-export const ChevronLeftIcon: React.FC<IconProps> = ({ className, size = 24, title = 'Previous' }) => (
+export const ChevronLeftIcon: React.FC<IconProps> = ({
+  className,
+  size = 24,
+  title = 'Previous',
+}) => (
   <svg
     className={className}
     width={size}
@@ -71,7 +99,13 @@ export const ChevronLeftIcon: React.FC<IconProps> = ({ className, size = 24, tit
     focusable="false"
   >
     <title>{title}</title>
-    <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M15 18l-6-6 6-6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
@@ -88,7 +122,13 @@ export const ChevronRightIcon: React.FC<IconProps> = ({ className, size = 24, ti
     focusable="false"
   >
     <title>{title}</title>
-    <path d="M9 18l6-6-6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path
+      d="M9 18l6-6-6-6"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 

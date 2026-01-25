@@ -11,35 +11,35 @@ export default function ReviewSchema({
   url,
   ratingValue = 5,
   ratingCount = 48,
-  bestRating = 5
+  bestRating = 5,
 }: ReviewSchemaProps) {
   const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": name,
-    "url": url,
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": ratingValue,
-      "reviewCount": ratingCount,
-      "bestRating": bestRating
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: name,
+    url: url,
+    aggregateRating: {
+      '@type': 'AggregateRating',
+      ratingValue: ratingValue,
+      reviewCount: ratingCount,
+      bestRating: bestRating,
     },
-    "review": [
+    review: [
       {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "Andrés" },
-        "datePublished": "2025-06-10",
-        "reviewBody": "Servicio rápido y profesional. Diagnóstico gratuito y solución el mismo día.",
-        "reviewRating": { "@type": "Rating", "ratingValue": 5 }
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'Andrés' },
+        datePublished: '2025-06-10',
+        reviewBody: 'Servicio rápido y profesional. Diagnóstico gratuito y solución el mismo día.',
+        reviewRating: { '@type': 'Rating', ratingValue: 5 },
       },
       {
-        "@type": "Review",
-        "author": { "@type": "Person", "name": "María" },
-        "datePublished": "2025-05-02",
-        "reviewBody": "Excelente atención a domicilio. Recomiendo 100%.",
-        "reviewRating": { "@type": "Rating", "ratingValue": 5 }
-      }
-    ]
+        '@type': 'Review',
+        author: { '@type': 'Person', name: 'María' },
+        datePublished: '2025-05-02',
+        reviewBody: 'Excelente atención a domicilio. Recomiendo 100%.',
+        reviewRating: { '@type': 'Rating', ratingValue: 5 },
+      },
+    ],
   };
 
   return (

@@ -14,9 +14,7 @@ const Breadcrumbs: React.FC = () => {
 
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
     const segments = pathname.split('/').filter(Boolean);
-    const breadcrumbs: BreadcrumbItem[] = [
-      { label: 'Inicio', href: '/' }
-    ];
+    const breadcrumbs: BreadcrumbItem[] = [{ label: 'Inicio', href: '/' }];
 
     let currentPath = '';
     segments.forEach((segment) => {
@@ -25,12 +23,12 @@ const Breadcrumbs: React.FC = () => {
       // Convert URL segment to readable label
       const label = segment
         .split('-')
-        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ');
 
       breadcrumbs.push({
         label,
-        href: currentPath
+        href: currentPath,
       });
     });
 
@@ -50,7 +48,7 @@ const Breadcrumbs: React.FC = () => {
       style={{
         padding: '16px 0',
         background: 'var(--color-background)',
-        borderBottom: '1px solid var(--color-border)'
+        borderBottom: '1px solid var(--color-border)',
       }}
     >
       <div className="container">
@@ -64,7 +62,7 @@ const Breadcrumbs: React.FC = () => {
             listStyle: 'none',
             padding: 0,
             margin: 0,
-            fontSize: '14px'
+            fontSize: '14px',
           }}
         >
           {breadcrumbs.map((breadcrumb, idx) => {
@@ -79,7 +77,7 @@ const Breadcrumbs: React.FC = () => {
                 style={{
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px'
+                  gap: '8px',
                 }}
               >
                 {!isLast ? (
@@ -90,10 +88,10 @@ const Breadcrumbs: React.FC = () => {
                       style={{
                         color: 'var(--color-primary)',
                         textDecoration: 'none',
-                        transition: 'color 0.2s'
+                        transition: 'color 0.2s',
                       }}
-                      onMouseOver={(e) => e.currentTarget.style.textDecoration = 'underline'}
-                      onMouseOut={(e) => e.currentTarget.style.textDecoration = 'none'}
+                      onMouseOver={(e) => (e.currentTarget.style.textDecoration = 'underline')}
+                      onMouseOut={(e) => (e.currentTarget.style.textDecoration = 'none')}
                     >
                       <span itemProp="name">{breadcrumb.label}</span>
                     </Link>
@@ -101,7 +99,7 @@ const Breadcrumbs: React.FC = () => {
                     <span
                       style={{
                         color: 'var(--color-text-secondary)',
-                        userSelect: 'none'
+                        userSelect: 'none',
                       }}
                       aria-hidden="true"
                     >
@@ -114,7 +112,7 @@ const Breadcrumbs: React.FC = () => {
                       itemProp="name"
                       style={{
                         color: 'var(--color-text)',
-                        fontWeight: '500'
+                        fontWeight: '500',
                       }}
                       aria-current="page"
                     >

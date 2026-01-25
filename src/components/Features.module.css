@@ -3,16 +3,16 @@
    ========================================================================== */
 
 .features {
-    padding: 100px 0;
-    background: var(--color-bg);
-    position: relative;
-    overflow: hidden;
+  padding: 100px 0;
+  background: var(--color-bg);
+  position: relative;
+  overflow: hidden;
 }
 
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 /* ==========================================================================
@@ -20,48 +20,48 @@
    ========================================================================== */
 
 .header {
-    text-align: center;
-    margin-bottom: 56px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  margin-bottom: 56px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .eyebrow {
-    display: inline-block;
-    padding: 8px 16px;
-    background: rgba(58, 110, 147, 0.1);
-    border: 1px solid rgba(58, 110, 147, 0.2);
-    border-radius: 100px;
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 20px;
+  display: inline-block;
+  padding: 8px 16px;
+  background: rgba(58, 110, 147, 0.1);
+  border: 1px solid rgba(58, 110, 147, 0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
 }
 
 .title {
-    font-size: clamp(28px, 5vw, 44px);
-    font-weight: 800;
-    color: var(--color-text);
-    line-height: 1.1;
-    margin: 0 0 16px;
-    letter-spacing: -1px;
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.1;
+  margin: 0 0 16px;
+  letter-spacing: -1px;
 }
 
 .titleGradient {
-    background: linear-gradient(135deg, var(--color-primary) 0%, #22c55e 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  background: linear-gradient(135deg, var(--color-primary) 0%, #22c55e 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .subtitle {
-    font-size: 17px;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin: 0;
+  font-size: 17px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -69,9 +69,9 @@
    ========================================================================== */
 
 .bentoGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 /* ==========================================================================
@@ -79,141 +79,141 @@
    ========================================================================== */
 
 .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    padding: 28px;
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 24px;
-    overflow: hidden;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    border-color: rgba(58, 110, 147, 0.3);
-    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: rgba(58, 110, 147, 0.3);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
 }
 
 /* Card Header */
 .cardHeader {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 /* Icon Box */
 .iconBox {
-    width: 52px;
-    height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, rgba(58, 110, 147, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
-    border: 1px solid rgba(58, 110, 147, 0.2);
-    border-radius: 14px;
-    transition: all 0.3s ease;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(58, 110, 147, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
+  border: 1px solid rgba(58, 110, 147, 0.2);
+  border-radius: 14px;
+  transition: all 0.3s ease;
 }
 
 .card:hover .iconBox {
-    transform: scale(1.05);
-    border-color: rgba(58, 110, 147, 0.4);
+  transform: scale(1.05);
+  border-color: rgba(58, 110, 147, 0.4);
 }
 
 .icon {
-    width: 26px;
-    height: 26px;
-    color: var(--color-primary);
+  width: 26px;
+  height: 26px;
+  color: var(--color-primary);
 }
 
 /* Badge */
 .badge {
-    padding: 6px 12px;
-    background: rgba(58, 110, 147, 0.15);
-    border: 1px solid rgba(58, 110, 147, 0.25);
-    border-radius: 100px;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  padding: 6px 12px;
+  background: rgba(58, 110, 147, 0.15);
+  border: 1px solid rgba(58, 110, 147, 0.25);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .badgeAccent {
-    background: rgba(234, 179, 8, 0.15);
-    border-color: rgba(234, 179, 8, 0.3);
-    color: #ca8a04;
+  background: rgba(234, 179, 8, 0.15);
+  border-color: rgba(234, 179, 8, 0.3);
+  color: #ca8a04;
 }
 
 .badgeSuccess {
-    background: rgba(34, 197, 94, 0.15);
-    border-color: rgba(34, 197, 94, 0.3);
-    color: #16a34a;
+  background: rgba(34, 197, 94, 0.15);
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #16a34a;
 }
 
 .badgePrimary {
-    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-    border-color: transparent;
-    color: white;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  border-color: transparent;
+  color: white;
 }
 
 /* Card Content */
 .cardContent {
-    flex: 1;
-    margin-bottom: 20px;
+  flex: 1;
+  margin-bottom: 20px;
 }
 
 .cardTitle {
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--color-text);
-    margin: 0 0 6px;
-    line-height: 1.2;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 6px;
+  line-height: 1.2;
 }
 
 .cardSubtitle {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--color-primary);
-    margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-primary);
+  margin: 0 0 12px;
 }
 
 .cardDesc {
-    font-size: 14px;
-    color: var(--color-text-secondary);
-    line-height: 1.6;
-    margin: 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
 }
 
 /* Card Footer */
 .cardFooter {
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .metric {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 
 .metricValue {
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--color-text);
-    line-height: 1;
-    letter-spacing: -1px;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -1px;
 }
 
 .metricLabel {
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--color-text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
@@ -221,67 +221,67 @@
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
-    .card {
-        background: rgba(30, 30, 30, 0.8);
-        border-color: rgba(255, 255, 255, 0.08);
-    }
+  .card {
+    background: rgba(30, 30, 30, 0.8);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
 
-    .card:hover {
-        background: rgba(40, 40, 40, 0.9);
-        border-color: rgba(255, 255, 255, 0.15);
-    }
+  .card:hover {
+    background: rgba(40, 40, 40, 0.9);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
 
-    .cardFooter {
-        border-top-color: rgba(255, 255, 255, 0.08);
-    }
+  .cardFooter {
+    border-top-color: rgba(255, 255, 255, 0.08);
+  }
 
-    .eyebrow {
-        background: rgba(58, 110, 147, 0.2);
-        border-color: rgba(58, 110, 147, 0.3);
-    }
+  .eyebrow {
+    background: rgba(58, 110, 147, 0.2);
+    border-color: rgba(58, 110, 147, 0.3);
+  }
 
-    .iconBox {
-        background: linear-gradient(135deg, rgba(58, 110, 147, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
-        border-color: rgba(58, 110, 147, 0.3);
-    }
+  .iconBox {
+    background: linear-gradient(135deg, rgba(58, 110, 147, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
+    border-color: rgba(58, 110, 147, 0.3);
+  }
 
-    .badge {
-        background: rgba(58, 110, 147, 0.2);
-        border-color: rgba(58, 110, 147, 0.3);
-    }
+  .badge {
+    background: rgba(58, 110, 147, 0.2);
+    border-color: rgba(58, 110, 147, 0.3);
+  }
 }
 
 /* ==========================================================================
    Dark Mode - Data Attribute
    ========================================================================== */
 
-:global([data-color-scheme="dark"]) .card {
-    background: rgba(30, 30, 30, 0.8);
-    border-color: rgba(255, 255, 255, 0.08);
+:global([data-color-scheme='dark']) .card {
+  background: rgba(30, 30, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.08);
 }
 
-:global([data-color-scheme="dark"]) .card:hover {
-    background: rgba(40, 40, 40, 0.9);
-    border-color: rgba(255, 255, 255, 0.15);
+:global([data-color-scheme='dark']) .card:hover {
+  background: rgba(40, 40, 40, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-:global([data-color-scheme="dark"]) .cardFooter {
-    border-top-color: rgba(255, 255, 255, 0.08);
+:global([data-color-scheme='dark']) .cardFooter {
+  border-top-color: rgba(255, 255, 255, 0.08);
 }
 
-:global([data-color-scheme="dark"]) .eyebrow {
-    background: rgba(58, 110, 147, 0.2);
-    border-color: rgba(58, 110, 147, 0.3);
+:global([data-color-scheme='dark']) .eyebrow {
+  background: rgba(58, 110, 147, 0.2);
+  border-color: rgba(58, 110, 147, 0.3);
 }
 
-:global([data-color-scheme="dark"]) .iconBox {
-    background: linear-gradient(135deg, rgba(58, 110, 147, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
-    border-color: rgba(58, 110, 147, 0.3);
+:global([data-color-scheme='dark']) .iconBox {
+  background: linear-gradient(135deg, rgba(58, 110, 147, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
+  border-color: rgba(58, 110, 147, 0.3);
 }
 
-:global([data-color-scheme="dark"]) .badge {
-    background: rgba(58, 110, 147, 0.2);
-    border-color: rgba(58, 110, 147, 0.3);
+:global([data-color-scheme='dark']) .badge {
+  background: rgba(58, 110, 147, 0.2);
+  border-color: rgba(58, 110, 147, 0.3);
 }
 
 /* ==========================================================================
@@ -289,59 +289,59 @@
    ========================================================================== */
 
 @media (max-width: 768px) {
-    .features {
-        padding: 64px 0;
-    }
+  .features {
+    padding: 64px 0;
+  }
 
-    .header {
-        margin-bottom: 40px;
-    }
+  .header {
+    margin-bottom: 40px;
+  }
 
-    .title {
-        font-size: 26px;
-    }
+  .title {
+    font-size: 26px;
+  }
 
-    .subtitle {
-        font-size: 15px;
-    }
+  .subtitle {
+    font-size: 15px;
+  }
 
-    .bentoGrid {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
+  .bentoGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 
-    .card {
-        padding: 24px;
-        border-radius: 20px;
-    }
+  .card {
+    padding: 24px;
+    border-radius: 20px;
+  }
 
-    .iconBox {
-        width: 46px;
-        height: 46px;
-        border-radius: 12px;
-    }
+  .iconBox {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+  }
 
-    .icon {
-        width: 22px;
-        height: 22px;
-    }
+  .icon {
+    width: 22px;
+    height: 22px;
+  }
 
-    .cardTitle {
-        font-size: 20px;
-    }
+  .cardTitle {
+    font-size: 20px;
+  }
 
-    .cardDesc {
-        font-size: 14px;
-    }
+  .cardDesc {
+    font-size: 14px;
+  }
 
-    .metricValue {
-        font-size: 28px;
-    }
+  .metricValue {
+    font-size: 28px;
+  }
 
-    .badge {
-        padding: 5px 10px;
-        font-size: 10px;
-    }
+  .badge {
+    padding: 5px 10px;
+    font-size: 10px;
+  }
 }
 
 /* ==========================================================================
@@ -349,15 +349,15 @@
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-    .card {
-        transition: none;
-    }
+  .card {
+    transition: none;
+  }
 
-    .card:hover {
-        transform: none;
-    }
+  .card:hover {
+    transform: none;
+  }
 
-    .iconBox {
-        transition: none;
-    }
+  .iconBox {
+    transition: none;
+  }
 }

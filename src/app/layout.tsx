@@ -1,68 +1,71 @@
-import ClientLayout from "./ClientLayout";
-import type { Metadata } from "next";
-import "./globals.css";
+import ClientLayout from './ClientLayout';
+import type { Metadata } from 'next';
+import './globals.css';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
 import OrganizationSchema from '@/components/OrganizationSchema';
 import WebVitalsReporter from '@/components/WebVitalsReporter';
 import PWAInstaller from '@/components/PWAInstaller';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
+import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
 
 // Using system fonts as fallback for better performance and offline support
-const fontVariables = "font-sans";
+const fontVariables = 'font-sans';
 
 export const metadata: Metadata = {
-  title: "Técnico en Computadores Montería | Servicio Técnico PC a Domicilio",
-  description: "Técnico en computadores Montería especializado en reparación PC, soporte técnico, mantenimiento y recuperación de datos. Servicio a domicilio 24/7. Diagnóstico gratuito.",
+  title: 'Técnico en Computadores Montería | Servicio Técnico PC a Domicilio',
+  description:
+    'Técnico en computadores Montería especializado en reparación PC, soporte técnico, mantenimiento y recuperación de datos. Servicio a domicilio 24/7. Diagnóstico gratuito.',
   icons: {
     icon: '/favicon.ico',
     shortcut: '/favicon.ico',
     apple: '/icon-192x192.png',
   },
   keywords: [
-    "técnico computadores montería",
-    "reparación pc montería",
-    "servicio técnico montería",
-    "mantenimiento computadores",
-    "soporte técnico domicilio",
-    "ingeniero sistemas montería",
-    "formateo windows montería",
-    "recuperación datos",
-    "reparación laptops",
-    "técnico pc córdoba",
-    "instalación software",
-    "eliminación virus",
-    "optimización pc",
-    "mantenimiento preventivo",
-    "servicio a domicilio"
+    'técnico computadores montería',
+    'reparación pc montería',
+    'servicio técnico montería',
+    'mantenimiento computadores',
+    'soporte técnico domicilio',
+    'ingeniero sistemas montería',
+    'formateo windows montería',
+    'recuperación datos',
+    'reparación laptops',
+    'técnico pc córdoba',
+    'instalación software',
+    'eliminación virus',
+    'optimización pc',
+    'mantenimiento preventivo',
+    'servicio a domicilio',
   ],
-  authors: [{ name: "Fernando - FerchoTécnico Montería" }],
-  creator: "FerchoTécnico - Servicio Técnico Computadores Montería",
-  publisher: "FerchoTécnico",
+  authors: [{ name: 'Fernando - FerchoTécnico Montería' }],
+  creator: 'FerchoTécnico - Servicio Técnico Computadores Montería',
+  publisher: 'FerchoTécnico',
   alternates: {
-    canonical: "https://www.ferchotecnico.com"
+    canonical: 'https://www.ferchotecnico.com',
   },
   openGraph: {
-    title: "Técnico en Computadores Montería | Servicio a Domicilio",
-    description: "Fernando - Técnico especialista en reparación de computadores en Montería. Soporte técnico PC, mantenimiento, recuperación datos. Diagnóstico gratuito +573008474121",
-    url: "https://www.ferchotecnico.com",
-    siteName: "FerchoTécnico - Servicio Técnico Computadores Montería",
+    title: 'Técnico en Computadores Montería | Servicio a Domicilio',
+    description:
+      'Fernando - Técnico especialista en reparación de computadores en Montería. Soporte técnico PC, mantenimiento, recuperación datos. Diagnóstico gratuito +573008474121',
+    url: 'https://www.ferchotecnico.com',
+    siteName: 'FerchoTécnico - Servicio Técnico Computadores Montería',
     images: [
       {
-        url: "https://www.ferchotecnico.com/hero-poster.jpg",
+        url: 'https://www.ferchotecnico.com/hero-poster.jpg',
         width: 1200,
         height: 630,
-        alt: "Fernando - Técnico en Computadores Montería - Servicio a Domicilio"
-      }
+        alt: 'Fernando - Técnico en Computadores Montería - Servicio a Domicilio',
+      },
     ],
-    locale: "es_CO",
-    type: "website",
+    locale: 'es_CO',
+    type: 'website',
   },
   twitter: {
-    card: "summary_large_image",
-    title: "Técnico Computadores Montería | Fernando",
-    description: "Servicio técnico PC a domicilio en Montería. Reparación, mantenimiento, soporte. Diagnóstico gratuito +573008474121",
-    images: ["https://www.ferchotecnico.com/hero-poster.jpg"]
+    card: 'summary_large_image',
+    title: 'Técnico Computadores Montería | Fernando',
+    description:
+      'Servicio técnico PC a domicilio en Montería. Reparación, mantenimiento, soporte. Diagnóstico gratuito +573008474121',
+    images: ['https://www.ferchotecnico.com/hero-poster.jpg'],
   },
   robots: {
     index: true,
@@ -70,14 +73,14 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1
-    }
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   verification: {
-    google: "32gCZO4fJwy0MIBY6vxxwViOjZebX-XWBvC8quXBg8I"
-  }
+    google: '32gCZO4fJwy0MIBY6vxxwViOjZebX-XWBvC8quXBg8I',
+  },
 };
 
 export default function RootLayout({
@@ -116,13 +119,13 @@ export default function RootLayout({
         <meta name="service-area" content="Montería, Córdoba, Colombia" />
       </head>
       <body className={fontVariables} suppressHydrationWarning={true}>
-  <GoogleAnalytics />
-  <LocalBusinessSchema />
-  <OrganizationSchema />
-  <ClientLayout>{children}</ClientLayout>
-  <Footer />
-  <PWAInstaller />
-  <WebVitalsReporter />
+        <GoogleAnalytics />
+        <LocalBusinessSchema />
+        <OrganizationSchema />
+        <ClientLayout>{children}</ClientLayout>
+        <Footer />
+        <PWAInstaller />
+        <WebVitalsReporter />
       </body>
     </html>
   );

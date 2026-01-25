@@ -112,19 +112,13 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
         <div className={styles.sidebarFooter}>
           <div className={styles.userInfo}>
-            <div className={styles.userAvatar}>
-              {userEmail?.charAt(0).toUpperCase() || 'A'}
-            </div>
+            <div className={styles.userAvatar}>{userEmail?.charAt(0).toUpperCase() || 'A'}</div>
             <div className={styles.userDetails}>
               <div className={styles.userName}>Administrador</div>
               <div className={styles.userEmail}>{userEmail || 'admin@ferchotecnico.com'}</div>
             </div>
           </div>
-          <button
-            onClick={handleLogout}
-            className={styles.logoutButton}
-            disabled={loggingOut}
-          >
+          <button onClick={handleLogout} className={styles.logoutButton} disabled={loggingOut}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
             </svg>
@@ -155,11 +149,7 @@ export function AdminLayout({ children }: AdminLayoutProps) {
 
       {/* Mobile Overlay */}
       {sidebarOpen && (
-        <div
-          className={styles.overlay}
-          onClick={() => setSidebarOpen(false)}
-          aria-hidden="true"
-        />
+        <div className={styles.overlay} onClick={() => setSidebarOpen(false)} aria-hidden="true" />
       )}
     </div>
   );

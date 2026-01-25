@@ -1,0 +1,335 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Features Component matches snapshot 1`] = `
+<div>
+  <section
+    aria-labelledby="features-title"
+    class="features"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="header"
+        data-aos="fade-up"
+      >
+        <span
+          class="eyebrow"
+        >
+          Por qué elegirnos
+        </span>
+        <h2
+          class="title"
+          id="features-title"
+        >
+          Servicio técnico que
+          <span
+            class="titleGradient"
+          >
+             realmente funciona
+          </span>
+        </h2>
+        <p
+          class="subtitle"
+        >
+          Especialistas certificados con años de experiencia solucionando problemas técnicos en Montería
+        </p>
+      </div>
+      <div
+        class="bentoGrid"
+      >
+        <article
+          class="card"
+          data-aos="fade-up"
+        >
+          <div
+            class="cardHeader"
+          >
+            <div
+              class="iconBox"
+            >
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="badge"
+            >
+              Equipado
+            </span>
+          </div>
+          <div
+            class="cardContent"
+          >
+            <h3
+              class="cardTitle"
+            >
+              Servicio Completo
+            </h3>
+            <p
+              class="cardSubtitle"
+            >
+              Taller profesional
+            </p>
+            <p
+              class="cardDesc"
+            >
+              Herramientas especializadas y repuestos originales para cualquier reparación.
+            </p>
+          </div>
+          <div
+            class="cardFooter"
+          >
+            <div
+              class="metric"
+            >
+              <span
+                class="metricValue"
+              >
+                100%
+              </span>
+              <span
+                class="metricLabel"
+              >
+                Original
+              </span>
+            </div>
+          </div>
+        </article>
+        <article
+          class="card"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div
+            class="cardHeader"
+          >
+            <div
+              class="iconBox"
+            >
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <polygon
+                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="badge badgeAccent"
+            >
+              Express
+            </span>
+          </div>
+          <div
+            class="cardContent"
+          >
+            <h3
+              class="cardTitle"
+            >
+              Atención Rápida
+            </h3>
+            <p
+              class="cardSubtitle"
+            >
+              Mismo día
+            </p>
+            <p
+              class="cardDesc"
+            >
+              Diagnóstico inmediato y solución clara. Mayoría de reparaciones el mismo día.
+            </p>
+          </div>
+          <div
+            class="cardFooter"
+          >
+            <div
+              class="metric"
+            >
+              <span
+                class="metricValue"
+              >
+                &lt;2h
+              </span>
+              <span
+                class="metricLabel"
+              >
+                Respuesta
+              </span>
+            </div>
+          </div>
+        </article>
+        <article
+          class="card"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div
+            class="cardHeader"
+          >
+            <div
+              class="iconBox"
+            >
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12l2 2 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <span
+              class="badge badgeSuccess"
+            >
+              Protegido
+            </span>
+          </div>
+          <div
+            class="cardContent"
+          >
+            <h3
+              class="cardTitle"
+            >
+              Garantía Total
+            </h3>
+            <p
+              class="cardSubtitle"
+            >
+              Trabajo respaldado
+            </p>
+            <p
+              class="cardDesc"
+            >
+              Garantía escrita en todas las reparaciones. Si vuelve el problema, lo arreglamos gratis.
+            </p>
+          </div>
+          <div
+            class="cardFooter"
+          >
+            <div
+              class="metric"
+            >
+              <span
+                class="metricValue"
+              >
+                30
+              </span>
+              <span
+                class="metricLabel"
+              >
+                Días
+              </span>
+            </div>
+          </div>
+        </article>
+        <article
+          class="card"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <div
+            class="cardHeader"
+          >
+            <div
+              class="iconBox"
+            >
+              <svg
+                class="icon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="5.5"
+                  cy="18.5"
+                  r="2.5"
+                />
+                <circle
+                  cx="18.5"
+                  cy="18.5"
+                  r="2.5"
+                />
+              </svg>
+            </div>
+            <span
+              class="badge badgePrimary"
+            >
+              Gratis
+            </span>
+          </div>
+          <div
+            class="cardContent"
+          >
+            <h3
+              class="cardTitle"
+            >
+              Servicio a Domicilio
+            </h3>
+            <p
+              class="cardSubtitle"
+            >
+              Vamos a tu ubicación
+            </p>
+            <p
+              class="cardDesc"
+            >
+              Recogemos tu equipo y lo entregamos reparado. Sin costo adicional en Montería.
+            </p>
+          </div>
+          <div
+            class="cardFooter"
+          >
+            <div
+              class="metric"
+            >
+              <span
+                class="metricValue"
+              >
+                $0
+              </span>
+              <span
+                class="metricLabel"
+              >
+                Envío
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>
+`;

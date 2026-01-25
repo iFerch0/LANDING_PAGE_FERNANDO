@@ -58,12 +58,8 @@ export default function NuevoProductoPage() {
     warranty: '',
   });
 
-
-
   // Specs
-  const [specs, setSpecs] = useState<{ key: string; value: string }[]>([
-    { key: '', value: '' },
-  ]);
+  const [specs, setSpecs] = useState<{ key: string; value: string }[]>([{ key: '', value: '' }]);
 
   // Custom category
   const [customCategory, setCustomCategory] = useState('');
@@ -119,7 +115,7 @@ export default function NuevoProductoPage() {
     try {
       // Build specs object from array
       const specsObject: Record<string, string> = {};
-      specs.forEach(spec => {
+      specs.forEach((spec) => {
         if (spec.key.trim() && spec.value.trim()) {
           specsObject[spec.key.trim()] = spec.value.trim();
         }
@@ -134,7 +130,7 @@ export default function NuevoProductoPage() {
       await createProduct(productData);
 
       setMessage({ type: 'success', text: '¡Producto creado exitosamente!' });
-      
+
       // Redirect after short delay
       setTimeout(() => {
         router.push('/admin/productos');
@@ -151,24 +147,24 @@ export default function NuevoProductoPage() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
     const { name, value, type } = e.target;
-    
-    setFormData(prev => ({
+
+    setFormData((prev) => ({
       ...prev,
       [name]: type === 'number' ? Number(value) : value,
     }));
 
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
-      setErrors(prev => ({ ...prev, [name]: undefined }));
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   };
 
   const handleImagesChange = (images: string[]) => {
-    setFormData(prev => ({ ...prev, images }));
+    setFormData((prev) => ({ ...prev, images }));
   };
 
   const handleSpecChange = (index: number, field: 'key' | 'value', value: string) => {
-    setSpecs(prev => {
+    setSpecs((prev) => {
       const updated = [...prev];
       updated[index][field] = value;
       return updated;
@@ -176,18 +172,18 @@ export default function NuevoProductoPage() {
   };
 
   const handleAddSpec = () => {
-    setSpecs(prev => [...prev, { key: '', value: '' }]);
+    setSpecs((prev) => [...prev, { key: '', value: '' }]);
   };
 
   const handleRemoveSpec = (index: number) => {
-    setSpecs(prev => prev.filter((_, i) => i !== index));
+    setSpecs((prev) => prev.filter((_, i) => i !== index));
   };
 
   const togglePaymentMethod = (method: string) => {
-    setFormData(prev => {
+    setFormData((prev) => {
       const current = prev.payment_methods || [];
       const updated = current.includes(method)
-        ? current.filter(m => m !== method)
+        ? current.filter((m) => m !== method)
         : [...current, method];
       return { ...prev, payment_methods: updated };
     });
@@ -225,7 +221,9 @@ export default function NuevoProductoPage() {
 
           {/* Messages */}
           {message && (
-            <div className={`${styles.message} ${message.type === 'success' ? styles.messageSuccess : styles.messageError}`}>
+            <div
+              className={`${styles.message} ${message.type === 'success' ? styles.messageSuccess : styles.messageError}`}
+            >
               <svg viewBox="0 0 24 24" fill="currentColor">
                 {message.type === 'success' ? (
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
@@ -307,8 +305,10 @@ export default function NuevoProductoPage() {
                       className={`${styles.select} ${errors.category ? styles.inputError : ''}`}
                     >
                       <option value="">Seleccionar categoría</option>
-                      {categories.map(cat => (
-                        <option key={cat} value={cat}>{cat}</option>
+                      {categories.map((cat) => (
+                        <option key={cat} value={cat}>
+                          {cat}
+                        </option>
                       ))}
                       <option value="__custom__">+ Nueva categoría</option>
                     </select>
@@ -316,7 +316,7 @@ export default function NuevoProductoPage() {
                       <input
                         type="text"
                         value={customCategory}
-                        onChange={e => setCustomCategory(e.target.value)}
+                        onChange={(e) => setCustomCategory(e.target.value)}
                         className={styles.input}
                         placeholder="Nombre de la nueva categoría"
                         style={{ marginTop: '0.5rem' }}
@@ -372,8 +372,10 @@ export default function NuevoProductoPage() {
                       onChange={handleInputChange}
                       className={styles.select}
                     >
-                      {STATUS_OPTIONS.map(opt => (
-                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      {STATUS_OPTIONS.map((opt) => (
+                        <option key={opt.value} value={opt.value}>
+                          {opt.label}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -395,14 +397,14 @@ export default function NuevoProductoPage() {
                 <div className={styles.toggleGroup} style={{ marginTop: '1rem' }}>
                   <div className={styles.toggleLabel}>
                     <span className={styles.toggleTitle}>Disponible para venta</span>
-                    <span className={styles.toggleDesc}>
-                      El producto será visible en la tienda
-                    </span>
+                    <span className={styles.toggleDesc}>El producto será visible en la tienda</span>
                   </div>
                   <button
                     type="button"
                     className={`${styles.toggle} ${formData.availability ? styles.active : ''}`}
-                    onClick={() => setFormData(prev => ({ ...prev, availability: !prev.availability }))}
+                    onClick={() =>
+                      setFormData((prev) => ({ ...prev, availability: !prev.availability }))
+                    }
                   >
                     <span className={styles.toggleKnob} />
                   </button>
@@ -443,14 +445,14 @@ export default function NuevoProductoPage() {
                       <input
                         type="text"
                         value={spec.key}
-                        onChange={e => handleSpecChange(index, 'key', e.target.value)}
+                        onChange={(e) => handleSpecChange(index, 'key', e.target.value)}
                         className={styles.input}
                         placeholder="Ej: Procesador"
                       />
                       <input
                         type="text"
                         value={spec.value}
-                        onChange={e => handleSpecChange(index, 'value', e.target.value)}
+                        onChange={(e) => handleSpecChange(index, 'value', e.target.value)}
                         className={styles.input}
                         placeholder="Ej: Intel Core i5"
                       />
@@ -460,7 +462,12 @@ export default function NuevoProductoPage() {
                           className={styles.specRemove}
                           onClick={() => handleRemoveSpec(index)}
                         >
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
                             <path d="M18 6L6 18M6 6l12 12" />
                           </svg>
                         </button>
@@ -468,11 +475,7 @@ export default function NuevoProductoPage() {
                     </div>
                   ))}
 
-                  <button
-                    type="button"
-                    className={styles.addSpec}
-                    onClick={handleAddSpec}
-                  >
+                  <button type="button" className={styles.addSpec} onClick={handleAddSpec}>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M12 5v14M5 12h14" />
                     </svg>
@@ -492,7 +495,7 @@ export default function NuevoProductoPage() {
                 </h2>
 
                 <div className={styles.paymentMethods}>
-                  {PAYMENT_OPTIONS.map(method => (
+                  {PAYMENT_OPTIONS.map((method) => (
                     <button
                       key={method}
                       type="button"
@@ -503,7 +506,12 @@ export default function NuevoProductoPage() {
                     >
                       <span className={styles.checkbox}>
                         {formData.payment_methods?.includes(method) && (
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                          >
                             <polyline points="20 6 9 17 4 12" />
                           </svg>
                         )}
@@ -519,14 +527,13 @@ export default function NuevoProductoPage() {
                 <Link href="/admin/productos" className={styles.cancelButton}>
                   Cancelar
                 </Link>
-                <button
-                  type="submit"
-                  className={styles.submitButton}
-                  disabled={submitting}
-                >
+                <button type="submit" className={styles.submitButton} disabled={submitting}>
                   {submitting ? (
                     <>
-                      <div className={styles.spinner} style={{ width: 20, height: 20, borderWidth: 2 }} />
+                      <div
+                        className={styles.spinner}
+                        style={{ width: 20, height: 20, borderWidth: 2 }}
+                      />
                       Guardando...
                     </>
                   ) : (

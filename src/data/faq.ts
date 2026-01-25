@@ -2,53 +2,53 @@ export const FAQ_ITEMS = [
   {
     question: '¿Cuánto tiempo toma una reparación?',
     answer:
-      'Dependiendo del problema, las reparaciones simples pueden tomar de 1-2 horas, mientras que casos más complejos pueden requerir 1-2 días. Siempre te mantengo informado del progreso.'
+      'Dependiendo del problema, las reparaciones simples pueden tomar de 1-2 horas, mientras que casos más complejos pueden requerir 1-2 días. Siempre te mantengo informado del progreso.',
   },
   {
     question: '¿Cuánto cuesta el diagnóstico?',
     answer:
-      'El diagnóstico inicial es completamente GRATIS. Solo pagas si decides proceder con la reparación. Si el equipo no tiene solución, no cobro nada por la evaluación.'
+      'El diagnóstico inicial es completamente GRATIS. Solo pagas si decides proceder con la reparación. Si el equipo no tiene solución, no cobro nada por la evaluación.',
   },
   {
     question: '¿Ofreces servicio a domicilio?',
     answer:
-      'Sí, ofrezco servicio a domicilio en toda Montería sin costo adicional. Para casos que requieren herramientas especializadas, puede ser necesario llevar el equipo al taller.'
+      'Sí, ofrezco servicio a domicilio en toda Montería sin costo adicional. Para casos que requieren herramientas especializadas, puede ser necesario llevar el equipo al taller.',
   },
   {
     question: '¿Qué garantía ofrecen los servicios?',
     answer:
-      'Todos mis servicios incluyen garantía de 30 días. Si el mismo problema vuelve a presentarse dentro de este período, lo corrijo sin costo adicional.'
+      'Todos mis servicios incluyen garantía de 30 días. Si el mismo problema vuelve a presentarse dentro de este período, lo corrijo sin costo adicional.',
   },
   {
     question: '¿Qué tipos de problemas resuelven?',
     answer:
-      'Resuelvo virus, lentitud, pantallas rotas, problemas de batería, calentamiento, actualizaciones, instalación de software, recuperación de datos, y mantenimiento preventivo.'
+      'Resuelvo virus, lentitud, pantallas rotas, problemas de batería, calentamiento, actualizaciones, instalación de software, recuperación de datos, y mantenimiento preventivo.',
   },
   {
     question: '¿Trabajan con todas las marcas?',
     answer:
-      'Sí, trabajo con todas las marcas: HP, Dell, Lenovo, Asus, Acer, Apple, Sony y muchas más. También con equipos ensamblados y de escritorio.'
+      'Sí, trabajo con todas las marcas: HP, Dell, Lenovo, Asus, Acer, Apple, Sony y muchas más. También con equipos ensamblados y de escritorio.',
   },
   {
     question: '¿Qué métodos de pago aceptan?',
     answer:
-      'Acepto efectivo, transferencia bancaria, Nequi, Daviplata y tarjetas de crédito/débito. El pago se realiza una vez completado y aprobado el servicio.'
+      'Acepto efectivo, transferencia bancaria, Nequi, Daviplata y tarjetas de crédito/débito. El pago se realiza una vez completado y aprobado el servicio.',
   },
   {
     question: '¿Hacen respaldo de mis archivos?',
     answer:
-      'Sí, siempre hago respaldo de tus archivos importantes antes de cualquier procedimiento. Tu información está segura durante todo el proceso de reparación.'
+      'Sí, siempre hago respaldo de tus archivos importantes antes de cualquier procedimiento. Tu información está segura durante todo el proceso de reparación.',
   },
   {
     question: '¿Atienden fines de semana?',
     answer:
-      'Sí, atiendo sábados de 8:00 AM a 6:00 PM. Los domingos solo emergencias con cita previa. Puedes contactarme por WhatsApp para coordinar horarios.'
+      'Sí, atiendo sábados de 8:00 AM a 6:00 PM. Los domingos solo emergencias con cita previa. Puedes contactarme por WhatsApp para coordinar horarios.',
   },
   {
     question: '¿Qué pasa si el equipo no se puede reparar?',
     answer:
-      'Si después del diagnóstico determino que el equipo no es viable de reparar, no cobro nada por la evaluación y te asesoro sobre las mejores opciones disponibles.'
-  }
+      'Si después del diagnóstico determino que el equipo no es viable de reparar, no cobro nada por la evaluación y te asesoro sobre las mejores opciones disponibles.',
+  },
 ];
 
-export type FaqItem = typeof FAQ_ITEMS[number];
+export type FaqItem = (typeof FAQ_ITEMS)[number];

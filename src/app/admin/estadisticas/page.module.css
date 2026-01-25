@@ -41,7 +41,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Main Stats Grid */
@@ -327,29 +329,29 @@
   .mainStats {
     grid-template-columns: 1fr 1fr;
   }
-  
+
   .rankingsGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .bottomGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .statCard {
     padding: 1rem;
   }
-  
+
   .statIcon {
     width: 40px;
     height: 40px;
   }
-  
+
   .statIcon svg {
     width: 20px;
     height: 20px;
   }
-  
+
   .statValue {
     font-size: 1.25rem;
   }

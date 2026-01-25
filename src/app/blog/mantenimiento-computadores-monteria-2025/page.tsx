@@ -3,14 +3,17 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Guía Completa: Mantenimiento de Computadores en Montería 2025 | Fernando Técnico',
-  description: 'Aprende todo sobre mantenimiento preventivo de computadores en Montería. Guía completa con consejos profesionales, precios y mejores prácticas 2025.',
-  keywords: 'mantenimiento computadores montería, mantenimiento preventivo pc montería, limpieza computadores córdoba, optimización pc montería',
+  description:
+    'Aprende todo sobre mantenimiento preventivo de computadores en Montería. Guía completa con consejos profesionales, precios y mejores prácticas 2025.',
+  keywords:
+    'mantenimiento computadores montería, mantenimiento preventivo pc montería, limpieza computadores córdoba, optimización pc montería',
   openGraph: {
     title: 'Guía Completa: Mantenimiento de Computadores en Montería 2025',
-    description: 'Aprende todo sobre mantenimiento preventivo de computadores en Montería. Guía completa con consejos profesionales.',
+    description:
+      'Aprende todo sobre mantenimiento preventivo de computadores en Montería. Guía completa con consejos profesionales.',
     url: 'https://www.ferchotecnico.com/blog/mantenimiento-computadores-monteria-2025',
-    type: 'article'
-  }
+    type: 'article',
+  },
 };
 
 export default function MantenimientoComputadoresMonteria() {
@@ -29,40 +32,66 @@ export default function MantenimientoComputadoresMonteria() {
             <span>15 min de lectura</span>
           </div>
           <p className="text-xl text-gray-700 leading-relaxed">
-            El mantenimiento preventivo es clave para mantener tu computador funcionando óptimamente en el clima tropical de Montería. 
-            En esta guía completa, te enseño todo lo que necesitas saber sobre el cuidado profesional de equipos en Córdoba.
+            El mantenimiento preventivo es clave para mantener tu computador funcionando óptimamente
+            en el clima tropical de Montería. En esta guía completa, te enseño todo lo que necesitas
+            saber sobre el cuidado profesional de equipos en Córdoba.
           </p>
         </header>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">¿Por qué es Crucial el Mantenimiento en Montería?</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            ¿Por qué es Crucial el Mantenimiento en Montería?
+          </h2>
           <p>
-            El clima cálido y húmedo de Montería presenta desafíos únicos para los equipos de cómputo. 
-            Con temperaturas que superan los 35°C y alta humedad, los computadores requieren cuidados especiales:
+            El clima cálido y húmedo de Montería presenta desafíos únicos para los equipos de
+            cómputo. Con temperaturas que superan los 35°C y alta humedad, los computadores
+            requieren cuidados especiales:
           </p>
           <ul className="list-disc pl-6 mb-4">
-            <li><strong>Acumulación acelerada de polvo</strong> - El polvo se adhiere más en ambientes húmedos</li>
-            <li><strong>Sobrecalentamiento frecuente</strong> - Las altas temperaturas afectan el rendimiento</li>
-            <li><strong>Corrosión por humedad</strong> - Los componentes metálicos son más vulnerables</li>
-            <li><strong>Proliferación de insectos</strong> - Pueden dañar circuitos internos</li>
+            <li>
+              <strong>Acumulación acelerada de polvo</strong> - El polvo se adhiere más en ambientes
+              húmedos
+            </li>
+            <li>
+              <strong>Sobrecalentamiento frecuente</strong> - Las altas temperaturas afectan el
+              rendimiento
+            </li>
+            <li>
+              <strong>Corrosión por humedad</strong> - Los componentes metálicos son más vulnerables
+            </li>
+            <li>
+              <strong>Proliferación de insectos</strong> - Pueden dañar circuitos internos
+            </li>
           </ul>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">Mantenimiento Preventivo: Cada Cuánto Hacerlo</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            Mantenimiento Preventivo: Cada Cuánto Hacerlo
+          </h2>
           <div className="bg-blue-50 p-6 rounded-lg mb-6">
             <h3 className="text-xl font-semibold mb-3">Cronograma Recomendado para Montería:</h3>
             <ul className="space-y-2">
-              <li><strong>Limpieza externa:</strong> Cada 2 semanas</li>
-              <li><strong>Limpieza interna básica:</strong> Cada 2-3 meses</li>
-              <li><strong>Mantenimiento profesional completo:</strong> Cada 6 meses</li>
-              <li><strong>Cambio de pasta térmica:</strong> Cada 12-18 meses</li>
+              <li>
+                <strong>Limpieza externa:</strong> Cada 2 semanas
+              </li>
+              <li>
+                <strong>Limpieza interna básica:</strong> Cada 2-3 meses
+              </li>
+              <li>
+                <strong>Mantenimiento profesional completo:</strong> Cada 6 meses
+              </li>
+              <li>
+                <strong>Cambio de pasta térmica:</strong> Cada 12-18 meses
+              </li>
             </ul>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">Señales de que tu PC Necesita Mantenimiento</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            Señales de que tu PC Necesita Mantenimiento
+          </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-red-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold text-red-800 mb-2">🚨 Señales de Alerta</h3>
@@ -92,19 +121,31 @@ export default function MantenimientoComputadoresMonteria() {
           <div className="space-y-6">
             <div className="border-l-4 border-blue-500 pl-4">
               <h3 className="text-xl font-semibold mb-2">1. Diagnóstico Inicial</h3>
-              <p>Evaluación completa del estado del equipo, temperaturas, velocidades de ventiladores y rendimiento general.</p>
+              <p>
+                Evaluación completa del estado del equipo, temperaturas, velocidades de ventiladores
+                y rendimiento general.
+              </p>
             </div>
             <div className="border-l-4 border-green-500 pl-4">
               <h3 className="text-xl font-semibold mb-2">2. Limpieza Profunda</h3>
-              <p>Desmontaje parcial, limpieza con aire comprimido, alcohol isopropílico y herramientas especializadas.</p>
+              <p>
+                Desmontaje parcial, limpieza con aire comprimido, alcohol isopropílico y
+                herramientas especializadas.
+              </p>
             </div>
             <div className="border-l-4 border-purple-500 pl-4">
               <h3 className="text-xl font-semibold mb-2">3. Optimización de Software</h3>
-              <p>Limpieza de archivos temporales, desfragmentación, actualización de drivers y optimización del sistema.</p>
+              <p>
+                Limpieza de archivos temporales, desfragmentación, actualización de drivers y
+                optimización del sistema.
+              </p>
             </div>
             <div className="border-l-4 border-orange-500 pl-4">
               <h3 className="text-xl font-semibold mb-2">4. Pruebas y Verificación</h3>
-              <p>Test de estrés, verificación de temperaturas y confirmación de mejoras en el rendimiento.</p>
+              <p>
+                Test de estrés, verificación de temperaturas y confirmación de mejoras en el
+                rendimiento.
+              </p>
             </div>
           </div>
         </section>
@@ -164,36 +205,51 @@ export default function MantenimientoComputadoresMonteria() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">¿Cuándo Llamar a un Profesional?</h2>
           <p className="mb-4">
-            Aunque puedes hacer limpieza básica, hay situaciones donde necesitas un técnico especializado en Montería:
+            Aunque puedes hacer limpieza básica, hay situaciones donde necesitas un técnico
+            especializado en Montería:
           </p>
           <div className="bg-red-50 p-4 rounded-lg">
             <ul className="space-y-2">
-              <li>🔥 <strong>Sobrecalentamiento constante</strong> - Puede dañar componentes permanentemente</li>
-              <li>🔧 <strong>Ruidos extraños</strong> - Ventiladores o discos duros pueden estar fallando</li>
-              <li>⚡ <strong>Problemas eléctricos</strong> - Apagados inesperados o no enciende</li>
-              <li>🐛 <strong>Rendimiento muy lento</strong> - Puede indicar problemas de hardware</li>
-              <li>💾 <strong>Errores frecuentes</strong> - Pantallas azules o cuelgues constantes</li>
+              <li>
+                🔥 <strong>Sobrecalentamiento constante</strong> - Puede dañar componentes
+                permanentemente
+              </li>
+              <li>
+                🔧 <strong>Ruidos extraños</strong> - Ventiladores o discos duros pueden estar
+                fallando
+              </li>
+              <li>
+                ⚡ <strong>Problemas eléctricos</strong> - Apagados inesperados o no enciende
+              </li>
+              <li>
+                🐛 <strong>Rendimiento muy lento</strong> - Puede indicar problemas de hardware
+              </li>
+              <li>
+                💾 <strong>Errores frecuentes</strong> - Pantallas azules o cuelgues constantes
+              </li>
             </ul>
           </div>
         </section>
 
         <section className="mb-8 bg-blue-50 p-6 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">🎯 ¿Necesitas Mantenimiento Profesional en Montería?</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            🎯 ¿Necesitas Mantenimiento Profesional en Montería?
+          </h2>
           <p className="mb-4">
-            Con más de 10 años de experiencia y 2000+ equipos atendidos en Montería y Córdoba, 
+            Con más de 10 años de experiencia y 2000+ equipos atendidos en Montería y Córdoba,
             ofrezco servicio técnico especializado con garantía de 30 días.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="https://wa.me/573008474121?text=Hola, necesito mantenimiento para mi computador en Montería" 
+            <a
+              href="https://wa.me/573008474121?text=Hola, necesito mantenimiento para mi computador en Montería"
               className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
             >
               💬 Contactar por WhatsApp
             </a>
-            <a 
-              href="tel:+573008474121" 
+            <a
+              href="tel:+573008474121"
               className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
             >
               📞 Llamar Ahora
@@ -207,10 +263,16 @@ export default function MantenimientoComputadoresMonteria() {
               ← Volver al Blog
             </Link>
             <div className="text-sm text-gray-600">
-              Compartir: 
-              <a href="#" className="ml-2 text-blue-600">Facebook</a>
-              <a href="#" className="ml-2 text-blue-600">Twitter</a>
-              <a href="#" className="ml-2 text-blue-600">WhatsApp</a>
+              Compartir:
+              <a href="#" className="ml-2 text-blue-600">
+                Facebook
+              </a>
+              <a href="#" className="ml-2 text-blue-600">
+                Twitter
+              </a>
+              <a href="#" className="ml-2 text-blue-600">
+                WhatsApp
+              </a>
             </div>
           </div>
         </footer>

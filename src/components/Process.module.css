@@ -220,7 +220,12 @@
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-accent), var(--color-primary));
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-accent),
+    var(--color-primary)
+  );
 }
 
 .ctaHeader {
@@ -249,7 +254,7 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-10);
-  background: #25D366;
+  background: #25d366;
   color: white;
   padding: var(--space-14) var(--space-28);
   border-radius: var(--radius-md);
@@ -369,21 +374,21 @@
   }
 }
 
-:global([data-color-scheme="dark"]) .card {
+:global([data-color-scheme='dark']) .card {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(255, 255, 255, 0.1);
 }
 
-:global([data-color-scheme="dark"]) .card:hover {
+:global([data-color-scheme='dark']) .card:hover {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(var(--color-primary-rgb), 0.4);
 }
 
-:global([data-color-scheme="dark"]) .cardHighlight {
+:global([data-color-scheme='dark']) .cardHighlight {
   background: rgba(var(--color-primary-rgb), 0.1);
 }
 
-:global([data-color-scheme="dark"]) .ctaContent {
+:global([data-color-scheme='dark']) .ctaContent {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(var(--color-primary-rgb), 0.3);
 }

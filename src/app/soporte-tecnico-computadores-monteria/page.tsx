@@ -4,7 +4,8 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Soporte Técnico Computadores Montería ⭐ | Asistencia PC 24/7 a Domicilio',
-  description: '⭐ Soporte técnico computadores Montería especializado. Asistencia remota y a domicilio, resolución problemas PC, instalación software. Técnico certificado +8 años experiencia 📱',
+  description:
+    '⭐ Soporte técnico computadores Montería especializado. Asistencia remota y a domicilio, resolución problemas PC, instalación software. Técnico certificado +8 años experiencia 📱',
   keywords: [
     'soporte técnico computadores montería',
     'soporte tecnico computadores monteria',
@@ -19,17 +20,18 @@ export const metadata: Metadata = {
     'soporte técnico remoto montería',
     'técnico asistencia montería',
     'soporte computadores montería 24 horas',
-    'ayuda técnica pc montería urgente'
+    'ayuda técnica pc montería urgente',
   ].join(', '),
   alternates: {
-    canonical: 'https://www.ferchotecnico.com/soporte-tecnico-computadores-monteria'
+    canonical: 'https://www.ferchotecnico.com/soporte-tecnico-computadores-monteria',
   },
   openGraph: {
     title: '🛠️ Soporte Técnico Computadores Montería | Fernando ⭐ 5.0',
-    description: '⭐ Soporte técnico computadores Montería profesional. Asistencia remota y domicilio 24/7. Resolvemos cualquier problema PC 📱 +573008474121',
+    description:
+      '⭐ Soporte técnico computadores Montería profesional. Asistencia remota y domicilio 24/7. Resolvemos cualquier problema PC 📱 +573008474121',
     url: 'https://www.ferchotecnico.com/soporte-tecnico-computadores-monteria',
-    type: 'website'
-  }
+    type: 'website',
+  },
 };
 
 export default function SoporteTecnicoComputadoresMonteria() {
@@ -37,33 +39,33 @@ export default function SoporteTecnicoComputadoresMonteria() {
     {
       icon: '🔧',
       titulo: 'Soporte Técnico Remoto',
-      descripcion: 'Resolución de problemas desde cualquier lugar mediante conexión segura'
+      descripcion: 'Resolución de problemas desde cualquier lugar mediante conexión segura',
     },
     {
       icon: '🏠',
       titulo: 'Soporte a Domicilio',
-      descripcion: 'Visita técnica en Montería para atención personalizada'
+      descripcion: 'Visita técnica en Montería para atención personalizada',
     },
     {
       icon: '💻',
       titulo: 'Instalación de Software',
-      descripcion: 'Instalación y configuración de programas, antivirus y herramientas'
+      descripcion: 'Instalación y configuración de programas, antivirus y herramientas',
     },
     {
       icon: '🛡️',
       titulo: 'Limpieza y Optimización',
-      descripcion: 'Limpieza de virus, optimización del sistema y mejora de rendimiento'
+      descripcion: 'Limpieza de virus, optimización del sistema y mejora de rendimiento',
     },
     {
       icon: '🔄',
       titulo: 'Actualizaciones y Mantenimiento',
-      descripcion: 'Actualización de sistema operativo y programas de seguridad'
+      descripcion: 'Actualización de sistema operativo y programas de seguridad',
     },
     {
       icon: '📞',
       titulo: 'Soporte Telefónico',
-      descripcion: 'Asistencia técnica por teléfono para consultas rápidas'
-    }
+      descripcion: 'Asistencia técnica por teléfono para consultas rápidas',
+    },
   ];
 
   const problemasComunes = [
@@ -76,7 +78,7 @@ export default function SoporteTecnicoComputadoresMonteria() {
     'Problemas de impresión',
     'Configuración de redes WiFi',
     'Actualizaciones pendientes',
-    'Archivos corruptos o perdidos'
+    'Archivos corruptos o perdidos',
   ];
 
   return (
@@ -91,8 +93,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
                 <span className="block text-yellow-300">Computadores Montería</span>
               </h1>
               <p className="text-xl mb-8 leading-relaxed">
-                Soporte técnico computadores Montería especializado con más de 8 años de experiencia.
-                Asistencia remota y a domicilio 24/7 para resolver cualquier problema con tu PC.
+                Soporte técnico computadores Montería especializado con más de 8 años de
+                experiencia. Asistencia remota y a domicilio 24/7 para resolver cualquier problema
+                con tu PC.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -131,7 +134,10 @@ export default function SoporteTecnicoComputadoresMonteria() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {serviciosSoporte.map((servicio, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="text-4xl mb-4">{servicio.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">{servicio.titulo}</h3>
                 <p className="text-gray-600">{servicio.descripcion}</p>
@@ -149,12 +155,16 @@ export default function SoporteTecnicoComputadoresMonteria() {
               Problemas que Resolvemos
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Como soporte técnico computadores Montería, resolvemos los problemas más comunes que afectan el rendimiento de tu PC
+              Como soporte técnico computadores Montería, resolvemos los problemas más comunes que
+              afectan el rendimiento de tu PC
             </p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {problemasComunes.map((problema, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
                 <div className="flex items-center gap-3">
                   <span className="text-red-500">⚠️</span>
                   <span className="text-gray-700">{problema}</span>
@@ -180,7 +190,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Disponibilidad 24/7</h3>
-                    <p className="text-gray-600">Soporte técnico computadores Montería disponible todos los días del año</p>
+                    <p className="text-gray-600">
+                      Soporte técnico computadores Montería disponible todos los días del año
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -189,7 +201,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Servicio a Domicilio</h3>
-                    <p className="text-gray-600">Atención técnica en toda Montería y municipios cercanos</p>
+                    <p className="text-gray-600">
+                      Atención técnica en toda Montería y municipios cercanos
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4">
@@ -198,7 +212,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Garantía de Servicio</h3>
-                    <p className="text-gray-600">30 días de garantía en todos nuestros servicios técnicos</p>
+                    <p className="text-gray-600">
+                      30 días de garantía en todos nuestros servicios técnicos
+                    </p>
                   </div>
                 </div>
               </div>
@@ -243,7 +259,8 @@ export default function SoporteTecnicoComputadoresMonteria() {
             ¿Necesitas Soporte Técnico Computadores Montería?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contacta ahora para recibir soporte técnico especializado. Resolvemos tu problema de PC de manera rápida y profesional.
+            Contacta ahora para recibir soporte técnico especializado. Resolvemos tu problema de PC
+            de manera rápida y profesional.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

@@ -1,20 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { 
-  getAllProducts, 
-  createProduct, 
-  updateProduct, 
-  deleteProduct 
-} from '@/lib/db';
+import { getAllProducts, createProduct, updateProduct, deleteProduct } from '@/lib/db';
 import { getSession } from '@/lib/auth';
 
 // Middleware para verificar autenticación
 async function requireAuth() {
   const session = await getSession();
   if (!session) {
-    return NextResponse.json(
-      { error: 'No autorizado' },
-      { status: 401 }
-    );
+    return NextResponse.json({ error: 'No autorizado' }, { status: 401 });
   }
   return null;
 }
@@ -29,10 +21,7 @@ export async function GET() {
     return NextResponse.json({ products });
   } catch (error) {
     console.error('Error fetching products:', error);
-    return NextResponse.json(
-      { error: 'Error al obtener productos' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Error al obtener productos' }, { status: 500 });
   }
 }
 
@@ -43,7 +32,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const data = await request.json();
-    
+
     // Validaciones básicas
     if (!data.title || !data.price || !data.category) {
       return NextResponse.json(
@@ -56,10 +45,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ product }, { status: 201 });
   } catch (error) {
     console.error('Error creating product:', error);
-    return NextResponse.json(
-      { error: 'Error al crear producto' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Error al crear producto' }, { status: 500 });
   }
 }
 
@@ -70,22 +56,16 @@ export async function PUT(request: NextRequest) {
 
   try {
     const data = await request.json();
-    
+
     if (!data.id) {
-      return NextResponse.json(
-        { error: 'ID del producto es requerido' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'ID del producto es requerido' }, { status: 400 });
     }
 
     const product = await updateProduct(data.id, data);
     return NextResponse.json({ product });
   } catch (error) {
     console.error('Error updating product:', error);
-    return NextResponse.json(
-      { error: 'Error al actualizar producto' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Error al actualizar producto' }, { status: 500 });
   }
 }
 
@@ -99,19 +79,13 @@ export async function DELETE(request: NextRequest) {
     const id = searchParams.get('id');
 
     if (!id) {
-      return NextResponse.json(
-        { error: 'ID del producto es requerido' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'ID del producto es requerido' }, { status: 400 });
     }
 
     await deleteProduct(id);
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error('Error deleting product:', error);
-    return NextResponse.json(
-      { error: 'Error al eliminar producto' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Error al eliminar producto' }, { status: 500 });
   }
 }

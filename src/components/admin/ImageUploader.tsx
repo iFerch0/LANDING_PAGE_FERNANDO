@@ -13,50 +13,55 @@ interface ImageUploaderProps {
 export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploaderProps) {
   const [isDragging, setIsDragging] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState<{ current: number; total: number } | null>(null);
+  const [uploadProgress, setUploadProgress] = useState<{ current: number; total: number } | null>(
+    null
+  );
   const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const handleFiles = useCallback(async (files: FileList | File[]) => {
-    const fileArray = Array.from(files);
-    
-    // Check max images
-    if (images.length + fileArray.length > maxImages) {
-      setError(`Máximo ${maxImages} imágenes permitidas`);
-      return;
-    }
+  const handleFiles = useCallback(
+    async (files: FileList | File[]) => {
+      const fileArray = Array.from(files);
 
-    // Validate all files first
-    for (const file of fileArray) {
-      const validation = validateImageFile(file);
-      if (!validation.valid) {
-        setError(validation.error || 'Archivo inválido');
+      // Check max images
+      if (images.length + fileArray.length > maxImages) {
+        setError(`Máximo ${maxImages} imágenes permitidas`);
         return;
       }
-    }
 
-    setError(null);
-    setUploading(true);
-    setUploadProgress({ current: 0, total: fileArray.length });
-
-    const newUrls: string[] = [];
-
-    try {
-      for (let i = 0; i < fileArray.length; i++) {
-        const url = await uploadImage(fileArray[i]);
-        newUrls.push(url);
-        setUploadProgress({ current: i + 1, total: fileArray.length });
+      // Validate all files first
+      for (const file of fileArray) {
+        const validation = validateImageFile(file);
+        if (!validation.valid) {
+          setError(validation.error || 'Archivo inválido');
+          return;
+        }
       }
 
-      onChange([...images, ...newUrls]);
-    } catch (err) {
-      console.error('Upload error:', err);
-      setError(err instanceof Error ? err.message : 'Error al subir imagen');
-    } finally {
-      setUploading(false);
-      setUploadProgress(null);
-    }
-  }, [images, onChange, maxImages]);
+      setError(null);
+      setUploading(true);
+      setUploadProgress({ current: 0, total: fileArray.length });
+
+      const newUrls: string[] = [];
+
+      try {
+        for (let i = 0; i < fileArray.length; i++) {
+          const url = await uploadImage(fileArray[i]);
+          newUrls.push(url);
+          setUploadProgress({ current: i + 1, total: fileArray.length });
+        }
+
+        onChange([...images, ...newUrls]);
+      } catch (err) {
+        console.error('Upload error:', err);
+        setError(err instanceof Error ? err.message : 'Error al subir imagen');
+      } finally {
+        setUploading(false);
+        setUploadProgress(null);
+      }
+    },
+    [images, onChange, maxImages]
+  );
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -70,56 +75,71 @@ export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploader
     setIsDragging(false);
   }, []);
 
-  const handleDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsDragging(false);
+  const handleDrop = useCallback(
+    (e: React.DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsDragging(false);
 
-    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
-      handleFiles(e.dataTransfer.files);
-    }
-  }, [handleFiles]);
-
-  const handleFileInput = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      handleFiles(e.target.files);
-    }
-    // Reset input
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-  }, [handleFiles]);
-
-  const handleRemoveImage = useCallback(async (index: number) => {
-    const imageUrl = images[index];
-    
-    // Try to delete from storage (only if it's a Supabase URL)
-    if (imageUrl.includes('supabase.co/storage')) {
-      try {
-        await deleteImage(imageUrl);
-      } catch (err) {
-        console.error('Error deleting image from storage:', err);
-        // Continue anyway to remove from UI
+      if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+        handleFiles(e.dataTransfer.files);
       }
-    }
+    },
+    [handleFiles]
+  );
 
-    const newImages = images.filter((_, i) => i !== index);
-    onChange(newImages);
-  }, [images, onChange]);
+  const handleFileInput = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      if (e.target.files && e.target.files.length > 0) {
+        handleFiles(e.target.files);
+      }
+      // Reset input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    },
+    [handleFiles]
+  );
 
-  const handleReorder = useCallback((fromIndex: number, toIndex: number) => {
-    const newImages = [...images];
-    const [removed] = newImages.splice(fromIndex, 1);
-    newImages.splice(toIndex, 0, removed);
-    onChange(newImages);
-  }, [images, onChange]);
+  const handleRemoveImage = useCallback(
+    async (index: number) => {
+      const imageUrl = images[index];
 
-  const moveImage = useCallback((index: number, direction: 'left' | 'right') => {
-    const newIndex = direction === 'left' ? index - 1 : index + 1;
-    if (newIndex >= 0 && newIndex < images.length) {
-      handleReorder(index, newIndex);
-    }
-  }, [images.length, handleReorder]);
+      // Try to delete from storage (only if it's a Supabase URL)
+      if (imageUrl.includes('supabase.co/storage')) {
+        try {
+          await deleteImage(imageUrl);
+        } catch (err) {
+          console.error('Error deleting image from storage:', err);
+          // Continue anyway to remove from UI
+        }
+      }
+
+      const newImages = images.filter((_, i) => i !== index);
+      onChange(newImages);
+    },
+    [images, onChange]
+  );
+
+  const handleReorder = useCallback(
+    (fromIndex: number, toIndex: number) => {
+      const newImages = [...images];
+      const [removed] = newImages.splice(fromIndex, 1);
+      newImages.splice(toIndex, 0, removed);
+      onChange(newImages);
+    },
+    [images, onChange]
+  );
+
+  const moveImage = useCallback(
+    (index: number, direction: 'left' | 'right') => {
+      const newIndex = direction === 'left' ? index - 1 : index + 1;
+      if (newIndex >= 0 && newIndex < images.length) {
+        handleReorder(index, newIndex);
+      }
+    },
+    [images.length, handleReorder]
+  );
 
   return (
     <div className={styles.container}>
@@ -144,11 +164,15 @@ export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploader
         {uploading ? (
           <div className={styles.uploadingState}>
             <div className={styles.spinner}></div>
-            <p>Subiendo imagen {uploadProgress?.current} de {uploadProgress?.total}...</p>
+            <p>
+              Subiendo imagen {uploadProgress?.current} de {uploadProgress?.total}...
+            </p>
             <div className={styles.progressBar}>
-              <div 
+              <div
                 className={styles.progressFill}
-                style={{ width: `${uploadProgress ? (uploadProgress.current / uploadProgress.total) * 100 : 0}%` }}
+                style={{
+                  width: `${uploadProgress ? (uploadProgress.current / uploadProgress.total) * 100 : 0}%`,
+                }}
               ></div>
             </div>
           </div>
@@ -185,18 +209,19 @@ export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploader
           {images.map((url, index) => (
             <div key={url} className={styles.previewItem}>
               <img src={url} alt={`Imagen ${index + 1}`} className={styles.previewImage} />
-              
+
               {/* Badge for main image */}
-              {index === 0 && (
-                <span className={styles.mainBadge}>Principal</span>
-              )}
+              {index === 0 && <span className={styles.mainBadge}>Principal</span>}
 
               {/* Actions */}
               <div className={styles.previewActions}>
                 {index > 0 && (
                   <button
                     type="button"
-                    onClick={(e) => { e.stopPropagation(); moveImage(index, 'left'); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      moveImage(index, 'left');
+                    }}
                     className={styles.actionBtn}
                     title="Mover a la izquierda"
                   >
@@ -208,7 +233,10 @@ export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploader
                 {index < images.length - 1 && (
                   <button
                     type="button"
-                    onClick={(e) => { e.stopPropagation(); moveImage(index, 'right'); }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      moveImage(index, 'right');
+                    }}
                     className={styles.actionBtn}
                     title="Mover a la derecha"
                   >
@@ -219,7 +247,10 @@ export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploader
                 )}
                 <button
                   type="button"
-                  onClick={(e) => { e.stopPropagation(); handleRemoveImage(index); }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleRemoveImage(index);
+                  }}
                   className={`${styles.actionBtn} ${styles.deleteBtn}`}
                   title="Eliminar imagen"
                 >
@@ -235,9 +266,7 @@ export function ImageUploader({ images, onChange, maxImages = 6 }: ImageUploader
       )}
 
       {/* Help text */}
-      <p className={styles.helpText}>
-        La primera imagen será la imagen principal del producto
-      </p>
+      <p className={styles.helpText}>La primera imagen será la imagen principal del producto</p>
     </div>
   );
 }

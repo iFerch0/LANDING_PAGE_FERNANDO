@@ -91,7 +91,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .progressBar {
@@ -228,11 +230,11 @@
   .previewGrid {
     grid-template-columns: repeat(3, 1fr);
   }
-  
+
   .dropZone {
     padding: 1.5rem;
   }
-  
+
   .dropContent svg {
     width: 32px;
     height: 32px;

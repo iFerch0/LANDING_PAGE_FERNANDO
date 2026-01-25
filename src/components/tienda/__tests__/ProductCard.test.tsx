@@ -60,6 +60,7 @@ describe('ProductCard', () => {
   it('shows out of stock overlay when not available', () => {
     const unavailableProduct = { ...mockProduct, availability: false };
     render(<ProductCard product={unavailableProduct} />);
-    expect(screen.getByText('Agotado')).toBeInTheDocument();
+    const agotadoElements = screen.getAllByText('Agotado');
+    expect(agotadoElements.length).toBeGreaterThan(0);
   });
 });

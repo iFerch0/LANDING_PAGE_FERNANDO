@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown } from './Icons';
 import { FAQ_ITEMS } from '@/data/faq';
 import styles from './Faq.module.css';
@@ -8,7 +8,7 @@ import styles from './Faq.module.css';
 function useResizeObserver(ref: React.RefObject<HTMLElement | null>, callback: () => void) {
   useEffect(() => {
     if (!ref.current) return;
-    if (typeof ResizeObserver === "undefined") return;
+    if (typeof ResizeObserver === 'undefined') return;
     const ro = new ResizeObserver(callback);
     ro.observe(ref.current as Element);
     return () => ro.disconnect();
@@ -28,24 +28,24 @@ const FaqItem: React.FC<{
     const el = contentRef.current;
     if (!el) return;
     if (isOpen) {
-      el.style.maxHeight = el.scrollHeight + "px";
-      el.style.opacity = "1";
-      el.style.paddingTop = "var(--space-12)";
+      el.style.maxHeight = el.scrollHeight + 'px';
+      el.style.opacity = '1';
+      el.style.paddingTop = 'var(--space-12)';
     } else {
-      el.style.maxHeight = "0px";
-      el.style.opacity = "0";
-      el.style.paddingTop = "0px";
+      el.style.maxHeight = '0px';
+      el.style.opacity = '0';
+      el.style.paddingTop = '0px';
     }
   }, [isOpen]);
 
   useResizeObserver(contentRef, () => {
     if (isOpen && contentRef.current) {
-      contentRef.current.style.maxHeight = contentRef.current.scrollHeight + "px";
+      contentRef.current.style.maxHeight = contentRef.current.scrollHeight + 'px';
     }
   });
 
   return (
-    <div className={`${styles.item} ${isOpen ? styles.itemActive : ""}`}>
+    <div className={`${styles.item} ${isOpen ? styles.itemActive : ''}`}>
       <h3>
         <button
           id={`faq-question-${id}`}
@@ -55,7 +55,7 @@ const FaqItem: React.FC<{
           onClick={onToggle}
         >
           <span>{question}</span>
-          <span className={`${styles.icon} ${isOpen ? styles.iconActive : ""}`} aria-hidden>
+          <span className={`${styles.icon} ${isOpen ? styles.iconActive : ''}`} aria-hidden>
             <ChevronDown />
           </span>
         </button>
@@ -82,10 +82,17 @@ const Faq: React.FC = () => {
         {/* Enhanced Header */}
         <div className={styles.header} data-aos="fade-up">
           <div className={styles.badge}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10"/>
-              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
-              <path d="M12 17h.01"/>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <path d="M12 17h.01" />
             </svg>
             Resuelve Tus Dudas
           </div>
@@ -111,7 +118,8 @@ const Faq: React.FC = () => {
               if (question.includes('marcas')) return '💻';
               if (question.includes('pago')) return '💳';
               if (question.includes('respaldo') || question.includes('archivos')) return '💾';
-              if (question.includes('fines de semana') || question.includes('horarios')) return '📅';
+              if (question.includes('fines de semana') || question.includes('horarios'))
+                return '📅';
               if (question.includes('no se puede reparar')) return '🔍';
               return '❓';
             };

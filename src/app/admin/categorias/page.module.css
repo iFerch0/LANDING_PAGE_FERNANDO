@@ -41,7 +41,9 @@
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Summary Grid */
@@ -264,11 +266,11 @@
   .categoriesGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .summaryGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .categoryHeader {
     flex-direction: column;
     gap: 0.75rem;

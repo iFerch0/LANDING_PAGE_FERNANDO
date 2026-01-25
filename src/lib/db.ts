@@ -27,11 +27,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     return null;
   }
 
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .eq('slug', slug)
-    .single();
+  const { data, error } = await supabase.from('products').select('*').eq('slug', slug).single();
 
   if (error) {
     console.error('Error fetching product:', error);
@@ -68,7 +64,11 @@ export async function incrementWhatsAppClicks(productId: string): Promise<void> 
 /**
  * Get related products by category (excluding current product)
  */
-export async function getRelatedProducts(category: string, excludeId: string, limit = 4): Promise<Product[]> {
+export async function getRelatedProducts(
+  category: string,
+  excludeId: string,
+  limit = 4
+): Promise<Product[]> {
   if (!supabase) {
     return [];
   }
@@ -115,11 +115,7 @@ export async function getProductById(id: string): Promise<Product | null> {
     return null;
   }
 
-  const { data, error } = await supabase
-    .from('products')
-    .select('*')
-    .eq('id', id)
-    .single();
+  const { data, error } = await supabase.from('products').select('*').eq('id', id).single();
 
   if (error) {
     console.error('Error fetching product by id:', error);
@@ -147,7 +143,7 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
 
   const now = new Date().toISOString();
   const slug = productData.slug || generateSlug(productData.title || 'producto');
-  
+
   const newProduct = {
     title: productData.title || '',
     slug: slug,
@@ -169,11 +165,7 @@ export async function createProduct(productData: Partial<Product>): Promise<Prod
     updated_at: now,
   };
 
-  const { data, error } = await supabase
-    .from('products')
-    .insert(newProduct)
-    .select()
-    .single();
+  const { data, error } = await supabase.from('products').insert(newProduct).select().single();
 
   if (error) {
     console.error('Error creating product:', error);
@@ -192,7 +184,7 @@ export async function updateProduct(id: string, productData: Partial<Product>): 
     ...productData,
     updated_at: new Date().toISOString(),
   };
-  
+
   if (productData.title && !productData.slug) {
     updateData.slug = generateSlug(productData.title);
   }
@@ -222,10 +214,7 @@ export async function deleteProduct(id: string): Promise<void> {
     throw new Error('Supabase not configured');
   }
 
-  const { error } = await supabase
-    .from('products')
-    .delete()
-    .eq('id', id);
+  const { error } = await supabase.from('products').delete().eq('id', id);
 
   if (error) {
     console.error('Error deleting product:', error);
@@ -235,7 +224,7 @@ export async function deleteProduct(id: string): Promise<void> {
 
 export async function toggleProductAvailability(id: string): Promise<Product> {
   const product = await getProductById(id);
-  
+
   if (!product) {
     throw new Error('Product not found');
   }
@@ -245,6 +234,6 @@ export async function toggleProductAvailability(id: string): Promise<Product> {
 
 export async function getCategories(): Promise<string[]> {
   const products = await getAllProducts();
-  const categories = [...new Set(products.map(p => p.category))];
+  const categories = [...new Set(products.map((p) => p.category))];
   return categories.filter(Boolean).sort();
 }

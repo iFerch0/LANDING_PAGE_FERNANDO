@@ -3,7 +3,8 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Áreas de Servicio | FerchoTecnico - Montería',
-  description: 'Zonas de cobertura en Montería para servicios técnicos: Centro y Sur. Solicita visita a domicilio según tu ubicación.',
+  description:
+    'Zonas de cobertura en Montería para servicios técnicos: Centro y Sur. Solicita visita a domicilio según tu ubicación.',
 };
 
 export default function AreasServicioIndex() {
@@ -16,7 +17,10 @@ export default function AreasServicioIndex() {
     <main>
       <div className="container">
         <h1>Áreas de Servicio</h1>
-        <p>Atendemos en diferentes zonas de Montería. Selecciona tu área para ver los servicios disponibles.</p>
+        <p>
+          Atendemos en diferentes zonas de Montería. Selecciona tu área para ver los servicios
+          disponibles.
+        </p>
 
         <ul>
           {areas.map((a) => (

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useState, useEffect, useRef, KeyboardEvent } from 'react';
 import Image from 'next/image';
 
@@ -16,7 +16,9 @@ export default function SliderSimple({ images, height = 420, interval = 3500 }: 
 
   useEffect(() => {
     mounted.current = true;
-    return () => { mounted.current = false };
+    return () => {
+      mounted.current = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -44,26 +46,47 @@ export default function SliderSimple({ images, height = 420, interval = 3500 }: 
   }
 
   return (
-    <div className="slider" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocus={() => setPaused(true)} onBlur={() => setPaused(false)} onKeyDown={onKey} tabIndex={0} aria-roledescription="carousel">
-      <div className="slider__viewport" ref={viewportRef} style={{height}}>
-        <div className="slider__track" style={{transform: `translateX(-${index * 100}%)`}}>
+    <div
+      className="slider"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
+      onKeyDown={onKey}
+      tabIndex={0}
+      aria-roledescription="carousel"
+    >
+      <div className="slider__viewport" ref={viewportRef} style={{ height }}>
+        <div className="slider__track" style={{ transform: `translateX(-${index * 100}%)` }}>
           {images.map((src, i) => (
-            <div key={i} className="slider__slide" role="group" aria-roledescription="slide" aria-label={`Imagen ${i + 1} de ${images.length}`}>
-              <Image 
-                src={src} 
-                alt={`slide-${i + 1}`} 
+            <div
+              key={i}
+              className="slider__slide"
+              role="group"
+              aria-roledescription="slide"
+              aria-label={`Imagen ${i + 1} de ${images.length}`}
+            >
+              <Image
+                src={src}
+                alt={`slide-${i + 1}`}
                 fill
-                style={{objectFit: 'cover'}} 
+                style={{ objectFit: 'cover' }}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           ))}
         </div>
 
-        <button className="slider__nav slider__nav--prev" onClick={prev} aria-label="Anterior">‹</button>
-        <button className="slider__nav slider__nav--next" onClick={next} aria-label="Siguiente">›</button>
+        <button className="slider__nav slider__nav--prev" onClick={prev} aria-label="Anterior">
+          ‹
+        </button>
+        <button className="slider__nav slider__nav--next" onClick={next} aria-label="Siguiente">
+          ›
+        </button>
 
-        <div className="sr-only" aria-live="polite">Slide {index + 1} de {images.length}</div>
+        <div className="sr-only" aria-live="polite">
+          Slide {index + 1} de {images.length}
+        </div>
       </div>
     </div>
   );

@@ -26,11 +26,11 @@ export default function CategoriasPage() {
     const loadData = async () => {
       try {
         const products = await getAllProducts();
-        
+
         // Agrupar productos por categoría
         const categoryMap = new Map<string, Product[]>();
-        
-        products.forEach(product => {
+
+        products.forEach((product) => {
           const cat = product.category || 'Sin Categoría';
           if (!categoryMap.has(cat)) {
             categoryMap.set(cat, []);
@@ -42,15 +42,15 @@ export default function CategoriasPage() {
         const stats: CategoryStats[] = Array.from(categoryMap.entries()).map(([name, prods]) => ({
           name,
           productCount: prods.length,
-          totalValue: prods.reduce((sum, p) => sum + (p.price * p.stock), 0),
+          totalValue: prods.reduce((sum, p) => sum + p.price * p.stock, 0),
           totalViews: prods.reduce((sum, p) => sum + (p.views || 0), 0),
           totalClicks: prods.reduce((sum, p) => sum + (p.whatsapp_clicks || 0), 0),
-          availableCount: prods.filter(p => p.availability).length,
+          availableCount: prods.filter((p) => p.availability).length,
         }));
 
         // Ordenar por cantidad de productos
         stats.sort((a, b) => b.productCount - a.productCount);
-        
+
         setCategories(stats);
       } catch (error) {
         console.error('Error loading categories:', error);
@@ -62,7 +62,7 @@ export default function CategoriasPage() {
     loadData();
   }, []);
 
-  const filteredCategories = categories.filter(cat =>
+  const filteredCategories = categories.filter((cat) =>
     cat.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -77,9 +77,7 @@ export default function CategoriasPage() {
           <div className={styles.header}>
             <div>
               <h1 className={styles.title}>Categorías</h1>
-              <p className={styles.subtitle}>
-                Gestiona las categorías de tus productos
-              </p>
+              <p className={styles.subtitle}>Gestiona las categorías de tus productos</p>
             </div>
           </div>
 
@@ -102,9 +100,7 @@ export default function CategoriasPage() {
                 </div>
                 <div className={styles.summaryCard}>
                   <span className={styles.summaryLabel}>Valor Total</span>
-                  <span className={styles.summaryValue}>
-                    ${(totalValue / 1000000).toFixed(1)}M
-                  </span>
+                  <span className={styles.summaryValue}>${(totalValue / 1000000).toFixed(1)}M</span>
                 </div>
               </div>
 
@@ -140,7 +136,7 @@ export default function CategoriasPage() {
                           {category.productCount} producto{category.productCount !== 1 ? 's' : ''}
                         </span>
                       </div>
-                      
+
                       <div className={styles.categoryStats}>
                         <div className={styles.statRow}>
                           <span>Disponibles</span>
@@ -163,19 +159,25 @@ export default function CategoriasPage() {
                         <div className={styles.statRow}>
                           <span>Conversión</span>
                           <span className={styles.conversion}>
-                            {category.totalViews > 0 
+                            {category.totalViews > 0
                               ? ((category.totalClicks / category.totalViews) * 100).toFixed(1)
-                              : 0}%
+                              : 0}
+                            %
                           </span>
                         </div>
                       </div>
 
                       <div className={styles.categoryActions}>
-                        <Link 
+                        <Link
                           href={`/admin/productos?category=${encodeURIComponent(category.name)}`}
                           className={styles.viewButton}
                         >
-                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                          >
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                             <circle cx="12" cy="12" r="3" />
                           </svg>
@@ -194,8 +196,8 @@ export default function CategoriasPage() {
                   <path d="M12 16v-4M12 8h.01" />
                 </svg>
                 <p>
-                  Las categorías se crean automáticamente cuando agregas productos. 
-                  Para crear una nueva categoría, simplemente escribe el nombre al crear un producto.
+                  Las categorías se crean automáticamente cuando agregas productos. Para crear una
+                  nueva categoría, simplemente escribe el nombre al crear un producto.
                 </p>
               </div>
             </>

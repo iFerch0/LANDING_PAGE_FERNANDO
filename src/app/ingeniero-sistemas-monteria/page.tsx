@@ -4,7 +4,8 @@ import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'Ingeniero de Sistemas Montería ⭐ | Consultoría IT y Desarrollo de Software',
-  description: '⭐ Ingeniero de sistemas Montería especializado en consultoría IT, desarrollo de software, soporte técnico y soluciones tecnológicas. Más de 8 años de experiencia en Córdoba 📱',
+  description:
+    '⭐ Ingeniero de sistemas Montería especializado en consultoría IT, desarrollo de software, soporte técnico y soluciones tecnológicas. Más de 8 años de experiencia en Córdoba 📱',
   keywords: [
     'ingeniero de sistemas montería',
     'ingeniero sistemas montería',
@@ -19,17 +20,18 @@ export const metadata: Metadata = {
     'ingeniero de sistemas córdoba',
     'consultoría it montería',
     'desarrollo aplicaciones montería',
-    'ingeniero sistemas montería colombia'
+    'ingeniero sistemas montería colombia',
   ].join(', '),
   alternates: {
-    canonical: 'https://www.ferchotecnico.com/ingeniero-sistemas-monteria'
+    canonical: 'https://www.ferchotecnico.com/ingeniero-sistemas-monteria',
   },
   openGraph: {
     title: '🔧 Ingeniero de Sistemas Montería | Fernando - Consultor IT ⭐',
-    description: '⭐ Ingeniero de sistemas Montería con 8+ años experiencia. Consultoría IT, desarrollo software, soporte técnico especializado 📱 +573008474121',
+    description:
+      '⭐ Ingeniero de sistemas Montería con 8+ años experiencia. Consultoría IT, desarrollo software, soporte técnico especializado 📱 +573008474121',
     url: 'https://www.ferchotecnico.com/ingeniero-sistemas-monteria',
-    type: 'website'
-  }
+    type: 'website',
+  },
 };
 
 export default function IngenieroSistemasMonteria() {
@@ -37,33 +39,35 @@ export default function IngenieroSistemasMonteria() {
     {
       icon: '💻',
       titulo: 'Consultoría IT',
-      descripcion: 'Asesoría especializada en infraestructura tecnológica, migración a la nube y optimización de sistemas'
+      descripcion:
+        'Asesoría especializada en infraestructura tecnológica, migración a la nube y optimización de sistemas',
     },
     {
       icon: '⚙️',
       titulo: 'Desarrollo de Software',
-      descripcion: 'Creación de aplicaciones personalizadas, sistemas web y soluciones empresariales'
+      descripcion:
+        'Creación de aplicaciones personalizadas, sistemas web y soluciones empresariales',
     },
     {
       icon: '🔧',
       titulo: 'Soporte Técnico Avanzado',
-      descripcion: 'Resolución de problemas complejos de hardware, software y redes'
+      descripcion: 'Resolución de problemas complejos de hardware, software y redes',
     },
     {
       icon: '📊',
       titulo: 'Análisis de Sistemas',
-      descripcion: 'Evaluación y optimización de procesos tecnológicos empresariales'
+      descripcion: 'Evaluación y optimización de procesos tecnológicos empresariales',
     },
     {
       icon: '🛡️',
       titulo: 'Seguridad Informática',
-      descripcion: 'Implementación de medidas de ciberseguridad y protección de datos'
+      descripcion: 'Implementación de medidas de ciberseguridad y protección de datos',
     },
     {
       icon: '☁️',
       titulo: 'Migración a la Nube',
-      descripcion: 'Transición segura a servicios cloud y optimización de recursos'
-    }
+      descripcion: 'Transición segura a servicios cloud y optimización de recursos',
+    },
   ];
 
   const tecnologias = [
@@ -74,7 +78,7 @@ export default function IngenieroSistemasMonteria() {
     'DevOps (Docker, Kubernetes, CI/CD)',
     'Ciberseguridad (Firewalls, Antivirus, VPN)',
     'Redes (Cisco, Mikrotik, configuración avanzada)',
-    'Sistemas Operativos (Windows Server, Linux, macOS)'
+    'Sistemas Operativos (Windows Server, Linux, macOS)',
   ];
 
   return (
@@ -90,7 +94,8 @@ export default function IngenieroSistemasMonteria() {
               </h1>
               <p className="text-xl mb-8 leading-relaxed">
                 Ingeniero de sistemas Montería con más de 8 años de experiencia en consultoría IT,
-                desarrollo de software y soporte técnico especializado. Soluciones tecnológicas integrales para empresas y particulares.
+                desarrollo de software y soporte técnico especializado. Soluciones tecnológicas
+                integrales para empresas y particulares.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -129,7 +134,10 @@ export default function IngenieroSistemasMonteria() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {servicios.map((servicio, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="text-4xl mb-4">{servicio.icon}</div>
                 <h3 className="text-xl font-bold mb-3 text-gray-900">{servicio.titulo}</h3>
                 <p className="text-gray-600">{servicio.descripcion}</p>
@@ -147,12 +155,16 @@ export default function IngenieroSistemasMonteria() {
               Tecnologías y Especialidades
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Como ingeniero de sistemas Montería, domino las tecnologías más actuales para ofrecer soluciones completas
+              Como ingeniero de sistemas Montería, domino las tecnologías más actuales para ofrecer
+              soluciones completas
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {tecnologias.map((tech, index) => (
-              <div key={index} className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white rounded-lg p-4 shadow-md hover:shadow-lg transition-shadow duration-300"
+              >
                 <span className="text-blue-600 font-semibold">{tech}</span>
               </div>
             ))}
@@ -175,7 +187,10 @@ export default function IngenieroSistemasMonteria() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Formación Académica</h3>
-                    <p className="text-gray-600">Ingeniero de Sistemas graduado con especialización en Tecnologías de Información</p>
+                    <p className="text-gray-600">
+                      Ingeniero de Sistemas graduado con especialización en Tecnologías de
+                      Información
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -184,7 +199,9 @@ export default function IngenieroSistemasMonteria() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Experiencia Profesional</h3>
-                    <p className="text-gray-600">Más de 8 años desarrollando soluciones tecnológicas para empresas en Córdoba</p>
+                    <p className="text-gray-600">
+                      Más de 8 años desarrollando soluciones tecnológicas para empresas en Córdoba
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -193,7 +210,9 @@ export default function IngenieroSistemasMonteria() {
                   </div>
                   <div>
                     <h3 className="text-xl font-bold mb-2">Certificaciones</h3>
-                    <p className="text-gray-600">Certificado en ciberseguridad, cloud computing y desarrollo de software</p>
+                    <p className="text-gray-600">
+                      Certificado en ciberseguridad, cloud computing y desarrollo de software
+                    </p>
                   </div>
                 </div>
               </div>
@@ -234,7 +253,8 @@ export default function IngenieroSistemasMonteria() {
             ¿Buscas un Ingeniero de Sistemas en Montería?
           </h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contacta ahora para consultoría IT especializada, desarrollo de software o soporte técnico avanzado.
+            Contacta ahora para consultoría IT especializada, desarrollo de software o soporte
+            técnico avanzado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

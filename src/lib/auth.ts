@@ -25,9 +25,9 @@ export async function signIn(email: string, password: string): Promise<AuthResul
     });
 
     if (error) {
-      return { 
-        success: false, 
-        error: getAuthErrorMessage(error) 
+      return {
+        success: false,
+        error: getAuthErrorMessage(error),
       };
     }
 
@@ -73,7 +73,10 @@ export async function getSession(): Promise<Session | null> {
   }
 
   try {
-    const { data: { session }, error } = await supabase.auth.getSession();
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.getSession();
 
     if (error) {
       console.error('Error getting session:', error);
@@ -111,7 +114,10 @@ export async function refreshSession(): Promise<Session | null> {
   }
 
   try {
-    const { data: { session }, error } = await supabase.auth.refreshSession();
+    const {
+      data: { session },
+      error,
+    } = await supabase.auth.refreshSession();
 
     if (error) {
       console.error('Error refreshing session:', error);
@@ -130,11 +136,11 @@ export function onAuthStateChange(callback: (user: User | null) => void) {
     return { unsubscribe: () => {} };
   }
 
-  const { data: { subscription } } = supabase.auth.onAuthStateChange(
-    (event, session) => {
-      callback(session?.user || null);
-    }
-  );
+  const {
+    data: { subscription },
+  } = supabase.auth.onAuthStateChange((event, session) => {
+    callback(session?.user || null);
+  });
 
   return { unsubscribe: () => subscription.unsubscribe() };
 }

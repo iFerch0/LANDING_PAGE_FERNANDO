@@ -15,9 +15,7 @@ function checkUrl(url) {
 }
 
 async function main() {
-  const urls = [
-    'https://www.ferchotecnico.com/hero-poster.jpg',
-  ];
+  const urls = ['https://www.ferchotecnico.com/hero-poster.jpg'];
 
   const results = await Promise.all(urls.map(checkUrl));
   let allOk = true;

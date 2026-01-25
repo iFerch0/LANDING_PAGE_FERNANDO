@@ -7,17 +7,20 @@ import type { Metric } from 'web-vitals';
 // Enhanced Web Vitals tracking with analytics
 function sendToAnalytics(metric: Metric) {
   // Send to Google Analytics 4
-  if (typeof window !== 'undefined' && (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag) {
+  if (
+    typeof window !== 'undefined' &&
+    (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
+  ) {
     (window as unknown as { gtag: (...args: unknown[]) => void }).gtag('event', metric.name, {
       event_category: 'Web Vitals',
       event_label: metric.id,
       value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
       custom_map: {
-        metric_delta: metric.delta
+        metric_delta: metric.delta,
       },
       // Enhanced GA4 parameters
       engagement_time_msec: metric.value,
-      custom_parameter_1: 'web_vitals'
+      custom_parameter_1: 'web_vitals',
     });
   }
 
@@ -27,7 +30,7 @@ function sendToAnalytics(metric: Metric) {
       name: metric.name,
       value: metric.value,
       delta: metric.delta,
-      id: metric.id
+      id: metric.id,
     });
   }
 
@@ -46,8 +49,8 @@ function sendToAnalytics(metric: Metric) {
           id: metric.id,
           url: window.location.href,
           timestamp: Date.now(),
-          userAgent: navigator.userAgent
-        })
+          userAgent: navigator.userAgent,
+        }),
       }).catch(console.error);
     } catch (error) {
       console.error('Error sending web vitals:', error);

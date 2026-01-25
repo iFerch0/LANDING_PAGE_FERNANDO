@@ -14,7 +14,7 @@ export const stats: Stat[] = [
     suffix: '+',
     label: 'PCs reparadas',
     description: 'Desde 2015 en Montería',
-    aosDelay: 100
+    aosDelay: 100,
   },
   {
     id: 'satisfaction',
@@ -22,7 +22,7 @@ export const stats: Stat[] = [
     suffix: '%',
     label: 'Satisfacción',
     description: 'Clientes que recomiendan el servicio',
-    aosDelay: 200
+    aosDelay: 200,
   },
   {
     id: 'response-time',
@@ -30,7 +30,7 @@ export const stats: Stat[] = [
     suffix: 'h',
     label: 'Tiempo promedio',
     description: 'Mayoría de problemas resueltos',
-    aosDelay: 300
+    aosDelay: 300,
   },
   {
     id: 'warranty',
@@ -38,18 +38,18 @@ export const stats: Stat[] = [
     suffix: ' días',
     label: 'Garantía',
     description: 'En todas las reparaciones',
-    aosDelay: 400
-  }
+    aosDelay: 400,
+  },
 ];
 
 export const statsHeader = {
   title: 'Confianza respaldada por resultados',
-  subtitle: 'Más de 10 años sirviendo a Montería con soluciones técnicas profesionales'
+  subtitle: 'Más de 10 años sirviendo a Montería con soluciones técnicas profesionales',
 };
 
 export const statsCTA = {
   title: '¿Necesitas una solución similar?',
   description: 'Contáctanos hoy y únete a nuestros clientes satisfechos',
   buttonText: 'Solicitar diagnóstico',
-  buttonLink: 'https://wa.me/573008474121'
+  buttonLink: 'https://wa.me/573008474121',
 };

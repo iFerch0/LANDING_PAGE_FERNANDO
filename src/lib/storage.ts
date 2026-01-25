@@ -9,10 +9,7 @@ const BUCKET_NAME = 'products';
  * @param folder - Optional folder path within the bucket
  * @returns The public URL of the uploaded image
  */
-export async function uploadImage(
-  file: File,
-  folder: string = 'images'
-): Promise<string> {
+export async function uploadImage(file: File, folder: string = 'images'): Promise<string> {
   if (!supabase) {
     throw new Error('Supabase not configured');
   }
@@ -22,12 +19,10 @@ export async function uploadImage(
   const fileName = `${folder}/${Date.now()}-${Math.random().toString(36).substring(2, 9)}.${fileExt}`;
 
   // Upload file
-  const { data, error } = await supabase.storage
-    .from(BUCKET_NAME)
-    .upload(fileName, file, {
-      cacheControl: '3600',
-      upsert: false,
-    });
+  const { data, error } = await supabase.storage.from(BUCKET_NAME).upload(fileName, file, {
+    cacheControl: '3600',
+    upsert: false,
+  });
 
   if (error) {
     console.error('Error uploading image:', error);
@@ -35,9 +30,7 @@ export async function uploadImage(
   }
 
   // Get public URL
-  const { data: urlData } = supabase.storage
-    .from(BUCKET_NAME)
-    .getPublicUrl(data.path);
+  const { data: urlData } = supabase.storage.from(BUCKET_NAME).getPublicUrl(data.path);
 
   return urlData.publicUrl;
 }
@@ -55,7 +48,7 @@ export async function uploadMultipleImages(
   onProgress?: (completed: number, total: number) => void
 ): Promise<string[]> {
   const urls: string[] = [];
-  
+
   for (let i = 0; i < files.length; i++) {
     const url = await uploadImage(files[i], folder);
     urls.push(url);
@@ -82,9 +75,7 @@ export async function deleteImage(imageUrl: string): Promise<void> {
 
   const filePath = urlParts[1];
 
-  const { error } = await supabase.storage
-    .from(BUCKET_NAME)
-    .remove([filePath]);
+  const { error } = await supabase.storage.from(BUCKET_NAME).remove([filePath]);
 
   if (error) {
     console.error('Error deleting image:', error);

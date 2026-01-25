@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
 
@@ -60,7 +60,12 @@ const CountUp: React.FC<CountUpProps> = ({ end, ssrValue, suffix = '', duration 
     };
   }, [end, duration, hasStarted]);
 
-  return <span ref={elementRef}>{count}{suffix}</span>;
+  return (
+    <span ref={elementRef}>
+      {count}
+      {suffix}
+    </span>
+  );
 };
 
 export default CountUp;

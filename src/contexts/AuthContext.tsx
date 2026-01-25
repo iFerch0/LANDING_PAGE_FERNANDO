@@ -3,12 +3,12 @@
 import { createContext, useContext, useEffect, useState, useCallback, ReactNode } from 'react';
 import { useRouter } from 'next/navigation';
 import type { User } from '@supabase/supabase-js';
-import { 
-  signIn as authSignIn, 
-  signOut as authSignOut, 
-  getSession, 
+import {
+  signIn as authSignIn,
+  signOut as authSignOut,
+  getSession,
   onAuthStateChange,
-  type AuthResult 
+  type AuthResult,
 } from '@/lib/auth';
 
 interface AuthContextType {
@@ -53,19 +53,22 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     };
   }, []);
 
-  const signIn = useCallback(async (email: string, password: string): Promise<AuthResult> => {
-    setIsLoading(true);
-    try {
-      const result = await authSignIn(email, password);
-      if (result.success) {
-        router.push('/admin');
-        router.refresh();
+  const signIn = useCallback(
+    async (email: string, password: string): Promise<AuthResult> => {
+      setIsLoading(true);
+      try {
+        const result = await authSignIn(email, password);
+        if (result.success) {
+          router.push('/admin');
+          router.refresh();
+        }
+        return result;
+      } finally {
+        setIsLoading(false);
       }
-      return result;
-    } finally {
-      setIsLoading(false);
-    }
-  }, [router]);
+    },
+    [router]
+  );
 
   const signOut = useCallback(async () => {
     setIsLoading(true);
@@ -88,22 +91,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     logout: signOut,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
 
 // Hook para usar el contexto de autenticación
 export function useAuth() {
   const context = useContext(AuthContext);
-  
+
   if (context === undefined) {
     if (process.env.NODE_ENV === 'development' && typeof window !== 'undefined') {
       console.warn('useAuth was called outside of AuthProvider. Returning default values.');
     }
-    
+
     const noopLogout = async () => {};
     return {
       user: null,
@@ -114,6 +113,6 @@ export function useAuth() {
       logout: noopLogout,
     };
   }
-  
+
   return context;
 }

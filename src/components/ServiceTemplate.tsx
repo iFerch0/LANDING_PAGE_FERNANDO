@@ -15,14 +15,27 @@ export default function ServiceTemplate(props: {
   canonical?: string;
   serviceName?: string;
 }) {
-  const { title, description, priceFrom, image = '/hero-poster.jpg', cases = [], faqs = [], canonical, serviceName } = props;
+  const {
+    title,
+    description,
+    priceFrom,
+    image = '/hero-poster.jpg',
+    cases = [],
+    faqs = [],
+    canonical,
+    serviceName,
+  } = props;
 
   const serviceLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: serviceName || title,
     description,
-    provider: { '@type': 'LocalBusiness', name: 'FerchoTecnico', url: 'https://www.ferchotecnico.com' },
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'FerchoTecnico',
+      url: 'https://www.ferchotecnico.com',
+    },
     areaServed: 'Montería',
   };
 
@@ -36,10 +49,16 @@ export default function ServiceTemplate(props: {
         <div className="service-copy">
           <h1>{title}</h1>
           <p>{description}</p>
-          <p className="price">Desde: <strong>{priceFrom}</strong></p>
+          <p className="price">
+            Desde: <strong>{priceFrom}</strong>
+          </p>
           <div className="cta-row">
-            <a href="https://wa.me/573008474121" className="btn btn-primary">Pedir presupuesto por WhatsApp</a>
-            <Link href="/#contacto" className="btn btn-outline">Contacto</Link>
+            <a href="https://wa.me/573008474121" className="btn btn-primary">
+              Pedir presupuesto por WhatsApp
+            </a>
+            <Link href="/#contacto" className="btn btn-outline">
+              Contacto
+            </Link>
           </div>
         </div>
         <div className="service-media">
@@ -50,7 +69,10 @@ export default function ServiceTemplate(props: {
       <section className="service-cases">
         <h2>Casos reales</h2>
         {cases.length === 0 ? (
-          <p>No tienes casos publicados aún. Puedes solicitar que publiquemos ejemplos reales de trabajos.</p>
+          <p>
+            No tienes casos publicados aún. Puedes solicitar que publiquemos ejemplos reales de
+            trabajos.
+          </p>
         ) : (
           cases.map((c, i) => (
             <article className="case" key={i}>
@@ -73,11 +95,12 @@ export default function ServiceTemplate(props: {
         </dl>
       </section>
 
-      {canonical ? (
-        <link rel="canonical" href={canonical} />
-      ) : null}
+      {canonical ? <link rel="canonical" href={canonical} /> : null}
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
+      />
     </main>
   );
 }

@@ -17,7 +17,18 @@
     "generate:images": "node scripts/generate-images.js",
     "optimize:images": "node scripts/optimize-images.js",
     "update:image-paths": "node scripts/update-image-paths.js",
-    "update:colors": "node scripts/update-colors.js"
+    "update:colors": "node scripts/update-colors.js",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.86.0",
@@ -39,8 +50,13 @@
     "cypress": "^15.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "husky": "^9.1.7",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
     "sharp": "^0.34.3",
     "start-server-and-test": "^2.0.13",
     "typescript": "^5"

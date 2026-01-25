@@ -4,7 +4,8 @@ import { services } from '@/data/services';
 
 export const metadata: Metadata = {
   title: 'Servicios Técnicos en Computadores Montería | Soporte PC a Domicilio',
-  description: 'Servicios técnicos computadores Montería: reparación PC, mantenimiento, eliminación virus, formateo Windows, recuperación datos. Domicilio 24/7',
+  description:
+    'Servicios técnicos computadores Montería: reparación PC, mantenimiento, eliminación virus, formateo Windows, recuperación datos. Domicilio 24/7',
   keywords: [
     'servicios técnicos computadores Montería',
     'reparación computadores Montería',
@@ -18,25 +19,26 @@ export const metadata: Metadata = {
     'reparación portátiles Montería',
     'servicio técnico domicilio',
     'mantenimiento preventivo PC',
-    'soporte computadores Montería'
+    'soporte computadores Montería',
   ].join(', '),
   alternates: {
-    canonical: 'https://www.ferchotecnico.com/servicios'
+    canonical: 'https://www.ferchotecnico.com/servicios',
   },
   openGraph: {
     title: 'Servicios Técnicos Computadores Montería | Fernando Tech',
-    description: 'Todos los servicios técnicos para computadores en Montería. Reparación, mantenimiento, soporte a domicilio. Diagnóstico GRATIS',
+    description:
+      'Todos los servicios técnicos para computadores en Montería. Reparación, mantenimiento, soporte a domicilio. Diagnóstico GRATIS',
     url: 'https://www.ferchotecnico.com/servicios',
-    type: 'website'
-  }
+    type: 'website',
+  },
 };
 
 export default function ServiciosIndex() {
   // Use centralized data - show top 7 services
-  const mainServices = services.slice(0, 7).map(service => ({
+  const mainServices = services.slice(0, 7).map((service) => ({
     href: `/servicios/${service.slug}`,
     title: service.serviceName,
-    description: service.description.split('.')[0] + '.'
+    description: service.description.split('.')[0] + '.',
   }));
 
   return (
@@ -48,7 +50,7 @@ export default function ServiciosIndex() {
             <span className="block text-blue-600">Montería, Córdoba</span>
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            ⭐ Ofrecemos servicios técnicos especializados en computadores y portátiles en Montería. 
+            ⭐ Ofrecemos servicios técnicos especializados en computadores y portátiles en Montería.
             Soporte a domicilio 24/7 con diagnóstico gratuito. Más de 8 años de experiencia.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
@@ -66,13 +68,12 @@ export default function ServiciosIndex() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {mainServices.map((servicio) => (
-            <div key={servicio.href} className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100">
-              <h2 className="text-xl font-bold text-gray-900 mb-3">
-                {servicio.title}
-              </h2>
-              <p className="text-gray-600 mb-4 leading-relaxed">
-                {servicio.description}
-              </p>
+            <div
+              key={servicio.href}
+              className="bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 border border-gray-100"
+            >
+              <h2 className="text-xl font-bold text-gray-900 mb-3">{servicio.title}</h2>
+              <p className="text-gray-600 mb-4 leading-relaxed">{servicio.description}</p>
               <Link
                 href={servicio.href}
                 className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold transition-colors duration-200"
@@ -89,13 +90,13 @@ export default function ServiciosIndex() {
             Contáctanos ahora para recibir soporte técnico especializado en Montería
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+            <Link
               href="tel:+573008474121"
               className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-200"
             >
               📞 Llamar Ahora
             </Link>
-            <Link 
+            <Link
               href="https://wa.me/573008474121"
               className="bg-green-500 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-600 transition-colors duration-200"
             >

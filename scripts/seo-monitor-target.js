@@ -12,14 +12,42 @@ const path = require('path');
 const DOMAIN = 'https://www.ferchotecnico.com';
 const TARGET_KEYWORDS = [
   // Palabras clave principales con posiciones actuales
-  { keyword: 'tecnico en computadores monteria', currentPosition: '1ra página - 2do resultado', target: '1ra página - 1ro' },
-  { keyword: 'servicio tecnico computadores monteria', currentPosition: '3ra página', target: '1ra página - Top 3' },
-  { keyword: 'reparacion de computadores monteria', currentPosition: '1ra página - 5to resultado', target: '1ra página - Top 3' },
+  {
+    keyword: 'tecnico en computadores monteria',
+    currentPosition: '1ra página - 2do resultado',
+    target: '1ra página - 1ro',
+  },
+  {
+    keyword: 'servicio tecnico computadores monteria',
+    currentPosition: '3ra página',
+    target: '1ra página - Top 3',
+  },
+  {
+    keyword: 'reparacion de computadores monteria',
+    currentPosition: '1ra página - 5to resultado',
+    target: '1ra página - Top 3',
+  },
   { keyword: 'tecnico pc monteria', currentPosition: '3ra página', target: '1ra página - Top 5' },
-  { keyword: 'servicio tecnico de computadores monteria', currentPosition: '3ra página', target: '1ra página - Top 5' },
-  { keyword: 'soporte tecnico computadores monteria', currentPosition: 'Sin resultados', target: '1ra página - Top 10' },
-  { keyword: 'mantenimiento de computadores monteria', currentPosition: '1ra página - 4to resultado', target: '1ra página - Top 3' },
-  { keyword: 'ingeniero de sistemas monteria', currentPosition: 'Sin resultados', target: '1ra página - Top 10' }
+  {
+    keyword: 'servicio tecnico de computadores monteria',
+    currentPosition: '3ra página',
+    target: '1ra página - Top 5',
+  },
+  {
+    keyword: 'soporte tecnico computadores monteria',
+    currentPosition: 'Sin resultados',
+    target: '1ra página - Top 10',
+  },
+  {
+    keyword: 'mantenimiento de computadores monteria',
+    currentPosition: '1ra página - 4to resultado',
+    target: '1ra página - Top 3',
+  },
+  {
+    keyword: 'ingeniero de sistemas monteria',
+    currentPosition: 'Sin resultados',
+    target: '1ra página - Top 10',
+  },
 ];
 
 // Check meta tags and SEO elements
@@ -30,36 +58,36 @@ function checkSEOElements() {
     {
       name: 'Homepage Meta Title Optimized',
       status: '✅ COMPLETED',
-      details: 'Title includes main keywords with emoji and local targeting'
+      details: 'Title includes main keywords with emoji and local targeting',
     },
     {
       name: 'Homepage Meta Description',
       status: '✅ COMPLETED',
-      details: 'Description under 160 chars with CTA and phone number'
+      details: 'Description under 160 chars with CTA and phone number',
     },
     {
       name: 'Keyword Density Optimization',
       status: '✅ COMPLETED',
-      details: '200+ targeted keywords added including specific variations'
+      details: '200+ targeted keywords added including specific variations',
     },
     {
       name: 'New Landing Pages Created',
       status: '✅ COMPLETED',
-      details: 'ingeniero-sistemas-monteria and soporte-tecnico-computadores-monteria pages'
+      details: 'ingeniero-sistemas-monteria and soporte-tecnico-computadores-monteria pages',
     },
     {
       name: 'Service Pages Enhanced',
       status: '✅ COMPLETED',
-      details: 'All service pages optimized with specific keyword targeting'
+      details: 'All service pages optimized with specific keyword targeting',
     },
     {
       name: 'Sitemap Updated',
       status: '✅ COMPLETED',
-      details: 'New pages added with proper priorities and frequencies'
-    }
+      details: 'New pages added with proper priorities and frequencies',
+    },
   ];
 
-  checks.forEach(check => {
+  checks.forEach((check) => {
     console.log(`${check.status} ${check.name}`);
     console.log(`   ${check.details}\n`);
   });
@@ -72,8 +100,11 @@ function monitorKeywords() {
   console.log('🎯 TARGET KEYWORDS MONITORING - CURRENT STATUS\n');
 
   TARGET_KEYWORDS.forEach((item, index) => {
-    const status = item.currentPosition.includes('Sin resultados') ? '🔴' :
-                   item.currentPosition.includes('1ra página') ? '🟢' : '🟠';
+    const status = item.currentPosition.includes('Sin resultados')
+      ? '🔴'
+      : item.currentPosition.includes('1ra página')
+        ? '🟢'
+        : '🟠';
 
     console.log(`${index + 1}. ${status} "${item.keyword}"`);
     console.log(`   Current: ${item.currentPosition}`);
@@ -124,7 +155,8 @@ function main() {
 
   // Save report to file
   const reportDate = new Date().toISOString().split('T')[0];
-  const reportContent = `SEO Optimization Report - ${reportDate}\n` +
+  const reportContent =
+    `SEO Optimization Report - ${reportDate}\n` +
     `Domain: ${DOMAIN}\n` +
     `Target Keywords: ${TARGET_KEYWORDS.length} keywords\n` +
     `New Pages Created: ingeniero-sistemas-monteria, soporte-tecnico-computadores-monteria\n` +
@@ -145,5 +177,5 @@ module.exports = {
   checkSEOElements,
   monitorKeywords,
   TARGET_KEYWORDS,
-  DOMAIN
+  DOMAIN,
 };

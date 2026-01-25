@@ -3,14 +3,17 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: '5 Señales de que tu PC Necesita Servicio Técnico en Córdoba | Fernando Técnico',
-  description: 'Identifica las señales tempranas de que tu computador necesita reparación en Córdoba. Guía completa con soluciones y cuándo llamar a un técnico profesional.',
-  keywords: 'señales pc dañado córdoba, computador lento montería, reparación pc córdoba, servicio técnico computadores montería',
+  description:
+    'Identifica las señales tempranas de que tu computador necesita reparación en Córdoba. Guía completa con soluciones y cuándo llamar a un técnico profesional.',
+  keywords:
+    'señales pc dañado córdoba, computador lento montería, reparación pc córdoba, servicio técnico computadores montería',
   openGraph: {
     title: '5 Señales de que tu PC Necesita Servicio Técnico en Córdoba',
-    description: 'Identifica las señales tempranas de que tu computador necesita reparación en Córdoba.',
+    description:
+      'Identifica las señales tempranas de que tu computador necesita reparación en Córdoba.',
     url: 'https://www.ferchotecnico.com/blog/senales-pc-necesita-servicio-tecnico-cordoba',
-    type: 'article'
-  }
+    type: 'article',
+  },
 };
 
 export default function SenalesPCNecesitaServicio() {
@@ -29,13 +32,16 @@ export default function SenalesPCNecesitaServicio() {
             <span>8 min de lectura</span>
           </div>
           <p className="text-xl text-gray-700 leading-relaxed">
-            ¿Tu computador está actuando extraño? En el clima de Córdoba, los equipos enfrentan desafíos únicos. 
-            Aprende a identificar las señales tempranas que indican que necesitas servicio técnico profesional.
+            ¿Tu computador está actuando extraño? En el clima de Córdoba, los equipos enfrentan
+            desafíos únicos. Aprende a identificar las señales tempranas que indican que necesitas
+            servicio técnico profesional.
           </p>
         </header>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">🚨 Señal #1: Lentitud Extrema y Cuelgues Frecuentes</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            🚨 Señal #1: Lentitud Extrema y Cuelgues Frecuentes
+          </h2>
           <div className="bg-red-50 p-6 rounded-lg mb-4">
             <h3 className="text-xl font-semibold mb-3 text-red-800">Síntomas:</h3>
             <ul className="space-y-2">
@@ -45,7 +51,9 @@ export default function SenalesPCNecesitaServicio() {
               <li>• Múltiples ventanas de &quot;No responde&quot;</li>
             </ul>
           </div>
-          <p><strong>Posibles causas en Córdoba:</strong></p>
+          <p>
+            <strong>Posibles causas en Córdoba:</strong>
+          </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Sobrecalentamiento por altas temperaturas (35°C+)</li>
             <li>Acumulación de polvo en ventiladores</li>
@@ -67,22 +75,41 @@ export default function SenalesPCNecesitaServicio() {
             </ul>
           </div>
           <div className="bg-yellow-100 p-4 rounded-lg mb-4">
-            <p><strong>⚠️ Importante:</strong> En Montería, las temperaturas ambientales de 35°C+ hacen que el sobrecalentamiento sea un problema crítico que puede dañar permanentemente tu equipo.</p>
+            <p>
+              <strong>⚠️ Importante:</strong> En Montería, las temperaturas ambientales de 35°C+
+              hacen que el sobrecalentamiento sea un problema crítico que puede dañar
+              permanentemente tu equipo.
+            </p>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">💙 Señal #3: Pantalla Azul de la Muerte (BSOD)</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            💙 Señal #3: Pantalla Azul de la Muerte (BSOD)
+          </h2>
           <div className="bg-blue-50 p-6 rounded-lg mb-4">
             <h3 className="text-xl font-semibold mb-3 text-blue-800">¿Qué es?</h3>
-            <p>La temida pantalla azul con texto blanco que aparece cuando Windows detecta un error crítico del sistema.</p>
+            <p>
+              La temida pantalla azul con texto blanco que aparece cuando Windows detecta un error
+              crítico del sistema.
+            </p>
           </div>
-          <p><strong>Códigos de error comunes en Córdoba:</strong></p>
+          <p>
+            <strong>Códigos de error comunes en Córdoba:</strong>
+          </p>
           <ul className="list-disc pl-6 mb-4">
-            <li><code>MEMORY_MANAGEMENT</code> - Problemas de RAM por humedad</li>
-            <li><code>SYSTEM_THREAD_EXCEPTION</code> - Drivers desactualizados</li>
-            <li><code>KERNEL_SECURITY_CHECK_FAILURE</code> - Corrupción del sistema</li>
-            <li><code>CRITICAL_PROCESS_DIED</code> - Falla crítica del sistema</li>
+            <li>
+              <code>MEMORY_MANAGEMENT</code> - Problemas de RAM por humedad
+            </li>
+            <li>
+              <code>SYSTEM_THREAD_EXCEPTION</code> - Drivers desactualizados
+            </li>
+            <li>
+              <code>KERNEL_SECURITY_CHECK_FAILURE</code> - Corrupción del sistema
+            </li>
+            <li>
+              <code>CRITICAL_PROCESS_DIED</code> - Falla crítica del sistema
+            </li>
           </ul>
         </section>
 
@@ -92,25 +119,43 @@ export default function SenalesPCNecesitaServicio() {
             <div className="bg-red-50 p-4 rounded-lg">
               <h3 className="text-lg font-semibold text-red-800 mb-2">🚨 Ruidos Críticos</h3>
               <ul className="text-sm space-y-1">
-                <li>• <strong>Clic-clic repetitivo:</strong> Disco duro fallando</li>
-                <li>• <strong>Chirridos agudos:</strong> Ventilador dañado</li>
-                <li>• <strong>Zumbido eléctrico:</strong> Fuente de poder</li>
-                <li>• <strong>Golpeteo:</strong> Componente suelto</li>
+                <li>
+                  • <strong>Clic-clic repetitivo:</strong> Disco duro fallando
+                </li>
+                <li>
+                  • <strong>Chirridos agudos:</strong> Ventilador dañado
+                </li>
+                <li>
+                  • <strong>Zumbido eléctrico:</strong> Fuente de poder
+                </li>
+                <li>
+                  • <strong>Golpeteo:</strong> Componente suelto
+                </li>
               </ul>
             </div>
             <div className="bg-yellow-50 p-4 rounded-lg">
-              <h3 className="text-lg font-semibold text-yellow-800 mb-2">⚠️ Ruidos de Advertencia</h3>
+              <h3 className="text-lg font-semibold text-yellow-800 mb-2">
+                ⚠️ Ruidos de Advertencia
+              </h3>
               <ul className="text-sm space-y-1">
-                <li>• <strong>Ventiladores más ruidosos:</strong> Polvo acumulado</li>
-                <li>• <strong>Vibración excesiva:</strong> Montaje suelto</li>
-                <li>• <strong>Silbidos leves:</strong> Flujo de aire obstruido</li>
+                <li>
+                  • <strong>Ventiladores más ruidosos:</strong> Polvo acumulado
+                </li>
+                <li>
+                  • <strong>Vibración excesiva:</strong> Montaje suelto
+                </li>
+                <li>
+                  • <strong>Silbidos leves:</strong> Flujo de aire obstruido
+                </li>
               </ul>
             </div>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">⚡ Señal #5: Problemas Eléctricos y de Encendido</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            ⚡ Señal #5: Problemas Eléctricos y de Encendido
+          </h2>
           <div className="bg-purple-50 p-6 rounded-lg mb-4">
             <h3 className="text-xl font-semibold mb-3 text-purple-800">Síntomas Eléctricos:</h3>
             <ul className="space-y-2">
@@ -121,7 +166,9 @@ export default function SenalesPCNecesitaServicio() {
               <li>• Olor a quemado o componentes</li>
             </ul>
           </div>
-          <p><strong>Factores de riesgo en Córdoba:</strong></p>
+          <p>
+            <strong>Factores de riesgo en Córdoba:</strong>
+          </p>
           <ul className="list-disc pl-6 mb-4">
             <li>Fluctuaciones de voltaje frecuentes</li>
             <li>Cortes de luz repentinos</li>
@@ -131,7 +178,9 @@ export default function SenalesPCNecesitaServicio() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-3xl font-semibold mb-4">🛠️ ¿Qué Hacer Cuando Aparecen Estas Señales?</h2>
+          <h2 className="text-3xl font-semibold mb-4">
+            🛠️ ¿Qué Hacer Cuando Aparecen Estas Señales?
+          </h2>
           <div className="space-y-6">
             <div className="border-l-4 border-green-500 pl-4">
               <h3 className="text-xl font-semibold mb-2">Acciones Inmediatas</h3>
@@ -215,8 +264,9 @@ export default function SenalesPCNecesitaServicio() {
         <section className="mb-8 bg-blue-50 p-6 rounded-lg">
           <h2 className="text-2xl font-semibold mb-4">🔧 ¿Tu PC Presenta Estas Señales?</h2>
           <p className="mb-4">
-            No esperes a que sea demasiado tarde. Con más de 10 años de experiencia atendiendo equipos en Montería y Córdoba, 
-            puedo diagnosticar y solucionar estos problemas antes de que se conviertan en reparaciones costosas.
+            No esperes a que sea demasiado tarde. Con más de 10 años de experiencia atendiendo
+            equipos en Montería y Córdoba, puedo diagnosticar y solucionar estos problemas antes de
+            que se conviertan en reparaciones costosas.
           </p>
           <div className="grid md:grid-cols-2 gap-4 mb-4">
             <div className="bg-white p-4 rounded-lg">
@@ -237,16 +287,16 @@ export default function SenalesPCNecesitaServicio() {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a 
-              href="https://wa.me/573008474121?text=Hola, mi PC presenta señales de problemas y necesito diagnóstico" 
+            <a
+              href="https://wa.me/573008474121?text=Hola, mi PC presenta señales de problemas y necesito diagnóstico"
               className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors text-center"
-              target="_blank" 
+              target="_blank"
               rel="noopener noreferrer"
             >
               💬 Diagnóstico por WhatsApp
             </a>
-            <a 
-              href="tel:+573008474121" 
+            <a
+              href="tel:+573008474121"
               className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-center"
             >
               📞 Llamar Ahora
@@ -260,10 +310,16 @@ export default function SenalesPCNecesitaServicio() {
               ← Volver al Blog
             </Link>
             <div className="text-sm text-gray-600">
-              Compartir: 
-              <a href="#" className="ml-2 text-blue-600">Facebook</a>
-              <a href="#" className="ml-2 text-blue-600">Twitter</a>
-              <a href="#" className="ml-2 text-blue-600">WhatsApp</a>
+              Compartir:
+              <a href="#" className="ml-2 text-blue-600">
+                Facebook
+              </a>
+              <a href="#" className="ml-2 text-blue-600">
+                Twitter
+              </a>
+              <a href="#" className="ml-2 text-blue-600">
+                WhatsApp
+              </a>
             </div>
           </div>
         </footer>

@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
   const routes = [
     'http://localhost:3000/',
     'http://localhost:3000/servicios/reparacion-computadores-monteria',
-    'http://localhost:3000/servicios/recuperacion-datos-monteria'
+    'http://localhost:3000/servicios/recuperacion-datos-monteria',
   ];
 
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });

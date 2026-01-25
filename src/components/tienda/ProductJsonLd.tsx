@@ -32,8 +32,8 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
         product.status === 'nuevo'
           ? 'https://schema.org/NewCondition'
           : product.status === 'reacondicionado'
-          ? 'https://schema.org/RefurbishedCondition'
-          : 'https://schema.org/UsedCondition',
+            ? 'https://schema.org/RefurbishedCondition'
+            : 'https://schema.org/UsedCondition',
       seller: {
         '@type': 'LocalBusiness',
         name: 'FerchoTécnico',
@@ -46,13 +46,14 @@ export function ProductJsonLd({ product }: ProductJsonLdProps) {
         },
       },
     },
-    aggregateRating: product.views > 10
-      ? {
-          '@type': 'AggregateRating',
-          ratingValue: '4.8',
-          reviewCount: Math.floor(product.views / 10),
-        }
-      : undefined,
+    aggregateRating:
+      product.views > 10
+        ? {
+            '@type': 'AggregateRating',
+            ratingValue: '4.8',
+            reviewCount: Math.floor(product.views / 10),
+          }
+        : undefined,
   };
 
   return (

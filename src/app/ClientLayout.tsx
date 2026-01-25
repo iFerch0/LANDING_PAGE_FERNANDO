@@ -1,7 +1,7 @@
-"use client";
-import "aos/dist/aos.css";
-import AOS from "aos";
-import { useEffect } from "react";
+'use client';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { useEffect } from 'react';
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
         }
         // Remove any other common browser extension attributes that might cause issues
         const extensionAttributes = ['data-extension', 'extension-installed', 'browser-extension'];
-        extensionAttributes.forEach(attr => {
+        extensionAttributes.forEach((attr) => {
           if (body.hasAttribute(attr)) {
             body.removeAttribute(attr);
           }

@@ -1,0 +1,318 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`ContactForm Component matches snapshot 1`] = `
+<div>
+  <section
+    class="contactForm"
+    id="contacto"
+  >
+    <div
+      class="container"
+    >
+      <div
+        class="card"
+        data-aos="fade-up"
+      >
+        <div
+          class="header"
+        >
+          <div
+            class="badge"
+          >
+            <svg
+              fill="none"
+              height="20"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="20"
+            >
+              <path
+                d="M22 2L11 13"
+              />
+              <path
+                d="M22 2L15 22L11 13L2 9L22 2Z"
+              />
+            </svg>
+            Formulario de Contacto
+          </div>
+          <h2
+            class="title"
+          >
+            Solicita tu Servicio
+          </h2>
+          <p
+            class="subtitle"
+          >
+            Completa el formulario y te contactamos
+          </p>
+        </div>
+        <form>
+          <div
+            class="formSection"
+          >
+            <h3
+              class="sectionTitle"
+            >
+              <svg
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="18"
+              >
+                <path
+                  d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                />
+                <circle
+                  cx="12"
+                  cy="7"
+                  r="4"
+                />
+              </svg>
+              Información Personal
+            </h3>
+            <div
+              class="formGrid"
+            >
+              <div
+                class="fieldGroup"
+              >
+                <label
+                  class="label"
+                >
+                  Nombre completo *
+                </label>
+                <input
+                  class="input "
+                  name="name"
+                  placeholder="Tu nombre"
+                  required=""
+                  type="text"
+                  value=""
+                />
+              </div>
+              <div
+                class="fieldGroup"
+              >
+                <label
+                  class="label"
+                >
+                  WhatsApp *
+                </label>
+                <input
+                  class="input "
+                  name="phone"
+                  placeholder="300 123 4567"
+                  required=""
+                  type="tel"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              class="fieldGroup"
+            >
+              <label
+                class="label"
+              >
+                Correo electrónico *
+              </label>
+              <input
+                class="input "
+                name="email"
+                placeholder="correo@ejemplo.com"
+                required=""
+                type="email"
+                value=""
+              />
+            </div>
+          </div>
+          <div
+            class="formSection"
+          >
+            <h3
+              class="sectionTitle"
+            >
+              <svg
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="18"
+              >
+                <rect
+                  height="14"
+                  rx="2"
+                  ry="2"
+                  width="20"
+                  x="2"
+                  y="3"
+                />
+                <line
+                  x1="8"
+                  x2="16"
+                  y1="21"
+                  y2="21"
+                />
+                <line
+                  x1="12"
+                  x2="12"
+                  y1="17"
+                  y2="21"
+                />
+              </svg>
+              Detalles del Servicio
+            </h3>
+            <div
+              class="formGrid"
+            >
+              <div
+                class="fieldGroup"
+              >
+                <label
+                  class="label"
+                >
+                  Tipo de equipo *
+                </label>
+                <select
+                  class="select "
+                  name="deviceType"
+                  required=""
+                >
+                  <option
+                    value=""
+                  >
+                    Selecciona
+                  </option>
+                  <option
+                    value="laptop"
+                  >
+                    💻 Portátil
+                  </option>
+                  <option
+                    value="pc-desktop"
+                  >
+                    🖥️ PC Escritorio
+                  </option>
+                  <option
+                    value="all-in-one"
+                  >
+                    📱 All-in-One
+                  </option>
+                  <option
+                    value="gaming"
+                  >
+                    🎮 PC Gaming
+                  </option>
+                  <option
+                    value="other"
+                  >
+                    💿 Otro
+                  </option>
+                </select>
+              </div>
+              <div
+                class="fieldGroup"
+              >
+                <label
+                  class="label"
+                >
+                  Urgencia *
+                </label>
+                <select
+                  class="select "
+                  name="urgency"
+                  required=""
+                >
+                  <option
+                    value=""
+                  >
+                    Selecciona
+                  </option>
+                  <option
+                    value="alta"
+                  >
+                    🚨 Alta - Hoy
+                  </option>
+                  <option
+                    value="media"
+                  >
+                    ⚡ Media - 24-48h
+                  </option>
+                  <option
+                    value="baja"
+                  >
+                    📅 Baja - Esta semana
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div
+              class="fieldGroup"
+            >
+              <label
+                class="label"
+              >
+                Describe el problema *
+              </label>
+              <textarea
+                class="textarea "
+                name="problem"
+                placeholder="Cuéntanos qué está pasando con tu equipo..."
+                required=""
+                rows="3"
+              />
+              <div
+                class="charCount"
+              >
+                0
+                /500
+              </div>
+            </div>
+            <div
+              class="fieldGroup"
+            >
+              <label
+                class="label"
+              >
+                Ubicación (opcional)
+              </label>
+              <input
+                class="input"
+                name="location"
+                placeholder="Ej: Barrio Centro"
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
+          <button
+            class="submitBtn"
+            type="submit"
+          >
+            <svg
+              fill="none"
+              height="20"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="20"
+            >
+              <path
+                d="M22 2L11 13"
+              />
+              <path
+                d="M22 2L15 22L11 13L2 9L22 2Z"
+              />
+            </svg>
+            Enviar por WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</div>
+`;

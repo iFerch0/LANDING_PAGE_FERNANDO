@@ -12,9 +12,7 @@ interface RelatedProductsProps {
 
 export function RelatedProducts({ products, currentProductId }: RelatedProductsProps) {
   // Filtrar el producto actual y limitar a 4
-  const relatedProducts = products
-    .filter(p => p.id !== currentProductId)
-    .slice(0, 4);
+  const relatedProducts = products.filter((p) => p.id !== currentProductId).slice(0, 4);
 
   if (relatedProducts.length === 0) {
     return null;
@@ -25,11 +23,7 @@ export function RelatedProducts({ products, currentProductId }: RelatedProductsP
       <h2 className={styles.title}>Productos relacionados</h2>
       <div className={styles.grid}>
         {relatedProducts.map((product) => (
-          <Link
-            key={product.id}
-            href={`/tienda/${product.slug}`}
-            className={styles.card}
-          >
+          <Link key={product.id} href={`/tienda/${product.slug}`} className={styles.card}>
             <div className={styles.imageWrapper}>
               <Image
                 src={product.images[0] || '/placeholder-product.jpg'}
@@ -38,9 +32,7 @@ export function RelatedProducts({ products, currentProductId }: RelatedProductsP
                 height={200}
                 className={styles.image}
               />
-              {!product.availability && (
-                <div className={styles.outOfStock}>Agotado</div>
-              )}
+              {!product.availability && <div className={styles.outOfStock}>Agotado</div>}
             </div>
             <div className={styles.content}>
               <h3 className={styles.productTitle}>{product.title}</h3>

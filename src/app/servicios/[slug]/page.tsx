@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!service) {
     return {
       title: 'Servicio no encontrado',
-      description: 'El servicio que buscas no está disponible'
+      description: 'El servicio que buscas no está disponible',
     };
   }
 
@@ -32,14 +32,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description: service.metadata.description,
     keywords: service.metadata.keywords.join(', '),
     alternates: {
-      canonical: service.canonical
+      canonical: service.canonical,
     },
     openGraph: {
       title: service.metadata.openGraph.title,
       description: service.metadata.openGraph.description,
       url: service.canonical,
-      type: 'website'
-    }
+      type: 'website',
+    },
   };
 }
 

@@ -44,16 +44,14 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
   }, []);
 
   const toggleFavorite = useCallback((productId: string) => {
-    setFavorites(prev => 
-      prev.includes(productId)
-        ? prev.filter(id => id !== productId)
-        : [...prev, productId]
+    setFavorites((prev) =>
+      prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]
     );
   }, []);
 
   // Paginación
   const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
-  
+
   const paginatedProducts = useMemo(() => {
     const start = (currentPage - 1) * PRODUCTS_PER_PAGE;
     const end = start + PRODUCTS_PER_PAGE;
@@ -69,7 +67,7 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
   const pageNumbers = useMemo(() => {
     const pages: (number | string)[] = [];
     const maxVisible = 5;
-    
+
     if (totalPages <= maxVisible) {
       for (let i = 1; i <= totalPages; i++) pages.push(i);
     } else {
@@ -89,16 +87,13 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
         pages.push(totalPages);
       }
     }
-    
+
     return pages;
   }, [totalPages, currentPage]);
 
   return (
     <div className={styles.tiendaContent}>
-      <ProductFilters
-        products={initialProducts}
-        onFilter={handleFilter}
-      />
+      <ProductFilters products={initialProducts} onFilter={handleFilter} />
 
       {/* Toolbar: Resultados, Vista */}
       <div className={styles.toolbar}>
@@ -153,8 +148,8 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
       ) : viewMode === 'grid' ? (
         <div className={styles.grid}>
           {paginatedProducts.map((product) => (
-            <ProductCard 
-              key={product.id} 
+            <ProductCard
+              key={product.id}
               product={product}
               isFavorite={favorites.includes(product.id)}
               onToggleFavorite={toggleFavorite}
@@ -191,7 +186,9 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
           <div className={styles.pageNumbers}>
             {pageNumbers.map((page, idx) =>
               page === '...' ? (
-                <span key={`ellipsis-${idx}`} className={styles.ellipsis}>...</span>
+                <span key={`ellipsis-${idx}`} className={styles.ellipsis}>
+                  ...
+                </span>
               ) : (
                 <button
                   key={page}

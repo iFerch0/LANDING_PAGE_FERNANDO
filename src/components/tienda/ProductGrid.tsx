@@ -12,9 +12,7 @@ export function ProductGrid({ products }: ProductGridProps) {
       <div className={styles.empty}>
         <div className={styles.emptyIcon}>📦</div>
         <h3 className={styles.emptyTitle}>No hay productos disponibles</h3>
-        <p className={styles.emptyText}>
-          Pronto agregaremos nuevos productos. ¡Vuelve pronto!
-        </p>
+        <p className={styles.emptyText}>Pronto agregaremos nuevos productos. ¡Vuelve pronto!</p>
       </div>
     );
   }

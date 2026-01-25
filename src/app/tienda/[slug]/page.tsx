@@ -99,9 +99,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   {STATUS_LABELS[product.status]}
                 </span>
                 {product.stock <= 3 && product.stock > 0 && (
-                  <span className={styles.stockWarning}>
-                    ⚠️ Últimas {product.stock} unidades
-                  </span>
+                  <span className={styles.stockWarning}>⚠️ Últimas {product.stock} unidades</span>
                 )}
               </div>
 
@@ -116,15 +114,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
               <div className={styles.priceSection}>
                 <div className={styles.price}>
-                  <span className={styles.amount}>
-                    ${product.price.toLocaleString('es-CO')}
-                  </span>
+                  <span className={styles.amount}>${product.price.toLocaleString('es-CO')}</span>
                   <span className={styles.currency}>COP</span>
                 </div>
                 {product.warranty && (
-                  <div className={styles.warranty}>
-                    🛡️ Garantía: {product.warranty}
-                  </div>
+                  <div className={styles.warranty}>🛡️ Garantía: {product.warranty}</div>
                 )}
               </div>
 
@@ -174,9 +168,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
               )}
 
-              {product.availability && (
-                <WhatsAppButton product={product} />
-              )}
+              {product.availability && <WhatsAppButton product={product} />}
 
               <FavoriteButton productId={product.id} />
 
@@ -191,9 +183,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </div>
                 <div className={styles.infoItem}>
                   <span className={styles.infoIcon}>💬</span>
-                  <span className={styles.infoText}>
-                    Asesoría técnica personalizada incluida
-                  </span>
+                  <span className={styles.infoText}>Asesoría técnica personalizada incluida</span>
                 </div>
               </div>
             </div>

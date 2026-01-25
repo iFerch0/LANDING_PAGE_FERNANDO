@@ -4,12 +4,12 @@ export async function POST(request: NextRequest) {
   try {
     // Validate request body
     const data = await request.json();
-    
+
     // Validate required fields
     if (!data.metric || typeof data.value === 'undefined') {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-    
+
     // Log web vitals data (in production, you might want to send to a database or analytics service)
     console.log('📊 Web Vitals Data:', {
       metric: data.metric,
@@ -18,7 +18,7 @@ export async function POST(request: NextRequest) {
       id: data.id,
       url: data.url,
       timestamp: new Date(data.timestamp).toISOString(),
-      userAgent: data.userAgent?.substring(0, 100) // Truncate for logging
+      userAgent: data.userAgent?.substring(0, 100), // Truncate for logging
     });
 
     // Here you could send to external analytics services like:
@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     // - DataDog
     // - New Relic
     // - Custom database
-    
+
     return NextResponse.json({ success: true, received: data.metric });
   } catch (error) {
     console.error('Error processing web vitals:', error);
