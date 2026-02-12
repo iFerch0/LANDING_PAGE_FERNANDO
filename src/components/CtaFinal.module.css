@@ -139,6 +139,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.6;
     transform: scale(1.1);
@@ -185,21 +186,4 @@
   .phoneBtn:hover {
     background: rgba(255, 255, 255, 0.15);
   }
-}
-
-/* Dark mode - Data Attribute */
-[data-color-scheme='dark'] .content {
-  background: rgba(30, 30, 30, 0.8);
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
-
-[data-color-scheme='dark'] .phoneBtn {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.15);
-  color: var(--color-text);
-}
-
-[data-color-scheme='dark'] .phoneBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
 }

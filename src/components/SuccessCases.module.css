@@ -547,33 +547,3 @@
     background: rgba(0, 0, 0, 0.8);
   }
 }
-
-:global([data-color-scheme='dark']) .featured,
-:global([data-color-scheme='dark']) .card,
-:global([data-color-scheme='dark']) .statsBar {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-:global([data-color-scheme='dark']) .ctaContent {
-  background: linear-gradient(135deg, rgba(58, 110, 147, 0.1) 0%, rgba(34, 197, 94, 0.06) 100%);
-  border-color: rgba(58, 110, 147, 0.15);
-}
-
-:global([data-color-scheme='dark']) .metric,
-:global([data-color-scheme='dark']) .cardMetric {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-:global([data-color-scheme='dark']) .metricHighlight {
-  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.08));
-  border-color: rgba(34, 197, 94, 0.3);
-}
-
-:global([data-color-scheme='dark']) .metricHighlight .metricValue {
-  color: #4ade80;
-}
-
-:global([data-color-scheme='dark']) .cardTag {
-  background: rgba(0, 0, 0, 0.8);
-}

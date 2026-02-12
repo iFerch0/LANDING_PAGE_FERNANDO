@@ -373,22 +373,3 @@
     border-color: rgba(var(--color-primary-rgb), 0.3);
   }
 }
-
-:global([data-color-scheme='dark']) .card {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-:global([data-color-scheme='dark']) .card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(var(--color-primary-rgb), 0.4);
-}
-
-:global([data-color-scheme='dark']) .cardHighlight {
-  background: rgba(var(--color-primary-rgb), 0.1);
-}
-
-:global([data-color-scheme='dark']) .ctaContent {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(var(--color-primary-rgb), 0.3);
-}
