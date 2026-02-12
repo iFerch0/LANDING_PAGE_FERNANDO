@@ -93,12 +93,14 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
 - [x] Eliminar definiciones SVG duplicadas de cada componente ✅
 
 ### Sprint 0.3 - Modularizar globals.css
-- [ ] Extraer tokens primitivos → `src/styles/tokens.css`
-- [ ] Extraer brand palette → `src/styles/brand.css`
-- [ ] Extraer tipografía → `src/styles/typography.css`
-- [ ] Extraer utilidades/botones → `src/styles/utilities.css`
-- [ ] Importar todo desde globals.css (preserva la cascada)
-- [ ] globals.css queda solo con: imports + reset + dark mode overrides
+- [x] Extraer tokens primitivos → `src/styles/tokens.css` (79 líneas) ✅
+- [x] Extraer brand palette + semantic tokens → `src/styles/brand.css` (135 líneas) ✅
+- [x] Extraer tipografía + font-face → `src/styles/typography.css` (114 líneas) ✅
+- [x] Extraer utilidades/botones/forms/cards → `src/styles/utilities.css` (343 líneas) ✅
+- [x] Importar todo desde globals.css (preserva la cascada) ✅
+- [x] globals.css queda con: imports + reset + estilos de secciones (6218 líneas vs 6820 antes) ✅
+- [x] Consolidar tokens semánticos duplicados (líneas 50-66 subsumidas por 96-116) ✅
+- [x] Absorber `:root` extra de línea 656-661 en brand.css ✅
 
 ### Entregable Fase 0
 - Codebase limpio, sin duplicaciones
