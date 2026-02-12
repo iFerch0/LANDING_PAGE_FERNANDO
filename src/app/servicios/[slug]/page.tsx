@@ -68,7 +68,6 @@ export default async function ServicePage({ params }: PageProps) {
       <ServiceTemplate
         title={service.title}
         description={service.description}
-        priceFrom={service.priceFrom}
         image={service.image}
         canonical={service.canonical}
         serviceName={service.serviceName}

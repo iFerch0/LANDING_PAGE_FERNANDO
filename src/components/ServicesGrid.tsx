@@ -6,7 +6,6 @@ interface Service {
   icon: React.ReactElement;
   title: string;
   description: string;
-  priceFrom: string;
   duration: string;
   includes: string[];
   popular?: boolean;
@@ -32,7 +31,7 @@ const ServicesGrid: React.FC = () => {
       title: 'Mantenimiento Preventivo',
       description:
         'Limpieza completa de hardware, actualización de sistema y optimización de rendimiento',
-      priceFrom: '$50.000',
+
       duration: '2-3 horas',
       includes: [
         'Limpieza interna completa',
@@ -57,7 +56,7 @@ const ServicesGrid: React.FC = () => {
       title: 'Reparación de Hardware',
       description:
         'Diagnóstico y reparación de componentes dañados, reemplazo de piezas con repuestos originales',
-      priceFrom: '$70.000',
+
       duration: 'Mismo día',
       includes: [
         'Diagnóstico gratuito',
@@ -84,7 +83,7 @@ const ServicesGrid: React.FC = () => {
       title: 'Recuperación de Datos',
       description:
         'Recuperación de archivos perdidos, eliminados o de discos dañados con tecnología especializada',
-      priceFrom: '$100.000',
+
       duration: '1-3 días',
       includes: [
         'Evaluación sin costo',
@@ -110,7 +109,7 @@ const ServicesGrid: React.FC = () => {
       ),
       title: 'Formateo e Instalación',
       description: 'Instalación limpia de Windows, configuración completa y programas esenciales',
-      priceFrom: '$60.000',
+
       duration: '3-4 horas',
       includes: [
         'Windows 10/11 original',
@@ -135,7 +134,7 @@ const ServicesGrid: React.FC = () => {
       ),
       title: 'Eliminación de Virus',
       description: 'Limpieza profunda de malware, virus, adware y optimización de seguridad',
-      priceFrom: '$40.000',
+
       duration: '2 horas',
       includes: [
         'Escaneo completo',
@@ -162,7 +161,7 @@ const ServicesGrid: React.FC = () => {
       ),
       title: 'Soporte Remoto',
       description: 'Asistencia técnica a distancia para problemas de software y configuración',
-      priceFrom: '$30.000',
+
       duration: '30-60 min',
       includes: [
         'Conexión remota segura',
@@ -183,7 +182,7 @@ const ServicesGrid: React.FC = () => {
             ¿Qué necesita tu computador?
           </h2>
           <p className="services-grid__subtitle">
-            Precios transparentes, sin sorpresas. Diagnóstico gratuito incluido en todos los
+            Soluciones profesionales para tu equipo. Diagnóstico gratuito incluido en todos los
             servicios
           </p>
         </div>
@@ -204,25 +203,19 @@ const ServicesGrid: React.FC = () => {
               <h3 className="service-card__title">{service.title}</h3>
               <p className="service-card__description">{service.description}</p>
 
-              <div className="service-card__pricing">
-                <div className="service-card__price">
-                  <span className="price-from">Desde</span>
-                  <span className="price-amount">{service.priceFrom}</span>
-                </div>
-                <div className="service-card__duration">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12,6 12,12 16,14" />
-                  </svg>
-                  {service.duration}
-                </div>
+              <div className="service-card__duration-info">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12,6 12,12 16,14" />
+                </svg>
+                {service.duration}
               </div>
 
               <div className="service-card__includes">
@@ -397,7 +390,7 @@ const ServicesGrid: React.FC = () => {
           justify-content: center;
           width: 64px;
           height: 64px;
-          background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+          background: linear-gradient(135deg, var(--color-primary), var(--color-primary-hover));
           color: var(--color-btn-primary-text);
           border-radius: 16px;
           margin-bottom: 1.5rem;
@@ -417,40 +410,13 @@ const ServicesGrid: React.FC = () => {
           flex-grow: 1;
         }
 
-        .service-card__pricing {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 1rem;
-          background: var(--color-background);
-          border-radius: 12px;
-          margin-bottom: 1.5rem;
-        }
-
-        .service-card__price {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .price-from {
-          font-size: 0.75rem;
-          color: var(--color-text-secondary);
-          text-transform: uppercase;
-          letter-spacing: 0.05em;
-        }
-
-        .price-amount {
-          font-size: 1.75rem;
-          font-weight: 700;
-          color: var(--color-primary);
-        }
-
-        .service-card__duration {
+        .service-card__duration-info {
           display: flex;
           align-items: center;
           gap: 0.5rem;
           font-size: 0.875rem;
           color: var(--color-text-secondary);
+          margin-bottom: 1.5rem;
         }
 
         .service-card__includes {
@@ -503,7 +469,7 @@ const ServicesGrid: React.FC = () => {
         }
 
         .service-card__cta:hover {
-          background: var(--color-secondary);
+          background: var(--color-primary-hover);
           transform: translateX(4px);
         }
 
@@ -524,7 +490,7 @@ const ServicesGrid: React.FC = () => {
           );
           backdrop-filter: blur(10px);
           -webkit-backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          border: 1px solid var(--color-border);
           border-radius: 24px;
           overflow: hidden;
         }
@@ -606,6 +572,28 @@ const ServicesGrid: React.FC = () => {
         .custom-cta:hover {
           transform: translateY(-2px);
           box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .service-card {
+            background: rgba(30, 30, 30, 0.8);
+            border-color: rgba(255, 255, 255, 0.08);
+          }
+
+          .service-card:hover {
+            background: rgba(40, 40, 40, 0.9);
+            border-color: var(--color-primary);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+          }
+
+          .services-grid__custom {
+            background: linear-gradient(
+              135deg,
+              rgba(58, 110, 147, 0.12) 0%,
+              rgba(37, 211, 102, 0.08) 100%
+            );
+            border-color: rgba(255, 255, 255, 0.08);
+          }
         }
 
         @media (max-width: 768px) {

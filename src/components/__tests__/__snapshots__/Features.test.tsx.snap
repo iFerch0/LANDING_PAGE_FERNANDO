@@ -268,26 +268,21 @@ exports[`Features Component matches snapshot 1`] = `
                 viewBox="0 0 24 24"
               >
                 <path
-                  d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"
+                  d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
                   stroke-linecap="round"
                   stroke-linejoin="round"
                 />
                 <circle
-                  cx="5.5"
-                  cy="18.5"
-                  r="2.5"
-                />
-                <circle
-                  cx="18.5"
-                  cy="18.5"
-                  r="2.5"
+                  cx="12"
+                  cy="10"
+                  r="3"
                 />
               </svg>
             </div>
             <span
               class="badge badgePrimary"
             >
-              Gratis
+              Presencial
             </span>
           </div>
           <div
@@ -296,17 +291,17 @@ exports[`Features Component matches snapshot 1`] = `
             <h3
               class="cardTitle"
             >
-              Servicio a Domicilio
+              Atención en Taller
             </h3>
             <p
               class="cardSubtitle"
             >
-              Vamos a tu ubicación
+              Montería, Córdoba
             </p>
             <p
               class="cardDesc"
             >
-              Recogemos tu equipo y lo entregamos reparado. Sin costo adicional en Montería.
+              Trae tu equipo y lo diagnosticamos gratis. Horario: Lun-Vie 8AM-6PM, Sáb 8AM-2PM.
             </p>
           </div>
           <div
@@ -318,12 +313,12 @@ exports[`Features Component matches snapshot 1`] = `
               <span
                 class="metricValue"
               >
-                $0
+                Lun-Sáb
               </span>
               <span
                 class="metricLabel"
               >
-                Envío
+                Disponible
               </span>
             </div>
           </div>

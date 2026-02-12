@@ -272,22 +272,6 @@ exports[`ContactForm Component matches snapshot 1`] = `
                 /500
               </div>
             </div>
-            <div
-              class="fieldGroup"
-            >
-              <label
-                class="label"
-              >
-                Ubicación (opcional)
-              </label>
-              <input
-                class="input"
-                name="location"
-                placeholder="Ej: Barrio Centro"
-                type="text"
-                value=""
-              />
-            </div>
           </div>
           <button
             class="submitBtn"

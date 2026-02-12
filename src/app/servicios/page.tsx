@@ -3,21 +3,21 @@ import Link from 'next/link';
 import { services } from '@/data/services';
 
 export const metadata: Metadata = {
-  title: 'Servicios Técnicos en Computadores Montería | Soporte PC a Domicilio',
+  title: 'Servicios Técnicos en Computadores Montería | Soporte PC Profesional',
   description:
-    'Servicios técnicos computadores Montería: reparación PC, mantenimiento, eliminación virus, formateo Windows, recuperación datos. Domicilio 24/7',
+    'Servicios técnicos computadores Montería: reparación PC, mantenimiento, eliminación virus, formateo Windows, recuperación datos. Atención en taller Lun-Sáb',
   keywords: [
     'servicios técnicos computadores Montería',
     'reparación computadores Montería',
     'mantenimiento PC Montería',
     'soporte técnico Montería',
-    'servicio a domicilio Montería',
+    'servicio técnico taller Montería',
     'eliminación virus Montería',
     'formateo Windows Montería',
     'recuperación datos Montería',
     'técnico computadores Córdoba',
     'reparación portátiles Montería',
-    'servicio técnico domicilio',
+    'servicio técnico computadores',
     'mantenimiento preventivo PC',
     'soporte computadores Montería',
   ].join(', '),
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Servicios Técnicos Computadores Montería | Fernando Tech',
     description:
-      'Todos los servicios técnicos para computadores en Montería. Reparación, mantenimiento, soporte a domicilio. Diagnóstico GRATIS',
+      'Todos los servicios técnicos para computadores en Montería. Reparación, mantenimiento, soporte profesional. Diagnóstico GRATIS',
     url: 'https://www.ferchotecnico.com/servicios',
     type: 'website',
   },
@@ -51,14 +51,14 @@ export default function ServiciosIndex() {
           </h1>
           <p className="text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
             ⭐ Ofrecemos servicios técnicos especializados en computadores y portátiles en Montería.
-            Soporte a domicilio 24/7 con diagnóstico gratuito. Más de 8 años de experiencia.
+            Atención en taller con diagnóstico gratuito. Más de 8 años de experiencia.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-4">
             <span className="bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-semibold">
               📞 +57 300 847 4121
             </span>
             <span className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">
-              🏠 Servicio a Domicilio
+              🔧 Atención en Taller
             </span>
             <span className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold">
               🔍 Diagnóstico GRATIS

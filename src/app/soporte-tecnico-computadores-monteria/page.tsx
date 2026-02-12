@@ -3,9 +3,9 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata: Metadata = {
-  title: 'Soporte Técnico Computadores Montería ⭐ | Asistencia PC 24/7 a Domicilio',
+  title: 'Soporte Técnico Computadores Montería ⭐ | Asistencia PC Profesional',
   description:
-    '⭐ Soporte técnico computadores Montería especializado. Asistencia remota y a domicilio, resolución problemas PC, instalación software. Técnico certificado +8 años experiencia 📱',
+    '⭐ Soporte técnico computadores Montería especializado. Asistencia remota y en taller, resolución problemas PC, instalación software. Técnico certificado +8 años experiencia 📱',
   keywords: [
     'soporte técnico computadores montería',
     'soporte tecnico computadores monteria',
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     'soporte pc montería',
     'técnico soporte montería',
     'asistencia computador montería',
-    'soporte técnico domicilio montería',
+    'soporte técnico taller montería',
     'ayuda pc montería',
     'soporte técnico remoto montería',
     'técnico asistencia montería',
-    'soporte computadores montería 24 horas',
+    'soporte computadores montería profesional',
     'ayuda técnica pc montería urgente',
   ].join(', '),
   alternates: {
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '🛠️ Soporte Técnico Computadores Montería | Fernando ⭐ 5.0',
     description:
-      '⭐ Soporte técnico computadores Montería profesional. Asistencia remota y domicilio 24/7. Resolvemos cualquier problema PC 📱 +573008474121',
+      '⭐ Soporte técnico computadores Montería profesional. Asistencia remota y en taller. Resolvemos cualquier problema PC 📱 +573008474121',
     url: 'https://www.ferchotecnico.com/soporte-tecnico-computadores-monteria',
     type: 'website',
   },
@@ -42,9 +42,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
       descripcion: 'Resolución de problemas desde cualquier lugar mediante conexión segura',
     },
     {
-      icon: '🏠',
-      titulo: 'Soporte a Domicilio',
-      descripcion: 'Visita técnica en Montería para atención personalizada',
+      icon: '📍',
+      titulo: 'Atención en Taller',
+      descripcion: 'Trae tu equipo al taller para diagnóstico y reparación',
     },
     {
       icon: '💻',
@@ -94,8 +94,8 @@ export default function SoporteTecnicoComputadoresMonteria() {
               </h1>
               <p className="text-xl mb-8 leading-relaxed">
                 Soporte técnico computadores Montería especializado con más de 8 años de
-                experiencia. Asistencia remota y a domicilio 24/7 para resolver cualquier problema
-                con tu PC.
+                experiencia. Asistencia remota y en taller para resolver cualquier problema con tu
+                PC. Horario: Lun-Vie 8AM-6PM, Sáb 8AM-2PM.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
@@ -189,9 +189,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
                     <span className="text-2xl">⏰</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Disponibilidad 24/7</h3>
+                    <h3 className="text-xl font-bold mb-2">Horario de Atención</h3>
                     <p className="text-gray-600">
-                      Soporte técnico computadores Montería disponible todos los días del año
+                      Lun-Vie 8AM-6PM, Sáb 8AM-2PM. Contacta por WhatsApp para agendar
                     </p>
                   </div>
                 </div>
@@ -200,9 +200,9 @@ export default function SoporteTecnicoComputadoresMonteria() {
                     <span className="text-2xl">📍</span>
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">Servicio a Domicilio</h3>
+                    <h3 className="text-xl font-bold mb-2">Atención en Taller</h3>
                     <p className="text-gray-600">
-                      Atención técnica en toda Montería y municipios cercanos
+                      Trae tu equipo al taller en Montería para diagnóstico gratuito
                     </p>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function SoporteTecnicoComputadoresMonteria() {
                     <span className="font-bold">Desde $30.000</span>
                   </div>
                   <div className="flex justify-between items-center border-b pb-2">
-                    <span>Soporte a Domicilio</span>
+                    <span>Soporte en Taller</span>
                     <span className="font-bold">Desde $50.000</span>
                   </div>
                   <div className="flex justify-between items-center border-b pb-2">

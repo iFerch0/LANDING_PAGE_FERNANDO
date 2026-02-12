@@ -3081,14 +3081,14 @@ select.form-control {
 }
 
 .btn--cta-secondary {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(var(--color-primary-rgb, 58, 110, 147), 0.08);
   color: var(--color-text);
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--color-border);
   backdrop-filter: blur(10px);
 }
 
 .btn--cta-secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(var(--color-primary-rgb, 58, 110, 147), 0.15);
   border-color: var(--color-primary);
   transform: translateY(-2px);
 }
@@ -4750,13 +4750,13 @@ select.form-control {
 }
 
 .btn--secondary {
-  background: white;
+  background: var(--color-surface);
   color: var(--color-primary);
-  border: 1px solid white;
+  border: 1px solid var(--color-border);
 }
 
 .btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--color-background);
   transform: translateY(-2px);
 }
 

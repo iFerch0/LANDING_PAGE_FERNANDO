@@ -8,7 +8,6 @@ type FaqItem = { q: string; a: string };
 export default function ServiceTemplate(props: {
   title: string;
   description: string;
-  priceFrom: string;
   image?: string;
   cases?: CaseItem[];
   faqs?: FaqItem[];
@@ -18,7 +17,6 @@ export default function ServiceTemplate(props: {
   const {
     title,
     description,
-    priceFrom,
     image = '/hero-poster.jpg',
     cases = [],
     faqs = [],
@@ -49,9 +47,6 @@ export default function ServiceTemplate(props: {
         <div className="service-copy">
           <h1>{title}</h1>
           <p>{description}</p>
-          <p className="price">
-            Desde: <strong>{priceFrom}</strong>
-          </p>
           <div className="cta-row">
             <a href="https://wa.me/573008474121" className="btn btn-primary">
               Pedir presupuesto por WhatsApp

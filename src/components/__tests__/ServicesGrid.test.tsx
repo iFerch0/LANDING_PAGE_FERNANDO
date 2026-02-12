@@ -14,10 +14,9 @@ describe('ServicesGrid Component', () => {
     expect(screen.getByText('Recuperación de Datos')).toBeInTheDocument();
   });
 
-  it('shows price from labels', () => {
+  it('shows duration info', () => {
     render(<ServicesGrid />);
-    const fromLabels = screen.getAllByText('Desde');
-    expect(fromLabels.length).toBeGreaterThan(0);
+    expect(screen.getByText('Mismo día')).toBeInTheDocument();
   });
 
   it('matches snapshot', () => {

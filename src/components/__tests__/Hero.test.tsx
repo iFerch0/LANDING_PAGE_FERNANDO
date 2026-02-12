@@ -14,7 +14,7 @@ describe('Hero Component', () => {
     render(<Hero />);
 
     const whatsappButton = screen.getByText(/Respuesta en minutos/i);
-    const phoneButton = screen.getByText(/Disponible 24\/7/i);
+    const phoneButton = screen.getByText(/Lun-Vie 8AM-6PM/i);
 
     expect(whatsappButton).toBeInTheDocument();
     expect(phoneButton).toBeInTheDocument();
@@ -24,6 +24,6 @@ describe('Hero Component', () => {
     render(<Hero />);
 
     expect(screen.getByText(/PCs Reparadas/i)).toBeInTheDocument();
-    expect(screen.getByText(/Garantía/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Garantía/i).length).toBeGreaterThan(0);
   });
 });

@@ -357,6 +357,12 @@
    Dark Mode
    ========================================================================== */
 
+@media (prefers-color-scheme: dark) {
+  .slider {
+    background: var(--color-bg-3);
+  }
+}
+
 :global([data-color-scheme='dark']) .slider {
   background: var(--color-bg-3);
 }

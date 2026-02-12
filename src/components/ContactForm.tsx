@@ -10,7 +10,6 @@ interface FormData {
   deviceType: string;
   problem: string;
   urgency: string;
-  location: string;
 }
 
 interface FormErrors {
@@ -47,7 +46,6 @@ const ContactForm = () => {
     deviceType: '',
     problem: '',
     urgency: '',
-    location: '',
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
@@ -144,7 +142,6 @@ ${urgencyEmoji} *Urgencia:* ${urgencyText[formData.urgency] || ''}
 
 🔧 *Problema:*
 ${formData.problem}
-${formData.location ? `\n📍 *Ubicación:* ${formData.location}` : ''}
 
 ---
 Enviado desde ferchotecnico.com`;
@@ -158,7 +155,6 @@ Enviado desde ferchotecnico.com`;
         deviceType: '',
         problem: '',
         urgency: '',
-        location: '',
       });
     } finally {
       setIsSubmitting(false);
@@ -299,18 +295,6 @@ Enviado desde ferchotecnico.com`;
                 />
                 <div className={styles.charCount}>{formData.problem.length}/500</div>
                 {errors.problem && <span className={styles.errorText}>{errors.problem}</span>}
-              </div>
-
-              <div className={styles.fieldGroup}>
-                <label className={styles.label}>Ubicación (opcional)</label>
-                <input
-                  name="location"
-                  type="text"
-                  placeholder="Ej: Barrio Centro"
-                  value={formData.location}
-                  onChange={handleChange}
-                  className={styles.input}
-                />
               </div>
             </div>
 

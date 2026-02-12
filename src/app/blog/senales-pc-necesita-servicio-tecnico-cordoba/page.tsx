@@ -274,8 +274,8 @@ export default function SenalesPCNecesitaServicio() {
               <p className="text-sm">Evaluación completa sin costo</p>
             </div>
             <div className="bg-white p-4 rounded-lg">
-              <h3 className="font-semibold mb-2">🏠 Servicio a Domicilio</h3>
-              <p className="text-sm">Atención en tu hogar u oficina</p>
+              <h3 className="font-semibold mb-2">📍 Atención en Taller</h3>
+              <p className="text-sm">Trae tu equipo, te lo diagnosticamos gratis</p>
             </div>
             <div className="bg-white p-4 rounded-lg">
               <h3 className="font-semibold mb-2">⭐ 5.0 Estrellas</h3>

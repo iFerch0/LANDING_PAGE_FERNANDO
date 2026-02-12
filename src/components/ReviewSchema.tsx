@@ -36,7 +36,7 @@ export default function ReviewSchema({
         '@type': 'Review',
         author: { '@type': 'Person', name: 'María' },
         datePublished: '2025-05-02',
-        reviewBody: 'Excelente atención a domicilio. Recomiendo 100%.',
+        reviewBody: 'Excelente atención y servicio rápido. Recomiendo 100%.',
         reviewRating: { '@type': 'Rating', ratingValue: 5 },
       },
     ],

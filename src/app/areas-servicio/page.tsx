@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Áreas de Servicio | FerchoTecnico - Montería',
   description:
-    'Zonas de cobertura en Montería para servicios técnicos: Centro y Sur. Solicita visita a domicilio según tu ubicación.',
+    'Zonas de cobertura en Montería para servicios técnicos: Centro y Sur. Atención en taller con diagnóstico gratuito.',
 };
 
 export default function AreasServicioIndex() {

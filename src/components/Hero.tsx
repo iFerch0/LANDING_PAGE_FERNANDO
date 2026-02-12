@@ -29,14 +29,6 @@ const StarIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const TruckIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="5.5" cy="18.5" r="2.5" />
-    <circle cx="18.5" cy="18.5" r="2.5" />
-  </svg>
-);
-
 const ShieldIcon = ({ className }: { className?: string }) => (
   <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -84,7 +76,7 @@ const Hero: React.FC = () => {
             <p className={styles.description}>
               Ingeniero de sistemas con{' '}
               <span className={styles.descriptionStrong}>10+ años de experiencia</span>. Diagnóstico
-              gratuito, repuestos originales y servicio a domicilio incluido.
+              gratuito, repuestos originales y garantía en cada reparación.
             </p>
 
             <div className={styles.ctaGroup}>
@@ -105,7 +97,7 @@ const Hero: React.FC = () => {
                   <PhoneIcon className="btn__icon" />
                   <div className="btn__content">
                     <span className="btn__text">Llamar Ahora</span>
-                    <span className="btn__subtext">Disponible 24/7</span>
+                    <span className="btn__subtext">Lun-Vie 8AM-6PM</span>
                   </div>
                 </a>
               </div>
@@ -173,11 +165,11 @@ const Hero: React.FC = () => {
 
           <div className={styles.statCard}>
             <div className={styles.statIconWrapper}>
-              <TruckIcon className={styles.statIcon} />
+              <MapPinIcon className={styles.statIcon} />
             </div>
             <div className={styles.statContent}>
-              <span className={styles.statNumber}>Gratis</span>
-              <span className={styles.statTitle}>Domicilio</span>
+              <span className={styles.statNumber}>Taller</span>
+              <span className={styles.statTitle}>Montería</span>
             </div>
           </div>
         </div>

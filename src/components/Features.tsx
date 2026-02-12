@@ -51,7 +51,7 @@ const ShieldCheckIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const TruckIcon = ({ className }: { className?: string }) => (
+const MapPinIcon = ({ className }: { className?: string }) => (
   <svg
     className={className}
     viewBox="0 0 24 24"
@@ -59,9 +59,12 @@ const TruckIcon = ({ className }: { className?: string }) => (
     stroke="currentColor"
     strokeWidth="1.5"
   >
-    <path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z" strokeLinecap="round" strokeLinejoin="round" />
-    <circle cx="5.5" cy="18.5" r="2.5" />
-    <circle cx="18.5" cy="18.5" r="2.5" />
+    <path
+      d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <circle cx="12" cy="10" r="3" />
   </svg>
 );
 
@@ -154,25 +157,25 @@ const Features = () => {
             </div>
           </article>
 
-          {/* Card 4 - Domicilio */}
+          {/* Card 4 - Atención en Taller */}
           <article className={styles.card} data-aos="fade-up" data-aos-delay="300">
             <div className={styles.cardHeader}>
               <div className={styles.iconBox}>
-                <TruckIcon className={styles.icon} />
+                <MapPinIcon className={styles.icon} />
               </div>
-              <span className={`${styles.badge} ${styles.badgePrimary}`}>Gratis</span>
+              <span className={`${styles.badge} ${styles.badgePrimary}`}>Presencial</span>
             </div>
             <div className={styles.cardContent}>
-              <h3 className={styles.cardTitle}>Servicio a Domicilio</h3>
-              <p className={styles.cardSubtitle}>Vamos a tu ubicación</p>
+              <h3 className={styles.cardTitle}>Atención en Taller</h3>
+              <p className={styles.cardSubtitle}>Montería, Córdoba</p>
               <p className={styles.cardDesc}>
-                Recogemos tu equipo y lo entregamos reparado. Sin costo adicional en Montería.
+                Trae tu equipo y lo diagnosticamos gratis. Horario: Lun-Vie 8AM-6PM, Sáb 8AM-2PM.
               </p>
             </div>
             <div className={styles.cardFooter}>
               <div className={styles.metric}>
-                <span className={styles.metricValue}>$0</span>
-                <span className={styles.metricLabel}>Envío</span>
+                <span className={styles.metricValue}>Lun-Sáb</span>
+                <span className={styles.metricLabel}>Disponible</span>
               </div>
             </div>
           </article>

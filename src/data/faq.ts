@@ -10,9 +10,9 @@ export const FAQ_ITEMS = [
       'El diagnóstico inicial es completamente GRATIS. Solo pagas si decides proceder con la reparación. Si el equipo no tiene solución, no cobro nada por la evaluación.',
   },
   {
-    question: '¿Ofreces servicio a domicilio?',
+    question: '¿Dónde queda el taller?',
     answer:
-      'Sí, ofrezco servicio a domicilio en toda Montería sin costo adicional. Para casos que requieren herramientas especializadas, puede ser necesario llevar el equipo al taller.',
+      'Nuestro taller queda en la Dg 7 # 7 - 50, barrio La Granja, Montería. En casos especiales podemos coordinar la recogida de tu equipo. El diagnóstico es gratuito al traer tu PC.',
   },
   {
     question: '¿Qué garantía ofrecen los servicios?',
@@ -32,7 +32,7 @@ export const FAQ_ITEMS = [
   {
     question: '¿Qué métodos de pago aceptan?',
     answer:
-      'Acepto efectivo, transferencia bancaria, Nequi, Daviplata y tarjetas de crédito/débito. El pago se realiza una vez completado y aprobado el servicio.',
+      'Acepto efectivo, transferencia bancaria, Nequi y Daviplata. El pago se realiza una vez completado y aprobado el servicio.',
   },
   {
     question: '¿Hacen respaldo de mis archivos?',
@@ -42,7 +42,7 @@ export const FAQ_ITEMS = [
   {
     question: '¿Atienden fines de semana?',
     answer:
-      'Sí, atiendo sábados de 8:00 AM a 6:00 PM. Los domingos solo emergencias con cita previa. Puedes contactarme por WhatsApp para coordinar horarios.',
+      'Sí, atiendo sábados de 8:00 AM a 2:00 PM. Los domingos solo emergencias con cita previa. Puedes contactarme por WhatsApp para coordinar horarios.',
   },
   {
     question: '¿Qué pasa si el equipo no se puede reparar?',

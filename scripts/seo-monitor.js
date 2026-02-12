@@ -15,7 +15,7 @@ const TARGET_KEYWORDS = [
   'reparación computadores montería',
   'servicio técnico pc montería',
   'mantenimiento computadores montería',
-  'soporte técnico domicilio montería',
+  'soporte técnico montería',
   'reparación pc montería',
   'técnico computadores córdoba',
   'formateo windows montería',

@@ -12,16 +12,16 @@ import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Técnico en Computadores Montería | Servicio Técnico PC a Domicilio',
+  title: 'Técnico en Computadores Montería | Servicio Técnico PC',
   description:
-    'Fernando - Técnico especialista en computadores Montería. Reparación PC, soporte técnico, mantenimiento. Servicio a domicilio 24/7. Diagnóstico gratuito.',
+    'Fernando - Técnico especialista en computadores Montería. Reparación PC, soporte técnico, mantenimiento. Atención en taller Lun-Sáb. Diagnóstico gratuito.',
   alternates: {
     canonical: 'https://www.ferchotecnico.com',
   },
   openGraph: {
     title: 'Técnico en Computadores Montería | Fernando',
     description:
-      'Servicio técnico computadores Montería a domicilio. Reparación PC, soporte técnico, mantenimiento. Diagnóstico gratuito +573008474121',
+      'Servicio técnico computadores Montería. Reparación PC, soporte técnico, mantenimiento. Diagnóstico gratuito +573008474121',
     url: 'https://www.ferchotecnico.com',
     type: 'website',
   },
@@ -47,7 +47,7 @@ export default function HomePage() {
         {/* Process - Cómo funciona el servicio */}
         <Process />
 
-        {/* ServicesGrid - Qué ofrecemos + precios */}
+        {/* ServicesGrid - Qué ofrecemos */}
         <ServicesGrid />
 
         {/* Testimonials - Reviews verificadas */}

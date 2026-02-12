@@ -11,7 +11,7 @@ describe('Features Component', () => {
     render(<Features />);
     expect(screen.getByText(/Servicio Completo/i)).toBeInTheDocument();
     expect(screen.getByText(/Garantía Total/i)).toBeInTheDocument();
-    expect(screen.getByText(/Servicio a Domicilio/i)).toBeInTheDocument();
+    expect(screen.getByText(/Atención en Taller/i)).toBeInTheDocument();
   });
 
   it('matches snapshot', () => {

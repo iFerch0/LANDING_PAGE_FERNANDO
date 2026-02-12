@@ -112,7 +112,7 @@ const Faq: React.FC = () => {
             const getQuestionIcon = (question: string) => {
               if (question.includes('tiempo') || question.includes('toma')) return '⏰';
               if (question.includes('cuesta') || question.includes('diagnóstico')) return '💰';
-              if (question.includes('domicilio') || question.includes('servicio a')) return '🏠';
+              if (question.includes('taller') || question.includes('ubicación')) return '📍';
               if (question.includes('garantía')) return '✅';
               if (question.includes('problemas') || question.includes('tipos')) return '🔧';
               if (question.includes('marcas')) return '💻';

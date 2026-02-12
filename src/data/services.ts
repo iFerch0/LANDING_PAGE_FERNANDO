@@ -12,7 +12,6 @@ export interface Service {
   slug: string;
   title: string;
   description: string;
-  priceFrom: string;
   image: string;
   canonical: string;
   serviceName: string;
@@ -46,8 +45,8 @@ export const services: Service[] = [
     slug: 'reparacion-computadores-monteria',
     title: 'Reparación de Computadores en Montería — Técnico Especialista',
     description:
-      'Reparación profesional de computadores y portátiles en Montería. Diagnóstico GRATIS, servicio a domicilio 24/7, garantía 30 días. Más de 8 años reparando PCs en Córdoba.',
-    priceFrom: 'Desde $50.000 COP',
+      'Reparación profesional de computadores y portátiles en Montería. Diagnóstico GRATIS, atención en taller, garantía 30 días. Más de 8 años reparando PCs en Córdoba.',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/reparacion-computadores-monteria',
     serviceName: 'Reparación de Computadores Montería',
@@ -58,7 +57,7 @@ export const services: Service[] = [
       },
       {
         title: 'Reemplazo Fuente de Poder HP Pavilion',
-        text: 'Cambio de fuente de poder defectuosa en PC de escritorio. Servicio a domicilio en centro de Montería. Instalación y pruebas completas en 24h.',
+        text: 'Cambio de fuente de poder defectuosa en PC de escritorio. Atención en taller, centro de Montería. Instalación y pruebas completas en 24h.',
       },
       {
         title: 'Recuperación y Reparación Disco Duro',
@@ -79,8 +78,8 @@ export const services: Service[] = [
         a: 'Ofrecemos 30 días de garantía en mano de obra y según garantía del fabricante en repuestos nuevos. Si el problema persiste, lo arreglamos sin costo adicional.',
       },
       {
-        q: '¿Atienden a domicilio en toda Montería?',
-        a: 'Sí, atendemos en toda Montería y municipios cercanos: Cereté, Lorica, San Pelayo. Servicio a domicilio incluido sin costo adicional en perímetro urbano.',
+        q: '¿Dónde queda el taller?',
+        a: 'Nuestro taller queda en la Dg 7 # 7 - 50, barrio La Granja, Montería. En casos especiales coordinamos recogida del equipo. Diagnóstico gratuito.',
       },
       {
         q: '¿Qué tipos de computadores reparan?',
@@ -88,19 +87,19 @@ export const services: Service[] = [
       },
       {
         q: '¿Cuánto cuesta la reparación de computadores?',
-        a: 'Diagnóstico GRATIS. Reparaciones desde $50.000. Precios fijos sin sorpresas. Cotización gratuita vía WhatsApp al +57 300 847 4121.',
+        a: 'Diagnóstico GRATIS. Cotización gratuita vía WhatsApp al +57 300 847 4121.',
       },
     ],
     metadata: {
-      title: 'Reparación Computadores Montería | Técnico PC a Domicilio 24/7',
+      title: 'Reparación Computadores Montería | Técnico PC Profesional',
       description:
-        'Reparación computadores Montería especializada. Diagnóstico GRATIS, servicio a domicilio, garantía 30 días. Técnico certificado con 8+ años experiencia',
+        'Reparación computadores Montería especializada. Diagnóstico GRATIS, atención en taller, garantía 30 días. Técnico certificado con 8+ años experiencia',
       keywords: [
         'reparación computadores Montería',
         'reparación PC Montería',
         'técnico computadores Montería',
         'reparación portátiles Montería',
-        'servicio técnico PC domicilio',
+        'servicio técnico PC Montería',
         'reparación hardware Montería',
         'arreglo computadores Córdoba',
         'técnico PC Montería centro',
@@ -113,13 +112,13 @@ export const services: Service[] = [
       openGraph: {
         title: 'Reparación Computadores Montería | Fernando Tech',
         description:
-          'Especialista en reparación computadores y portátiles Montería. Diagnóstico gratuito, servicio domicilio 24/7. +8 años experiencia',
+          'Especialista en reparación computadores y portátiles Montería. Diagnóstico gratuito, atención en taller. +8 años experiencia',
       },
     },
     schema: {
       serviceName: 'Reparación de Computadores en Montería',
       serviceDescription:
-        'Servicio técnico especializado en reparación de computadores y portátiles en Montería. Diagnóstico gratuito, garantía 30 días, servicio a domicilio.',
+        'Servicio técnico especializado en reparación de computadores y portátiles en Montería. Diagnóstico gratuito, garantía 30 días, atención en taller.',
       priceRange: '50000-200000',
       serviceUrl: 'https://www.ferchotecnico.com/servicios/reparacion-computadores-monteria',
     },
@@ -134,8 +133,8 @@ export const services: Service[] = [
     slug: 'reparacion-pc-monteria',
     title: 'Reparación de PC en Montería',
     description:
-      'Reparación profesional de PC de escritorio en Montería. Diagnóstico gratuito, servicio a domicilio, garantía 30 días.',
-    priceFrom: 'Desde $50.000 COP',
+      'Reparación profesional de PC de escritorio en Montería. Diagnóstico gratuito, atención en taller, garantía 30 días.',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/reparacion-pc-monteria',
     serviceName: 'Reparación de PC',
@@ -156,22 +155,22 @@ export const services: Service[] = [
       },
       {
         q: '¿Cuánto cuesta reparar un PC?',
-        a: 'Desde $50.000 según el problema. Diagnóstico gratuito sin compromiso.',
+        a: 'Diagnóstico gratuito sin compromiso. Cotización personalizada según el problema.',
       },
     ],
     metadata: {
-      title: 'Reparación PC Montería | Servicio Técnico a Domicilio',
+      title: 'Reparación PC Montería | Servicio Técnico Profesional',
       description:
-        'Reparación PC Montería especializada. Diagnóstico GRATIS, servicio a domicilio, garantía 30 días.',
+        'Reparación PC Montería especializada. Diagnóstico GRATIS, atención en taller, garantía 30 días.',
       keywords: [
         'reparación PC Montería',
         'técnico PC Montería',
         'reparación computadores escritorio',
-        'servicio técnico PC domicilio',
+        'servicio técnico PC Montería',
       ],
       openGraph: {
         title: 'Reparación PC Montería | Servicio Técnico',
-        description: 'Reparación PC Montería. Diagnóstico gratuito, servicio domicilio 24/7.',
+        description: 'Reparación PC Montería. Diagnóstico gratuito, atención en taller.',
       },
     },
     schema: {
@@ -192,8 +191,8 @@ export const services: Service[] = [
     slug: 'reparacion-portatiles-monteria',
     title: 'Reparación de Portátiles en Montería',
     description:
-      'Reparación especializada de laptops y portátiles en Montería. Diagnóstico gratuito, servicio a domicilio.',
-    priceFrom: 'Desde $60.000 COP',
+      'Reparación especializada de laptops y portátiles en Montería. Diagnóstico gratuito, atención en taller.',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/reparacion-portatiles-monteria',
     serviceName: 'Reparación de Portátiles',
@@ -220,7 +219,7 @@ export const services: Service[] = [
     metadata: {
       title: 'Reparación Portátiles Montería | Servicio Técnico Laptops',
       description:
-        'Reparación portátiles Montería. Diagnóstico GRATIS, servicio a domicilio, garantía 30 días.',
+        'Reparación portátiles Montería. Diagnóstico GRATIS, atención en taller, garantía 30 días.',
       keywords: [
         'reparación portátiles Montería',
         'reparación laptops Montería',
@@ -229,7 +228,7 @@ export const services: Service[] = [
       ],
       openGraph: {
         title: 'Reparación Portátiles Montería',
-        description: 'Reparación portátiles Montería. Diagnóstico gratuito, servicio domicilio.',
+        description: 'Reparación portátiles Montería. Diagnóstico gratuito, atención en taller.',
       },
     },
     schema: {
@@ -251,7 +250,7 @@ export const services: Service[] = [
     title: 'Mantenimiento Preventivo en Montería',
     description:
       'Mantenimiento preventivo profesional para computadores. Limpieza interna, actualizaciones, optimización y pruebas.',
-    priceFrom: 'Desde $50.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/mantenimiento-preventivo-monteria',
     serviceName: 'Mantenimiento Preventivo',
@@ -310,7 +309,7 @@ export const services: Service[] = [
     title: 'Eliminación de Virus y Malware en Montería',
     description:
       'Limpieza y eliminación de malware, virus y adware. Restauración de sistemas y protección preventiva en Montería.',
-    priceFrom: 'Desde $40.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/eliminacion-virus-monteria',
     serviceName: 'Eliminación de Virus',
@@ -368,7 +367,7 @@ export const services: Service[] = [
     title: 'Formateo e instalación de Windows en Montería',
     description:
       'Formateo seguro con respaldo de datos, instalación de drivers y optimización post-instalación.',
-    priceFrom: 'Desde $60.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/formateo-windows-monteria',
     serviceName: 'Formateo Windows',
@@ -426,7 +425,7 @@ export const services: Service[] = [
     title: 'Recuperación de Datos en Montería',
     description:
       'Recuperación profesional de archivos, fotos, documentos de discos dañados, formateados o con fallas.',
-    priceFrom: 'Desde $80.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/recuperacion-datos-monteria',
     serviceName: 'Recuperación de Datos',
@@ -484,7 +483,7 @@ export const services: Service[] = [
     title: 'Soporte Técnico en Montería',
     description:
       'Asesoría técnica especializada y resolución de problemas de computadores en Montería.',
-    priceFrom: 'Desde $40.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/soporte-tecnico-monteria',
     serviceName: 'Soporte Técnico',
@@ -540,7 +539,7 @@ export const services: Service[] = [
     slug: 'mantenimiento-laptops-monteria',
     title: 'Mantenimiento de Laptops en Montería',
     description: 'Mantenimiento preventivo especializado para laptops y portátiles en Montería.',
-    priceFrom: 'Desde $55.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/mantenimiento-laptops-monteria',
     serviceName: 'Mantenimiento Laptops',
@@ -596,7 +595,7 @@ export const services: Service[] = [
     slug: 'mantenimiento-hogar-oficina',
     title: 'Mantenimiento Hogar y Oficina',
     description: 'Servicio especializado de mantenimiento para hogares y empresas en Montería.',
-    priceFrom: 'Desde $45.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/mantenimiento-hogar-oficina',
     serviceName: 'Mantenimiento Hogar y Oficina',
@@ -652,7 +651,7 @@ export const services: Service[] = [
     title: 'Servicio Técnico Computadores Montería',
     description:
       'Servicio técnico profesional para computadores en Montería. Diagnóstico gratuito, garantía 30 días.',
-    priceFrom: 'Desde $50.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/servicio-tecnico-computadores-monteria',
     serviceName: 'Servicio Técnico Computadores',
@@ -696,47 +695,42 @@ export const services: Service[] = [
   },
   {
     slug: 'mantenimiento-pc-domicilio-cordoba',
-    title: 'Mantenimiento PC a Domicilio Córdoba',
+    title: 'Mantenimiento PC Córdoba',
     description:
-      'Mantenimiento de PC a domicilio en Montería y toda Córdoba. Servicio profesional sin costo de desplazamiento.',
-    priceFrom: 'Desde $50.000 COP',
+      'Mantenimiento profesional de PC en Montería y toda Córdoba. Atención en taller con diagnóstico gratuito.',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/mantenimiento-pc-domicilio-cordoba',
-    serviceName: 'Mantenimiento PC a Domicilio',
+    serviceName: 'Mantenimiento PC Córdoba',
     cases: [
       {
-        title: 'Mantenimiento domicilio zona norte',
-        text: 'Servicio a domicilio en zona norte Montería. Cliente satisfecho.',
+        title: 'Mantenimiento completo zona norte',
+        text: 'Mantenimiento completo en taller para cliente de zona norte Montería. Cliente satisfecho.',
       },
     ],
     faqs: [
       {
-        q: '¿Cobran por desplazamiento?',
-        a: 'No, el servicio a domicilio es sin costo adicional en Montería urbana.',
+        q: '¿Dónde queda el taller?',
+        a: 'Nuestro taller queda en la Dg 7 # 7 - 50, barrio La Granja, Montería. Diagnóstico gratuito al traer tu equipo.',
       },
     ],
     metadata: {
-      title: 'Mantenimiento PC Domicilio Córdoba | Montería',
-      description:
-        'Mantenimiento PC a domicilio en Montería y Córdoba. Sin costo de desplazamiento.',
-      keywords: [
-        'mantenimiento PC domicilio Córdoba',
-        'mantenimiento PC domicilio Montería',
-        'servicio domicilio PC',
-      ],
+      title: 'Mantenimiento PC Córdoba | Montería',
+      description: 'Mantenimiento PC profesional en Montería y Córdoba. Atención en taller.',
+      keywords: ['mantenimiento PC Córdoba', 'mantenimiento PC Montería', 'servicio técnico PC'],
       openGraph: {
-        title: 'Mantenimiento PC Domicilio Córdoba',
-        description: 'Mantenimiento a domicilio en Montería y Córdoba.',
+        title: 'Mantenimiento PC Córdoba',
+        description: 'Mantenimiento profesional en Montería y Córdoba.',
       },
     },
     schema: {
-      serviceName: 'Mantenimiento PC a Domicilio',
-      serviceDescription: 'Mantenimiento de PC a domicilio sin costo de desplazamiento.',
+      serviceName: 'Mantenimiento PC Córdoba',
+      serviceDescription: 'Mantenimiento profesional de PC en taller con diagnóstico gratuito.',
       priceRange: '50000-100000',
       serviceUrl: 'https://www.ferchotecnico.com/servicios/mantenimiento-pc-domicilio-cordoba',
     },
     review: {
-      name: 'FerchoTécnico - Mantenimiento Domicilio',
+      name: 'FerchoTécnico - Mantenimiento PC',
       url: 'https://www.ferchotecnico.com/servicios/mantenimiento-pc-domicilio-cordoba',
       ratingValue: 5,
       ratingCount: 44,
@@ -746,7 +740,7 @@ export const services: Service[] = [
     slug: 'mantenimiento-domestico-corporativo',
     title: 'Mantenimiento Doméstico y Corporativo',
     description: 'Mantenimiento profesional para usuarios domésticos y empresas en Montería.',
-    priceFrom: 'Desde $45.000 COP',
+
     image: '/hero-poster.jpg',
     canonical: 'https://www.ferchotecnico.com/servicios/mantenimiento-domestico-corporativo',
     serviceName: 'Mantenimiento Doméstico y Corporativo',
