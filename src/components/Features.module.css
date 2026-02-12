@@ -1,265 +1,581 @@
 /* ==========================================================================
-   Features Section - Bento Grid 2x2
+   Features Section — Bento Grid Premium
+   Layout: Full-width hero banner + 3 compact cards row
+   Design System: Técnico Artesanal Premium
    ========================================================================== */
 
+/* ── Section Base ────────────────────────────────────────────────────── */
+
 .features {
-  padding: 100px 0;
-  background: var(--color-bg);
+  padding: 80px 0;
+  background: var(--color-surface);
   position: relative;
   overflow: hidden;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* ==========================================================================
-   Header
-   ========================================================================== */
+/* ── Header ──────────────────────────────────────────────────────────── */
 
 .header {
   text-align: center;
-  margin-bottom: 56px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-bottom: 48px;
 }
 
 .eyebrow {
-  display: inline-block;
-  padding: 8px 16px;
-  background: rgba(58, 110, 147, 0.1);
-  border: 1px solid rgba(58, 110, 147, 0.2);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background: rgba(45, 106, 138, 0.06);
+  border: 1px solid rgba(45, 106, 138, 0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-display);
+  font-size: 11px;
+  font-weight: var(--font-weight-bold);
   color: var(--color-primary);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .title {
-  font-size: clamp(28px, 5vw, 44px);
-  font-weight: 800;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-extrabold);
   color: var(--color-text);
-  line-height: 1.1;
-  margin: 0 0 16px;
-  letter-spacing: -1px;
+  line-height: var(--line-height-tight);
+  letter-spacing: -0.03em;
+  margin: 0 0 12px;
 }
 
 .titleGradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #22c55e 100%);
-  background-clip: text;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--brand-naranja_quemado) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .subtitle {
-  font-size: 17px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin: 0;
+  line-height: var(--line-height-relaxed);
+  max-width: 560px;
+  margin: 0 auto;
 }
 
-/* ==========================================================================
-   Bento Grid 2x2
-   ========================================================================== */
+/* ── Bento Grid ──────────────────────────────────────────────────────── */
 
 .bentoGrid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
 }
 
-/* ==========================================================================
-   Cards
-   ========================================================================== */
+/* ── Hero Banner — Full Width Row 1 ──────────────────────────────────── */
 
-.card {
+.heroBanner {
+  grid-column: 1 / -1;
   position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--color-card-bg) 0%,
+    rgba(45, 106, 138, 0.05) 50%,
+    rgba(45, 106, 138, 0.02) 100%
+  );
+  border: 1px solid rgba(45, 106, 138, 0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: var(--shadow-card);
+}
+
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--brand-naranja_quemado) 50%,
+    var(--color-primary) 100%
+  );
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.heroBanner:hover {
+  transform: translateY(-2px);
+  border-color: rgba(45, 106, 138, 0.2);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Top section: content left + checklist right */
+.heroBannerTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 32px 32px 24px;
+  align-items: start;
+}
+
+.heroBannerContent {
   display: flex;
   flex-direction: column;
-  padding: 28px;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
+  gap: 12px;
+}
+
+.heroBannerHeader {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.iconBoxLg {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(45, 106, 138, 0.12) 0%, rgba(45, 106, 138, 0.06) 100%);
+  border: 1px solid rgba(45, 106, 138, 0.2);
+  border-radius: var(--radius-lg);
+  flex-shrink: 0;
+}
+
+.iconLg {
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary);
+}
+
+.heroBannerTitle {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.heroBannerSub {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-primary);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
+.badgeFilled {
+  margin-left: auto;
+  padding: 5px 14px;
+  background: rgba(45, 106, 138, 0.1);
+  border: 1px solid rgba(45, 106, 138, 0.2);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-display);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.heroBannerDesc {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+  max-width: 420px;
+}
+
+/* Checklist */
+.checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  padding-top: 4px;
+}
+
+.checkItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+}
+
+.checkIcon {
+  width: 18px;
+  height: 18px;
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+/* Metrics bar — full width bottom strip */
+.heroBannerMetrics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 16px 32px;
+  background: rgba(45, 106, 138, 0.03);
+  border-top: 1px solid rgba(45, 106, 138, 0.08);
+}
+
+.heroBannerMetric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+  text-align: center;
+}
+
+.hbMetricValue {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.hbMetricLabel {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.hbDivider {
+  width: 1px;
+  height: 36px;
+  background: rgba(45, 106, 138, 0.12);
+  flex-shrink: 0;
+}
+
+/* Hero decorative glow */
+.heroGlow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(45, 106, 138, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Compact Cards — Row 2 ───────────────────────────────────────────── */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  background: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-standard);
 }
 
 .card:hover {
   transform: translateY(-4px);
-  border-color: rgba(58, 110, 147, 0.3);
-  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-card-hover);
 }
 
-/* Card Header */
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Accent colors per card */
+.cardAccentBlue::before {
+  background: linear-gradient(90deg, var(--color-primary), #4da8da);
+}
+
+.cardAccentBlue:hover {
+  border-color: rgba(45, 106, 138, 0.25);
+}
+
+.cardAccentGreen::before {
+  background: linear-gradient(90deg, #16a34a, #22c55e);
+}
+
+.cardAccentGreen:hover {
+  border-color: rgba(34, 163, 93, 0.25);
+}
+
+.cardAccentTeal::before {
+  background: linear-gradient(90deg, #0d9488, #14b8a6);
+}
+
+.cardAccentTeal:hover {
+  border-color: rgba(13, 148, 136, 0.25);
+}
+
+/* Card header */
 .cardHeader {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
-/* Icon Box */
 .iconBox {
-  width: 52px;
-  height: 52px;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(58, 110, 147, 0.15) 0%, rgba(34, 197, 94, 0.1) 100%);
-  border: 1px solid rgba(58, 110, 147, 0.2);
-  border-radius: 14px;
-  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.iconBoxBlue {
+  background: rgba(45, 106, 138, 0.08);
+  border-color: rgba(45, 106, 138, 0.15);
+}
+
+.iconBoxGreen {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.15);
+}
+
+.iconBoxTeal {
+  background: rgba(13, 148, 136, 0.08);
+  border-color: rgba(13, 148, 136, 0.15);
 }
 
 .card:hover .iconBox {
-  transform: scale(1.05);
-  border-color: rgba(58, 110, 147, 0.4);
+  transform: scale(1.06);
 }
 
 .icon {
-  width: 26px;
-  height: 26px;
+  width: 20px;
+  height: 20px;
+}
+
+.iconBoxBlue .icon {
   color: var(--color-primary);
 }
 
-/* Badge */
+.iconBoxGreen .icon {
+  color: #16a34a;
+}
+
+.iconBoxTeal .icon {
+  color: #0d9488;
+}
+
+/* Badges */
 .badge {
-  padding: 6px 12px;
-  background: rgba(58, 110, 147, 0.15);
-  border: 1px solid rgba(58, 110, 147, 0.25);
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--color-primary);
+  padding: 4px 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-display);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
-.badgeAccent {
-  background: rgba(234, 179, 8, 0.15);
-  border-color: rgba(234, 179, 8, 0.3);
-  color: #ca8a04;
+.badgeOrange {
+  background: rgba(217, 115, 52, 0.08);
+  border-color: rgba(217, 115, 52, 0.2);
+  color: var(--brand-naranja_quemado);
 }
 
-.badgeSuccess {
-  background: rgba(34, 197, 94, 0.15);
-  border-color: rgba(34, 197, 94, 0.3);
+.badgeGreen {
+  background: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.2);
   color: #16a34a;
 }
 
-.badgePrimary {
-  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
-  border-color: transparent;
-  color: white;
+.badgeTeal {
+  background: rgba(13, 148, 136, 0.08);
+  border-color: rgba(13, 148, 136, 0.2);
+  color: #0d9488;
 }
 
-/* Card Content */
-.cardContent {
-  flex: 1;
-  margin-bottom: 20px;
-}
-
+/* Card content */
 .cardTitle {
-  font-size: 22px;
-  font-weight: 700;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
   color: var(--color-text);
-  margin: 0 0 6px;
-  line-height: 1.2;
-}
-
-.cardSubtitle {
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--color-primary);
-  margin: 0 0 12px;
+  line-height: 1.3;
+  margin: 0 0 8px;
 }
 
 .cardDesc {
-  font-size: 14px;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin: 0;
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 16px;
+  flex: 1;
 }
 
-/* Card Footer */
-.cardFooter {
-  padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.metric {
+/* Card metric */
+.cardMetric {
   display: flex;
   align-items: baseline;
   gap: 8px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-card-border);
+  margin-top: auto;
 }
 
-.metricValue {
-  font-size: 32px;
-  font-weight: 800;
+.cmValue {
+  font-family: var(--font-family-display);
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-extrabold);
   color: var(--color-text);
   line-height: 1;
-  letter-spacing: -1px;
+  letter-spacing: -0.03em;
 }
 
-.metricLabel {
-  font-size: 13px;
-  font-weight: 500;
+.cmLabel {
+  font-family: var(--font-family-display);
+  font-size: 10px;
+  font-weight: var(--font-weight-semibold);
   color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 
 /* ==========================================================================
-   Dark Mode - Media Query
+   Dark Mode
    ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
+  .features {
+    background: var(--color-background);
+  }
+
+  .heroBanner {
+    background: linear-gradient(
+      135deg,
+      rgba(30, 30, 30, 0.8) 0%,
+      rgba(45, 106, 138, 0.06) 50%,
+      rgba(30, 30, 30, 0.7) 100%
+    );
+    border-color: rgba(45, 106, 138, 0.15);
+  }
+
+  .heroBannerMetrics {
+    background: rgba(255, 255, 255, 0.02);
+    border-top-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .hbDivider {
+    background: rgba(255, 255, 255, 0.08);
+  }
+
   .card {
-    background: rgba(30, 30, 30, 0.8);
-    border-color: rgba(255, 255, 255, 0.08);
+    background: rgba(30, 30, 30, 0.7);
+    border-color: rgba(255, 255, 255, 0.06);
   }
 
   .card:hover {
-    background: rgba(40, 40, 40, 0.9);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(40, 40, 40, 0.85);
+    border-color: rgba(255, 255, 255, 0.12);
   }
 
-  .cardFooter {
-    border-top-color: rgba(255, 255, 255, 0.08);
+  .cardMetric {
+    border-top-color: rgba(255, 255, 255, 0.06);
   }
 
   .eyebrow {
-    background: rgba(58, 110, 147, 0.2);
-    border-color: rgba(58, 110, 147, 0.3);
+    background: rgba(45, 106, 138, 0.12);
+    border-color: rgba(45, 106, 138, 0.25);
   }
 
-  .iconBox {
-    background: linear-gradient(135deg, rgba(58, 110, 147, 0.2) 0%, rgba(34, 197, 94, 0.15) 100%);
-    border-color: rgba(58, 110, 147, 0.3);
+  .iconBoxBlue {
+    background: rgba(45, 106, 138, 0.15);
+    border-color: rgba(45, 106, 138, 0.25);
   }
 
-  .badge {
-    background: rgba(58, 110, 147, 0.2);
-    border-color: rgba(58, 110, 147, 0.3);
+  .iconBoxGreen {
+    background: rgba(22, 163, 74, 0.15);
+    border-color: rgba(22, 163, 74, 0.25);
   }
 
-  .badgeAccent {
-    background: rgba(234, 179, 8, 0.2);
-    border-color: rgba(234, 179, 8, 0.35);
+  .iconBoxTeal {
+    background: rgba(13, 148, 136, 0.15);
+    border-color: rgba(13, 148, 136, 0.25);
+  }
+
+  .iconBoxLg {
+    background: rgba(45, 106, 138, 0.2);
+    border-color: rgba(45, 106, 138, 0.3);
+  }
+
+  .badgeFilled {
+    background: rgba(45, 106, 138, 0.2);
+    border-color: rgba(45, 106, 138, 0.3);
+  }
+
+  .badgeOrange {
+    background: rgba(234, 179, 8, 0.15);
+    border-color: rgba(234, 179, 8, 0.3);
     color: #fbbf24;
   }
 
-  .badgeSuccess {
-    background: rgba(34, 197, 94, 0.2);
-    border-color: rgba(34, 197, 94, 0.35);
+  .badgeGreen {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: rgba(34, 197, 94, 0.3);
     color: #4ade80;
+  }
+
+  .badgeTeal {
+    background: rgba(20, 184, 166, 0.15);
+    border-color: rgba(20, 184, 166, 0.3);
+    color: #2dd4bf;
+  }
+
+  .checkIcon {
+    color: #4ade80;
+  }
+
+  .iconBoxGreen .icon {
+    color: #4ade80;
+  }
+
+  .iconBoxTeal .icon {
+    color: #2dd4bf;
+  }
+
+  .heroGlow {
+    background: radial-gradient(circle, rgba(45, 106, 138, 0.12) 0%, transparent 70%);
   }
 }
 
@@ -273,70 +589,86 @@
   }
 
   .header {
-    margin-bottom: 40px;
+    margin-bottom: 36px;
   }
 
   .title {
-    font-size: 26px;
-  }
-
-  .subtitle {
-    font-size: 15px;
+    font-size: var(--font-size-2xl);
   }
 
   .bentoGrid {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 14px;
+  }
+
+  .heroBannerTop {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 24px 20px 20px;
+  }
+
+  .heroBannerHeader {
+    gap: 10px;
+  }
+
+  .badgeFilled {
+    margin-left: 0;
+  }
+
+  .heroBannerMetrics {
+    padding: 14px 20px;
+    gap: 0;
+  }
+
+  .hbMetricValue {
+    font-size: 1.2rem;
+  }
+
+  .heroBannerDesc {
+    font-size: var(--font-size-sm);
   }
 
   .card {
-    padding: 24px;
-    border-radius: 20px;
-  }
-
-  .iconBox {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-  }
-
-  .icon {
-    width: 22px;
-    height: 22px;
-  }
-
-  .cardTitle {
-    font-size: 20px;
-  }
-
-  .cardDesc {
-    font-size: 14px;
-  }
-
-  .metricValue {
-    font-size: 28px;
-  }
-
-  .badge {
-    padding: 5px 10px;
-    font-size: 10px;
+    padding: 20px;
   }
 }
 
-/* ==========================================================================
-   Reduced Motion
-   ========================================================================== */
+@media (max-width: 480px) {
+  .features {
+    padding: 48px 0;
+  }
+
+  .heroBannerTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .heroBannerMetrics {
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .hbDivider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .heroBannerMetric {
+    flex-direction: row;
+    gap: 8px;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
+  .heroBanner,
   .card {
     transition: none;
   }
 
+  .heroBanner:hover,
   .card:hover {
     transform: none;
-  }
-
-  .iconBox {
-    transition: none;
   }
 }

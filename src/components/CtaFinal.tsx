@@ -1,5 +1,5 @@
 import React from 'react';
-import { WhatsAppIcon, PhoneIcon } from './Icons';
+import { WhatsAppIcon, PhoneIcon, CheckCircleIcon, ShieldIcon, ClockIcon } from './Icons';
 import styles from './CtaFinal.module.css';
 
 const CtaFinal = () => {
@@ -7,8 +7,18 @@ const CtaFinal = () => {
     <section className={styles.ctaFinal}>
       <div className={`container ${styles.container}`}>
         <div className={styles.content} data-aos="fade-up">
-          <h2 className={styles.title}>¿Listo para empezar?</h2>
-          <p className={styles.subtitle}>Escríbeme y resolvemos tu problema hoy</p>
+          {/* Urgency Badge */}
+          <div className={styles.urgencyBadge}>
+            <span className={styles.urgencyDot} />
+            <span className={styles.urgencyText}>Disponible ahora en Montería</span>
+          </div>
+
+          <h2 className={styles.title}>
+            ¿Tu PC no funciona? <span className={styles.titleAccent}>Arréglalo hoy</span>
+          </h2>
+          <p className={styles.subtitle}>
+            Escríbeme por WhatsApp, cuéntame tu problema y te doy un diagnóstico gratuito en minutos
+          </p>
 
           <div className={styles.actions}>
             <a
@@ -18,17 +28,28 @@ const CtaFinal = () => {
               className={styles.whatsappBtn}
             >
               <WhatsAppIcon />
-              WhatsApp
+              Diagnóstico Gratuito
             </a>
             <a href="tel:+573008474121" className={styles.phoneBtn}>
               <PhoneIcon />
-              Llamar
+              Llamar Ahora
             </a>
           </div>
 
-          <div className={styles.availability}>
-            <div className={styles.statusDot}></div>
-            <span>Disponible ahora en Montería</span>
+          {/* Social Proof */}
+          <div className={styles.socialProof}>
+            <div className={styles.proofItem}>
+              <CheckCircleIcon className={styles.proofIcon} />
+              <span>500+ equipos reparados</span>
+            </div>
+            <div className={styles.proofItem}>
+              <ShieldIcon className={styles.proofIcon} />
+              <span>Garantía de 30 días</span>
+            </div>
+            <div className={styles.proofItem}>
+              <ClockIcon className={styles.proofIcon} />
+              <span>Respuesta en minutos</span>
+            </div>
           </div>
         </div>
       </div>

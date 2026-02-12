@@ -126,13 +126,15 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
 - [ ] Actualizar tokens en `tokens.css` y `brand.css`
 
 ### Sprint 1.2 - Hero (Primera Impresión)
-- [ ] Rediseñar layout del Hero con composición más atrevida
-      (asimetría, mejor uso del espacio, tipografía de impacto)
-- [ ] Mejorar el slider de imágenes o reemplazar por visual estático de mayor impacto
-- [ ] Stats grid: rediseñar con mejor jerarquía visual
-- [ ] CTAs: diseño más distintivo (no botones genéricos)
-- [ ] Implementar animación de entrada secuencial (staggered reveal)
-- [ ] Optimizar para mobile (la primera impresión en móvil es crítica)
+- [x] Rediseñar layout del Hero con composición más atrevida ✅
+      Grid 1:1 balanceado, typography de impacto con Plus Jakarta Sans extrabold
+- [x] Slider mantenido con frame refinado y entrada scale-in ✅
+- [x] Stats grid: cards sólidas con shadows, iconos teal, jerarquía clara ✅
+- [x] CTAs: gradient warm (naranja) con shadow-accent, outline limpio ✅
+- [x] Animación staggered: badge→título→desc→CTAs→slider→stats ✅
+- [x] Mobile optimizado: 480px/768px/1024px breakpoints refinados ✅
+- [x] Shimmer gradient animado en "HOY mismo" (azul→naranja→rojo) ✅
+- [x] prefers-reduced-motion: desactiva todas las animaciones ✅
 
 ### Sprint 1.3 - Secciones Clave
 - [ ] **Features (Bento Grid):** Rediseñar las 4 cards con mejor visual,
