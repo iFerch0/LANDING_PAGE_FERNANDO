@@ -1,9 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import { UserIcon, DeviceIcon, SendIcon } from './Icons';
 import styles from './ContactForm.module.css';
 
-interface FormData {
+interface ContactFormData {
   name: string;
   phone: string;
   email: string;
@@ -16,30 +17,8 @@ interface FormErrors {
   [key: string]: string;
 }
 
-const UserIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-    <circle cx="12" cy="7" r="4" />
-  </svg>
-);
-
-const DeviceIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-    <line x1="8" y1="21" x2="16" y2="21" />
-    <line x1="12" y1="17" x2="12" y2="21" />
-  </svg>
-);
-
-const SendIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M22 2L11 13" />
-    <path d="M22 2L15 22L11 13L2 9L22 2Z" />
-  </svg>
-);
-
 const ContactForm = () => {
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: '',
     phone: '',
     email: '',
@@ -91,7 +70,7 @@ const ContactForm = () => {
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
     ['name', 'phone', 'email', 'deviceType', 'problem', 'urgency'].forEach((field) => {
-      const error = validateField(field, formData[field as keyof FormData]);
+      const error = validateField(field, formData[field as keyof ContactFormData]);
       if (error) newErrors[field] = error;
     });
     setErrors(newErrors);

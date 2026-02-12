@@ -87,10 +87,10 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
 - [x] Verificar que dark mode funcione correctamente en Chrome ✅
 
 ### Sprint 0.2 - Centralizar Iconos
-- [ ] Crear `src/components/Icons.tsx` con TODOS los iconos SVG del proyecto
-- [ ] Exportar cada icono como componente: `export const CheckCircleIcon = ({size, color}) => ...`
-- [ ] Reemplazar los 36+ iconos inline en: Hero, Navbar, ContactForm, ServicesGrid, Footer, Features, Process
-- [ ] Eliminar definiciones SVG duplicadas de cada componente
+- [x] Crear `src/components/Icons.tsx` con TODOS los iconos SVG del proyecto (21 iconos exportados) ✅
+- [x] Exportar cada icono como componente con API unificada: `className`, `size`, `title` ✅
+- [x] Reemplazar iconos inline en: Hero, Features, Process, ContactForm, CtaFinal, Stats, Faq, Testimonials, SuccessCases (9 componentes, 0 SVGs inline) ✅
+- [x] Eliminar definiciones SVG duplicadas de cada componente ✅
 
 ### Sprint 0.3 - Modularizar globals.css
 - [ ] Extraer tokens primitivos → `src/styles/tokens.css`
