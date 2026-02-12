@@ -8,9 +8,6 @@ import PWAInstaller from '@/components/PWAInstaller';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
 
-// Using system fonts as fallback for better performance and offline support
-const fontVariables = 'font-sans';
-
 export const metadata: Metadata = {
   title: 'Técnico en Computadores Montería | Servicio Técnico PC',
   description:
@@ -91,6 +88,10 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Google Fonts preconnect */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
         {/* Preload recursos críticos */}
         <link rel="preload" href="/logo.png" as="image" />
         <link rel="preload" href="/hero-poster.jpg" as="image" />
@@ -118,7 +119,7 @@ export default function RootLayout({
         <meta name="availability" content="Lun-Vie 8AM-6PM, Sáb 8AM-2PM" />
         <meta name="service-area" content="Montería, Córdoba, Colombia" />
       </head>
-      <body className={fontVariables} suppressHydrationWarning={true}>
+      <body suppressHydrationWarning={true}>
         <GoogleAnalytics />
         <LocalBusinessSchema />
         <OrganizationSchema />
