@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
 
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Content */}
+          {/* Content — each child animates via nth-child stagger */}
           <div className={styles.content}>
             <div className={styles.badge}>
               <CheckCircleIcon className={styles.badgeIcon} />
