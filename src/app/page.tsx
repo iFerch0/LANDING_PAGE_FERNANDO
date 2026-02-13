@@ -5,6 +5,8 @@ import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
 import ServicesGrid from '@/components/ServicesGrid';
+import BusinessPlans from '@/components/BusinessPlans';
+import WebDevBanner from '@/components/WebDevBanner';
 import Testimonials from '@/components/Testimonials';
 import Faq from '@/components/Faq';
 import CtaFinal from '@/components/CtaFinal';
@@ -49,6 +51,12 @@ export default function HomePage() {
 
         {/* ServicesGrid - Qué ofrecemos */}
         <ServicesGrid />
+
+        {/* BusinessPlans - Planes empresariales */}
+        <BusinessPlans />
+
+        {/* WebDevBanner - También desarrollo sitios web */}
+        <WebDevBanner />
 
         {/* Testimonials - Reviews verificadas */}
         <Testimonials />

@@ -115,15 +115,15 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
 > **Objetivo:** Que el sitio se vea premium y memorable
 
 ### Sprint 1.1 - Identidad Visual Renovada
-- [ ] Definir dirección estética: profesional-técnico con personalidad
-      (no glassmorphism genérico - buscar un estilo propio, limpio, con carácter)
-- [ ] Seleccionar tipografía distintiva (display + body)
-      Candidatas: DM Sans, Plus Jakarta Sans, Outfit, Satoshi, General Sans
-      (evitar Inter, Roboto, system fonts - son genéricos)
-- [ ] Refinar paleta de colores: mantener azul/naranja de marca pero con
-      mejor uso de contraste, acentos y jerarquía visual
-- [ ] Definir sistema de ilustración/iconografía consistente
-- [ ] Actualizar tokens en `tokens.css` y `brand.css`
+- [x] Definir dirección estética: "Técnico Artesanal Premium" ✅
+      Profesional, bold, distintivo — sin glassmorphism genérico
+- [x] Seleccionar tipografía distintiva (display + body) ✅
+      Plus Jakarta Sans (display) + DM Sans (body)
+- [x] Refinar paleta de colores ✅
+      Azul-teal autoridad + naranja/ámbar cálido, warm cream background
+- [x] Definir sistema de iconografía consistente ✅
+      Icons.tsx centralizado con 36+ iconos SVG categorizados
+- [x] Actualizar tokens en `tokens.css` y `brand.css` ✅
 
 ### Sprint 1.2 - Hero (Primera Impresión)
 - [x] Rediseñar layout del Hero con composición más atrevida ✅
@@ -137,11 +137,14 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
 - [x] prefers-reduced-motion: desactiva todas las animaciones ✅
 
 ### Sprint 1.3 - Secciones Clave
-- [ ] **Features (Bento Grid):** Rediseñar las 4 cards con mejor visual,
-      posible layout asimétrico (1 card grande + 3 pequeñas)
-- [ ] **Process:** Rediseñar el flujo de 4 pasos con mejor conectividad visual
-- [ ] **SuccessCases:** Mejorar el before/after con mejor presentación de métricas
-- [ ] **CtaFinal:** CTA más impactante, urgencia visual real
+- [x] **Features (Bento Grid):** Banner hero full-width + 3 compact cards ✅
+      Layout horizontal: texto izquierda + checklist derecha + strip de métricas
+      Cards compactas con colores de acento diferenciados (blue, green, teal)
+- [x] **Process:** Estilos refinados con design system premium ✅
+- [x] **SuccessCases:** CSS alineado con design system, tokens, prefers-reduced-motion ✅
+      Métricas en grid, patrón eyebrow con barra de acento gradient
+- [x] **CtaFinal:** Sección dark de alto impacto con urgencia real ✅
+      Badge pulsante "Disponible ahora", social proof, shimmer en CTA
 
 ### Entregable Fase 1
 - Hero completamente rediseñado
@@ -156,25 +159,38 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
 > **Objetivo:** Mostrar servicios expandidos y mejorar conversión
 
 ### Sprint 2.1 - ServicesGrid Rediseñado
-- [ ] Rediseñar las cards de servicio con diseño premium
-      (actualmente son genéricas con estilo idéntico)
-- [ ] Agregar hover states más expresivos
-- [ ] Mejorar la navegación entre servicios
-- [ ] Mejor jerarquía visual: servicio principal vs secundarios
-- [ ] Cada card debe comunicar claramente: qué, para quién, resultado
+- [x] Rediseñar las cards de servicio con diseño premium ✅
+      Hero card full-width + 5 compact cards con colores de acento únicos
+- [x] Agregar hover states más expresivos ✅
+      Barra de acento reveal, translateY, shadow-card-hover, icon scale
+- [x] Mejorar la navegación entre servicios ✅
+      CTA WhatsApp en hero, CTA outline con hover fill en compact cards
+- [x] Mejor jerarquía visual: servicio principal vs secundarios ✅
+      Hero banner domina, badge "MÁS SOLICITADO", compact cards subordinadas
+- [x] Cada card debe comunicar claramente: qué, para quién, resultado ✅
+      Título + descripción + 2 features clave + duración + CTA
+- [x] Migración de `<style jsx>` a CSS Modules ✅
+- [x] Migración de SVGs inline a sistema centralizado Icons.tsx ✅
 
 ### Sprint 2.2 - Nuevos Servicios (Tier 1)
-- [ ] Crear sección "Planes para Empresas" con:
-      - Plan Básico: mantenimiento mensual (X equipos)
-      - Plan Profesional: soporte + SLA + reportes
-      - Plan Corporativo: todo incluido + prioridad 24h
-- [ ] Crear sección "Digitalización" (automatización, scripts, procesos)
-- [ ] Agregar mini-sección "También desarrollo sitios web" con:
-      - 2-3 bullet points de qué ofreces
-      - Link a WhatsApp con mensaje contextual
-- [ ] Actualizar `src/data/services.ts` con nuevos servicios
-- [ ] Crear páginas `/servicios/[slug]` para los nuevos servicios
-- [ ] Agregar schemas JSON-LD para los nuevos servicios
+- [x] Crear sección "Planes para Empresas" con: ✅
+      BusinessPlans.tsx: 3 cards (Básico, Profesional, Corporativo)
+      - Plan Básico: 5 equipos, soporte WhatsApp, reportes
+      - Plan Profesional: 15 equipos, SLA 4h, antivirus corp (highlight "Más elegido")
+      - Plan Corporativo: ilimitados, SLA 2h, gestor dedicado, auditoría
+- [x] Crear sección "Digitalización" (automatización, scripts, procesos) ✅
+      Servicio en services.ts con slug, FAQs, casos, metadata SEO
+- [x] Agregar mini-sección "También desarrollo sitios web" con: ✅
+      WebDevBanner.tsx: banner horizontal con 3 bullet points + CTA teal
+      - Landing pages de alto impacto
+      - Diseño moderno y responsive
+      - Optimización SEO incluida
+- [x] Actualizar `src/data/services.ts` con nuevos servicios ✅
+      3 servicios añadidos: soporte-empresarial, digitalizacion-procesos, desarrollo-web
+- [x] Crear páginas `/servicios/[slug]` para los nuevos servicios ✅
+      Generadas automáticamente via generateStaticParams (ya existía la infra)
+- [x] Agregar schemas JSON-LD para los nuevos servicios ✅
+      TechnicalServiceSchema + ReviewSchema por servicio
 
 ### Sprint 2.3 - Formulario y Conversión
 - [ ] Rediseñar ContactForm con mejor UX
