@@ -30,6 +30,21 @@ export const FAQ_ITEMS = [
       'Sí, trabajo con todas las marcas: HP, Dell, Lenovo, Asus, Acer, Apple, Sony y muchas más. También con equipos ensamblados y de escritorio.',
   },
   {
+    question: '¿Ofrecen soporte técnico para empresas?',
+    answer:
+      'Sí, tenemos planes mensuales para empresas con mantenimiento preventivo, SLA garantizado, inventario de equipos y reportes. Planes desde 5 hasta equipos ilimitados. Sin compromiso de permanencia.',
+  },
+  {
+    question: '¿Pueden digitalizar los procesos de mi negocio?',
+    answer:
+      'Sí, ofrecemos servicios de automatización y digitalización para pymes. Automatizamos reportes, facturación, inventarios y procesos repetitivos. La evaluación inicial es gratuita.',
+  },
+  {
+    question: '¿Desarrollan páginas web?',
+    answer:
+      'Sí, desarrollo sitios web profesionales y landing pages para negocios locales. Diseño moderno, responsive y optimizado para SEO. Landing pages desde $800.000 COP.',
+  },
+  {
     question: '¿Qué métodos de pago aceptan?',
     answer:
       'Acepto efectivo, transferencia bancaria, Nequi y Daviplata. El pago se realiza una vez completado y aprobado el servicio.',

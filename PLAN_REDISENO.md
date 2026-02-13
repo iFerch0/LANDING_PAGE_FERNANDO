@@ -193,18 +193,23 @@ La clave: los servicios Tier 1 comparten la misma audiencia (pymes locales que y
       TechnicalServiceSchema + ReviewSchema por servicio
 
 ### Sprint 2.3 - Formulario y Conversión
-- [ ] Rediseñar ContactForm con mejor UX
-      (pasos progresivos en vez de formulario largo)
-- [ ] Mejorar la experiencia del selector de servicio (incluir nuevos servicios)
-- [ ] Agregar social proof cerca del CTA (mini testimonials inline)
-- [ ] Mejorar el FAQ con preguntas sobre servicios empresariales
-- [ ] A/B considerar: formulario vs solo WhatsApp directo
+- [x] Rediseñar ContactForm con mejor UX ✅
+      Formulario de 3 pasos progresivos con step indicators circulares
+      Paso 1: Nombre + WhatsApp | Paso 2: Servicio + Equipo + Urgencia | Paso 3: Descripción + Envío
+- [x] Mejorar la experiencia del selector de servicio (incluir nuevos servicios) ✅
+      Select con optgroups: "Reparación y Mantenimiento" (6) + "Para Empresas" (4) + "Desarrollo" (1)
+- [x] Agregar social proof cerca del CTA (mini testimonials inline) ✅
+      Inline "★★★★★ 4.9/5 basado en 100+ clientes" + trust badges bajo el card
+- [x] Mejorar el FAQ con preguntas sobre servicios empresariales ✅
+      3 nuevas FAQs: soporte empresarial, digitalización, desarrollo web
+- [x] A/B considerar: formulario vs solo WhatsApp directo ✅
+      Mantenemos formulario → abre WhatsApp con mensaje pre-armado (mejor conversión)
 
 ### Entregable Fase 2
-- ServicesGrid con diseño premium
-- 3 nuevos servicios empresariales publicados con SEO
-- Formulario de contacto mejorado
-- FAQ actualizado
+- ServicesGrid con diseño premium ✅
+- 3 nuevos servicios empresariales publicados con SEO ✅
+- Formulario de contacto mejorado (3 pasos progresivos) ✅
+- FAQ actualizado con preguntas empresariales ✅
 
 ---
 
