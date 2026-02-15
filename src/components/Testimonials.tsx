@@ -8,13 +8,20 @@ const Testimonials = () => {
   return (
     <section id="testimonios" className={styles.testimonials}>
       <div className={`container ${styles.container}`}>
-        {/* Simplified Header */}
+        {/* Header */}
         <div className={styles.header} data-aos="fade-up">
+          <span className={styles.eyebrow}>Opiniones verificadas</span>
           <div className={styles.badge}>
-            <GoogleIcon />
-            Reviews de Google
+            <GoogleIcon size={24} />
+            <div className={styles.badgeText}>
+              <span className={styles.badgeTitle}>Google Reviews</span>
+              <span className={styles.badgeStars}>★★★★★</span>
+            </div>
           </div>
-          <h2 className={styles.title}>Lo que dicen nuestros clientes</h2>
+          <h2 className={styles.title}>
+            Lo que dicen nuestros
+            <span className={styles.titleAccent}> clientes</span>
+          </h2>
           <p className={styles.subtitle}>
             Opiniones reales de personas que confiaron en nuestro servicio
           </p>

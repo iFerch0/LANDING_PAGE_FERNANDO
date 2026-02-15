@@ -1,0 +1,320 @@
+/* ==========================================================================
+   AboutFernando — Sprint 3.2 "Sobre el Profesional"
+   Photo + bio layout with specialties and values
+   ========================================================================== */
+
+.section {
+  padding: 96px 0;
+  background: linear-gradient(180deg, var(--color-bg-1) 0%, var(--color-bg-2) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Layout ───────────────────────────────────────────────────────────── */
+
+.layout {
+  display: grid;
+  grid-template-columns: 0.45fr 0.55fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── Photo ────────────────────────────────────────────────────────────── */
+
+.photoWrapper {
+  position: relative;
+}
+
+.photoFrame {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--color-card-border);
+  aspect-ratio: 6/7;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+}
+
+.photoAccent {
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(135deg, var(--brand-azul_vibrante), var(--brand-naranja_quemado));
+  border-radius: var(--radius-xl);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+/* ── Content ──────────────────────────────────────────────────────────── */
+
+.content {
+  padding-top: 8px;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 8px 18px;
+  background: rgba(45, 106, 138, 0.06);
+  border: 1px solid rgba(45, 106, 138, 0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  margin-bottom: 20px;
+}
+
+.name {
+  font-family: var(--font-family-display);
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  line-height: 1.1;
+  margin: 0 0 8px;
+  letter-spacing: -0.025em;
+}
+
+.role {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: 0 0 20px;
+  line-height: var(--line-height-normal);
+}
+
+.bio {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 24px;
+}
+
+/* ── Specialties Pills ────────────────────────────────────────────────── */
+
+.specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.pill {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(45, 106, 138, 0.06);
+  border: 1px solid rgba(45, 106, 138, 0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.pill:hover {
+  background: rgba(45, 106, 138, 0.12);
+  border-color: rgba(45, 106, 138, 0.3);
+}
+
+/* ── Values ───────────────────────────────────────────────────────────── */
+
+.values {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.valueItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.valueItem:hover {
+  box-shadow: var(--shadow-card);
+  border-color: rgba(45, 106, 138, 0.15);
+}
+
+.valueIcon {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.valueTitle {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.valueDesc {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0;
+}
+
+/* ── CTA Button ───────────────────────────────────────────────────────── */
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: white;
+  padding: 14px 28px;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+}
+
+.cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.cta svg {
+  transition: transform var(--duration-normal) var(--ease-standard);
+}
+
+.cta:hover svg {
+  transform: scale(1.1);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 0.5fr 0.5fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 64px 0;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .photoFrame {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .photoAccent {
+    display: none;
+  }
+
+  .content {
+    padding-top: 0;
+    text-align: center;
+  }
+
+  .specialties {
+    justify-content: center;
+  }
+
+  .valueItem {
+    text-align: left;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Dark Mode ────────────────────────────────────────────────────────── */
+
+@media (prefers-color-scheme: dark) {
+  .eyebrow {
+    background: rgba(45, 106, 138, 0.12);
+    border-color: rgba(45, 106, 138, 0.25);
+  }
+
+  .photoFrame {
+    background: rgba(30, 30, 30, 0.7);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .pill {
+    background: rgba(45, 106, 138, 0.12);
+    border-color: rgba(45, 106, 138, 0.25);
+  }
+
+  .pill:hover {
+    background: rgba(45, 106, 138, 0.2);
+  }
+
+  .valueItem {
+    background: rgba(30, 30, 30, 0.7);
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .valueItem:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+/* ── Reduced Motion ───────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .cta,
+  .pill,
+  .valueItem {
+    transition: none;
+  }
+
+  .cta:hover {
+    transform: none;
+  }
+
+  .cta:hover svg {
+    transform: none;
+  }
+}

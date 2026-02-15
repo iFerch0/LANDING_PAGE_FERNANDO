@@ -1,16 +1,19 @@
 'use client';
 import React from 'react';
-import { RepairIcon, StarIcon, ClockIcon, ShieldCheckIcon } from './Icons';
+import { RepairIcon, StarIcon, ClockIcon, ShieldCheckIcon, DeviceIcon } from './Icons';
 import CountUpClient from './CountUpClient';
 import { stats, statsHeader, statsCTA } from '@/data/stats';
 import styles from './Stats.module.css';
+
+const iconMap = [RepairIcon, StarIcon, ClockIcon, ShieldCheckIcon, DeviceIcon];
 
 const Stats = () => {
   return (
     <section className={styles.stats} aria-labelledby="stats-title">
       <div className={`container ${styles.container}`}>
-        {/* Header de estadísticas */}
+        {/* Header */}
         <div className={styles.header} data-aos="fade-up">
+          <span className={styles.eyebrow}>Nuestros números</span>
           <h2 id="stats-title" className={styles.title}>
             {statsHeader.title}
           </h2>
@@ -19,8 +22,7 @@ const Stats = () => {
 
         <div className={styles.grid}>
           {stats.map((stat, index) => {
-            const icons = [RepairIcon, StarIcon, ClockIcon, ShieldCheckIcon];
-            const IconComponent = icons[index];
+            const IconComponent = iconMap[index] || RepairIcon;
 
             return (
               <div
@@ -30,7 +32,7 @@ const Stats = () => {
                 data-aos-delay={stat.aosDelay}
               >
                 <div className={styles.statItemIcon}>
-                  <IconComponent />
+                  <IconComponent size={28} />
                 </div>
                 <div className={styles.statItemContent}>
                   <div className={styles.statNumber}>
@@ -44,8 +46,8 @@ const Stats = () => {
           })}
         </div>
 
-        {/* CTA en la sección de stats */}
-        <div className={styles.cta} data-aos="fade-up" data-aos-delay="500">
+        {/* CTA */}
+        <div className={styles.cta} data-aos="fade-up" data-aos-delay="600">
           <div className={styles.ctaContent}>
             <h3 className={styles.ctaTitle}>{statsCTA.title}</h3>
             <p className={styles.ctaDesc}>{statsCTA.description}</p>

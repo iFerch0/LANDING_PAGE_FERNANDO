@@ -135,6 +135,18 @@ const SuccessCases: React.FC = () => {
             ]}
             index={1}
           />
+          <CaseCard
+            image="/img/antes-despues/optimized/4-pc-gamer-sencillo-despues.JPG"
+            alt="PC Gamer limpio y optimizado después del mantenimiento"
+            tag="PC Gamer"
+            title="Mantenimiento PC Gamer"
+            metrics={[
+              { value: '-35°C', label: 'Temperaturas' },
+              { value: '+40%', label: 'Rendimiento' },
+              { value: '0 polvo', label: 'Limpieza' },
+            ]}
+            index={2}
+          />
         </div>
 
         {/* CTA - Contextual */}

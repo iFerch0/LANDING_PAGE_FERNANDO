@@ -5,10 +5,10 @@ import styles from './Features.module.css';
 
 const heroChecklist = [
   'Diagnóstico gratuito sin compromiso',
-  'Repuestos originales garantizados',
   'Presupuesto claro antes de reparar',
   'Limpieza profunda incluida',
   'Pruebas de estrés post-reparación',
+  'Garantía escrita en cada servicio',
 ];
 
 const Features = () => {
@@ -45,7 +45,7 @@ const Features = () => {
                   <span className={styles.badgeFilled}>Equipado</span>
                 </div>
                 <p className={styles.heroBannerDesc}>
-                  Herramientas especializadas y repuestos originales para cualquier reparación.
+                  Herramientas especializadas y repuestos de calidad para cualquier reparación.
                   Diagnóstico gratuito, presupuesto claro, y sin sorpresas.
                 </p>
               </div>
