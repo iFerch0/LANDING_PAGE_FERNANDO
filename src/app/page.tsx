@@ -5,7 +5,12 @@ import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
 import ServicesGrid from '@/components/ServicesGrid';
+import BusinessPlans from '@/components/BusinessPlans';
+import WebDevBanner from '@/components/WebDevBanner';
+import Stats from '@/components/Stats';
+import TrustedBy from '@/components/TrustedBy';
 import Testimonials from '@/components/Testimonials';
+import AboutFernando from '@/components/AboutFernando';
 import Faq from '@/components/Faq';
 import CtaFinal from '@/components/CtaFinal';
 import ContactForm from '@/components/ContactForm';
@@ -50,8 +55,23 @@ export default function HomePage() {
         {/* ServicesGrid - Qué ofrecemos */}
         <ServicesGrid />
 
+        {/* BusinessPlans - Planes empresariales */}
+        <BusinessPlans />
+
+        {/* WebDevBanner - También desarrollo sitios web */}
+        <WebDevBanner />
+
+        {/* Stats - Números que respaldan */}
+        <Stats />
+
+        {/* TrustedBy - Tipos de clientes */}
+        <TrustedBy />
+
         {/* Testimonials - Reviews verificadas */}
         <Testimonials />
+
+        {/* AboutFernando - Credibilidad personal */}
+        <AboutFernando />
 
         {/* FAQ - Resolver objeciones */}
         <Faq />

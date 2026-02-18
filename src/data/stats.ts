@@ -40,6 +40,14 @@ export const stats: Stat[] = [
     description: 'En todas las reparaciones',
     aosDelay: 400,
   },
+  {
+    id: 'businesses',
+    end: 15,
+    suffix: '+',
+    label: 'Empresas atendidas',
+    description: 'Soporte corporativo activo',
+    aosDelay: 500,
+  },
 ];
 
 export const statsHeader = {

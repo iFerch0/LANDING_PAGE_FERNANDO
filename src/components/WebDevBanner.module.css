@@ -1,0 +1,244 @@
+/* ==========================================================================
+   WebDevBanner — "También desarrollo sitios web"
+   Layout: Horizontal banner with content left + CTA right
+   Design System: Técnico Artesanal Premium
+   ========================================================================== */
+
+.section {
+  padding: 0 0 80px;
+  background: var(--color-background);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Banner ──────────────────────────────────────────────────────────── */
+
+.banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 36px 40px;
+  background: linear-gradient(
+    135deg,
+    rgba(45, 106, 138, 0.06) 0%,
+    rgba(13, 148, 136, 0.04) 50%,
+    rgba(217, 115, 52, 0.03) 100%
+  );
+  border: 1px solid rgba(45, 106, 138, 0.12);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    #0d9488 50%,
+    var(--brand-naranja_quemado) 100%
+  );
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+
+.bannerGlow {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(13, 148, 136, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Content ─────────────────────────────────────────────────────────── */
+
+.content {
+  flex: 1;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  background: rgba(13, 148, 136, 0.06);
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  border-radius: var(--radius-full);
+  font-family: var(--font-family-display);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  color: #0d9488;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0 0 8px;
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #0d9488 0%, var(--color-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.desc {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin: 0 0 14px;
+  max-width: 500px;
+}
+
+.features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-family-base);
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+.featureIcon {
+  width: 14px;
+  height: 14px;
+  color: #0d9488;
+  flex-shrink: 0;
+}
+
+/* ── CTA Area ────────────────────────────────────────────────────────── */
+
+.ctaArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #0d9488 0%, #14b8a6 100%);
+  color: #fff;
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  white-space: nowrap;
+  transition: all var(--duration-fast) var(--ease-standard);
+  box-shadow: 0 4px 16px rgba(13, 148, 136, 0.25);
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(13, 148, 136, 0.35);
+}
+
+.ctaSub {
+  font-family: var(--font-family-base);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  opacity: 0.7;
+}
+
+/* ==========================================================================
+   Dark Mode
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  .banner {
+    background: linear-gradient(
+      135deg,
+      rgba(30, 30, 30, 0.8) 0%,
+      rgba(13, 148, 136, 0.06) 50%,
+      rgba(30, 30, 30, 0.7) 100%
+    );
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  .eyebrow {
+    background: rgba(13, 148, 136, 0.12);
+    border-color: rgba(13, 148, 136, 0.25);
+  }
+
+  .featureIcon {
+    color: #2dd4bf;
+  }
+
+  .bannerGlow {
+    background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 70%);
+  }
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .section {
+    padding: 0 0 64px;
+  }
+
+  .banner {
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+
+  .desc {
+    margin: 0 auto 14px;
+  }
+
+  .features {
+    justify-content: center;
+  }
+
+  .cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ── Reduced Motion ──────────────────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .cta {
+    transition: none;
+  }
+
+  .cta:hover {
+    transform: none;
+  }
+}

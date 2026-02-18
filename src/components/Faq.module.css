@@ -195,23 +195,3 @@
     border-color: rgba(255, 255, 255, 0.1);
   }
 }
-
-/* Dark mode - Data Attribute */
-[data-color-scheme='dark'] .item {
-  background: rgba(30, 30, 30, 0.8);
-  border-color: rgba(255, 255, 255, 0.1);
-}
-
-[data-color-scheme='dark'] .item:hover {
-  background: rgba(40, 40, 40, 0.9);
-}
-
-[data-color-scheme='dark'] .itemActive {
-  background: rgba(40, 40, 40, 0.95);
-  border-color: rgba(58, 110, 147, 0.4);
-}
-
-[data-color-scheme='dark'] .badge {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.1);
-}

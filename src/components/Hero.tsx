@@ -1,46 +1,17 @@
 'use client';
 
 import React from 'react';
-import { WhatsAppIcon, PhoneIcon } from './Icons';
+import {
+  WhatsAppIcon,
+  PhoneIcon,
+  CheckCircleIcon,
+  MapPinIcon,
+  StarIcon,
+  ShieldIcon,
+  ClockIcon,
+} from './Icons';
 import HeroSliderStatic from './HeroSliderStatic';
 import styles from './Hero.module.css';
-
-/* Icons */
-const CheckCircleIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path
-      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const MapPinIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-    <circle cx="12" cy="10" r="3" />
-  </svg>
-);
-
-const StarIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-  </svg>
-);
-
-const ShieldIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  </svg>
-);
-
-const ClockIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
 
 const Hero: React.FC = () => {
   return (
@@ -53,7 +24,7 @@ const Hero: React.FC = () => {
 
       <div className={styles.container}>
         <div className={styles.grid}>
-          {/* Content */}
+          {/* Content — each child animates via nth-child stagger */}
           <div className={styles.content}>
             <div className={styles.badge}>
               <CheckCircleIcon className={styles.badgeIcon} />

@@ -782,6 +782,191 @@ export const services: Service[] = [
       ratingCount: 28,
     },
   },
+  {
+    slug: 'soporte-empresarial-monteria',
+    title: 'Soporte Técnico Empresarial en Montería',
+    description:
+      'Planes de soporte técnico para empresas en Montería. Mantenimiento preventivo, SLA garantizado, inventario de equipos y reportes mensuales.',
+    image: '/hero-poster.jpg',
+    canonical: 'https://www.ferchotecnico.com/servicios/soporte-empresarial-monteria',
+    serviceName: 'Soporte Técnico Empresarial',
+    cases: [
+      {
+        title: 'Plan mensual para oficina contable',
+        text: 'Empresa con 12 equipos. Implementamos plan profesional con mantenimiento quincenal, antivirus corporativo y reportes. Cero incidentes en 6 meses.',
+      },
+      {
+        title: 'Soporte con SLA para consultorio médico',
+        text: 'Consultorio con 8 equipos críticos para historias clínicas. SLA de 4 horas, respaldo automático. Continuidad operativa garantizada.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Qué incluyen los planes empresariales?',
+        a: 'Mantenimiento preventivo programado, soporte prioritario con SLA, inventario de equipos, reportes mensuales, antivirus corporativo y auditorías de seguridad según el plan.',
+      },
+      {
+        q: '¿Hay compromiso de permanencia?',
+        a: 'No. Nuestros planes son mensuales sin compromiso de permanencia. Puedes cancelar en cualquier momento.',
+      },
+      {
+        q: '¿Qué es un SLA?',
+        a: 'SLA (Acuerdo de Nivel de Servicio) es el tiempo máximo de respuesta garantizado. En nuestro plan Profesional es 4 horas y en Corporativo 2 horas.',
+      },
+    ],
+    metadata: {
+      title: 'Soporte Técnico Empresarial Montería | Planes para Empresas',
+      description:
+        'Soporte técnico empresarial en Montería. Planes mensuales con SLA, mantenimiento preventivo, reportes y antivirus corporativo. Sin permanencia.',
+      keywords: [
+        'soporte técnico empresarial Montería',
+        'soporte IT Montería',
+        'mantenimiento empresas Montería',
+        'soporte computadores empresas',
+        'planes soporte técnico',
+        'SLA soporte técnico Montería',
+      ],
+      openGraph: {
+        title: 'Soporte Técnico Empresarial Montería',
+        description:
+          'Planes de soporte técnico para empresas. Mantenimiento preventivo, SLA garantizado.',
+      },
+    },
+    schema: {
+      serviceName: 'Soporte Técnico Empresarial',
+      serviceDescription:
+        'Planes de soporte técnico para empresas con mantenimiento preventivo, SLA garantizado y reportes mensuales.',
+      priceRange: '150000-500000',
+      serviceUrl: 'https://www.ferchotecnico.com/servicios/soporte-empresarial-monteria',
+    },
+    review: {
+      name: 'FerchoTécnico - Soporte Empresarial',
+      url: 'https://www.ferchotecnico.com/servicios/soporte-empresarial-monteria',
+      ratingValue: 5,
+      ratingCount: 18,
+    },
+  },
+  {
+    slug: 'digitalizacion-procesos-monteria',
+    title: 'Digitalización de Procesos en Montería',
+    description:
+      'Automatización y digitalización de procesos para pymes en Montería. Scripts personalizados, reportes automatizados y migraciones de datos.',
+    image: '/hero-poster.jpg',
+    canonical: 'https://www.ferchotecnico.com/servicios/digitalizacion-procesos-monteria',
+    serviceName: 'Digitalización de Procesos',
+    cases: [
+      {
+        title: 'Automatización de reportes contables',
+        text: 'Empresa que generaba reportes manualmente en Excel. Creamos scripts automatizados que generan reportes en minutos. Ahorro de 15 horas semanales.',
+      },
+      {
+        title: 'Migración de datos a la nube',
+        text: 'Negocio con archivos en múltiples PCs sin respaldo. Migramos a Google Workspace con organización y acceso remoto seguro.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Qué tipo de procesos pueden digitalizar?',
+        a: 'Reportes en Excel, facturación manual, inventarios en papel, gestión de clientes, procesos repetitivos que consumen tiempo. Todo lo que se pueda automatizar.',
+      },
+      {
+        q: '¿Es costoso digitalizar mi negocio?',
+        a: 'Evaluación gratuita. Cada proyecto se cotiza según complejidad. La inversión se recupera en semanas por el ahorro de tiempo.',
+      },
+    ],
+    metadata: {
+      title: 'Digitalización de Procesos Montería | Automatización Pymes',
+      description:
+        'Digitalización y automatización de procesos para pymes en Montería. Scripts, reportes automatizados, migraciones. Evaluación gratuita.',
+      keywords: [
+        'digitalización procesos Montería',
+        'automatización pymes Montería',
+        'scripts automatización',
+        'digitalización empresas Córdoba',
+        'migración datos nube',
+      ],
+      openGraph: {
+        title: 'Digitalización de Procesos Montería',
+        description: 'Automatización y digitalización para pymes. Evaluación gratuita.',
+      },
+    },
+    schema: {
+      serviceName: 'Digitalización de Procesos',
+      serviceDescription:
+        'Servicio de digitalización y automatización de procesos para pymes. Scripts personalizados y migraciones.',
+      priceRange: '200000-800000',
+      serviceUrl: 'https://www.ferchotecnico.com/servicios/digitalizacion-procesos-monteria',
+    },
+    review: {
+      name: 'FerchoTécnico - Digitalización',
+      url: 'https://www.ferchotecnico.com/servicios/digitalizacion-procesos-monteria',
+      ratingValue: 5,
+      ratingCount: 12,
+    },
+  },
+  {
+    slug: 'desarrollo-web-monteria',
+    title: 'Desarrollo de Sitios Web en Montería',
+    description:
+      'Desarrollo profesional de sitios web y landing pages para negocios en Montería. Diseño moderno, responsive y optimizado para SEO.',
+    image: '/hero-poster.jpg',
+    canonical: 'https://www.ferchotecnico.com/servicios/desarrollo-web-monteria',
+    serviceName: 'Desarrollo Web',
+    cases: [
+      {
+        title: 'Landing page para consultorio odontológico',
+        text: 'Diseñamos landing page profesional con reserva de citas, galería de casos y optimización SEO local. 300% más citas online en 3 meses.',
+      },
+      {
+        title: 'Sitio web para empresa de servicios',
+        text: 'Creamos sitio web corporativo con catálogo de servicios, formulario de contacto y blog. Primeros resultados de Google en 45 días.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto cuesta una página web?',
+        a: 'Cotización personalizada sin compromiso. Landing pages desde $800.000 COP, sitios web completos desde $1.500.000 COP dependiendo de las funcionalidades.',
+      },
+      {
+        q: '¿Incluye hosting y dominio?',
+        a: 'Sí, incluimos configuración de hosting, dominio y certificado SSL. Te entregamos el sitio 100% funcionando.',
+      },
+      {
+        q: '¿En cuánto tiempo está lista mi página?',
+        a: 'Landing pages en 1-2 semanas. Sitios web completos en 3-4 semanas. Cada proyecto incluye revisiones y ajustes sin costo.',
+      },
+    ],
+    metadata: {
+      title: 'Desarrollo Web Montería | Páginas Web Profesionales',
+      description:
+        'Desarrollo de sitios web y landing pages en Montería. Diseño moderno, responsive, optimizado SEO. Cotización gratuita.',
+      keywords: [
+        'desarrollo web Montería',
+        'páginas web Montería',
+        'landing pages Montería',
+        'diseño web Montería',
+        'crear página web Córdoba',
+        'desarrollo sitios web',
+      ],
+      openGraph: {
+        title: 'Desarrollo Web Montería',
+        description: 'Desarrollo profesional de sitios web y landing pages. Cotización gratuita.',
+      },
+    },
+    schema: {
+      serviceName: 'Desarrollo de Sitios Web',
+      serviceDescription:
+        'Desarrollo profesional de sitios web, landing pages y aplicaciones web para negocios locales.',
+      priceRange: '800000-3000000',
+      serviceUrl: 'https://www.ferchotecnico.com/servicios/desarrollo-web-monteria',
+    },
+    review: {
+      name: 'FerchoTécnico - Desarrollo Web',
+      url: 'https://www.ferchotecnico.com/servicios/desarrollo-web-monteria',
+      ratingValue: 5,
+      ratingCount: 8,
+    },
+  },
 ];
 
 export function getServiceBySlug(slug: string): Service | undefined {
