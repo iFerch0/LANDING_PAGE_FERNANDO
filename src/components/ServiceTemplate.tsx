@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import Head from 'next/head';
+import styles from './ServiceTemplate.module.css';
 
 type CaseItem = { title: string; text: string };
 type FaqItem = { q: string; a: string };
@@ -38,51 +38,49 @@ export default function ServiceTemplate(props: {
   };
 
   return (
-    <main className="container service-page">
-      {/* Preload hero image for better LCP */}
-      <Head>
-        <link rel="preload" as="image" href={image} />
-      </Head>
-      <section className="service-hero">
-        <div className="service-copy">
+    <main className={`${styles.container} ${styles.page}`}>
+      <section className={styles.hero}>
+        <div className={styles.copy}>
           <h1>{title}</h1>
           <p>{description}</p>
-          <div className="cta-row">
-            <a href="https://wa.me/573008474121" className="btn btn-primary">
+          <div className={styles.ctaRow}>
+            <a href="https://wa.me/573008474121" className={styles.primaryBtn}>
               Pedir presupuesto por WhatsApp
             </a>
-            <Link href="/#contacto" className="btn btn-outline">
+            <Link href="/#contacto" className={styles.outlineBtn}>
               Contacto
             </Link>
           </div>
         </div>
-        <div className="service-media">
-          <Image src={image} alt={title} width={560} height={420} priority />
+        <div className={styles.media}>
+          <Image src={image} alt={title} fill sizes="(max-width: 768px) 100vw, 50vw" priority />
         </div>
       </section>
 
-      <section className="service-cases">
-        <h2>Casos reales</h2>
+      <section className={styles.cases}>
+        <h2 className={styles.sectionTitle}>Casos reales</h2>
         {cases.length === 0 ? (
           <p>
             No tienes casos publicados aún. Puedes solicitar que publiquemos ejemplos reales de
             trabajos.
           </p>
         ) : (
-          cases.map((c, i) => (
-            <article className="case" key={i}>
-              <h3>{c.title}</h3>
-              <p>{c.text}</p>
-            </article>
-          ))
+          <div className={styles.caseGrid}>
+            {cases.map((c, i) => (
+              <article className={styles.caseCard} key={i}>
+                <h3>{c.title}</h3>
+                <p>{c.text}</p>
+              </article>
+            ))}
+          </div>
         )}
       </section>
 
-      <section className="service-faqs">
-        <h2>Preguntas frecuentes</h2>
+      <section className={styles.faqs}>
+        <h2 className={styles.sectionTitle}>Preguntas frecuentes</h2>
         <dl>
           {faqs.map((f, i) => (
-            <div key={i}>
+            <div key={i} className={styles.faqItem}>
               <dt>{f.q}</dt>
               <dd>{f.a}</dd>
             </div>
@@ -90,8 +88,7 @@ export default function ServiceTemplate(props: {
         </dl>
       </section>
 
-      {canonical ? <link rel="canonical" href={canonical} /> : null}
-
+      {/* Schema injection */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }}
