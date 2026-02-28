@@ -3,6 +3,7 @@ import Image from 'next/image';
 import aboutPhoto from '../../public/img/sobre-mi.avif';
 import { WhatsAppIcon } from './Icons';
 import styles from './AboutFernando.module.css';
+import { getWaLink } from '@/constants/contact';
 
 const specialties = [
   'Desarrollo Web',
@@ -89,7 +90,7 @@ const AboutFernando: React.FC = () => {
 
             {/* CTA */}
             <a
-              href="https://wa.me/573015218139?text=Hola%20Fernando%2C%20quiero%20hablar%20sobre%20mi%20proyecto"
+              href={getWaLink('Hola Fernando, quiero hablar sobre mi proyecto')}
               className={styles.cta}
               target="_blank"
               rel="noopener noreferrer"

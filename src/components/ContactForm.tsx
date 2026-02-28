@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { UserIcon, DeviceIcon, SendIcon, CheckCircleIcon, WhatsAppIcon } from './Icons';
 import styles from './ContactForm.module.css';
+import { getWaLink } from '@/constants/contact';
 
 /* ── Types ────────────────────────────────────────────────────────────── */
 
@@ -174,7 +175,7 @@ ${formData.problem}
 ---
 Enviado desde ferchotecnico.com`;
 
-      window.open(`https://wa.me/573008474121?text=${encodeURIComponent(message)}`, '_blank');
+      window.open(getWaLink(message), '_blank');
 
       setFormData({
         name: '',

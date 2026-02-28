@@ -3,6 +3,7 @@
 import React from 'react';
 import { CheckCircleIcon, ShieldCheckIcon, ZapIcon, ClockIcon, WhatsAppIcon } from './Icons';
 import styles from './BusinessPlans.module.css';
+import { getWaLink } from '@/constants/contact';
 
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
@@ -118,7 +119,9 @@ const BusinessPlans: React.FC = () => {
                 </div>
 
                 <a
-                  href={`https://wa.me/573008474121?text=${encodeURIComponent(`Hola Fernando, me interesa el ${plan.name} de soporte empresarial. ¿Me puedes dar más información?`)}`}
+                  href={getWaLink(
+                    `Hola Fernando, me interesa el ${plan.name} de soporte empresarial. ¿Me puedes dar más información?`
+                  )}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${styles.planCta} ${plan.highlight ? styles.planCtaPrimary : ''}`}

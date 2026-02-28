@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './ServiceTemplate.module.css';
+import { WA_BASE_URL } from '@/constants/contact';
 
 type CaseItem = { title: string; text: string };
 type FaqItem = { q: string; a: string };
@@ -44,7 +45,7 @@ export default function ServiceTemplate(props: {
           <h1>{title}</h1>
           <p>{description}</p>
           <div className={styles.ctaRow}>
-            <a href="https://wa.me/573008474121" className={styles.primaryBtn}>
+            <a href={WA_BASE_URL} className={styles.primaryBtn}>
               Pedir presupuesto por WhatsApp
             </a>
             <Link href="/#contacto" className={styles.outlineBtn}>

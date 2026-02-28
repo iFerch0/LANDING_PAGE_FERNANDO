@@ -3,6 +3,7 @@
 import React from 'react';
 import { CheckCircleIcon, WhatsAppIcon } from './Icons';
 import styles from './WebDevBanner.module.css';
+import { getWaLink } from '@/constants/contact';
 
 const WebDevBanner: React.FC = () => {
   return (
@@ -38,7 +39,9 @@ const WebDevBanner: React.FC = () => {
 
           <div className={styles.ctaArea}>
             <a
-              href={`https://wa.me/573008474121?text=${encodeURIComponent('Hola Fernando, me interesa que me desarrolles un sitio web para mi negocio. ¿Me puedes dar más información?')}`}
+              href={getWaLink(
+                'Hola Fernando, me interesa que me desarrolles un sitio web para mi negocio. ¿Me puedes dar más información?'
+              )}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.cta}

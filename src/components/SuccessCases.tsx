@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { WhatsAppIcon } from './Icons';
 import BeforeAfterSlider from './BeforeAfterSlider';
 import styles from './SuccessCases.module.css';
+import { getWaLink } from '@/constants/contact';
 
 // Metric Component
 const Metric: React.FC<{ value: string; label: string; highlight?: boolean }> = ({
@@ -155,7 +156,9 @@ const SuccessCases: React.FC = () => {
             <h3 className={styles.ctaTitle}>¿Quieres resultados así?</h3>
             <p className={styles.ctaText}>Cuéntame tu caso y te digo cómo lo solucionamos</p>
             <a
-              href="https://wa.me/573015218139?text=Hola%20Fernando%2C%20vi%20los%20casos%20de%20éxito%20y%20necesito%20ayuda%20con%20mi%20equipo"
+              href={getWaLink(
+                'Hola Fernando, vi los casos de éxito y necesito ayuda con mi equipo'
+              )}
               className={styles.ctaButton}
               target="_blank"
               rel="noopener noreferrer"
