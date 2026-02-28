@@ -1,6 +1,7 @@
 import React from 'react';
 import { WhatsAppIcon, PhoneIcon, CheckCircleIcon, ShieldIcon, ClockIcon } from './Icons';
 import styles from './CtaFinal.module.css';
+import { WA_SHORT_LINK, PHONE_TEL } from '@/constants/contact';
 
 const CtaFinal = () => {
   return (
@@ -22,7 +23,7 @@ const CtaFinal = () => {
 
           <div className={styles.actions}>
             <a
-              href="http://wa.link/n8et4q"
+              href={WA_SHORT_LINK}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.whatsappBtn}
@@ -30,7 +31,7 @@ const CtaFinal = () => {
               <WhatsAppIcon />
               Diagnóstico Gratuito
             </a>
-            <a href="tel:+573008474121" className={styles.phoneBtn}>
+            <a href={PHONE_TEL} className={styles.phoneBtn}>
               <PhoneIcon />
               Llamar Ahora
             </a>

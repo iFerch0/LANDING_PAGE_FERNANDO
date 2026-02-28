@@ -1,6 +1,7 @@
 'use client';
 
 import React, { Component, ReactNode, ErrorInfo } from 'react';
+import { WA_SHORT_LINK } from '@/constants/contact';
 
 interface Props {
   children: ReactNode;
@@ -154,7 +155,7 @@ class ErrorBoundary extends Component<Props, State> {
             </button>
 
             <a
-              href="http://wa.link/n8et4q"
+              href={WA_SHORT_LINK}
               target="_blank"
               rel="noopener noreferrer"
               style={{

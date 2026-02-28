@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { WA_SHORT_LINK } from '@/constants/contact';
 
 const BlogCTA: React.FC = () => {
   return (
@@ -42,7 +43,7 @@ const BlogCTA: React.FC = () => {
         }}
       >
         <a
-          href="http://wa.link/n8et4q"
+          href={WA_SHORT_LINK}
           target="_blank"
           rel="noopener noreferrer"
           style={{

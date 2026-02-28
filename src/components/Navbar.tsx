@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
+import { WA_SHORT_LINK } from '@/constants/contact';
 
 // Iconos SVG profesionales inline
 const Icons = {
@@ -437,7 +438,7 @@ const Navbar = () => {
 
           {/* WhatsApp CTA */}
           <Link
-            href="https://wa.link/n8et4q"
+            href={WA_SHORT_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.ctaButton}

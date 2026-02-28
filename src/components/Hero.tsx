@@ -12,6 +12,7 @@ import {
 } from './Icons';
 import HeroSliderStatic from './HeroSliderStatic';
 import styles from './Hero.module.css';
+import { WA_SHORT_LINK, PHONE_TEL } from '@/constants/contact';
 
 const Hero: React.FC = () => {
   return (
@@ -53,7 +54,7 @@ const Hero: React.FC = () => {
             <div className={styles.ctaGroup}>
               <div className={styles.ctas}>
                 <a
-                  href="http://wa.link/n8et4q"
+                  href={WA_SHORT_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--primary btn--cta-primary cta-pulse"
@@ -64,7 +65,7 @@ const Hero: React.FC = () => {
                     <span className="btn__subtext">Respuesta en minutos</span>
                   </div>
                 </a>
-                <a href="tel:+573008474121" className="btn btn--secondary btn--cta-secondary">
+                <a href={PHONE_TEL} className="btn btn--secondary btn--cta-secondary">
                   <PhoneIcon className="btn__icon" />
                   <div className="btn__content">
                     <span className="btn__text">Llamar Ahora</span>

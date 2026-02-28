@@ -12,6 +12,7 @@ import {
   QuestionCircleIcon,
 } from './Icons';
 import styles from './ServicesGrid.module.css';
+import { WA_SHORT_LINK } from '@/constants/contact';
 
 /* ── Data ─────────────────────────────────────────────────────────────── */
 
@@ -121,7 +122,7 @@ const ServicesGrid: React.FC = () => {
               </div>
 
               <a
-                href="http://wa.link/n8et4q"
+                href={WA_SHORT_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.heroCta}
@@ -184,7 +185,7 @@ const ServicesGrid: React.FC = () => {
                 </div>
 
                 <a
-                  href="http://wa.link/n8et4q"
+                  href={WA_SHORT_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.cardCta}
@@ -219,7 +220,7 @@ const ServicesGrid: React.FC = () => {
             </p>
           </div>
           <a
-            href="http://wa.link/n8et4q"
+            href={WA_SHORT_LINK}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.footerCta}
