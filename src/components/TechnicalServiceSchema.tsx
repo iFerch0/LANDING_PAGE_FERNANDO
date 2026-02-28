@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { PHONE_DISPLAY } from '@/constants/contact';
 
 interface TechnicalServiceSchemaProps {
   serviceName: string;
@@ -28,7 +29,7 @@ export default function TechnicalServiceSchema({
         description:
           'Servicio técnico especializado en computadores y portátiles en Montería, Córdoba',
         url: 'https://www.ferchotecnico.com',
-        telephone: '+573008474121',
+        telephone: PHONE_DISPLAY,
         email: 'contacto@ferchotecnico.com',
         address: {
           '@type': 'PostalAddress',
@@ -109,7 +110,7 @@ export default function TechnicalServiceSchema({
           '@type': 'Person',
           name: 'Fernando',
           jobTitle: 'Técnico en Computadores',
-          telephone: '+573008474121',
+          telephone: PHONE_DISPLAY,
           knowsAbout: [
             'Reparación Hardware',
             'Instalación Software',
@@ -131,7 +132,7 @@ export default function TechnicalServiceSchema({
       availableChannel: [
         {
           '@type': 'ServiceChannel',
-          servicePhone: '+573008474121',
+          servicePhone: PHONE_DISPLAY,
           serviceUrl: serviceUrl,
         },
       ],

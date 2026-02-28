@@ -4,16 +4,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { ChevronDown, QuestionCircleIcon } from './Icons';
 import { FAQ_ITEMS } from '@/data/faq';
 import styles from './Faq.module.css';
-
-function useResizeObserver(ref: React.RefObject<HTMLElement | null>, callback: () => void) {
-  useEffect(() => {
-    if (!ref.current) return;
-    if (typeof ResizeObserver === 'undefined') return;
-    const ro = new ResizeObserver(callback);
-    ro.observe(ref.current as Element);
-    return () => ro.disconnect();
-  }, [ref, callback]);
-}
+import { useResizeObserver } from '@/hooks/useResizeObserver';
 
 const FaqItem: React.FC<{
   id: string;

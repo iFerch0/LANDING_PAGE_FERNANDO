@@ -6,7 +6,6 @@ import BeforeAfterSlider from './BeforeAfterSlider';
 import styles from './SuccessCases.module.css';
 import { getWaLink } from '@/constants/contact';
 
-// Metric Component
 const Metric: React.FC<{ value: string; label: string; highlight?: boolean }> = ({
   value,
   label,
@@ -18,7 +17,6 @@ const Metric: React.FC<{ value: string; label: string; highlight?: boolean }> = 
   </div>
 );
 
-// Case Card Component for secondary cases
 const CaseCard: React.FC<{
   image: string;
   alt: string;

@@ -55,9 +55,11 @@ export const statsHeader = {
   subtitle: 'Más de 10 años sirviendo a Montería con soluciones técnicas profesionales',
 };
 
+import { WA_BASE_URL } from '@/constants/contact';
+
 export const statsCTA = {
   title: '¿Necesitas una solución similar?',
   description: 'Contáctanos hoy y únete a nuestros clientes satisfechos',
   buttonText: 'Solicitar diagnóstico',
-  buttonLink: 'https://wa.me/573008474121',
+  buttonLink: WA_BASE_URL,
 };

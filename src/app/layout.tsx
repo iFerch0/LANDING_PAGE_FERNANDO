@@ -1,4 +1,5 @@
 import ClientLayout from './ClientLayout';
+import { PHONE_DISPLAY } from '@/constants/contact';
 import type { Metadata } from 'next';
 import './globals.css';
 import LocalBusinessSchema from '@/components/LocalBusinessSchema';
@@ -42,8 +43,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Técnico en Computadores Montería | Servicio Técnico PC',
-    description:
-      'Fernando - Técnico especialista en reparación de computadores en Montería. Soporte técnico PC, mantenimiento, recuperación datos. Diagnóstico gratuito +573008474121',
+    description: `Fernando - Técnico especialista en reparación de computadores en Montería. Soporte técnico PC, mantenimiento, recuperación datos. Diagnóstico gratuito ${PHONE_DISPLAY}`,
     url: 'https://www.ferchotecnico.com',
     siteName: 'FerchoTécnico - Servicio Técnico Computadores Montería',
     images: [
@@ -60,8 +60,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Técnico Computadores Montería | Fernando',
-    description:
-      'Servicio técnico PC en Montería. Reparación, mantenimiento, soporte. Diagnóstico gratuito +573008474121',
+    description: `Servicio técnico PC en Montería. Reparación, mantenimiento, soporte. Diagnóstico gratuito ${PHONE_DISPLAY}`,
     images: ['https://www.ferchotecnico.com/hero-poster.jpg'],
   },
   robots: {
@@ -113,7 +112,7 @@ export default function RootLayout({
         <meta property="business:contact_data:region" content="Córdoba" />
         <meta property="business:contact_data:postal_code" content="230001" />
         <meta property="business:contact_data:country_name" content="Colombia" />
-        <meta property="business:contact_data:phone_number" content="+573008474121" />
+        <meta property="business:contact_data:phone_number" content={PHONE_DISPLAY} />
         <meta name="rating" content="5.0" />
         <meta name="price-range" content="$" />
         <meta name="availability" content="Lun-Vie 8AM-6PM, Sáb 8AM-2PM" />

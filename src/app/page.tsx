@@ -15,6 +15,7 @@ import Faq from '@/components/Faq';
 import CtaFinal from '@/components/CtaFinal';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
+import { PHONE_DISPLAY } from '@/constants/contact';
 
 export const metadata: Metadata = {
   title: 'Técnico en Computadores Montería | Servicio Técnico PC',
@@ -25,8 +26,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Técnico en Computadores Montería | Fernando',
-    description:
-      'Servicio técnico computadores Montería. Reparación PC, soporte técnico, mantenimiento. Diagnóstico gratuito +573008474121',
+    description: `Servicio técnico computadores Montería. Reparación PC, soporte técnico, mantenimiento. Diagnóstico gratuito ${PHONE_DISPLAY}`,
     url: 'https://www.ferchotecnico.com',
     type: 'website',
   },
@@ -38,48 +38,21 @@ export default function HomePage() {
       <FaqJsonLd />
       <Navbar />
       <main>
-        {/* Hero - Primera impresión con headline mejorado */}
         <div data-aos="fade-up">
           <Hero />
         </div>
-
-        {/* Features - Por qué elegirnos */}
         <Features />
-
-        {/* SuccessCases - Prueba visual con antes/después */}
         <SuccessCases />
-
-        {/* Process - Cómo funciona el servicio */}
         <Process />
-
-        {/* ServicesGrid - Qué ofrecemos */}
         <ServicesGrid />
-
-        {/* BusinessPlans - Planes empresariales */}
         <BusinessPlans />
-
-        {/* WebDevBanner - También desarrollo sitios web */}
         <WebDevBanner />
-
-        {/* Stats - Números que respaldan */}
         <Stats />
-
-        {/* TrustedBy - Tipos de clientes */}
         <TrustedBy />
-
-        {/* Testimonials - Reviews verificadas */}
         <Testimonials />
-
-        {/* AboutFernando - Credibilidad personal */}
         <AboutFernando />
-
-        {/* FAQ - Resolver objeciones */}
         <Faq />
-
-        {/* CTA Final - Último empujón */}
         <CtaFinal />
-
-        {/* ContactForm - Captura de leads */}
         <ContactForm />
       </main>
     </>

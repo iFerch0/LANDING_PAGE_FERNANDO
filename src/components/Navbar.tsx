@@ -6,7 +6,6 @@ import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { WA_SHORT_LINK } from '@/constants/contact';
 
-// Iconos SVG profesionales inline
 const Icons = {
   home: (
     <svg
@@ -197,7 +196,6 @@ const Icons = {
   ),
 };
 
-// Datos de navegación
 const navItems = [
   { id: 'inicio', label: 'Inicio', href: '/', icon: Icons.home },
   {
@@ -212,7 +210,6 @@ const navItems = [
   { id: 'contacto', label: 'Contacto', href: '#contacto', icon: Icons.contact },
 ];
 
-// Servicios del dropdown
 const serviceItems = [
   {
     icon: Icons.computer,

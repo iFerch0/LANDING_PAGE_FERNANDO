@@ -1,4 +1,5 @@
 import React from 'react';
+import { PHONE_DISPLAY } from '@/constants/contact';
 
 export default function LocalBusinessSchema() {
   const schemaData = {
@@ -20,7 +21,7 @@ export default function LocalBusinessSchema() {
       latitude: '8.7478',
       longitude: '-75.8895',
     },
-    telephone: '+573008474121',
+    telephone: PHONE_DISPLAY,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
