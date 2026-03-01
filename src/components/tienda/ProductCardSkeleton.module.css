@@ -1,0 +1,43 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--color-card-border);
+  height: 100%;
+}
+
+.image {
+  border-radius: 0;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10, 10px);
+  padding: 20px;
+  flex: 1;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6, 6px);
+  margin-top: var(--space-4, 4px);
+}
+
+.price {
+  margin-top: var(--space-8, 8px);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-8, 8px);
+  margin-top: var(--space-8, 8px);
+}
+
+.detailsBtn {
+  flex: 1;
+}

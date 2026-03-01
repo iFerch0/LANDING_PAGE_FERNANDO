@@ -1,7 +1,9 @@
+import { Suspense } from 'react';
 import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
 import TiendaPreview from '@/components/TiendaPreview';
+import { TiendaPreviewSkeleton } from '@/components/TiendaPreviewSkeleton';
 import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
@@ -42,7 +44,9 @@ export default function HomePage() {
         <div data-aos="fade-up">
           <Hero />
         </div>
-        <TiendaPreview />
+        <Suspense fallback={<TiendaPreviewSkeleton />}>
+          <TiendaPreview />
+        </Suspense>
         <Features />
         <SuccessCases />
         <Process />

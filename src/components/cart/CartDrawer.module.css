@@ -97,11 +97,48 @@
   justify-content: center;
   height: 100%;
   gap: 16px;
-  color: var(--text-secondary, #666);
+  color: var(--color-text-secondary);
+  text-align: center;
+  padding: 0 24px;
 }
 
 .emptyIcon {
-  opacity: 0.2;
+  opacity: 0.15;
+  color: var(--color-text-tertiary);
+}
+
+.emptyText {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.emptySubtext {
+  font-size: 0.8125rem;
+  color: var(--color-text-tertiary);
+  margin: -8px 0 0 0;
+}
+
+.emptyBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  margin-top: 8px;
+}
+
+.emptyBtn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+  color: white;
 }
 
 .itemList {
@@ -162,7 +199,7 @@
 .itemPrice {
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--brand-primary, #6c63ff);
+  color: var(--color-primary);
   margin-bottom: auto;
 }
 
@@ -240,7 +277,8 @@
 
 .totalPrice {
   font-size: 1.5rem;
-  color: var(--brand-primary, #6c63ff);
+  font-weight: 700;
+  color: var(--color-primary);
 }
 
 .disclaimer {
@@ -253,7 +291,54 @@
 .footerActions {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+}
+
+.keepShoppingBtn {
+  width: 100%;
+  padding: 11px 20px;
+  background: transparent;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-base, 8px);
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.keepShoppingBtn:hover {
+  border-color: var(--color-border-strong);
+  color: var(--color-text);
+  background: var(--color-secondary);
+}
+
+.checkoutBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  background: #25d366;
+  color: white;
+  border: none;
+  border-radius: var(--radius-base, 8px);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+.checkoutBtn:hover {
+  background: #22c55e;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+}
+
+.checkoutBtn:active {
+  transform: translateY(0);
 }
 
 @media (prefers-color-scheme: dark) {
