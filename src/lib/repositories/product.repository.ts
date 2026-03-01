@@ -57,7 +57,11 @@ export const productRepository = {
     if (status) query = query.eq('status', status);
     if (typeof minPrice === 'number') query = query.gte('price', minPrice);
     if (typeof maxPrice === 'number') query = query.lte('price', maxPrice);
-    if (search) query = query.ilike('title', `%${search}%`);
+    if (search) {
+      query = query.or(
+        `title.ilike.%${search}%,brand.ilike.%${search}%,description.ilike.%${search}%`
+      );
+    }
 
     const from = (page - 1) * pageSize;
     const to = from + pageSize - 1;
@@ -82,6 +86,20 @@ export const productRepository = {
     const { data, error } = await client
       .from('products')
       .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw new Error(`Error al obtener productos: ${error.message}`);
+    return data ?? [];
+  },
+
+  /** Obtiene múltiples productos por sus IDs (para página de favoritos) */
+  async findByIds(ids: string[]): Promise<Product[]> {
+    if (ids.length === 0) return [];
+    const client = assertSupabase();
+    const { data, error } = await client
+      .from('products')
+      .select('*')
+      .in('id', ids)
       .order('created_at', { ascending: false });
 
     if (error) throw new Error(`Error al obtener productos: ${error.message}`);

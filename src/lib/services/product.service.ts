@@ -69,6 +69,17 @@ export const productService = {
     }
   },
 
+  /** Obtiene productos por lista de IDs (favoritos) */
+  async getProductsByIds(ids: string[]): Promise<ServiceResult<Product[]>> {
+    if (!ids.length) return { success: true, data: [] };
+    try {
+      const data = await productRepository.findByIds(ids);
+      return { success: true, data };
+    } catch (err) {
+      return { success: false, error: toError(err) };
+    }
+  },
+
   /** Obtiene productos relacionados */
   async getRelatedProducts(
     category: string,

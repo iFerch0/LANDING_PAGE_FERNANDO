@@ -1029,8 +1029,7 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
           <p
             class="crossSellTitle"
           >
-            ¿Necesitas equipo?
-             
+            ¿Necesitas equipo? 
             <strong>
               Comprás en la tienda y lo reparamos si falla.
             </strong>

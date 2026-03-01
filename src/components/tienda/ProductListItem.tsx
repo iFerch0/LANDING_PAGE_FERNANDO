@@ -2,13 +2,12 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { useFavoritesStore } from '@/store';
 import type { Product } from '@/lib/types';
 import styles from './ProductListItem.module.css';
 
 interface ProductListItemProps {
   product: Product;
-  isFavorite?: boolean;
-  onToggleFavorite?: (productId: string) => void;
 }
 
 const STATUS_LABELS = {
@@ -18,18 +17,17 @@ const STATUS_LABELS = {
   exhibicion: '🏪 Exhibición',
 } as const;
 
-export function ProductListItem({
-  product,
-  isFavorite = false,
-  onToggleFavorite,
-}: ProductListItemProps) {
+export function ProductListItem({ product }: ProductListItemProps) {
   const hasImage = product.images && product.images.length > 0;
   const imageUrl = hasImage ? product.images[0] : '/placeholder-product.jpg';
+
+  const isProductFavorite = useFavoritesStore((state) => state.isFavorite(product.id));
+  const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
 
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    onToggleFavorite?.(product.id);
+    toggleFavorite(product.id);
   };
 
   const handleShare = async (e: React.MouseEvent, platform: 'whatsapp' | 'facebook' | 'copy') => {
@@ -86,22 +84,20 @@ export function ProductListItem({
           </div>
 
           <div className={styles.actions}>
-            {onToggleFavorite && (
-              <button
-                className={`${styles.actionBtn} ${isFavorite ? styles.isFavorite : ''}`}
-                onClick={handleFavoriteClick}
-                aria-label={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+            <button
+              className={`${styles.actionBtn} ${isProductFavorite ? styles.isFavorite : ''}`}
+              onClick={handleFavoriteClick}
+              aria-label={isProductFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill={isProductFavorite ? 'currentColor' : 'none'}
+                stroke="currentColor"
+                strokeWidth="2"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill={isFavorite ? 'currentColor' : 'none'}
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-                </svg>
-              </button>
-            )}
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </button>
             <button
               className={styles.actionBtn}
               onClick={(e) => handleShare(e, 'whatsapp')}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useFavoritesStore } from '@/store';
 import styles from './FavoriteButton.module.css';
 
 interface FavoriteButtonProps {
@@ -8,47 +8,13 @@ interface FavoriteButtonProps {
 }
 
 export function FavoriteButton({ productId }: FavoriteButtonProps) {
-  const [isFavorite, setIsFavorite] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('favoriteProducts');
-    if (saved) {
-      try {
-        const favorites = JSON.parse(saved) as string[];
-        setIsFavorite(favorites.includes(productId));
-      } catch {
-        // Error parsing
-      }
-    }
-  }, [productId]);
-
-  const toggleFavorite = () => {
-    const saved = localStorage.getItem('favoriteProducts');
-    let favorites: string[] = [];
-
-    if (saved) {
-      try {
-        favorites = JSON.parse(saved);
-      } catch {
-        favorites = [];
-      }
-    }
-
-    if (favorites.includes(productId)) {
-      favorites = favorites.filter((id) => id !== productId);
-      setIsFavorite(false);
-    } else {
-      favorites.push(productId);
-      setIsFavorite(true);
-    }
-
-    localStorage.setItem('favoriteProducts', JSON.stringify(favorites));
-  };
+  const isFavorite = useFavoritesStore((state) => state.isFavorite(productId));
+  const toggleFavorite = useFavoritesStore((state) => state.toggleFavorite);
 
   return (
     <button
       className={`${styles.button} ${isFavorite ? styles.active : ''}`}
-      onClick={toggleFavorite}
+      onClick={() => toggleFavorite(productId)}
       aria-label={isFavorite ? 'Quitar de favoritos' : 'Agregar a favoritos'}
     >
       <svg

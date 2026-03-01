@@ -20,8 +20,15 @@ export default async function TiendaPage({
   const page = typeof query.page === 'string' ? parseInt(query.page, 10) : 1;
   const search = typeof query.search === 'string' ? query.search : undefined;
   const category = typeof query.category === 'string' ? query.category : undefined;
+  const brand = typeof query.brand === 'string' ? query.brand : undefined;
+  const sort = typeof query.sort === 'string' ? query.sort : 'recent';
 
-  // Validar el estatus desde la URL
+  const minPriceRaw = typeof query.minPrice === 'string' ? parseInt(query.minPrice, 10) : NaN;
+  const maxPriceRaw = typeof query.maxPrice === 'string' ? parseInt(query.maxPrice, 10) : NaN;
+  const minPrice = !isNaN(minPriceRaw) && minPriceRaw >= 0 ? minPriceRaw : undefined;
+  const maxPrice = !isNaN(maxPriceRaw) && maxPriceRaw >= 0 ? maxPriceRaw : undefined;
+
+  // Validar estatus desde la URL
   let status: 'nuevo' | 'reacondicionado' | 'usado' | 'exhibicion' | undefined;
   if (
     typeof query.status === 'string' &&
@@ -30,23 +37,42 @@ export default async function TiendaPage({
     status = query.status as 'nuevo' | 'reacondicionado' | 'usado' | 'exhibicion';
   }
 
+  // Mapear sort → orderBy / orderDir
+  const sortMap: Record<
+    string,
+    { orderBy: 'created_at' | 'price' | 'views'; orderDir: 'asc' | 'desc' }
+  > = {
+    recent: { orderBy: 'created_at', orderDir: 'desc' },
+    'price-asc': { orderBy: 'price', orderDir: 'asc' },
+    'price-desc': { orderBy: 'price', orderDir: 'desc' },
+    popular: { orderBy: 'views', orderDir: 'desc' },
+  };
+  const { orderBy, orderDir } = sortMap[sort] ?? sortMap.recent;
+
   const filters = {
     page,
-    pageSize: 20, // Cantidad generosa p/ catálogos
+    pageSize: 20,
     search,
     category,
+    brand,
     status,
-    availability: true, // Por defecto mostrar lo disponible primero o filtrarlo
+    minPrice,
+    maxPrice,
+    orderBy,
+    orderDir,
   };
 
-  // Cargamos data directa del Service (Single Source of Truth) paralelamente
-  const [productsResult, catResult] = await Promise.all([
+  // Cargamos datos en paralelo (el servicio fuerza availability: true internamente)
+  const [productsResult, catResult, brandsResult] = await Promise.all([
     productService.getProducts(filters),
     productService.getCategories(),
+    productService.getBrands(),
   ]);
 
   const products = productsResult.success ? productsResult.data.data : [];
+  const total = productsResult.success ? productsResult.data.total : 0;
   const categoriesDb = catResult.success ? catResult.data : [];
+  const brandsDb = brandsResult.success ? brandsResult.data : [];
 
   return (
     <div className={styles.container}>
@@ -92,14 +118,14 @@ export default async function TiendaPage({
       <div className={styles.layout}>
         {/* Sidebar de Filtros Server->Client */}
         <aside className={styles.sidebar}>
-          <StoreFilters categories={categoriesDb} />
+          <StoreFilters categories={categoriesDb} brands={brandsDb} />
         </aside>
 
         {/* Grilla Principal */}
         <main className={styles.main}>
           <div className={styles.filtersWrapper}>
             <p className="text-sm text-gray-500 mb-4 font-medium">
-              Mostrando {products.length} productos
+              Mostrando {products.length} de {total} productos
             </p>
           </div>
 

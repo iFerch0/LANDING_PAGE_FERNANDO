@@ -109,6 +109,127 @@
   cursor: not-allowed;
 }
 
+/* ─── Price range ───────────────────────────────────────────────────────── */
+
+.priceRange {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.priceInput {
+  flex: 1;
+  min-width: 0;
+  padding: 0.625rem 0.75rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-primary, #1a1a2e);
+  background-color: var(--surface-primary, #ffffff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.15));
+  border-radius: var(--radius-md, 0.5rem);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.priceInput:focus {
+  outline: none;
+  border-color: var(--brand-primary, #6c63ff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary, #6c63ff) 20%, transparent);
+}
+
+.priceInput:disabled {
+  background-color: var(--surface-secondary, #f3f4f6);
+  color: var(--text-secondary, #6b7280);
+  cursor: not-allowed;
+}
+
+/* Quita las flechas de inputs numéricos */
+.priceInput::-webkit-outer-spin-button,
+.priceInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.priceInput[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.priceSep {
+  flex-shrink: 0;
+  color: var(--text-tertiary, #9ca3af);
+  font-size: 0.875rem;
+  line-height: 1;
+}
+
+/* ─── Availability toggle ────────────────────────────────────────────────── */
+
+.toggleLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Checkbox visualmente oculto, accesible por teclado */
+.toggleInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.toggleTrack {
+  position: relative;
+  display: inline-block;
+  width: 2.5rem;
+  height: 1.375rem;
+  background-color: var(--border, rgba(0, 0, 0, 0.2));
+  border-radius: 9999px;
+  flex-shrink: 0;
+  transition: background-color 0.2s ease;
+}
+
+.toggleTrack::after {
+  content: '';
+  position: absolute;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.toggleInput:checked + .toggleTrack {
+  background-color: #00c851;
+}
+
+.toggleInput:checked + .toggleTrack::after {
+  transform: translateX(1.125rem);
+}
+
+.toggleInput:focus-visible + .toggleTrack {
+  outline: 2px solid var(--brand-primary, #6c63ff);
+  outline-offset: 2px;
+}
+
+.toggleText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary, #1a1a2e);
+}
+
+/* ─── Loader ─────────────────────────────────────────────────────────────── */
+
 .loaderLine {
   position: absolute;
   top: 0;

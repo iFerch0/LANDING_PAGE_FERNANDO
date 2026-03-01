@@ -1,6 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { ProductCard } from '../ProductCard';
 import { useCartStore } from '@/store/cart';
+import { useFavoritesStore } from '@/store/favorites';
 import type { Product } from '@/lib/types';
 
 const mockProduct: Product = {
@@ -32,6 +33,7 @@ const mockProduct: Product = {
 
 beforeEach(() => {
   useCartStore.setState({ items: [] });
+  useFavoritesStore.setState({ ids: [] });
 });
 
 describe('ProductCard', () => {
@@ -105,12 +107,16 @@ describe('ProductCard', () => {
     expect(screen.getByText(mockProduct.category)).toBeInTheDocument();
   });
 
-  it('renderiza el botón de favoritos cuando se pasa onToggleFavorite', () => {
-    const onToggle = jest.fn();
-    render(<ProductCard product={mockProduct} onToggleFavorite={onToggle} />);
-    const favBtn = screen.getByRole('button', { name: /favoritos/i });
+  it('el botón de favoritos siempre se renderiza y togglea el store al hacer clic', () => {
+    render(<ProductCard product={mockProduct} />);
+    const favBtn = screen.getByRole('button', { name: /agregar a favoritos/i });
     expect(favBtn).toBeInTheDocument();
+
     fireEvent.click(favBtn);
-    expect(onToggle).toHaveBeenCalledWith(mockProduct.id);
+    expect(useFavoritesStore.getState().ids).toContain(mockProduct.id);
+
+    // Segundo clic — quita de favoritos
+    fireEvent.click(favBtn);
+    expect(useFavoritesStore.getState().ids).not.toContain(mockProduct.id);
   });
 });

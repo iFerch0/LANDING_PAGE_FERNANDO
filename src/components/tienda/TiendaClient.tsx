@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useMemo } from 'react';
 import type { Product } from '@/lib/types';
 import { ProductFilters } from './ProductFilters';
 import { ProductCard } from './ProductCard';
@@ -19,34 +19,10 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
   const [filteredProducts, setFilteredProducts] = useState<Product[]>(initialProducts);
   const [currentPage, setCurrentPage] = useState(1);
   const [viewMode, setViewMode] = useState<ViewMode>('grid');
-  const [favorites, setFavorites] = useState<string[]>([]);
-
-  // Cargar favoritos desde localStorage al montar
-  useEffect(() => {
-    const saved = localStorage.getItem('favoriteProducts');
-    if (saved) {
-      try {
-        setFavorites(JSON.parse(saved));
-      } catch (e) {
-        console.error('Error loading favorites:', e);
-      }
-    }
-  }, []);
-
-  // Guardar favoritos en localStorage
-  useEffect(() => {
-    localStorage.setItem('favoriteProducts', JSON.stringify(favorites));
-  }, [favorites]);
 
   const handleFilter = useCallback((filtered: Product[]) => {
     setFilteredProducts(filtered);
-    setCurrentPage(1); // Reset a página 1 cuando cambian los filtros
-  }, []);
-
-  const toggleFavorite = useCallback((productId: string) => {
-    setFavorites((prev) =>
-      prev.includes(productId) ? prev.filter((id) => id !== productId) : [...prev, productId]
-    );
+    setCurrentPage(1);
   }, []);
 
   // Paginación
@@ -148,23 +124,13 @@ export function TiendaClient({ initialProducts }: TiendaClientProps) {
       ) : viewMode === 'grid' ? (
         <div className={styles.grid}>
           {paginatedProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              isFavorite={favorites.includes(product.id)}
-              onToggleFavorite={toggleFavorite}
-            />
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
       ) : (
         <div className={styles.list}>
           {paginatedProducts.map((product) => (
-            <ProductListItem
-              key={product.id}
-              product={product}
-              isFavorite={favorites.includes(product.id)}
-              onToggleFavorite={toggleFavorite}
-            />
+            <ProductListItem key={product.id} product={product} />
           ))}
         </div>
       )}

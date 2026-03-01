@@ -4,6 +4,7 @@ import { Button, Card } from '@/components/ui';
 import { getProductWhatsAppLink } from '@/lib/utils';
 import { productService } from '@/lib/services/product.service';
 import { useCartStore } from '@/store';
+import { FavoriteButton } from '@/components/tienda/FavoriteButton';
 import type { Product } from '@/lib/types';
 import styles from './page.module.css';
 
@@ -64,6 +65,7 @@ export function ProductActions({ product }: ProductActionsProps) {
           </Button>
         </Card>
       )}
+      <FavoriteButton productId={product.id} />
     </>
   );
 }
