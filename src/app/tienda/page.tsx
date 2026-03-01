@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { productService } from '@/lib/services/product.service';
 import { ProductCard } from '@/components/tienda/ProductCard';
 import { StoreFilters } from '@/components/tienda/filters/StoreFilters';
@@ -51,12 +52,41 @@ export default async function TiendaPage({
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.title}>Tienda y Equipos</h1>
+          <span className={styles.overline}>FerchoTécnico Store</span>
+          <h1 className={styles.title}>Equipos y Tecnología</h1>
           <p className={styles.description}>
-            Computadores, componentes y repuestos garantizados. Revisados y optimizados para el
-            mejor rendimiento.
+            Computadores, componentes y repuestos revisados y garantizados. Cada equipo probado por
+            un técnico experto antes de la venta.
           </p>
+          <div className={styles.trustBadges}>
+            <span className={styles.trustBadge}>
+              <span aria-hidden="true">✅</span> Garantía técnica incluida
+            </span>
+            <span className={styles.trustBadge}>
+              <span aria-hidden="true">🔍</span> Revisado por experto
+            </span>
+            <span className={styles.trustBadge}>
+              <span aria-hidden="true">💬</span> Soporte post-venta
+            </span>
+          </div>
         </div>
+
+        {categoriesDb.length > 0 && (
+          <nav className={styles.categoryPills} aria-label="Filtrar por categoría">
+            <Link href="/tienda" className={`${styles.pill} ${!category ? styles.pillActive : ''}`}>
+              Todos
+            </Link>
+            {categoriesDb.map((cat) => (
+              <Link
+                key={cat}
+                href={`/tienda?category=${encodeURIComponent(cat)}`}
+                className={`${styles.pill} ${category === cat ? styles.pillActive : ''}`}
+              >
+                {cat}
+              </Link>
+            ))}
+          </nav>
+        )}
       </header>
 
       <div className={styles.layout}>

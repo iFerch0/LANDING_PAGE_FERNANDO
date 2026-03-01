@@ -192,13 +192,11 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
           </div>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
-          <Button
-            variant="secondary"
-            size="md"
+        <div className={styles.actions}>
+          <button
+            className={styles.cartIconBtn}
             onClick={handleQuickAdd}
             disabled={!product.availability}
-            style={{ width: 'auto' }}
             aria-label="Agregar al carrito"
           >
             <svg
@@ -215,9 +213,9 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
               <circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
             </svg>
-          </Button>
+          </button>
 
-          <Link href={`/tienda/${product.slug}`} style={{ flex: 1 }}>
+          <Link href={`/tienda/${product.slug}`} className={styles.detailsLink}>
             <Button size="md" fullWidth>
               Ver detalles
             </Button>

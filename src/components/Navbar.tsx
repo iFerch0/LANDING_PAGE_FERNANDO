@@ -199,6 +199,7 @@ const Icons = {
 };
 
 const navItems = [
+  { id: 'tienda', label: 'Tienda', href: '/tienda', icon: Icons.shoppingBag, isStore: true },
   { id: 'inicio', label: 'Inicio', href: '/', icon: Icons.home },
   {
     id: 'servicios',
@@ -207,8 +208,6 @@ const navItems = [
     icon: Icons.services,
     hasDropdown: true,
   },
-  { id: 'proceso', label: 'Proceso', href: '#proceso', icon: Icons.process },
-  { id: 'casos', label: 'Casos', href: '#casos', icon: Icons.cases },
   { id: 'contacto', label: 'Contacto', href: '#contacto', icon: Icons.contact },
 ];
 
@@ -432,7 +431,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   href={item.href}
-                  className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
+                  className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''} ${'isStore' in item && item.isStore ? styles.navLinkStore : ''}`}
                   onClick={(e) => handleNavClick(e, item.href, item.id)}
                   role="menuitem"
                 >

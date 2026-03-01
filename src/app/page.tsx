@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import FaqJsonLd from '@/components/FaqJsonLd';
 import Hero from '@/components/Hero';
+import TiendaPreview from '@/components/TiendaPreview';
 import Features from '@/components/Features';
 import SuccessCases from '@/components/SuccessCases';
 import Process from '@/components/Process';
@@ -41,6 +42,7 @@ export default function HomePage() {
         <div data-aos="fade-up">
           <Hero />
         </div>
+        <TiendaPreview />
         <Features />
         <SuccessCases />
         <Process />

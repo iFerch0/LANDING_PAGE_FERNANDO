@@ -287,11 +287,11 @@
 }
 
 .available {
-  color: #15803d;
+  color: var(--color-store-available, #16a34a);
 }
 
 .unavailable {
-  color: #b91c1c;
+  color: var(--color-store-unavailable, #dc2626);
 }
 
 .dot {
@@ -322,6 +322,45 @@
 
 .button:active {
   transform: translateY(0);
+}
+
+/* ── Actions bar ─────────────────────────────────────────────── */
+.actions {
+  display: flex;
+  gap: var(--space-8, 8px);
+  margin-top: var(--space-16, 16px);
+  align-items: stretch;
+}
+
+.cartIconBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--color-border, rgba(0, 0, 0, 0.1));
+  border-radius: var(--radius-base, 8px);
+  background: transparent;
+  color: var(--color-text-secondary, #555);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cartIconBtn:hover:not(:disabled) {
+  border-color: var(--color-store-available, #16a34a);
+  color: var(--color-store-available, #16a34a);
+  background: var(--color-store-available-subtle, rgba(22, 163, 74, 0.08));
+}
+
+.cartIconBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.detailsLink {
+  flex: 1;
+  display: flex;
 }
 
 @media (max-width: 768px) {

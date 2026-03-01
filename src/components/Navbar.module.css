@@ -198,6 +198,26 @@
   background: rgba(58, 110, 147, 0.15);
 }
 
+/* Tienda nav item — estilo diferenciado */
+.navLinkStore {
+  color: var(--color-store-available, #16a34a);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.navLinkStore .navIcon {
+  opacity: 1;
+}
+
+.navLinkStore:hover {
+  color: var(--color-store-cart-hover, #15803d);
+  background: var(--color-store-available-subtle, rgba(22, 163, 74, 0.1));
+}
+
+.navLinkStore.navLinkActive {
+  background: var(--color-store-available-subtle, rgba(22, 163, 74, 0.1));
+  color: var(--color-store-cart-hover, #15803d);
+}
+
 @media (prefers-color-scheme: dark) {
   .navLink:hover {
     background: rgba(255, 255, 255, 0.08);
@@ -432,7 +452,7 @@
   justify-content: center;
   gap: 8px;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--color-store-available, #16a34a) 0%, #15803d 100%);
   color: white;
   font-size: 14px;
   font-weight: 600;
@@ -442,7 +462,7 @@
   white-space: nowrap;
   flex-shrink: 0;
   box-shadow:
-    0 4px 12px rgba(102, 126, 234, 0.35),
+    0 4px 12px rgba(var(--color-store-available-rgb, 22, 163, 74), 0.35),
     0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -450,9 +470,9 @@
 .tiendaButton:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 8px 24px rgba(102, 126, 234, 0.45),
+    0 8px 24px rgba(var(--color-store-available-rgb, 22, 163, 74), 0.45),
     0 4px 8px rgba(0, 0, 0, 0.15);
-  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  background: linear-gradient(135deg, #15803d 0%, var(--color-store-available, #16a34a) 100%);
 }
 
 .tiendaButton:active {
