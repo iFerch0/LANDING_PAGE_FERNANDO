@@ -135,6 +135,7 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
             width={400}
             height={400}
             className={styles.image}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             placeholder="blur"
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/5+hHgAHggJ/PchI7wAAAABJRU5ErkJggg=="
           />

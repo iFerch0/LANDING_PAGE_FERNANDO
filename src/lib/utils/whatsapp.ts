@@ -32,10 +32,21 @@ export function getCustomWhatsAppLink(message: string): string {
   return `${WA_BASE_URL}?text=${encodeURIComponent(message)}`;
 }
 
+export interface CheckoutBuyerInfo {
+  name: string;
+  city: string;
+  paymentMethod: string;
+}
+
 /**
  * Genera el string para realizar un pedido desde el carrito de compras a WA.
+ * Si se pasan datos del comprador, el mensaje incluye nombre, ciudad y método de pago.
  */
-export function getCheckoutWhatsAppLink(items: CartItem[], total: number): string {
+export function getCheckoutWhatsAppLink(
+  items: CartItem[],
+  total: number,
+  buyer?: CheckoutBuyerInfo
+): string {
   let message = `Hola Fernando 👋 ¡Quiero realizar el siguiente pedido!\n\n*Resumen de mi carrito:*\n`;
 
   items.forEach((item, index) => {
@@ -45,6 +56,14 @@ export function getCheckoutWhatsAppLink(items: CartItem[], total: number): strin
   });
 
   message += `\n\n*Total a pagar: ${formatPrice(total)}* (sin envío)`;
+
+  if (buyer) {
+    message += `\n\n*Datos de entrega:*`;
+    message += `\n👤 Nombre: ${buyer.name}`;
+    message += `\n📍 Ciudad: ${buyer.city}`;
+    message += `\n💳 Pago: ${buyer.paymentMethod}`;
+  }
+
   message += `\n\n¿Me podrías confirmar disponibilidad y costo de envío por favor?`;
 
   return `${WA_BASE_URL}?text=${encodeURIComponent(message)}`;

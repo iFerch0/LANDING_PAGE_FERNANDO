@@ -4,7 +4,8 @@ import ServicesGrid from '../ServicesGrid';
 describe('ServicesGrid Component', () => {
   it('renders services title', () => {
     render(<ServicesGrid />);
-    expect(screen.getByText('¿Qué necesita tu computador?')).toBeInTheDocument();
+    // Title is split across elements: h2 + titleAccent span
+    expect(screen.getByRole('heading', { name: /qué necesita.*computador/i })).toBeInTheDocument();
   });
 
   it('renders service cards correctly', () => {

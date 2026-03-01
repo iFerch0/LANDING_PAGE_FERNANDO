@@ -1,5 +1,6 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { ProductCard } from '../ProductCard';
+import { useCartStore } from '@/store/cart';
 import type { Product } from '@/lib/types';
 
 const mockProduct: Product = {
@@ -29,6 +30,10 @@ const mockProduct: Product = {
   updated_at: new Date().toISOString(),
 };
 
+beforeEach(() => {
+  useCartStore.setState({ items: [] });
+});
+
 describe('ProductCard', () => {
   it('renders product information correctly', () => {
     render(<ProductCard product={mockProduct} />);
@@ -37,8 +42,8 @@ describe('ProductCard', () => {
 
   it('displays product price in COP format', () => {
     render(<ProductCard product={mockProduct} />);
+    // formatPrice renders as "$ 1.850.000" — no separate "COP" label in ProductCard
     expect(screen.getByText(/1\.850\.000/)).toBeInTheDocument();
-    expect(screen.getByText('COP')).toBeInTheDocument();
   });
 
   it('shows availability status', () => {
@@ -62,5 +67,50 @@ describe('ProductCard', () => {
     render(<ProductCard product={unavailableProduct} />);
     const agotadoElements = screen.getAllByText('Agotado');
     expect(agotadoElements.length).toBeGreaterThan(0);
+  });
+
+  it('agrega el producto al carrito al hacer clic en el botón de carrito', () => {
+    render(<ProductCard product={mockProduct} />);
+    const cartBtn = screen.getByRole('button', { name: /agregar al carrito/i });
+    fireEvent.click(cartBtn);
+
+    const { items } = useCartStore.getState();
+    expect(items).toHaveLength(1);
+    expect(items[0].product.id).toBe(mockProduct.id);
+  });
+
+  it('el botón de carrito está deshabilitado cuando el producto está agotado', () => {
+    const unavailableProduct = { ...mockProduct, availability: false };
+    render(<ProductCard product={unavailableProduct} />);
+    const cartBtn = screen.getByRole('button', { name: /agregar al carrito/i });
+    expect(cartBtn).toBeDisabled();
+  });
+
+  it('muestra los botones de compartir', () => {
+    render(<ProductCard product={mockProduct} />);
+    expect(screen.getByRole('button', { name: /compartir en whatsapp/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /compartir en facebook/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /copiar enlace/i })).toBeInTheDocument();
+  });
+
+  it('renderiza enlace a la página de detalle del producto', () => {
+    render(<ProductCard product={mockProduct} />);
+    const links = screen.getAllByRole('link');
+    const detailLinks = links.filter((l) => l.getAttribute('href')?.includes(mockProduct.slug));
+    expect(detailLinks.length).toBeGreaterThan(0);
+  });
+
+  it('muestra la categoría del producto', () => {
+    render(<ProductCard product={mockProduct} />);
+    expect(screen.getByText(mockProduct.category)).toBeInTheDocument();
+  });
+
+  it('renderiza el botón de favoritos cuando se pasa onToggleFavorite', () => {
+    const onToggle = jest.fn();
+    render(<ProductCard product={mockProduct} onToggleFavorite={onToggle} />);
+    const favBtn = screen.getByRole('button', { name: /favoritos/i });
+    expect(favBtn).toBeInTheDocument();
+    fireEvent.click(favBtn);
+    expect(onToggle).toHaveBeenCalledWith(mockProduct.id);
   });
 });

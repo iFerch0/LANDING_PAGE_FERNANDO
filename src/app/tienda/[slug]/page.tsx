@@ -129,6 +129,12 @@ export default async function ProductDetailsPage({ params }: ProductPageProps) {
             <span className={styles.currency}>COP</span>
           </div>
 
+          <div className={styles.trustBadges}>
+            <span className={styles.trustBadge}>✅ Revisado por experto</span>
+            <span className={styles.trustBadge}>🛡️ Garantía técnica</span>
+            <span className={styles.trustBadge}>💬 Soporte post-venta</span>
+          </div>
+
           <div className={styles.actions}>
             <ProductActions product={product} />
           </div>
@@ -186,6 +192,19 @@ export default async function ProductDetailsPage({ params }: ProductPageProps) {
             ))}
           </div>
         </section>
+      )}
+
+      {/* Sticky mobile CTA bar — visible only on mobile via CSS */}
+      {product.availability && (
+        <div className={styles.stickyBar}>
+          <div>
+            <p className={styles.stickyBarLabel}>Precio</p>
+            <p className={styles.stickyBarPrice}>{formatPrice(product.price)}</p>
+          </div>
+          <div className={styles.stickyBarActions}>
+            <ProductActions product={product} />
+          </div>
+        </div>
       )}
     </div>
   );

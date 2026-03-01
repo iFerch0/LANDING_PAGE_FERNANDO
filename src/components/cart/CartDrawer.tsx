@@ -5,7 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useCartStore } from '@/store';
 import { Badge } from '@/components/ui';
-import { formatPrice, getCheckoutWhatsAppLink } from '@/lib/utils';
+import { formatPrice } from '@/lib/utils';
+import { CheckoutModal } from './CheckoutModal';
 import styles from './CartDrawer.module.css';
 
 interface CartDrawerProps {
@@ -16,6 +17,7 @@ interface CartDrawerProps {
 export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   // Prevent hydration mismatch since store is persisted
   const [isMounted, setIsMounted] = useState(false);
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const cart = useCartStore();
 
   useEffect(() => {
@@ -39,14 +41,14 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const totalItems = cart.getTotalItems();
   const totalPrice = cart.getTotalPrice();
 
-  const handleCheckout = () => {
-    // Generate WhatsApp checkout message with all items
-    const link = getCheckoutWhatsAppLink(cart.items, totalPrice);
-    window.open(link, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <>
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        items={cart.items}
+        total={totalPrice}
+      />
       <div
         className={`${styles.overlay} ${isOpen ? styles.overlayOpen : ''}`}
         onClick={onClose}
@@ -126,6 +128,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       src={item.product.images?.[0] || '/logo.png'}
                       alt={item.product.title}
                       fill
+                      sizes="80px"
                       className={styles.itemImage}
                     />
                   </div>
@@ -194,7 +197,7 @@ export function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <button className={styles.keepShoppingBtn} onClick={onClose}>
                 Seguir comprando
               </button>
-              <button className={styles.checkoutBtn} onClick={handleCheckout}>
+              <button className={styles.checkoutBtn} onClick={() => setIsCheckoutOpen(true)}>
                 <svg
                   width="18"
                   height="18"

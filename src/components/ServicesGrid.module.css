@@ -788,6 +788,84 @@
   }
 }
 
+/* ── Cross-sell Tienda ───────────────────────────────────────────────── */
+
+.crossSell {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.75rem;
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.06) 0%, rgba(37, 99, 235, 0.04) 100%);
+  border: 1px solid rgba(22, 163, 74, 0.18);
+  border-radius: var(--radius-xl, 1rem);
+}
+
+.crossSellText {
+  flex: 1;
+}
+
+.crossSellEyebrow {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-store-available, #16a34a);
+  margin-bottom: 0.25rem;
+}
+
+.crossSellTitle {
+  font-size: 0.9375rem;
+  color: var(--color-text, #1a1a2e);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.crossSellTitle strong {
+  color: var(--color-store-available, #16a34a);
+}
+
+.crossSellCta {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--color-store-available, #16a34a);
+  color: #fff;
+  border-radius: var(--radius-md, 0.5rem);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25);
+  white-space: nowrap;
+}
+
+.crossSellCta:hover {
+  background: var(--color-store-cart-hover, #15803d);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(22, 163, 74, 0.35);
+}
+
+@media (max-width: 600px) {
+  .crossSell {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+  }
+
+  .crossSellCta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
 /* ── Reduced Motion ──────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {

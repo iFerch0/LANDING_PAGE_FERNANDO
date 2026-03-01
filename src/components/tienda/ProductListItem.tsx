@@ -65,6 +65,7 @@ export function ProductListItem({
             alt={product.title}
             width={200}
             height={200}
+            sizes="(max-width: 640px) 120px, 200px"
             className={styles.image}
           />
           {!product.availability && <div className={styles.outOfStock}>Agotado</div>}

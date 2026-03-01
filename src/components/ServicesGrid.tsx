@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { WrenchIcon, ClockIcon, CheckCircleIcon, WhatsAppIcon, QuestionCircleIcon } from './Icons';
 import styles from './ServicesGrid.module.css';
 import { WA_SHORT_LINK } from '@/constants/contact';
@@ -158,6 +159,34 @@ const ServicesGrid: React.FC = () => {
             <WhatsAppIcon size={18} />
             Cuéntame tu caso
           </a>
+        </div>
+
+        {/* Cross-sell — Tienda */}
+        <div className={styles.crossSell} data-aos="fade-up">
+          <div className={styles.crossSellText}>
+            <span className={styles.crossSellEyebrow}>También disponible</span>
+            <p className={styles.crossSellTitle}>
+              ¿Necesitas equipo? <strong>Comprás en la tienda y lo reparamos si falla.</strong>
+            </p>
+          </div>
+          <Link href="/tienda" className={styles.crossSellCta}>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <path d="M16 10a4 4 0 0 1-8 0" />
+            </svg>
+            Ver la tienda
+          </Link>
         </div>
       </div>
     </section>

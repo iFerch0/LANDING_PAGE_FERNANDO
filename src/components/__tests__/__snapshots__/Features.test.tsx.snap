@@ -39,75 +39,229 @@ exports[`Features Component matches snapshot 1`] = `
         class="bentoGrid"
       >
         <article
-          class="card"
+          class="heroBanner"
           data-aos="fade-up"
         >
           <div
-            class="cardHeader"
+            class="heroBannerTop"
           >
             <div
-              class="iconBox"
+              class="heroBannerContent"
             >
-              <svg
-                class="icon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
+              <div
+                class="heroBannerHeader"
               >
-                <path
-                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
+                <div
+                  class="iconBoxLg"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="iconLg"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    class="heroBannerTitle"
+                  >
+                    Servicio Completo
+                  </h3>
+                  <p
+                    class="heroBannerSub"
+                  >
+                    Taller profesional en Montería
+                  </p>
+                </div>
+                <span
+                  class="badgeFilled"
+                >
+                  Equipado
+                </span>
+              </div>
+              <p
+                class="heroBannerDesc"
+              >
+                Herramientas especializadas y repuestos de calidad para cualquier reparación. Diagnóstico gratuito, presupuesto claro, y sin sorpresas.
+              </p>
             </div>
-            <span
-              class="badge"
+            <ul
+              class="checklist"
             >
-              Equipado
-            </span>
+              <li
+                class="checkItem"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="checkIcon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>
+                  Diagnóstico gratuito sin compromiso
+                </span>
+              </li>
+              <li
+                class="checkItem"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="checkIcon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>
+                  Presupuesto claro antes de reparar
+                </span>
+              </li>
+              <li
+                class="checkItem"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="checkIcon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>
+                  Limpieza profunda incluida
+                </span>
+              </li>
+              <li
+                class="checkItem"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="checkIcon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>
+                  Pruebas de estrés post-reparación
+                </span>
+              </li>
+              <li
+                class="checkItem"
+              >
+                <svg
+                  aria-hidden="true"
+                  class="checkIcon"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span>
+                  Garantía escrita en cada servicio
+                </span>
+              </li>
+            </ul>
           </div>
           <div
-            class="cardContent"
-          >
-            <h3
-              class="cardTitle"
-            >
-              Servicio Completo
-            </h3>
-            <p
-              class="cardSubtitle"
-            >
-              Taller profesional
-            </p>
-            <p
-              class="cardDesc"
-            >
-              Herramientas especializadas y repuestos originales para cualquier reparación.
-            </p>
-          </div>
-          <div
-            class="cardFooter"
+            class="heroBannerMetrics"
           >
             <div
-              class="metric"
+              class="heroBannerMetric"
             >
               <span
-                class="metricValue"
+                class="hbMetricValue"
               >
                 100%
               </span>
               <span
-                class="metricLabel"
+                class="hbMetricLabel"
               >
-                Original
+                Repuestos originales
+              </span>
+            </div>
+            <div
+              class="hbDivider"
+            />
+            <div
+              class="heroBannerMetric"
+            >
+              <span
+                class="hbMetricValue"
+              >
+                500+
+              </span>
+              <span
+                class="hbMetricLabel"
+              >
+                Equipos reparados
+              </span>
+            </div>
+            <div
+              class="hbDivider"
+            />
+            <div
+              class="heroBannerMetric"
+            >
+              <span
+                class="hbMetricValue"
+              >
+                4.9★
+              </span>
+              <span
+                class="hbMetricLabel"
+              >
+                Valoración clientes
               </span>
             </div>
           </div>
+          <div
+            aria-hidden="true"
+            class="heroGlow"
+          />
         </article>
         <article
-          class="card"
+          class="card cardAccentBlue"
           data-aos="fade-up"
           data-aos-delay="100"
         >
@@ -115,9 +269,10 @@ exports[`Features Component matches snapshot 1`] = `
             class="cardHeader"
           >
             <div
-              class="iconBox"
+              class="iconBox iconBoxBlue"
             >
               <svg
+                aria-hidden="true"
                 class="icon"
                 fill="none"
                 stroke="currentColor"
@@ -132,51 +287,38 @@ exports[`Features Component matches snapshot 1`] = `
               </svg>
             </div>
             <span
-              class="badge badgeAccent"
+              class="badge badgeOrange"
             >
               Express
             </span>
           </div>
-          <div
-            class="cardContent"
+          <h3
+            class="cardTitle"
           >
-            <h3
-              class="cardTitle"
-            >
-              Atención Rápida
-            </h3>
-            <p
-              class="cardSubtitle"
-            >
-              Mismo día
-            </p>
-            <p
-              class="cardDesc"
-            >
-              Diagnóstico inmediato y solución clara. Mayoría de reparaciones el mismo día.
-            </p>
-          </div>
-          <div
-            class="cardFooter"
+            Atención Rápida
+          </h3>
+          <p
+            class="cardDesc"
           >
-            <div
-              class="metric"
+            Diagnóstico inmediato y solución clara. Mayoría de reparaciones el mismo día.
+          </p>
+          <div
+            class="cardMetric"
+          >
+            <span
+              class="cmValue"
             >
-              <span
-                class="metricValue"
-              >
-                &lt;2h
-              </span>
-              <span
-                class="metricLabel"
-              >
-                Respuesta
-              </span>
-            </div>
+              &lt;2h
+            </span>
+            <span
+              class="cmLabel"
+            >
+              Respuesta
+            </span>
           </div>
         </article>
         <article
-          class="card"
+          class="card cardAccentGreen"
           data-aos="fade-up"
           data-aos-delay="200"
         >
@@ -184,9 +326,10 @@ exports[`Features Component matches snapshot 1`] = `
             class="cardHeader"
           >
             <div
-              class="iconBox"
+              class="iconBox iconBoxGreen"
             >
               <svg
+                aria-hidden="true"
                 class="icon"
                 fill="none"
                 stroke="currentColor"
@@ -206,51 +349,38 @@ exports[`Features Component matches snapshot 1`] = `
               </svg>
             </div>
             <span
-              class="badge badgeSuccess"
+              class="badge badgeGreen"
             >
               Protegido
             </span>
           </div>
-          <div
-            class="cardContent"
+          <h3
+            class="cardTitle"
           >
-            <h3
-              class="cardTitle"
-            >
-              Garantía Total
-            </h3>
-            <p
-              class="cardSubtitle"
-            >
-              Trabajo respaldado
-            </p>
-            <p
-              class="cardDesc"
-            >
-              Garantía escrita en todas las reparaciones. Si vuelve el problema, lo arreglamos gratis.
-            </p>
-          </div>
-          <div
-            class="cardFooter"
+            Garantía Total
+          </h3>
+          <p
+            class="cardDesc"
           >
-            <div
-              class="metric"
+            Garantía escrita en todas las reparaciones. Si vuelve el problema, lo arreglamos gratis.
+          </p>
+          <div
+            class="cardMetric"
+          >
+            <span
+              class="cmValue"
             >
-              <span
-                class="metricValue"
-              >
-                30
-              </span>
-              <span
-                class="metricLabel"
-              >
-                Días
-              </span>
-            </div>
+              30
+            </span>
+            <span
+              class="cmLabel"
+            >
+              Días garantía
+            </span>
           </div>
         </article>
         <article
-          class="card"
+          class="card cardAccentTeal"
           data-aos="fade-up"
           data-aos-delay="300"
         >
@@ -258,13 +388,14 @@ exports[`Features Component matches snapshot 1`] = `
             class="cardHeader"
           >
             <div
-              class="iconBox"
+              class="iconBox iconBoxTeal"
             >
               <svg
+                aria-hidden="true"
                 class="icon"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="1.5"
+                stroke-width="2"
                 viewBox="0 0 24 24"
               >
                 <path
@@ -280,47 +411,34 @@ exports[`Features Component matches snapshot 1`] = `
               </svg>
             </div>
             <span
-              class="badge badgePrimary"
+              class="badge badgeTeal"
             >
               Presencial
             </span>
           </div>
-          <div
-            class="cardContent"
+          <h3
+            class="cardTitle"
           >
-            <h3
-              class="cardTitle"
-            >
-              Atención en Taller
-            </h3>
-            <p
-              class="cardSubtitle"
-            >
-              Montería, Córdoba
-            </p>
-            <p
-              class="cardDesc"
-            >
-              Trae tu equipo y lo diagnosticamos gratis. Horario: Lun-Vie 8AM-6PM, Sáb 8AM-2PM.
-            </p>
-          </div>
-          <div
-            class="cardFooter"
+            Atención en Taller
+          </h3>
+          <p
+            class="cardDesc"
           >
-            <div
-              class="metric"
+            Trae tu equipo y lo diagnosticamos gratis. Horario: Lun-Vie 8AM-6PM, Sáb 8AM-2PM.
+          </p>
+          <div
+            class="cardMetric"
+          >
+            <span
+              class="cmValue"
             >
-              <span
-                class="metricValue"
-              >
-                Lun-Sáb
-              </span>
-              <span
-                class="metricLabel"
-              >
-                Disponible
-              </span>
-            </div>
+              Lun-Sáb
+            </span>
+            <span
+              class="cmLabel"
+            >
+              Disponible
+            </span>
           </div>
         </article>
       </div>

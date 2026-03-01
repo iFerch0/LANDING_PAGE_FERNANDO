@@ -30,6 +30,7 @@ export function RelatedProducts({ products, currentProductId }: RelatedProductsP
                 alt={product.title}
                 width={200}
                 height={200}
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className={styles.image}
               />
               {!product.availability && <div className={styles.outOfStock}>Agotado</div>}

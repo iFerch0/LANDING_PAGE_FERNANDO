@@ -50,7 +50,50 @@ exports[`Navbar Component matches snapshot 1`] = `
           role="none"
         >
           <a
-            class="navLink navLinkActive"
+            class="navLink  navLinkStore"
+            href="/tienda"
+            role="menuitem"
+          >
+            <span
+              class="navIcon"
+            >
+              <svg
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="18"
+              >
+                <path
+                  d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+                />
+                <line
+                  x1="3"
+                  x2="21"
+                  y1="6"
+                  y2="6"
+                />
+                <path
+                  d="M16 10a4 4 0 0 1-8 0"
+                />
+              </svg>
+            </span>
+            <span
+              class="navText"
+            >
+              Tienda
+            </span>
+          </a>
+        </li>
+        <li
+          class="navItem "
+          role="none"
+        >
+          <a
+            class="navLink navLinkActive "
             href="/"
             role="menuitem"
           >
@@ -393,83 +436,7 @@ exports[`Navbar Component matches snapshot 1`] = `
           role="none"
         >
           <a
-            class="navLink "
-            href="#proceso"
-            role="menuitem"
-          >
-            <span
-              class="navIcon"
-            >
-              <svg
-                fill="none"
-                height="18"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="18"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <polyline
-                  points="12 6 12 12 16 14"
-                />
-              </svg>
-            </span>
-            <span
-              class="navText"
-            >
-              Proceso
-            </span>
-          </a>
-        </li>
-        <li
-          class="navItem "
-          role="none"
-        >
-          <a
-            class="navLink "
-            href="#casos"
-            role="menuitem"
-          >
-            <span
-              class="navIcon"
-            >
-              <svg
-                fill="none"
-                height="18"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="18"
-              >
-                <path
-                  d="M22 11.08V12a10 10 0 1 1-5.93-9.14"
-                />
-                <polyline
-                  points="22 4 12 14.01 9 11.01"
-                />
-              </svg>
-            </span>
-            <span
-              class="navText"
-            >
-              Casos
-            </span>
-          </a>
-        </li>
-        <li
-          class="navItem "
-          role="none"
-        >
-          <a
-            class="navLink "
+            class="navLink  "
             href="#contacto"
             role="menuitem"
           >
@@ -502,47 +469,48 @@ exports[`Navbar Component matches snapshot 1`] = `
       <div
         class="actions"
       >
+        <button
+          aria-label="Ver carrito"
+          class="cartBtn"
+        >
+          <svg
+            fill="none"
+            height="18"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="18"
+          >
+            <path
+              d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+            />
+            <line
+              x1="3"
+              x2="21"
+              y1="6"
+              y2="6"
+            />
+            <path
+              d="M16 10a4 4 0 0 1-8 0"
+            />
+          </svg>
+        </button>
         <a
           aria-label="Ver tienda de productos"
           class="tiendaButton"
           href="/tienda"
         >
           <span
-            class="tiendaIcon"
-          >
-            <svg
-              fill="none"
-              height="18"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="18"
-            >
-              <path
-                d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
-              />
-              <line
-                x1="3"
-                x2="21"
-                y1="6"
-                y2="6"
-              />
-              <path
-                d="M16 10a4 4 0 0 1-8 0"
-              />
-            </svg>
-          </span>
-          <span
             class="tiendaText"
           >
-            Ver Tienda
+            Tienda
           </span>
           <span
             class="tiendaBadge"
           >
-            Nuevo
+            Sale!
           </span>
         </a>
         <a
@@ -601,6 +569,119 @@ exports[`Navbar Component matches snapshot 1`] = `
       aria-hidden="true"
       class="overlay "
     />
+    <div
+      aria-hidden="true"
+      class="overlay "
+    />
+    <div
+      aria-label="Carrito de compras"
+      class="drawer "
+      role="dialog"
+    >
+      <div
+        class="header"
+      >
+        <div
+          class="headerTitle"
+        >
+          <svg
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <circle
+              cx="9"
+              cy="21"
+              r="1"
+            />
+            <circle
+              cx="20"
+              cy="21"
+              r="1"
+            />
+            <path
+              d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"
+            />
+          </svg>
+          <h2>
+            Tu Carrito
+          </h2>
+        </div>
+        <button
+          aria-label="Cerrar carrito"
+          class="closeBtn"
+        >
+          <svg
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+          >
+            <path
+              d="M18 6L6 18M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+      <div
+        class="body"
+      >
+        <div
+          class="emptyState"
+        >
+          <svg
+            aria-hidden="true"
+            class="emptyIcon"
+            fill="none"
+            height="56"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1"
+            viewBox="0 0 24 24"
+            width="56"
+          >
+            <path
+              d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"
+            />
+            <line
+              x1="3"
+              x2="21"
+              y1="6"
+              y2="6"
+            />
+            <path
+              d="M16 10a4 4 0 0 1-8 0"
+            />
+          </svg>
+          <p
+            class="emptyText"
+          >
+            Tu carrito está vacío
+          </p>
+          <p
+            class="emptySubtext"
+          >
+            Agrega equipos o accesorios desde la tienda
+          </p>
+          <a
+            class="emptyBtn"
+            href="/tienda"
+          >
+            Explorar la tienda
+          </a>
+        </div>
+      </div>
+    </div>
   </header>
 </div>
 `;
