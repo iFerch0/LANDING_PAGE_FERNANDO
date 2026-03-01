@@ -2,6 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Card, Badge, Button } from '@/components/ui';
+import { formatPrice } from '@/lib/utils';
+import { useCartStore } from '@/store';
 import type { Product } from '@/lib/types';
 import styles from './ProductCard.module.css';
 
@@ -61,8 +64,19 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
     }
   };
 
+  const addItemToCart = useCartStore((state) => state.addItem);
+
+  const handleQuickAdd = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    addItemToCart(product, 1);
+
+    // Dispatch custom event to update navbar visually if needed
+    window.dispatchEvent(new CustomEvent('cart-updated'));
+  };
+
   return (
-    <article className={styles.card}>
+    <Card className={styles.card} padding="none">
       {/* Botón de favoritos */}
       {onToggleFavorite && (
         <button
@@ -134,11 +148,23 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
 
       <div className={styles.content}>
         <div className={styles.badges}>
-          <span className={`${styles.badge} ${styles[product.status]}`}>
+          {/* Reemplazamos los divs manuales por Badges semánticas del sistema */}
+          <Badge
+            variant={
+              product.status === 'nuevo'
+                ? 'success'
+                : product.status === 'usado'
+                  ? 'warning'
+                  : 'primary'
+            }
+          >
             {STATUS_LABELS[product.status]}
-          </span>
+          </Badge>
+
           {product.stock <= 3 && product.stock > 0 && (
-            <span className={`${styles.badge} ${styles.lowStock}`}>⚠️ Últimas unidades</span>
+            <Badge variant="danger" dot>
+              ⚠️ Últimas unidades
+            </Badge>
           )}
         </div>
 
@@ -150,8 +176,7 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
 
         <div className={styles.footer}>
           <div className={styles.priceWrapper}>
-            <span className={styles.price}>${product.price.toLocaleString('es-CO')}</span>
-            <span className={styles.currency}>COP</span>
+            <span className={styles.price}>{formatPrice(product.price)}</span>
           </div>
 
           <div className={styles.availability}>
@@ -167,10 +192,38 @@ export function ProductCard({ product, isFavorite = false, onToggleFavorite }: P
           </div>
         </div>
 
-        <Link href={`/tienda/${product.slug}`} className={styles.button}>
-          Ver detalles
-        </Link>
+        <div style={{ display: 'flex', gap: '0.5rem', marginTop: '1rem' }}>
+          <Button
+            variant="secondary"
+            size="md"
+            onClick={handleQuickAdd}
+            disabled={!product.availability}
+            style={{ width: 'auto' }}
+            aria-label="Agregar al carrito"
+          >
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="9" cy="21" r="1" />
+              <circle cx="20" cy="21" r="1" />
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+            </svg>
+          </Button>
+
+          <Link href={`/tienda/${product.slug}`} style={{ flex: 1 }}>
+            <Button size="md" fullWidth>
+              Ver detalles
+            </Button>
+          </Link>
+        </div>
       </div>
-    </article>
+    </Card>
   );
 }

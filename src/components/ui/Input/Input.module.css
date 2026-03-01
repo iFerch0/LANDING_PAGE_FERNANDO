@@ -1,0 +1,96 @@
+/* src/components/ui/Input/Input.module.css */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  width: 100%;
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary, #1a1a2e);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  color: var(--text-primary, #1a1a2e);
+  background-color: var(--surface-primary, #ffffff);
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.15));
+  border-radius: var(--radius-md, 0.5rem);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--text-tertiary, #9ca3af);
+}
+
+.input.withLeftIcon {
+  padding-left: 2.5rem;
+}
+
+.input.withRightIcon {
+  padding-right: 2.5rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--brand-primary, #6c63ff);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-primary, #6c63ff) 20%, transparent);
+}
+
+.input:disabled {
+  background-color: var(--surface-secondary, #f3f4f6);
+  color: var(--text-secondary, #6b7280);
+  cursor: not-allowed;
+}
+
+.input.error {
+  border-color: var(--error, #dc2626);
+}
+
+.input.error:focus {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--error, #dc2626) 20%, transparent);
+}
+
+.leftIcon,
+.rightIcon {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary, #6b7280);
+  pointer-events: none;
+}
+
+.leftIcon {
+  left: 0.875rem;
+}
+
+.rightIcon {
+  right: 0.875rem;
+}
+
+.errorText {
+  font-size: 0.75rem;
+  color: var(--error, #dc2626);
+  margin: 0;
+}
+
+.helperText {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #6b7280);
+  margin: 0;
+}

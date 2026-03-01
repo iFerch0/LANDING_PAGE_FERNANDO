@@ -42,20 +42,30 @@ async function optimizeImage(inputPath, outputPath) {
       top = Math.round((metadata.height - cropHeight) / 2);
     }
 
+    // Formato JPEG de fallback
     await sharp(inputPath)
       .extract({ left, top, width: cropWidth, height: cropHeight })
       .resize(TARGET_WIDTH, TARGET_HEIGHT, {
         kernel: sharp.kernel.lanczos3,
         fit: 'fill',
       })
-      .jpeg({
-        quality: QUALITY,
-        progressive: true,
-        mozjpeg: true,
-      })
+      .jpeg({ quality: QUALITY, progressive: true })
       .toFile(outputPath);
 
-    console.log(`✅ Optimizada: ${path.basename(outputPath)} (${TARGET_WIDTH}x${TARGET_HEIGHT})`);
+    // Formato AVIF optimizado (nuevo standard principal)
+    const avifOutputPath = outputPath.replace(/\.[^/.]+$/, '.avif');
+    await sharp(inputPath)
+      .extract({ left, top, width: cropWidth, height: cropHeight })
+      .resize(TARGET_WIDTH, TARGET_HEIGHT, {
+        kernel: sharp.kernel.lanczos3,
+        fit: 'fill',
+      })
+      .avif({ quality: QUALITY - 10, effort: 4 }) // Avif permite más compresión con misma calidad visual
+      .toFile(avifOutputPath);
+
+    console.log(
+      `✅ Optimizada: ${path.basename(outputPath)} y .avif (${TARGET_WIDTH}x${TARGET_HEIGHT})`
+    );
   } catch (error) {
     console.error(`❌ Error procesando ${inputPath}:`, error.message);
   }

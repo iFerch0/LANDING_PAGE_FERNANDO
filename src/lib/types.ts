@@ -1,24 +1,7 @@
 // src/lib/types.ts
-export type ProductStatus = 'nuevo' | 'reacondicionado' | 'usado' | 'exhibicion';
+// DEPRECATED: Este archivo existe solo por compatibilidad con imports anteriores.
+// Los nuevos módulos deben importar desde '@/lib/types/index'
+// o directamente desde '@/lib/types/product.types' / '@/lib/types/common.types'
 
-export interface Product {
-  id: string;
-  title: string;
-  slug: string;
-  description: string;
-  price: number;
-  category: string;
-  brand?: string;
-  model?: string;
-  stock: number;
-  status: ProductStatus;
-  availability: boolean;
-  images: string[];
-  specs: Record<string, string>;
-  payment_methods: string[];
-  warranty?: string;
-  views: number;
-  whatsapp_clicks: number;
-  created_at: string;
-  updated_at: string;
-}
+export * from './types/product.types';
+export * from './types/common.types';

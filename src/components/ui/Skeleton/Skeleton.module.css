@@ -1,0 +1,31 @@
+/* src/components/ui/Skeleton/Skeleton.module.css */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-secondary, #f3f4f6) 25%,
+    var(--surface-hover, #e5e7eb) 50%,
+    var(--surface-secondary, #f3f4f6) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: var(--radius-sm, 0.375rem);
+  animation: shimmer 1.5s infinite linear;
+}
+
+.rounded {
+  border-radius: 9999px;
+}
+
+.square {
+  border-radius: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

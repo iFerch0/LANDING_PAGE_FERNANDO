@@ -1,0 +1,60 @@
+/* src/components/ui/Badge/Badge.module.css */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.625rem;
+  border-radius: 9999px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+/* ── Variantes ──────────────────────────── */
+
+.default {
+  background-color: var(--surface-secondary, #f3f4f6);
+  color: var(--text-secondary, #6b7280);
+}
+
+.primary {
+  background-color: color-mix(in srgb, var(--brand-primary, #6c63ff) 15%, transparent);
+  color: var(--brand-primary, #6c63ff);
+}
+
+.accent {
+  background-color: color-mix(in srgb, var(--brand-accent, #ff6584) 15%, transparent);
+  color: var(--brand-accent, #ff6584);
+}
+
+.success {
+  background-color: #dcfce7;
+  color: #16a34a;
+}
+
+.warning {
+  background-color: #fef9c3;
+  color: #a16207;
+}
+
+.danger {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.info {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+/* ── Dot ────────────────────────────────── */
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+  flex-shrink: 0;
+}

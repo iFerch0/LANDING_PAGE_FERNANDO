@@ -1,0 +1,136 @@
+/* src/components/ui/Button/Button.module.css */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-primary, inherit);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md, 0.5rem);
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    background-color 0.2s ease,
+    transform 0.15s ease,
+    opacity 0.2s ease,
+    box-shadow 0.2s ease;
+  white-space: nowrap;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--brand-primary, #6c63ff);
+  outline-offset: 3px;
+}
+
+.button:disabled,
+.button[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Variantes ──────────────────────────── */
+
+.primary {
+  background-color: var(--brand-primary, #6c63ff);
+  color: #fff;
+}
+.primary:hover {
+  background-color: var(--brand-primary-dark, #5a52d5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.35);
+}
+
+.secondary {
+  background-color: transparent;
+  color: var(--brand-primary, #6c63ff);
+  border: 2px solid var(--brand-primary, #6c63ff);
+}
+.secondary:hover {
+  background-color: var(--brand-primary, #6c63ff);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.accent {
+  background-color: var(--brand-accent, #ff6584);
+  color: #fff;
+}
+.accent:hover {
+  background-color: var(--brand-accent-dark, #e05570);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(255, 101, 132, 0.35);
+}
+
+.ghost {
+  background-color: transparent;
+  color: var(--text-primary, #1a1a2e);
+}
+.ghost:hover {
+  background-color: var(--surface-hover, rgba(0, 0, 0, 0.06));
+}
+
+.danger {
+  background-color: var(--error, #dc2626);
+  color: #fff;
+}
+.danger:hover {
+  background-color: #b91c1c;
+  transform: translateY(-1px);
+}
+
+/* ── Tamaños ────────────────────────────── */
+
+.sm {
+  padding: 0.375rem 0.875rem;
+  font-size: 0.8125rem;
+  border-radius: var(--radius-sm, 0.375rem);
+}
+
+.md {
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9375rem;
+}
+
+.lg {
+  padding: 0.875rem 1.75rem;
+  font-size: 1rem;
+}
+
+.xl {
+  padding: 1rem 2rem;
+  font-size: 1.0625rem;
+}
+
+/* ── Full width ─────────────────────────── */
+
+.fullWidth {
+  width: 100%;
+}
+
+/* ── Loading ────────────────────────────── */
+
+.loading {
+  pointer-events: none;
+}
+
+.spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.65s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

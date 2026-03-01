@@ -3,8 +3,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from './Navbar.module.css';
+import { useCartStore } from '@/store';
+import { CartDrawer } from '@/components/cart/CartDrawer';
 import { WA_SHORT_LINK } from '@/constants/contact';
+import styles from './Navbar.module.css';
 
 const Icons = {
   home: (
@@ -247,10 +249,28 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('inicio');
+  const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // Hydration sync for cart
+  const cartItems = useCartStore((state) => state.getTotalItems());
+  const [mounted, setMounted] = useState(false);
+
+  // Nuevo: detectar pathname para Next 15 (tienda page) y hash (landing page)
+  const pathname = typeof window !== 'undefined' ? window.location.pathname : '/';
+  const [activeSection, setActiveSection] = useState(pathname === '/tienda' ? 'tienda' : 'inicio');
+
+  // Evaluar pathname en cambio cliente (esto previene el state 'inicio' cuando navegamos a /tienda puro)
+  useEffect(() => {
+    if (pathname.startsWith('/tienda')) {
+      setActiveSection('tienda');
+    } else if (pathname === '/' && activeSection === 'tienda') {
+      setActiveSection('inicio');
+    }
+  }, [pathname, activeSection]);
 
   // Handle scroll effect
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -426,11 +446,20 @@ const Navbar = () => {
 
         {/* CTA Section */}
         <div className={styles.actions}>
+          {/* Cart Outline Button */}
+          <button
+            className={styles.cartBtn}
+            onClick={() => setIsCartOpen(true)}
+            aria-label="Ver carrito"
+          >
+            {Icons.shoppingBag}
+            {mounted && cartItems > 0 && <span className={styles.cartBadge}>{cartItems}</span>}
+          </button>
+
           {/* Tienda CTA */}
           <Link href="/tienda" className={styles.tiendaButton} aria-label="Ver tienda de productos">
-            <span className={styles.tiendaIcon}>{Icons.shoppingBag}</span>
-            <span className={styles.tiendaText}>Ver Tienda</span>
-            <span className={styles.tiendaBadge}>Nuevo</span>
+            <span className={styles.tiendaText}>Tienda</span>
+            <span className={styles.tiendaBadge}>Sale!</span>
           </Link>
 
           {/* WhatsApp CTA */}
@@ -467,6 +496,9 @@ const Navbar = () => {
         onClick={() => setIsMenuOpen(false)}
         aria-hidden="true"
       />
+
+      {/* Cart Drawer */}
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
     </header>
   );
 };

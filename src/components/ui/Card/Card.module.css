@@ -1,0 +1,51 @@
+/* src/components/ui/Card/Card.module.css */
+
+.card {
+  background-color: var(--surface-card, #ffffff);
+  border-radius: var(--radius-lg, 0.75rem);
+  overflow: hidden;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.bordered {
+  border: 1px solid var(--border, rgba(0, 0, 0, 0.08));
+}
+
+.elevated {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.elevated:hover {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+  transform: translateY(-2px);
+}
+
+.flat {
+  background-color: var(--surface-secondary, #f9fafb);
+}
+
+.glass {
+  background-color: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* ── Padding ────────────────────────────── */
+
+.p-none {
+  padding: 0;
+}
+
+.p-sm {
+  padding: 1rem;
+}
+
+.p-md {
+  padding: 1.5rem;
+}
+
+.p-lg {
+  padding: 2rem;
+}
