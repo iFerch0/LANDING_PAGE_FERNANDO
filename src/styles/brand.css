@@ -146,6 +146,31 @@
 
   /* Additional RGB references used by navbar/components */
   --color-teal-300-rgb: 50, 184, 198;
+
+  /* ── Tienda / Store Tokens ───────────────────────────────────────────── */
+  /* Disponibilidad */
+  --color-store-available: #16a34a;
+  --color-store-available-subtle: rgba(22, 163, 74, 0.1);
+  --color-store-available-rgb: 22, 163, 74;
+  --color-store-unavailable: #dc2626;
+  --color-store-unavailable-subtle: rgba(220, 38, 38, 0.1);
+  --color-store-low-stock: #d97706;
+  --color-store-low-stock-subtle: rgba(217, 119, 6, 0.1);
+
+  /* Badges de estado de producto */
+  --color-store-badge-nuevo: var(--color-primary);
+  --color-store-badge-nuevo-bg: var(--color-primary-subtle);
+  --color-store-badge-reacondicionado: #0891b2;
+  --color-store-badge-reacondicionado-bg: rgba(8, 145, 178, 0.1);
+  --color-store-badge-usado: var(--color-text-tertiary);
+  --color-store-badge-usado-bg: var(--color-secondary);
+  --color-store-badge-exhibicion: #7c3aed;
+  --color-store-badge-exhibicion-bg: rgba(124, 58, 237, 0.1);
+
+  /* Carrito */
+  --color-store-cart: var(--color-store-available);
+  --color-store-cart-hover: #15803d;
+  --color-store-cart-rgb: var(--color-store-available-rgb);
 }
 
 /* ── Dark Mode Overrides ─────────────────────────────────────────────── */
