@@ -14,7 +14,8 @@
       "Bash(ls:*)",
       "Bash(npm install:*)",
       "Bash(ngrok version:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(find:*)"
     ]
   }
 }

@@ -1,0 +1,40 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.headerSkeleton {
+  height: 180px;
+  border-radius: 8px;
+  background: var(--color-surface, #f1f5f9);
+  margin-bottom: 2rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 3rem 1.5rem;
+  }
+
+  .grid {
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}

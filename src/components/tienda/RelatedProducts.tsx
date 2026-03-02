@@ -5,6 +5,9 @@ import Image from 'next/image';
 import type { Product } from '@/lib/types';
 import styles from './RelatedProducts.module.css';
 
+const BLUR_DATA_URL =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
+
 interface RelatedProductsProps {
   products: Product[];
   currentProductId: string;
@@ -32,6 +35,8 @@ export function RelatedProducts({ products, currentProductId }: RelatedProductsP
                 height={200}
                 sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                 className={styles.image}
+                placeholder="blur"
+                blurDataURL={BLUR_DATA_URL}
               />
               {!product.availability && <div className={styles.outOfStock}>Agotado</div>}
             </div>

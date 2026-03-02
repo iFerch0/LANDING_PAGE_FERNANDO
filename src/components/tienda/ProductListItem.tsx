@@ -2,6 +2,9 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+
+const BLUR_DATA_URL =
+  'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
 import { useFavoritesStore } from '@/store';
 import type { Product } from '@/lib/types';
 import styles from './ProductListItem.module.css';
@@ -65,6 +68,8 @@ export function ProductListItem({ product }: ProductListItemProps) {
             height={200}
             sizes="(max-width: 640px) 120px, 200px"
             className={styles.image}
+            placeholder="blur"
+            blurDataURL={BLUR_DATA_URL}
           />
           {!product.availability && <div className={styles.outOfStock}>Agotado</div>}
         </div>

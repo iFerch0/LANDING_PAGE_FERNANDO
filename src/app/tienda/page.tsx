@@ -2,9 +2,12 @@ import Link from 'next/link';
 import { productService } from '@/lib/services/product.service';
 import { ProductCard } from '@/components/tienda/ProductCard';
 import { StoreFilters } from '@/components/tienda/filters/StoreFilters';
+import { Pagination } from '@/components/tienda/Pagination';
 import { EmptyState } from '@/components/ui';
 import type { Metadata } from 'next';
 import styles from './page.module.css';
+
+const PAGE_SIZE = 20;
 
 export const metadata: Metadata = {
   title: 'Tienda | Fernando Técnico',
@@ -51,7 +54,7 @@ export default async function TiendaPage({
 
   const filters = {
     page,
-    pageSize: 20,
+    pageSize: PAGE_SIZE,
     search,
     category,
     brand,
@@ -142,6 +145,10 @@ export default async function TiendaPage({
               </div>
             )}
           </section>
+
+          {total > PAGE_SIZE && (
+            <Pagination page={page} pageSize={PAGE_SIZE} total={total} searchParams={query} />
+          )}
         </main>
       </div>
     </div>
