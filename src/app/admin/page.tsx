@@ -16,13 +16,6 @@ const formatCOP = (amount: number) =>
     minimumFractionDigits: 0,
   }).format(amount);
 
-const STATUS_LABEL: Record<string, string> = {
-  pending: 'Pendiente',
-  paid: 'Pagado',
-  failed: 'Fallido',
-  cancelled: 'Cancelado',
-};
-
 export default function AdminDashboardPage() {
   const [products, setProducts] = useState<Product[]>([]);
   const [paidOrders, setPaidOrders] = useState<Order[]>([]);

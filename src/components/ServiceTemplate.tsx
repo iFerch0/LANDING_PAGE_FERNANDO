@@ -21,7 +21,6 @@ export default function ServiceTemplate(props: {
     image = '/hero-poster.jpg',
     cases = [],
     faqs = [],
-    canonical,
     serviceName,
   } = props;
 

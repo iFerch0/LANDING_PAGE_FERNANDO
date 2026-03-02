@@ -51,7 +51,7 @@ export const PhoneIcon: React.FC<IconProps> = ({ className, size = 18, title = '
   </svg>
 );
 
-export const SendIcon: React.FC<IconProps> = ({ className, size = 20, title = 'Enviar' }) => (
+export const SendIcon: React.FC<IconProps> = ({ className, size = 20 }) => (
   <svg
     className={className}
     width={size}
@@ -67,7 +67,7 @@ export const SendIcon: React.FC<IconProps> = ({ className, size = 20, title = 'E
   </svg>
 );
 
-export const MessageIcon: React.FC<IconProps> = ({ className, size = 28, title = 'Mensaje' }) => (
+export const MessageIcon: React.FC<IconProps> = ({ className, size = 28 }) => (
   <svg
     className={className}
     width={size}
@@ -157,7 +157,7 @@ export const ChevronRightIcon: React.FC<IconProps> = ({
 // Status & Trust
 // ============================================================================
 
-export const CheckCircleIcon: React.FC<IconProps> = ({ className, size, title = 'Verificado' }) => (
+export const CheckCircleIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -176,7 +176,7 @@ export const CheckCircleIcon: React.FC<IconProps> = ({ className, size, title = 
   </svg>
 );
 
-export const ShieldIcon: React.FC<IconProps> = ({ className, size, title = 'Garantía' }) => (
+export const ShieldIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -195,11 +195,7 @@ export const ShieldIcon: React.FC<IconProps> = ({ className, size, title = 'Gara
   </svg>
 );
 
-export const ShieldCheckIcon: React.FC<IconProps> = ({
-  className,
-  size,
-  title = 'Garantía verificada',
-}) => (
+export const ShieldCheckIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -219,7 +215,7 @@ export const ShieldCheckIcon: React.FC<IconProps> = ({
   </svg>
 );
 
-export const StarIcon: React.FC<IconProps> = ({ className, size, title = 'Estrella' }) => (
+export const StarIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -236,7 +232,7 @@ export const StarIcon: React.FC<IconProps> = ({ className, size, title = 'Estrel
 // Location & Time
 // ============================================================================
 
-export const MapPinIcon: React.FC<IconProps> = ({ className, size, title = 'Ubicación' }) => (
+export const MapPinIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -256,7 +252,7 @@ export const MapPinIcon: React.FC<IconProps> = ({ className, size, title = 'Ubic
   </svg>
 );
 
-export const ClockIcon: React.FC<IconProps> = ({ className, size, title = 'Tiempo' }) => (
+export const ClockIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -276,7 +272,7 @@ export const ClockIcon: React.FC<IconProps> = ({ className, size, title = 'Tiemp
 // Tools & Services
 // ============================================================================
 
-export const WrenchIcon: React.FC<IconProps> = ({ className, size, title = 'Herramienta' }) => (
+export const WrenchIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -295,7 +291,7 @@ export const WrenchIcon: React.FC<IconProps> = ({ className, size, title = 'Herr
   </svg>
 );
 
-export const ZapIcon: React.FC<IconProps> = ({ className, size, title = 'Rápido' }) => (
+export const ZapIcon: React.FC<IconProps> = ({ className, size }) => (
   <svg
     className={className}
     width={size}
@@ -314,11 +310,7 @@ export const ZapIcon: React.FC<IconProps> = ({ className, size, title = 'Rápido
   </svg>
 );
 
-export const DiagnosticIcon: React.FC<IconProps> = ({
-  className,
-  size = 28,
-  title = 'Diagnóstico',
-}) => (
+export const DiagnosticIcon: React.FC<IconProps> = ({ className, size = 28 }) => (
   <svg
     className={className}
     width={size}
@@ -339,7 +331,7 @@ export const DiagnosticIcon: React.FC<IconProps> = ({
   </svg>
 );
 
-export const RepairIcon: React.FC<IconProps> = ({ className, size = 28, title = 'Reparación' }) => (
+export const RepairIcon: React.FC<IconProps> = ({ className, size = 28 }) => (
   <svg
     className={className}
     width={size}
@@ -362,7 +354,7 @@ export const RepairIcon: React.FC<IconProps> = ({ className, size = 28, title = 
 // Users & Devices
 // ============================================================================
 
-export const UserIcon: React.FC<IconProps> = ({ className, size = 18, title = 'Usuario' }) => (
+export const UserIcon: React.FC<IconProps> = ({ className, size = 18 }) => (
   <svg
     className={className}
     width={size}
@@ -378,7 +370,7 @@ export const UserIcon: React.FC<IconProps> = ({ className, size = 18, title = 'U
   </svg>
 );
 
-export const DeviceIcon: React.FC<IconProps> = ({ className, size = 18, title = 'Equipo' }) => (
+export const DeviceIcon: React.FC<IconProps> = ({ className, size = 18 }) => (
   <svg
     className={className}
     width={size}
@@ -399,7 +391,7 @@ export const DeviceIcon: React.FC<IconProps> = ({ className, size = 18, title = 
 // Brand & Social
 // ============================================================================
 
-export const GoogleIcon: React.FC<IconProps> = ({ className, size = 20, title = 'Google' }) => (
+export const GoogleIcon: React.FC<IconProps> = ({ className, size = 20 }) => (
   <svg
     className={className}
     width={size}
@@ -427,11 +419,7 @@ export const GoogleIcon: React.FC<IconProps> = ({ className, size = 20, title = 
   </svg>
 );
 
-export const QuestionCircleIcon: React.FC<IconProps> = ({
-  className,
-  size = 20,
-  title = 'Pregunta',
-}) => (
+export const QuestionCircleIcon: React.FC<IconProps> = ({ className, size = 20 }) => (
   <svg
     className={className}
     width={size}

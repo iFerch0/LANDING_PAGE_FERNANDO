@@ -61,7 +61,7 @@ export default function AdminLoginPage() {
       } else {
         localStorage.removeItem('adminEmail');
       }
-    } catch (err) {
+    } catch {
       setError('Error de conexión. Por favor intenta de nuevo.');
       setLoading(false);
     }
