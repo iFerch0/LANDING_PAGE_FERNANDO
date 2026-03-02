@@ -3,12 +3,14 @@ import { CheckoutModal } from '../CheckoutModal';
 import type { CartItem } from '@/store/cart';
 import type { Product } from '@/lib/types';
 
-const mockWindowOpen = jest.fn();
-beforeAll(() => {
-  Object.defineProperty(window, 'open', { value: mockWindowOpen, writable: true });
-});
+// Mock del server action de Wompi
+const mockCreateOrderAndSign = jest.fn();
+jest.mock('@/app/tienda/checkout/actions', () => ({
+  createOrderAndSign: (...args: unknown[]) => mockCreateOrderAndSign(...args),
+}));
+
 beforeEach(() => {
-  mockWindowOpen.mockClear();
+  mockCreateOrderAndSign.mockClear();
 });
 
 const makeItem = (overrides: Partial<Product> = {}): CartItem => ({
@@ -44,11 +46,10 @@ const defaultProps = {
   total: 1_500_000,
 };
 
-const fillAndSubmit = (name = 'Juan García', city = 'Montería', payment = 'Contra-entrega') => {
-  fireEvent.change(screen.getByLabelText(/tu nombre/i), { target: { value: name } });
+const fillStep1 = (name = 'Juan García', email = 'juan@test.com', city = 'Montería') => {
+  fireEvent.change(screen.getByLabelText(/nombre completo/i), { target: { value: name } });
+  fireEvent.change(screen.getByLabelText(/correo electrónico/i), { target: { value: email } });
   fireEvent.change(screen.getByLabelText(/ciudad de entrega/i), { target: { value: city } });
-  fireEvent.click(screen.getByText(payment));
-  fireEvent.click(screen.getByRole('button', { name: /enviar pedido/i }));
 };
 
 describe('CheckoutModal', () => {
@@ -62,9 +63,9 @@ describe('CheckoutModal', () => {
     expect(screen.getByRole('dialog')).toBeInTheDocument();
   });
 
-  it('muestra el título del modal', () => {
+  it('muestra el título "Datos de entrega" en el paso 1', () => {
     render(<CheckoutModal {...defaultProps} />);
-    expect(screen.getByText('Confirmar pedido')).toBeInTheDocument();
+    expect(screen.getByText('Datos de entrega')).toBeInTheDocument();
   });
 
   it('muestra el resumen con 1 producto', () => {
@@ -87,36 +88,35 @@ describe('CheckoutModal', () => {
     expect(screen.getByText(/2 productos/)).toBeInTheDocument();
   });
 
-  it('renderiza los tres campos del formulario', () => {
+  it('renderiza los cuatro campos del formulario', () => {
     render(<CheckoutModal {...defaultProps} />);
-    expect(screen.getByLabelText(/tu nombre/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/nombre completo/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/correo electrónico/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/ciudad de entrega/i)).toBeInTheDocument();
-    expect(screen.getByText(/método de pago/i)).toBeInTheDocument();
+    // Phone field with optional label
+    expect(screen.getByLabelText(/teléfono/i)).toBeInTheDocument();
   });
 
-  it('renderiza las 4 opciones de pago', () => {
+  it('muestra el botón "Continuar al pago"', () => {
     render(<CheckoutModal {...defaultProps} />);
-    expect(screen.getByText('Contra-entrega')).toBeInTheDocument();
-    expect(screen.getByText('Nequi / Daviplata')).toBeInTheDocument();
-    expect(screen.getByText('Efectivo en taller')).toBeInTheDocument();
-    expect(screen.getByText('Transferencia bancaria')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /continuar al pago/i })).toBeInTheDocument();
   });
 
   it('muestra errores de validación al enviar vacío', async () => {
     render(<CheckoutModal {...defaultProps} />);
-    fireEvent.click(screen.getByRole('button', { name: /enviar pedido/i }));
+    fireEvent.click(screen.getByRole('button', { name: /continuar al pago/i }));
 
     await waitFor(() => {
-      expect(screen.getByText('Ingresa tu nombre')).toBeInTheDocument();
-      expect(screen.getByText('Ingresa tu ciudad')).toBeInTheDocument();
-      expect(screen.getByText('Selecciona un método de pago')).toBeInTheDocument();
+      expect(screen.getByText(/nombre debe tener/i)).toBeInTheDocument();
+      expect(screen.getByText(/email válido/i)).toBeInTheDocument();
+      expect(screen.getByText(/ciudad debe tener/i)).toBeInTheDocument();
     });
   });
 
-  it('no abre WA si el formulario está incompleto', async () => {
+  it('no llama al server action si el formulario está incompleto', async () => {
     render(<CheckoutModal {...defaultProps} />);
-    fireEvent.click(screen.getByRole('button', { name: /enviar pedido/i }));
-    await waitFor(() => expect(mockWindowOpen).not.toHaveBeenCalled());
+    fireEvent.click(screen.getByRole('button', { name: /continuar al pago/i }));
+    await waitFor(() => expect(mockCreateOrderAndSign).not.toHaveBeenCalled());
   });
 
   it('cierra el modal al hacer clic en el botón X', () => {
@@ -133,28 +133,58 @@ describe('CheckoutModal', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it('abre WA al enviar formulario completo', async () => {
+  it('llama a createOrderAndSign al enviar formulario completo', async () => {
+    mockCreateOrderAndSign.mockResolvedValue({
+      reference: 'FT-test-123',
+      amountInCents: 150000000,
+      publicKey: 'pub_test_xxx',
+      signature: 'sha256hash',
+      acceptanceToken: 'token',
+      redirectUrl: 'http://localhost:3000/tienda/pedido?ref=FT-test-123',
+    });
+
     render(<CheckoutModal {...defaultProps} />);
-    fillAndSubmit('Juan García', 'Montería', 'Nequi / Daviplata');
+    fillStep1();
+    fireEvent.click(screen.getByRole('button', { name: /continuar al pago/i }));
 
     await waitFor(() => {
-      expect(mockWindowOpen).toHaveBeenCalledTimes(1);
-      const [url, target] = mockWindowOpen.mock.calls[0];
-      expect(url).toContain('wa.me');
-      expect(decodeURIComponent(url)).toContain('Juan García');
-      expect(decodeURIComponent(url)).toContain('Montería');
-      expect(decodeURIComponent(url)).toContain('Nequi / Daviplata');
-      expect(target).toBe('_blank');
+      expect(mockCreateOrderAndSign).toHaveBeenCalledTimes(1);
+      const [formData] = mockCreateOrderAndSign.mock.calls[0];
+      expect(formData.name).toBe('Juan García');
+      expect(formData.email).toBe('juan@test.com');
+      expect(formData.city).toBe('Montería');
     });
   });
 
-  it('llama a onClose después de enviar el pedido', async () => {
-    const onClose = jest.fn();
-    render(<CheckoutModal {...defaultProps} onClose={onClose} />);
-    fillAndSubmit();
+  it('avanza al paso 2 cuando createOrderAndSign resuelve correctamente', async () => {
+    mockCreateOrderAndSign.mockResolvedValue({
+      reference: 'FT-test-123',
+      amountInCents: 150000000,
+      publicKey: 'pub_test_xxx',
+      signature: 'sha256hash',
+      acceptanceToken: 'token',
+      redirectUrl: 'http://localhost:3000/tienda/pedido?ref=FT-test-123',
+    });
+
+    render(<CheckoutModal {...defaultProps} />);
+    fillStep1();
+    fireEvent.click(screen.getByRole('button', { name: /continuar al pago/i }));
 
     await waitFor(() => {
-      expect(onClose).toHaveBeenCalled();
+      expect(screen.getByText('Completar pago')).toBeInTheDocument();
+      expect(screen.getByText(/Ref: FT-test-123/)).toBeInTheDocument();
+    });
+  });
+
+  it('muestra error del servidor si createOrderAndSign lanza una excepción', async () => {
+    mockCreateOrderAndSign.mockRejectedValue(new Error('Error de red'));
+
+    render(<CheckoutModal {...defaultProps} />);
+    fillStep1();
+    fireEvent.click(screen.getByRole('button', { name: /continuar al pago/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/error al procesar tu pedido/i)).toBeInTheDocument();
     });
   });
 });

@@ -10,6 +10,10 @@ const customJestConfig = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jest-environment-jsdom',
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
+  // Mapeo de alias @/* para jest.mock() — SWC ya lo maneja para imports normales
+  moduleNameMapper: {
+    '^@/(.*)$': '<rootDir>/src/$1',
+  },
   collectCoverageFrom: [
     // Utils puros (100% testeable sin deps externas)
     'src/lib/utils/**/*.{ts,tsx}',

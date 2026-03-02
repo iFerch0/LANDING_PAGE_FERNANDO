@@ -320,7 +320,7 @@
   justify-content: center;
   gap: 8px;
   padding: 13px 20px;
-  background: #25d366;
+  background: #00c851;
   color: white;
   border: none;
   border-radius: var(--radius-base, 8px);
@@ -328,13 +328,13 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 200, 81, 0.3);
 }
 
 .checkoutBtn:hover {
-  background: #22c55e;
+  background: #00b348;
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 6px 16px rgba(0, 200, 81, 0.4);
 }
 
 .checkoutBtn:active {

@@ -3,3 +3,4 @@
 
 export * from './product.types';
 export * from './common.types';
+export * from './order.types';

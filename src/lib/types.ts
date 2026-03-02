@@ -5,3 +5,4 @@
 
 export * from './types/product.types';
 export * from './types/common.types';
+export * from './types/order.types';

@@ -56,7 +56,7 @@
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md, 0.5rem);
-  background: #25d366;
+  background: #00c851;
   color: #fff;
   display: flex;
   align-items: center;
@@ -230,7 +230,7 @@
   height: 50px;
   padding: 0 1.5rem;
   margin-top: 0.25rem;
-  background: #25d366;
+  background: #00c851;
   color: #fff;
   border: none;
   border-radius: var(--radius-md, 0.5rem);
@@ -241,16 +241,22 @@
     background 0.2s,
     transform 0.1s,
     box-shadow 0.2s;
-  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+  box-shadow: 0 4px 14px rgba(0, 200, 81, 0.35);
 }
 
 .submitBtn:hover {
-  background: #1ebe5d;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  background: #00b348;
+  box-shadow: 0 6px 20px rgba(0, 200, 81, 0.45);
 }
 
 .submitBtn:active {
   transform: scale(0.98);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
 }
 
 /* Disclaimer */
@@ -260,6 +266,154 @@
   color: var(--text-tertiary, #9ca3af);
   text-align: center;
   line-height: 1.5;
+}
+
+/* ── Nuevos estilos Fase 6 ── */
+
+/* Indicador de pasos */
+.steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 1.25rem;
+}
+
+.stepDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border, rgba(0, 0, 0, 0.15));
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.stepDotActive {
+  background: #00c851;
+}
+
+.stepLine {
+  flex: 1;
+  height: 2px;
+  background: var(--color-border, rgba(0, 0, 0, 0.1));
+}
+
+/* Label opcional */
+.optional {
+  font-weight: 400;
+  color: var(--text-tertiary, #9ca3af);
+}
+
+/* Error del servidor */
+.serverError {
+  font-size: 0.8125rem;
+  color: #ef4444;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md, 0.5rem);
+  padding: 0.625rem 0.875rem;
+  margin: 0;
+}
+
+/* Loading dentro del botón */
+.loadingPayment {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.spinnerSmall {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Paso 2 */
+.step2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+/* Lista compacta de items en paso 2 */
+.summaryItems {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.summaryItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--color-border, rgba(0, 0, 0, 0.06));
+}
+
+.summaryItem:last-child {
+  border-bottom: none;
+}
+
+.summaryItemName {
+  color: var(--text-primary, #1a1a2e);
+  font-weight: 500;
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.summaryItemQty {
+  color: var(--text-secondary, #6b7280);
+  font-weight: 400;
+}
+
+.summaryItemPrice {
+  font-weight: 600;
+  color: var(--text-primary, #1a1a2e);
+  white-space: nowrap;
+}
+
+/* Contenedor del widget de Wompi */
+.wompiContainer {
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botón volver al paso 1 */
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: none;
+  border: none;
+  font-size: 0.8125rem;
+  color: var(--text-secondary, #6b7280);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+  align-self: flex-start;
+}
+
+.backBtn:hover {
+  color: var(--text-primary, #1a1a2e);
 }
 
 @media (max-width: 480px) {

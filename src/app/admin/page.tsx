@@ -1,21 +1,42 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { AdminLayout } from '@/components/admin/AdminLayout';
 import { AuthGuard } from '@/components/admin/AuthGuard';
 import { getAllProducts } from '@/lib/db';
-import type { Product } from '@/lib/types';
+import { getOrders } from './pedidos/actions';
+import type { Product, Order } from '@/lib/types';
 import styles from './page.module.css';
+
+const formatCOP = (amount: number) =>
+  new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    minimumFractionDigits: 0,
+  }).format(amount);
+
+const STATUS_LABEL: Record<string, string> = {
+  pending: 'Pendiente',
+  paid: 'Pagado',
+  failed: 'Fallido',
+  cancelled: 'Cancelado',
+};
 
 export default function AdminDashboardPage() {
   const [products, setProducts] = useState<Product[]>([]);
+  const [paidOrders, setPaidOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const productsData = await getAllProducts();
+        const [productsData, ordersData] = await Promise.all([
+          getAllProducts(),
+          getOrders('paid', 50),
+        ]);
         setProducts(productsData);
+        setPaidOrders(ordersData);
       } catch (error) {
         console.error('Error loading data:', error);
       } finally {
@@ -25,6 +46,18 @@ export default function AdminDashboardPage() {
 
     loadData();
   }, []);
+
+  // Ventas del mes actual
+  const now = new Date();
+  const salesThisMonth = paidOrders
+    .filter((o) => {
+      const d = new Date(o.createdAt);
+      return d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth();
+    })
+    .reduce((sum, o) => sum + o.total, 0);
+
+  // Últimos 5 pedidos pagados
+  const recentPaidOrders = paidOrders.slice(0, 5);
 
   const totalProducts = products.length;
   const availableProducts = products.filter((p) => p.availability).length;
@@ -55,6 +88,18 @@ export default function AdminDashboardPage() {
       ),
       color: '#10b981',
       bgColor: '#d1fae5',
+    },
+    {
+      name: 'Ventas del mes',
+      value: salesThisMonth > 0 ? `$${(salesThisMonth / 1000000).toFixed(1)}M` : '$0',
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+          <line x1="1" y1="10" x2="23" y2="10" />
+        </svg>
+      ),
+      color: '#00c851',
+      bgColor: '#dcfce7',
     },
     {
       name: 'Valor Inventario',
@@ -128,6 +173,55 @@ export default function AdminDashboardPage() {
 
               {/* Content Grid */}
               <div className={styles.contentGrid}>
+                {/* Pedidos recientes pagados */}
+                <div className={styles.card}>
+                  <h2 className={styles.cardTitle}>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      style={{ color: '#00c851' }}
+                    >
+                      <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+                      <line x1="1" y1="10" x2="23" y2="10" />
+                    </svg>
+                    Pedidos Recientes
+                  </h2>
+                  <div className={styles.productList}>
+                    {recentPaidOrders.length === 0 ? (
+                      <p className={styles.emptyText}>No hay pedidos pagados aún</p>
+                    ) : (
+                      recentPaidOrders.map((order) => (
+                        <div key={order.id} className={styles.productItem}>
+                          <div className={styles.productInfo}>
+                            <p className={styles.productName}>{order.buyerName}</p>
+                            <p className={styles.productMeta}>{order.reference}</p>
+                          </div>
+                          <div className={styles.productPrice}>{formatCOP(order.total)}</div>
+                        </div>
+                      ))
+                    )}
+                  </div>
+                  {recentPaidOrders.length > 0 && (
+                    <Link
+                      href="/admin/pedidos"
+                      style={{
+                        display: 'block',
+                        marginTop: '1rem',
+                        fontSize: '0.8125rem',
+                        color: '#667eea',
+                        textDecoration: 'none',
+                        textAlign: 'center',
+                      }}
+                    >
+                      Ver todos los pedidos →
+                    </Link>
+                  )}
+                </div>
+
                 {/* Recent Products */}
                 <div className={styles.card}>
                   <h2 className={styles.cardTitle}>Productos Recientes</h2>
