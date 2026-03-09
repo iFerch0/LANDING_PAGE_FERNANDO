@@ -21,7 +21,6 @@ const ChevronRightIcon = ({ className }: { className?: string }) => (
 const HeroSliderStatic: React.FC = () => {
   const slides = HERO_SLIDES;
   const [current, setCurrent] = useState(0);
-  const [isLoaded, setIsLoaded] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [progressKey, setProgressKey] = useState(0);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
@@ -44,28 +43,6 @@ const HeroSliderStatic: React.FC = () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
   }, [isPaused, slides.length]);
-
-  // Preload images
-  useEffect(() => {
-    const preload = async () => {
-      try {
-        await Promise.all(
-          slides.map((slide) => {
-            return new Promise((resolve, reject) => {
-              const img = new window.Image();
-              img.onload = resolve;
-              img.onerror = reject;
-              img.src = slide.src;
-            });
-          })
-        );
-      } catch {
-        // Continue anyway
-      }
-      setIsLoaded(true);
-    };
-    preload();
-  }, [slides]);
 
   const goTo = useCallback((index: number) => {
     setCurrent(index);
@@ -111,15 +88,7 @@ const HeroSliderStatic: React.FC = () => {
     return () => window.removeEventListener('keydown', handleKey);
   }, [prev, next]);
 
-  if (!isLoaded) {
-    return (
-      <div className={styles.slider}>
-        <div className={styles.loading}>
-          <div className={styles.skeleton} />
-        </div>
-      </div>
-    );
-  }
+  // Removing artificial loading state to improve LCP
 
   return (
     <div

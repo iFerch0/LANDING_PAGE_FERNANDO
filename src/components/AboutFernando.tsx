@@ -89,7 +89,7 @@ const AboutFernando: React.FC = () => {
 
             {/* CTA */}
             <a
-              href="https://wa.me/573015218139?text=Hola%20Fernando%2C%20quiero%20hablar%20sobre%20mi%20proyecto"
+              href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%20Fernando%2C%20quiero%20hablar%20sobre%20mi%20proyecto"
               className={styles.cta}
               target="_blank"
               rel="noopener noreferrer"
