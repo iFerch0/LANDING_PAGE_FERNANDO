@@ -36,7 +36,7 @@ const Icons = {
       <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
     </svg>
   ),
-  process: (
+  starOutline: (
     <svg
       width="18"
       height="18"
@@ -47,11 +47,10 @@ const Icons = {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
+      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
     </svg>
   ),
-  cases: (
+  user: (
     <svg
       width="18"
       height="18"
@@ -62,8 +61,8 @@ const Icons = {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-      <polyline points="22 4 12 14.01 9 11.01" />
+      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
     </svg>
   ),
   contact: (
@@ -199,56 +198,15 @@ const Icons = {
 // Datos de navegación
 const navItems = [
   { id: 'inicio', label: 'Inicio', href: '/', icon: Icons.home },
-  {
-    id: 'servicios',
-    label: 'Servicios',
-    href: '#servicios',
-    icon: Icons.services,
-    hasDropdown: true,
-  },
-  { id: 'proceso', label: 'Proceso', href: '#proceso', icon: Icons.process },
-  { id: 'casos', label: 'Casos', href: '#casos', icon: Icons.cases },
+  { id: 'servicios', label: 'Servicios', href: '#servicios', icon: Icons.services },
+  { id: 'testimonios', label: 'Testimonios', href: '#testimonios', icon: Icons.starOutline },
+  { id: 'sobre-mi', label: 'Sobre mí', href: '#sobre-mi', icon: Icons.user },
   { id: 'contacto', label: 'Contacto', href: '#contacto', icon: Icons.contact },
-];
-
-// Servicios del dropdown
-const serviceItems = [
-  {
-    icon: Icons.computer,
-    title: 'Reparación de PCs',
-    desc: 'Diagnóstico y solución de problemas',
-    href: '#servicios',
-  },
-  {
-    icon: Icons.laptop,
-    title: 'Mantenimiento',
-    desc: 'Limpieza y optimización preventiva',
-    href: '#servicios',
-  },
-  {
-    icon: Icons.shield,
-    title: 'Eliminación de Virus',
-    desc: 'Protección y limpieza de malware',
-    href: '#servicios',
-  },
-  {
-    icon: Icons.zap,
-    title: 'Formateo Windows',
-    desc: 'Instalación limpia del sistema',
-    href: '#servicios',
-  },
-  {
-    icon: Icons.database,
-    title: 'Recuperación de Datos',
-    desc: 'Rescate de archivos perdidos',
-    href: '#servicios',
-  },
 ];
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
 
   // Handle scroll effect
@@ -261,19 +219,11 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close dropdown when menu closes
-  useEffect(() => {
-    if (!isMenuOpen) {
-      setIsServicesOpen(false);
-    }
-  }, [isMenuOpen]);
-
   // Close menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setIsMenuOpen(false);
-        setIsServicesOpen(false);
       }
     };
 
@@ -336,105 +286,22 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <ul className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`} role="menubar">
           {navItems.map((item) => (
-            <li
-              key={item.id}
-              className={`${styles.navItem} ${item.hasDropdown ? styles.navItemDropdown : ''}`}
-              role="none"
-              onMouseEnter={() => item.hasDropdown && setIsServicesOpen(true)}
-              onMouseLeave={() => item.hasDropdown && setIsServicesOpen(false)}
-            >
-              {item.hasDropdown ? (
-                <>
-                  <button
-                    className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    aria-expanded={isServicesOpen}
-                    aria-haspopup="true"
-                    role="menuitem"
-                  >
-                    <span className={styles.navIcon}>{item.icon}</span>
-                    <span className={styles.navText}>{item.label}</span>
-                    <span
-                      className={`${styles.navChevron} ${isServicesOpen ? styles.navChevronOpen : ''}`}
-                    >
-                      {Icons.chevronDown}
-                    </span>
-                  </button>
-
-                  {/* Dropdown */}
-                  <div
-                    className={`${styles.dropdown} ${isServicesOpen ? styles.dropdownOpen : ''}`}
-                    role="menu"
-                  >
-                    <div className={styles.dropdownContent}>
-                      {serviceItems.map((service, index) => (
-                        <Link
-                          key={index}
-                          href={service.href}
-                          className={styles.dropdownItem}
-                          role="menuitem"
-                          onClick={(e) => {
-                            handleNavClick(e, service.href, 'servicios');
-                            setIsServicesOpen(false);
-                          }}
-                        >
-                          <span className={styles.dropdownIcon}>{service.icon}</span>
-                          <div className={styles.dropdownText}>
-                            <span className={styles.dropdownTitle}>{service.title}</span>
-                            <span className={styles.dropdownDesc}>{service.desc}</span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                    <div className={styles.dropdownFooter}>
-                      <Link
-                        href="#servicios"
-                        className={styles.dropdownCta}
-                        onClick={(e) => {
-                          handleNavClick(e, '#servicios', 'servicios');
-                          setIsServicesOpen(false);
-                        }}
-                      >
-                        Ver todos los servicios
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <line x1="5" y1="12" x2="19" y2="12" />
-                          <polyline points="12 5 19 12 12 19" />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <Link
-                  href={item.href}
-                  className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
-                  onClick={(e) => handleNavClick(e, item.href, item.id)}
-                  role="menuitem"
-                >
-                  <span className={styles.navIcon}>{item.icon}</span>
-                  <span className={styles.navText}>{item.label}</span>
-                </Link>
-              )}
+            <li key={item.id} className={styles.navItem} role="none">
+              <Link
+                href={item.href}
+                className={`${styles.navLink} ${activeSection === item.id ? styles.navLinkActive : ''}`}
+                onClick={(e) => handleNavClick(e, item.href, item.id)}
+                role="menuitem"
+              >
+                <span className={styles.navIcon}>{item.icon}</span>
+                <span className={styles.navText}>{item.label}</span>
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* CTA Section */}
         <div className={styles.actions}>
-          {/* Tienda CTA */}
-          <Link href="/tienda" className={styles.tiendaButton} aria-label="Ver tienda de productos">
-            <span className={styles.tiendaIcon}>{Icons.shoppingBag}</span>
-            <span className={styles.tiendaText}>Ver Tienda</span>
-            <span className={styles.tiendaBadge}>Nuevo</span>
-          </Link>
-
           {/* WhatsApp CTA */}
           <Link
             href="https://wa.link/n8et4q"

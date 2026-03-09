@@ -9,7 +9,6 @@ import {
   ClockIcon,
   CheckCircleIcon,
   WhatsAppIcon,
-  QuestionCircleIcon,
 } from './Icons';
 import styles from './ServicesGrid.module.css';
 
@@ -205,28 +204,6 @@ const ServicesGrid: React.FC = () => {
               </article>
             );
           })}
-        </div>
-
-        {/* Footer CTA */}
-        <div className={styles.footer} data-aos="fade-up">
-          <div className={styles.footerIconBox}>
-            <QuestionCircleIcon />
-          </div>
-          <div className={styles.footerContent}>
-            <h3 className={styles.footerTitle}>¿No encuentras lo que necesitas?</h3>
-            <p className={styles.footerDesc}>
-              Cuéntame tu problema y te doy una solución personalizada
-            </p>
-          </div>
-          <a
-            href="http://wa.link/n8et4q"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.footerCta}
-          >
-            <WhatsAppIcon size={18} />
-            Cuéntame tu caso
-          </a>
         </div>
       </div>
     </section>
