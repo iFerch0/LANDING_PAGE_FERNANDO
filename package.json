@@ -5,18 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:full": "npm run optimize:images && npm run update:image-paths && npm run update:colors && npm run generate:images && next build",
+    "build:full": "npm run optimize:images && npm run update:colors && npm run generate:images && next build",
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
     "generate:images": "node scripts/generate-images.js",
     "optimize:images": "node scripts/optimize-images.js",
-    "update:image-paths": "node scripts/update-image-paths.js",
     "update:colors": "node scripts/update-colors.js",
     "format": "prettier --write .",
     "prepare": "husky"
@@ -47,18 +43,15 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "cypress": "^15.0.0",
     "eslint": "^9",
     "eslint-config-next": "15.5.0",
     "eslint-config-prettier": "^10.1.8",
     "husky": "^9.1.7",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^30.0.5",
     "jest-environment-jsdom": "^30.0.5",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
     "sharp": "^0.34.3",
-    "start-server-and-test": "^2.0.13",
     "typescript": "^5"
   }
 }
