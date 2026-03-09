@@ -120,11 +120,12 @@ const ServicesGrid: React.FC = () => {
               </div>
 
               <a
-                href="http://wa.link/n8et4q"
+                href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.heroCta}
               >
+                <span className="sr-only">Contactar</span>
                 <WhatsAppIcon size={16} />
                 Solicitar cotización
               </a>
@@ -183,11 +184,12 @@ const ServicesGrid: React.FC = () => {
                 </div>
 
                 <a
-                  href="http://wa.link/n8et4q"
+                  href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.cardCta}
                 >
+                  <span className="sr-only">Solicitar</span>
                   Solicitar cotización
                   <svg
                     width="14"

@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
             <div className={styles.ctaGroup}>
               <div className={styles.ctas}>
                 <a
-                  href="http://wa.link/n8et4q"
+                  href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn--primary btn--cta-primary cta-pulse"

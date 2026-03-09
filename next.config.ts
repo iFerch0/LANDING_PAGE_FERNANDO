@@ -63,6 +63,21 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: false,
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'ferchotecnico.com',
+          },
+        ],
+        destination: 'https://www.ferchotecnico.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
