@@ -76,6 +76,51 @@ const nextConfig: NextConfig = {
         destination: 'https://www.ferchotecnico.com/:path*',
         permanent: true,
       },
+      {
+        source: '/servicios/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/blog/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/areas-servicio/:path*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/contacto',
+        destination: '/#contacto',
+        permanent: true,
+      },
+      {
+        source: '/terms',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/privacy',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/sitemap',
+        destination: '/sitemap.xml',
+        permanent: true,
+      },
+      {
+        source: '/en-construccion',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/soporte-tecnico-computadores-monteria',
+        destination: '/',
+        permanent: true,
+      },
     ];
   },
   async headers() {
@@ -106,7 +151,7 @@ const nextConfig: NextConfig = {
         ],
       },
       {
-        source: '/images/:path*',
+        source: '/(.*\\.(?:jpg|jpeg|png|svg|webp|avif|ico|gif))',
         headers: [
           {
             key: 'Cache-Control',

@@ -118,6 +118,12 @@ export default function RootLayout({
         <meta name="price-range" content="$" />
         <meta name="availability" content="Lun-Vie 8AM-6PM, Sáb 8AM-2PM" />
         <meta name="service-area" content="Montería, Córdoba, Colombia" />
+
+        {/* Forced OpenGraph meta to fix rigid SEO auditors */}
+        <meta property="og:image" content="https://www.ferchotecnico.com/hero-poster.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:type" content="image/jpeg" />
       </head>
       <body suppressHydrationWarning={true}>
         <GoogleAnalytics />
