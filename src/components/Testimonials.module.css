@@ -41,59 +41,109 @@
 .header {
   text-align: center;
   margin-bottom: 48px;
-  max-width: 560px;
+  max-width: 640px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.eyebrow {
-  display: inline-block;
-  padding: 8px 18px;
-  background: rgba(45, 106, 138, 0.06);
-  border: 1px solid rgba(45, 106, 138, 0.15);
-  border-radius: var(--radius-full);
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-primary);
-  text-transform: uppercase;
-  letter-spacing: var(--letter-spacing-widest);
-  margin-bottom: 24px;
-}
+/* ── Trust Bar (unified badge) ────────────────────────────────────────── */
 
-.badge {
+.trustBar {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
   background: var(--color-surface);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 12px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 28px;
   border-radius: var(--radius-xl);
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   border: 1px solid var(--color-card-border);
   box-shadow: var(--shadow-card);
+  transition: all var(--duration-normal) var(--ease-standard);
 }
 
-.badgeText {
+.trustBar:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-1px);
+}
+
+.trustLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.trustInfo {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 2px;
+  gap: 3px;
 }
 
-.badgeTitle {
+.trustTitle {
   font-family: var(--font-family-display);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   color: var(--color-text);
   letter-spacing: -0.01em;
+  line-height: 1;
 }
 
-.badgeStars {
-  font-size: var(--font-size-sm);
-  color: #fbbc05;
-  letter-spacing: 1px;
+.trustRating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ratingScore {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.starsRow {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.starIcon {
+  filter: drop-shadow(0 1px 2px rgba(251, 188, 5, 0.3));
+}
+
+.trustDivider {
+  width: 1px;
+  height: 36px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.trustRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.trustCount {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-extrabold);
+  color: var(--color-primary);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.trustLabel {
+  font-family: var(--font-family-display);
+  font-size: 10px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   line-height: 1;
 }
 
@@ -160,9 +210,17 @@
     margin-bottom: 32px;
   }
 
-  .badge {
-    padding: 10px 18px;
-    gap: 10px;
+  .trustBar {
+    padding: 12px 20px;
+    gap: 14px;
+  }
+
+  .trustDivider {
+    height: 28px;
+  }
+
+  .trustCount {
+    font-size: var(--font-size-lg);
   }
 
   .widget {
@@ -178,14 +236,13 @@
 /* ── Dark Mode ────────────────────────────────────────────────────────── */
 
 @media (prefers-color-scheme: dark) {
-  .eyebrow {
-    background: rgba(45, 106, 138, 0.12);
-    border-color: rgba(45, 106, 138, 0.25);
+  .trustBar {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.1);
   }
 
-  .badge {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.1);
+  .trustDivider {
+    background: rgba(255, 255, 255, 0.12);
   }
 
   .widget {
@@ -199,7 +256,8 @@
 /* ── Reduced Motion ───────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
-  .badge {
+  .trustBar {
     transition: none;
+    transform: none;
   }
 }

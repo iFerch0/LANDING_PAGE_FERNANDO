@@ -37,14 +37,38 @@ const Testimonials = () => {
       <div className={`container ${styles.container}`}>
         {/* Header */}
         <div className={styles.header} data-aos="fade-up">
-          <span className={styles.eyebrow}>Opiniones verificadas</span>
-          <div className={styles.badge}>
-            <GoogleIcon size={24} />
-            <div className={styles.badgeText}>
-              <span className={styles.badgeTitle}>Google Reviews</span>
-              <span className={styles.badgeStars}>★★★★★</span>
+          {/* Trust Bar — unified eyebrow + Google badge */}
+          <div className={styles.trustBar}>
+            <div className={styles.trustLeft}>
+              <GoogleIcon size={28} />
+              <div className={styles.trustInfo}>
+                <span className={styles.trustTitle}>Google Reviews</span>
+                <div className={styles.trustRating}>
+                  <span className={styles.ratingScore}>4.9</span>
+                  <div className={styles.starsRow}>
+                    {[1, 2, 3, 4, 5].map((star) => (
+                      <svg
+                        key={star}
+                        className={styles.starIcon}
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="#fbbc05"
+                      >
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                      </svg>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className={styles.trustDivider} />
+            <div className={styles.trustRight}>
+              <span className={styles.trustCount}>50+</span>
+              <span className={styles.trustLabel}>Opiniones verificadas</span>
             </div>
           </div>
+
           <h2 className={styles.title}>
             Lo que dicen nuestros
             <span className={styles.titleAccent}> clientes</span>

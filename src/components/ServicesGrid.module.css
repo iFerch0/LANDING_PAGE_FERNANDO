@@ -369,22 +369,6 @@
   border-color: rgba(220, 38, 38, 0.25);
 }
 
-.accentPurple::before {
-  background: linear-gradient(90deg, #7c3aed, #a78bfa);
-}
-
-.accentPurple:hover {
-  border-color: rgba(124, 58, 237, 0.25);
-}
-
-.accentIndigo::before {
-  background: linear-gradient(90deg, #4f46e5, #818cf8);
-}
-
-.accentIndigo:hover {
-  border-color: rgba(79, 70, 229, 0.25);
-}
-
 /* Card header */
 .cardHeader {
   display: flex;
@@ -429,16 +413,6 @@
   border-color: rgba(220, 38, 38, 0.15);
 }
 
-.iconBoxPurple {
-  background: rgba(124, 58, 237, 0.08);
-  border-color: rgba(124, 58, 237, 0.15);
-}
-
-.iconBoxIndigo {
-  background: rgba(79, 70, 229, 0.08);
-  border-color: rgba(79, 70, 229, 0.15);
-}
-
 .card:hover .iconBox {
   transform: scale(1.06);
 }
@@ -466,14 +440,6 @@
 
 .iconBoxRed .cardIcon {
   color: #dc2626;
-}
-
-.iconBoxPurple .cardIcon {
-  color: #7c3aed;
-}
-
-.iconBoxIndigo .cardIcon {
-  color: #4f46e5;
 }
 
 .durationBadge {
@@ -737,16 +703,6 @@
     border-color: rgba(220, 38, 38, 0.25);
   }
 
-  .iconBoxPurple {
-    background: rgba(124, 58, 237, 0.15);
-    border-color: rgba(124, 58, 237, 0.25);
-  }
-
-  .iconBoxIndigo {
-    background: rgba(79, 70, 229, 0.15);
-    border-color: rgba(79, 70, 229, 0.25);
-  }
-
   .iconBoxGreen .cardIcon {
     color: #4ade80;
   }
@@ -761,14 +717,6 @@
 
   .iconBoxRed .cardIcon {
     color: #f87171;
-  }
-
-  .iconBoxPurple .cardIcon {
-    color: #a78bfa;
-  }
-
-  .iconBoxIndigo .cardIcon {
-    color: #818cf8;
   }
 
   .cardCta {
