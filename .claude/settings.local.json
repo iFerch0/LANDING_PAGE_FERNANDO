@@ -1,5 +1,25 @@
 {
   "permissions": {
-    "allow": ["Bash(node -e:*)", "Bash(npm run build:*)"]
+    "allow": [
+      "Bash(node -e:*)",
+      "Bash(npm run build:*)",
+      "Read(//home/fernando/.claude/skills/frontend-design/**)",
+      "Read(//home/fernando/.claude/**)",
+      "Bash(gh api repos/anthropics/skills/contents/skills/frontend-design/SKILL.md --jq '.content')",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\({k:d[k] for k in [''dependencies'',''devDependencies''] if k in d}, indent=2\\)\\)\")",
+      "Bash(wc -l /mnt/hdd1/Fernando/Documents/LANDING_PAGE_FERNANDO/src/components/*.module.css)",
+      "Bash(ls -la /mnt/hdd1/Fernando/Documents/LANDING_PAGE_FERNANDO/.tmp*)",
+      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && grep -A 5 \"\"useEffect\"\" {} | head -20')",
+      "Bash(npx tsc --noEmit)",
+      "Bash(npx eslint src/ --ext .ts,.tsx --max-warnings 0)",
+      "Bash(grep -v \"^$\")",
+      "Bash(npx eslint src/ --ext .ts,.tsx)",
+      "Bash(node scripts/remove-comments.js --dry-run)",
+      "Bash(node scripts/remove-comments.js)",
+      "Bash(node scripts/remove-console.js --list)",
+      "Bash(node scripts/remove-console.js)",
+      "Bash(grep -rn \"from ''web-vitals''\" /mnt/hdd1/Fernando/Documents/LANDING_PAGE_FERNANDO/src/ --include=\"*.ts\" --include=\"*.tsx\")",
+      "Bash(npx tsc --noEmit --project tsconfig.json)"
+    ]
   }
 }

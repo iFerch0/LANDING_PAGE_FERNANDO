@@ -2,15 +2,6 @@
 
 import { useEffect, useState } from 'react';
 
-interface BeforeInstallPromptEvent extends Event {
-  readonly platforms: string[];
-  readonly userChoice: Promise<{
-    outcome: 'accepted' | 'dismissed';
-    platform: string;
-  }>;
-  prompt(): Promise<void>;
-}
-
 export default function PWAInstaller() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
@@ -24,20 +15,15 @@ export default function PWAInstaller() {
 
     window.addEventListener('beforeinstallprompt', handler);
 
-    // Register service worker with update detection
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker
         .register('/sw.js')
         .then((registration) => {
-          // console.log('SW registered: ', registration); // Commented out for cleaner console
-
-          // Check for updates
           registration.addEventListener('updatefound', () => {
             const newWorker = registration.installing;
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  // New content is available, show update prompt
                   if (confirm('Nueva versión disponible. ¿Actualizar ahora?')) {
                     window.location.reload();
                   }
@@ -46,9 +32,7 @@ export default function PWAInstaller() {
             }
           });
         })
-        .catch((registrationError) => {
-          console.log('SW registration failed: ', registrationError);
-        });
+        .catch(() => {});
     }
 
     return () => {
@@ -63,9 +47,7 @@ export default function PWAInstaller() {
     const { outcome } = await deferredPrompt.userChoice;
 
     if (outcome === 'accepted') {
-      console.log('User accepted the install prompt');
     } else {
-      console.log('User dismissed the install prompt');
     }
 
     setDeferredPrompt(null);

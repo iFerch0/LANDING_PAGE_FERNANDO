@@ -1,34 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
-import aboutPhoto from '../../public/img/sobre-mi.avif';
 import { WhatsAppIcon } from './Icons';
 import styles from './AboutFernando.module.css';
-
-const specialties = [
-  'Desarrollo Web',
-  'Reparación PC',
-  'Soporte Empresarial',
-  'Ensamble de Equipos',
-  'Mantenimiento Preventivo',
-];
-
-const values = [
-  {
-    icon: '📋',
-    title: 'Metodología profesional',
-    desc: 'Diagnóstico documentado y presupuesto claro antes de cualquier intervención.',
-  },
-  {
-    icon: '📦',
-    title: 'Entregas por fases',
-    desc: 'Trabajo organizado en etapas con avances visibles y resultados medibles.',
-  },
-  {
-    icon: '📊',
-    title: 'Resultados medibles',
-    desc: 'Cada servicio incluye evidencia documentada del antes y después.',
-  },
-];
+import { whatsappUrl } from '@/data/contact';
+import { specialties, values } from '@/data/about';
 
 const AboutFernando: React.FC = () => {
   return (
@@ -39,7 +14,7 @@ const AboutFernando: React.FC = () => {
           <div className={styles.photoWrapper}>
             <div className={styles.photoFrame}>
               <Image
-                src={aboutPhoto}
+                src="/img/sobre-mi.avif"
                 alt="Fernando Rhenals — Ingeniero de Sistemas y Técnico Especialista en Montería"
                 width={480}
                 height={560}
@@ -89,7 +64,7 @@ const AboutFernando: React.FC = () => {
 
             {/* CTA */}
             <a
-              href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%20Fernando%2C%20quiero%20hablar%20sobre%20mi%20proyecto"
+              href={whatsappUrl('Hola Fernando, quiero hablar sobre mi proyecto')}
               className={styles.cta}
               target="_blank"
               rel="noopener noreferrer"

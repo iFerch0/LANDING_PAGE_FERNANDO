@@ -1,9 +1,3 @@
-/* ==========================================================================
-   Utilities — Buttons, Forms, Cards, Status, Container, Layout helpers,
-   Accessibility, and generic utility classes
-   ========================================================================== */
-
-/* ── Buttons ─────────────────────────────────────────────────────────── */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -82,7 +76,6 @@
   cursor: not-allowed;
 }
 
-/* Visual style for explicitly disabled CTA buttons */
 .btn--disabled {
   background: linear-gradient(90deg, rgba(200, 200, 200, 0.6), rgba(220, 220, 220, 0.6));
   color: rgba(80, 80, 80, 0.9);
@@ -91,7 +84,6 @@
   transform: none;
 }
 
-/* ── Form Elements ───────────────────────────────────────────────────── */
 .form-control {
   display: block;
   width: 100%;
@@ -124,7 +116,6 @@ select.form-control {
   padding-right: var(--space-32);
 }
 
-/* Dark mode caret */
 @media (prefers-color-scheme: dark) {
   select.form-control {
     background-image: var(--select-caret-dark);
@@ -147,7 +138,6 @@ select.form-control {
   margin-bottom: var(--space-16);
 }
 
-/* ── Card Component ──────────────────────────────────────────────────── */
 .card {
   background-color: var(--color-surface);
   border-radius: var(--radius-lg);
@@ -171,7 +161,6 @@ select.form-control {
   border-bottom: 1px solid var(--color-card-border-inner);
 }
 
-/* ── Status Indicators ───────────────────────────────────────────────── */
 .status {
   display: inline-flex;
   align-items: center;
@@ -205,7 +194,6 @@ select.form-control {
   border: 1px solid rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
 }
 
-/* ── Container Layout ────────────────────────────────────────────────── */
 .container {
   width: 100%;
   margin-right: auto;
@@ -238,7 +226,6 @@ select.form-control {
   }
 }
 
-/* ── Utility Classes ─────────────────────────────────────────────────── */
 .flex {
   display: flex;
 }
@@ -325,7 +312,6 @@ select.form-control {
   display: none;
 }
 
-/* ── Accessibility ───────────────────────────────────────────────────── */
 .sr-only {
   position: absolute;
   width: 1px;

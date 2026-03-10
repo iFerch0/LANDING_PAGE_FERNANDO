@@ -4,19 +4,7 @@ import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';
 import { HERO_SLIDES } from '../data/heroSlides';
 import styles from './HeroSlider.module.css';
-
-/* Icons */
-const ChevronLeftIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M15 18L9 12L15 6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
-
-const ChevronRightIcon = ({ className }: { className?: string }) => (
-  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-    <path d="M9 18L15 12L9 6" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+import { ChevronLeftIcon, ChevronRightIcon } from './Icons';
 
 const HeroSliderStatic: React.FC = () => {
   const slides = HERO_SLIDES;
@@ -27,7 +15,6 @@ const HeroSliderStatic: React.FC = () => {
 
   const DURATION = 5000;
 
-  // Auto-advance
   useEffect(() => {
     if (isPaused) {
       if (timerRef.current) clearInterval(timerRef.current);
@@ -59,7 +46,6 @@ const HeroSliderStatic: React.FC = () => {
     setProgressKey((p) => p + 1);
   }, [slides.length]);
 
-  // Touch support
   const touchStart = useRef(0);
   const touchEnd = useRef(0);
 
@@ -78,7 +64,6 @@ const HeroSliderStatic: React.FC = () => {
     }
   };
 
-  // Keyboard
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prev();
@@ -87,8 +72,6 @@ const HeroSliderStatic: React.FC = () => {
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [prev, next]);
-
-  // Removing artificial loading state to improve LCP
 
   return (
     <div

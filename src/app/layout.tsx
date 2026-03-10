@@ -7,6 +7,7 @@ import WebVitalsReporter from '@/components/WebVitalsReporter';
 import PWAInstaller from '@/components/PWAInstaller';
 import { GoogleAnalytics } from '@/components/GoogleAnalytics';
 import Footer from '@/components/Footer';
+import { CONTACT } from '@/data/contact';
 
 export const metadata: Metadata = {
   title: 'Técnico en Computadores Montería | Servicio Técnico PC',
@@ -100,8 +101,8 @@ export default function RootLayout({
         {/* Geo-targeting específico */}
         <meta name="geo.region" content="CO-COR" />
         <meta name="geo.placename" content="Montería, Córdoba, Colombia" />
-        <meta name="geo.position" content="8.7574;-75.8781" />
-        <meta name="ICBM" content="8.7574, -75.8781" />
+        <meta name="geo.position" content="8.7352034;-75.8903534" />
+        <meta name="ICBM" content="8.7352034, -75.8903534" />
         <meta name="locality" content="Montería" />
         <meta name="region" content="Córdoba" />
         <meta name="country-name" content="Colombia" />
@@ -112,7 +113,7 @@ export default function RootLayout({
         <meta property="business:contact_data:region" content="Córdoba" />
         <meta property="business:contact_data:postal_code" content="230001" />
         <meta property="business:contact_data:country_name" content="Colombia" />
-        <meta property="business:contact_data:phone_number" content="+573008474121" />
+        <meta property="business:contact_data:phone_number" content={CONTACT.phone} />
         <meta name="rating" content="5.0" />
         <meta name="price-range" content="$" />
         <meta name="availability" content="Lun-Vie 8AM-6PM, Sáb 8AM-2PM" />

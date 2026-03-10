@@ -1,3 +1,5 @@
+import { whatsappUrl } from './contact';
+
 export interface Stat {
   id: string;
   end: number;
@@ -59,5 +61,5 @@ export const statsCTA = {
   title: '¿Necesitas una solución similar?',
   description: 'Contáctanos hoy y únete a nuestros clientes satisfechos',
   buttonText: 'Solicitar diagnóstico',
-  buttonLink: 'https://wa.me/573008474121',
+  buttonLink: whatsappUrl('Hola, necesito ayuda con mi computador'),
 };

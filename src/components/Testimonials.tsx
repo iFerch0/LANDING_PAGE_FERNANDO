@@ -13,7 +13,6 @@ const Testimonials = () => {
   useEffect(() => {
     const currentRef = containerRef.current;
 
-    // Intersection Observer to defer Elfsight massive JS download
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {

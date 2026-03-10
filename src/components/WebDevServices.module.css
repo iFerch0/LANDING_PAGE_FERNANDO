@@ -1,11 +1,3 @@
-/* ==========================================================================
-   WebDevServices — Premium Showcase Section
-   Design System: Técnico Artesanal Premium
-   Reuses brand tokens: azul_vibrante, azul_oscuro, naranja_quemado
-   ========================================================================== */
-
-/* ── Section ─────────────────────────────────────────────────────────── */
-
 .section {
   padding: 80px 0;
   background: var(--color-background-alt);
@@ -18,8 +10,6 @@
   margin: 0 auto;
   padding: 0 24px;
 }
-
-/* ── Header ──────────────────────────────────────────────────────────── */
 
 .header {
   text-align: center;
@@ -68,8 +58,6 @@
   margin: 0 auto;
 }
 
-/* ── Showcase Card ───────────────────────────────────────────────────── */
-
 .showcaseCard {
   position: relative;
   background: var(--color-card-bg, var(--color-surface));
@@ -90,7 +78,6 @@
   transform: translateY(-2px);
 }
 
-/* Top gradient bar */
 .showcaseTopBar {
   position: absolute;
   top: 0;
@@ -106,7 +93,6 @@
   z-index: 2;
 }
 
-/* Decorative glow */
 .showcaseGlow {
   position: absolute;
   top: -100px;
@@ -145,8 +131,6 @@
   gap: 40px;
   padding: 40px;
 }
-
-/* ── Left Column ─────────────────────────────────────────────────────── */
 
 .showcaseLeft {
   display: flex;
@@ -207,8 +191,6 @@
   max-width: 460px;
 }
 
-/* ── Tech Stack Pills ────────────────────────────────────────────────── */
-
 .techStack {
   display: flex;
   flex-direction: column;
@@ -251,8 +233,6 @@
   color: var(--color-primary);
   transform: translateY(-1px);
 }
-
-/* ── CTA Buttons ─────────────────────────────────────────────────────── */
 
 .showcaseCtas {
   display: flex;
@@ -308,15 +288,12 @@
   height: 18px;
 }
 
-/* ── Right Column ────────────────────────────────────────────────────── */
-
 .showcaseRight {
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
 
-/* Features Grid (2x2) */
 .featuresGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -383,8 +360,6 @@
   margin: 0;
 }
 
-/* ── Deliverables ────────────────────────────────────────────────────── */
-
 .deliverables {
   padding: 20px;
   background: linear-gradient(
@@ -432,10 +407,6 @@
   color: var(--color-primary);
   flex-shrink: 0;
 }
-
-/* ==========================================================================
-   Dark Mode
-   ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
   .section {
@@ -521,10 +492,6 @@
   }
 }
 
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
 @media (max-width: 768px) {
   .section {
     padding: 64px 0;
@@ -575,8 +542,6 @@
     padding: 12px;
   }
 }
-
-/* ── Reduced Motion ──────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   .showcaseCard,

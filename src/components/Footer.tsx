@@ -1,20 +1,10 @@
 import React from 'react';
 import styles from './Footer.module.css';
+import { CONTACT, whatsappUrl } from '@/data/contact';
+import { businessHours } from '@/data/footer';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const businessHours = [
-    { day: 'Lun - Vie', hours: '8:00 AM - 6:00 PM' },
-    { day: 'Sábados', hours: '9:00 AM - 4:00 PM' },
-    { day: 'Domingos', hours: '10:00 AM - 2:00 PM' },
-  ];
-
-  const contactInfo = {
-    phone: '+57 300 847 4121',
-    whatsapp: '573008474121',
-    address: 'Dg. 7 #7 - 50, Montería, Córdoba',
-  };
 
   return (
     <footer className={styles.footer}>
@@ -86,7 +76,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a
-                  href={`https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador`}
+                  href={whatsappUrl('Hola, necesito ayuda con mi computador')}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="WhatsApp"
@@ -105,7 +95,7 @@ const Footer = () => {
               <h4 className={styles.sectionTitle}>Contacto</h4>
 
               <div className={styles.contactGrid}>
-                <a href={`tel:${contactInfo.phone}`} className={styles.contactItem}>
+                <a href={`tel:${CONTACT.phone}`} className={styles.contactItem}>
                   <svg
                     width="18"
                     height="18"
@@ -116,11 +106,11 @@ const Footer = () => {
                   >
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
-                  <span>{contactInfo.phone}</span>
+                  <span>{CONTACT.phoneDisplay}</span>
                 </a>
 
                 <a
-                  href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+                  href={whatsappUrl('Hola, necesito ayuda con mi computador')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`${styles.contactItem} ${styles.whatsappItem}`}
@@ -143,7 +133,7 @@ const Footer = () => {
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                     <circle cx="12" cy="10" r="3" />
                   </svg>
-                  <span>{contactInfo.address}</span>
+                  <span>{CONTACT.addressFull}</span>
                 </div>
               </div>
 

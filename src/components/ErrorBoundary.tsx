@@ -28,19 +28,12 @@ class ErrorBoundary extends Component<Props, State> {
     };
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    // Log error info for debugging
-    console.error('Error boundary caught:', error, errorInfo);
-    // Log error to analytics service
-    if (typeof window !== 'undefined') {
-      // Safe check for gtag
-      const windowWithGtag = window as Window & { gtag?: (...args: unknown[]) => void };
-      if (typeof windowWithGtag.gtag === 'function') {
-        windowWithGtag.gtag('event', 'exception', {
-          description: error.message,
-          fatal: false,
-        });
-      }
+  componentDidCatch(error: Error, _errorInfo: ErrorInfo) {
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', 'exception', {
+        description: error.message,
+        fatal: false,
+      });
     }
   }
 

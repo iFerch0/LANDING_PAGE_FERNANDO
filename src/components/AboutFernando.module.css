@@ -1,8 +1,3 @@
-/* ==========================================================================
-   AboutFernando — Sprint 3.2 "Sobre el Profesional"
-   Photo + bio layout with specialties and values
-   ========================================================================== */
-
 .section {
   padding: 96px 0;
   background: linear-gradient(180deg, var(--color-bg-1) 0%, var(--color-bg-2) 100%);
@@ -26,16 +21,12 @@
   padding: 0 24px;
 }
 
-/* ── Layout ───────────────────────────────────────────────────────────── */
-
 .layout {
   display: grid;
   grid-template-columns: 0.45fr 0.55fr;
   gap: 56px;
   align-items: start;
 }
-
-/* ── Photo ────────────────────────────────────────────────────────────── */
 
 .photoWrapper {
   position: relative;
@@ -66,8 +57,6 @@
   z-index: -1;
   opacity: 0.3;
 }
-
-/* ── Content ──────────────────────────────────────────────────────────── */
 
 .content {
   padding-top: 8px;
@@ -115,8 +104,6 @@
   margin: 0 0 24px;
 }
 
-/* ── Specialties Pills ────────────────────────────────────────────────── */
-
 .specialties {
   display: flex;
   flex-wrap: wrap;
@@ -141,8 +128,6 @@
   background: rgba(45, 106, 138, 0.12);
   border-color: rgba(45, 106, 138, 0.3);
 }
-
-/* ── Values ───────────────────────────────────────────────────────────── */
 
 .values {
   display: flex;
@@ -191,8 +176,6 @@
   margin: 0;
 }
 
-/* ── CTA Button ───────────────────────────────────────────────────────── */
-
 .cta {
   display: inline-flex;
   align-items: center;
@@ -221,8 +204,6 @@
 .cta:hover svg {
   transform: scale(1.1);
 }
-
-/* ── Responsive ───────────────────────────────────────────────────────── */
 
 @media (max-width: 1024px) {
   .layout {
@@ -269,8 +250,6 @@
   }
 }
 
-/* ── Dark Mode ────────────────────────────────────────────────────────── */
-
 @media (prefers-color-scheme: dark) {
   .eyebrow {
     background: rgba(45, 106, 138, 0.12);
@@ -300,8 +279,6 @@
     border-color: rgba(255, 255, 255, 0.12);
   }
 }
-
-/* ── Reduced Motion ───────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   .cta,

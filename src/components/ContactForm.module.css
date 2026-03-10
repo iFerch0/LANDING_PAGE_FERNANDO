@@ -1,9 +1,3 @@
-/* ==========================================================================
-   ContactForm — Sprint 2.3 Redesign
-   Layout: 3-step progressive wizard + social proof + trust badges
-   Design System: Técnico Artesanal Premium
-   ========================================================================== */
-
 .contactForm {
   padding: 80px 0;
   background: var(--color-background);
@@ -28,8 +22,6 @@
   padding: 0 24px;
 }
 
-/* ── Card ────────────────────────────────────────────────────────────── */
-
 .card {
   position: relative;
   background: var(--color-card-bg);
@@ -51,8 +43,6 @@
   border-radius: var(--radius-xl) var(--radius-xl) 0 0;
   z-index: 1;
 }
-
-/* ── Header ──────────────────────────────────────────────────────────── */
 
 .header {
   text-align: center;
@@ -105,8 +95,6 @@
   margin: 0;
   line-height: var(--line-height-relaxed);
 }
-
-/* ── Step Indicators ─────────────────────────────────────────────────── */
 
 .stepIndicators {
   display: flex;
@@ -208,8 +196,6 @@
   background: var(--color-primary);
 }
 
-/* ── Step Panels ─────────────────────────────────────────────────────── */
-
 .stepPanel {
   display: none;
   animation: stepFadeIn 0.3s ease forwards;
@@ -230,8 +216,6 @@
     transform: translateY(0);
   }
 }
-
-/* ── Form Elements ───────────────────────────────────────────────────── */
 
 .sectionTitle {
   display: flex;
@@ -336,8 +320,6 @@
   font-weight: var(--font-weight-medium);
 }
 
-/* ── Buttons ─────────────────────────────────────────────────────────── */
-
 .stepActions {
   display: flex;
   gap: 12px;
@@ -434,8 +416,6 @@
   }
 }
 
-/* ── Social Proof ────────────────────────────────────────────────────── */
-
 .socialProof {
   display: flex;
   align-items: center;
@@ -463,8 +443,6 @@
   color: var(--color-text);
 }
 
-/* ── Trust Badges ────────────────────────────────────────────────────── */
-
 .trustBadges {
   display: flex;
   justify-content: center;
@@ -488,10 +466,6 @@
   color: #25d366;
   flex-shrink: 0;
 }
-
-/* ==========================================================================
-   Dark Mode
-   ========================================================================== */
 
 @media (prefers-color-scheme: dark) {
   .card {
@@ -554,10 +528,6 @@
   }
 }
 
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
 @media (max-width: 768px) {
   .contactForm {
     padding: 64px 0;
@@ -611,8 +581,6 @@
     width: calc(100% - 40px);
   }
 }
-
-/* ── Reduced Motion ──────────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   .stepPanel {

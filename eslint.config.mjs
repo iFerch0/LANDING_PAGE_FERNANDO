@@ -18,18 +18,33 @@ const eslintConfig = [
       'out/**',
       'build/**',
       'next-env.d.ts',
-      // Ignore project root configuration files and helper scripts which use CommonJS
       'jest.config.js',
       'next.config.js',
       'jest.setup.js',
       'scripts/**',
     ],
   },
-  // Allow CommonJS require() in config and scripts
   {
     files: ['jest.config.js', 'next.config.js', 'scripts/**/*.js', 'scripts/**/*.cjs'],
     rules: {
       '@typescript-eslint/no-require-imports': 'off',
+    },
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
+      ],
+    },
+  },
+  {
+    files: ['src/components/Icons.tsx'],
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_|^title$', varsIgnorePattern: '^_' },
+      ],
     },
   },
 ];

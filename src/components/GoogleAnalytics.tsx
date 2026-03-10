@@ -6,9 +6,6 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || 'G-ZJN4B4
 
 export function GoogleAnalytics() {
   if (!GA_MEASUREMENT_ID) {
-    console.warn(
-      'Google Analytics Measurement ID not found. Please set NEXT_PUBLIC_GA_MEASUREMENT_ID in .env.local'
-    );
     return null;
   }
 

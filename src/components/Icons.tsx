@@ -1,17 +1,10 @@
 import React from 'react';
 
-// ============================================================================
-// Shared Icon Props
-// ============================================================================
 type IconProps = {
   className?: string;
   size?: number | string;
   title?: string;
 };
-
-// ============================================================================
-// Contact & Communication
-// ============================================================================
 
 export const WhatsAppIcon: React.FC<IconProps> = ({ className, size = 18, title = 'WhatsApp' }) => (
   <svg
@@ -87,10 +80,6 @@ export const MessageIcon: React.FC<IconProps> = ({ className, size = 28, title =
   </svg>
 );
 
-// ============================================================================
-// Navigation
-// ============================================================================
-
 export const ChevronDown: React.FC<IconProps> = ({ className, size = 20, title = 'Expandir' }) => (
   <svg
     className={className}
@@ -152,10 +141,6 @@ export const ChevronRightIcon: React.FC<IconProps> = ({
     <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-
-// ============================================================================
-// Status & Trust
-// ============================================================================
 
 export const CheckCircleIcon: React.FC<IconProps> = ({ className, size, title = 'Verificado' }) => (
   <svg
@@ -232,10 +217,6 @@ export const StarIcon: React.FC<IconProps> = ({ className, size, title = 'Estrel
   </svg>
 );
 
-// ============================================================================
-// Location & Time
-// ============================================================================
-
 export const MapPinIcon: React.FC<IconProps> = ({ className, size, title = 'Ubicación' }) => (
   <svg
     className={className}
@@ -271,10 +252,6 @@ export const ClockIcon: React.FC<IconProps> = ({ className, size, title = 'Tiemp
     <path d="M12 6v6l4 2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
-
-// ============================================================================
-// Tools & Services
-// ============================================================================
 
 export const WrenchIcon: React.FC<IconProps> = ({ className, size, title = 'Herramienta' }) => (
   <svg
@@ -358,10 +335,6 @@ export const RepairIcon: React.FC<IconProps> = ({ className, size = 28, title = 
   </svg>
 );
 
-// ============================================================================
-// Users & Devices
-// ============================================================================
-
 export const UserIcon: React.FC<IconProps> = ({ className, size = 18, title = 'Usuario' }) => (
   <svg
     className={className}
@@ -394,10 +367,6 @@ export const DeviceIcon: React.FC<IconProps> = ({ className, size = 18, title = 
     <line x1="12" y1="17" x2="12" y2="21" />
   </svg>
 );
-
-// ============================================================================
-// Services — Extended
-// ============================================================================
 
 export const CpuIcon: React.FC<IconProps> = ({ className, size = 18, title = 'Procesador' }) => (
   <svg
@@ -559,10 +528,6 @@ export const SmartphoneIcon: React.FC<IconProps> = ({
     <line x1="12" y1="18" x2="12.01" y2="18" />
   </svg>
 );
-
-// ============================================================================
-// Brand & Social
-// ============================================================================
 
 export const GoogleIcon: React.FC<IconProps> = ({ className, size = 20, title = 'Google' }) => (
   <svg

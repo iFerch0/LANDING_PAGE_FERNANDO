@@ -1,71 +1,10 @@
 'use client';
 
 import React from 'react';
-import {
-  CodeIcon,
-  GlobeIcon,
-  LayoutIcon,
-  RocketIcon,
-  SmartphoneIcon,
-  CheckCircleIcon,
-  WhatsAppIcon,
-} from './Icons';
+import { CodeIcon, CheckCircleIcon, WhatsAppIcon } from './Icons';
 import styles from './WebDevServices.module.css';
-
-/* ── Data ─────────────────────────────────────────────────────────────── */
-
-interface WebFeature {
-  icon: React.FC<{ className?: string }>;
-  title: string;
-  description: string;
-}
-
-const webFeatures: WebFeature[] = [
-  {
-    icon: LayoutIcon,
-    title: 'Diseño UI/UX Premium',
-    description:
-      'Interfaces modernas, intuitivas y visualmente impactantes que convierten visitantes en clientes.',
-  },
-  {
-    icon: SmartphoneIcon,
-    title: '100% Responsive',
-    description:
-      'Tu sitio se ve perfecto en móvil, tablet y escritorio. Optimizado para cualquier dispositivo.',
-  },
-  {
-    icon: RocketIcon,
-    title: 'Rendimiento Óptimo',
-    description:
-      'Velocidad de carga ultrarrápida con las últimas tecnologías web (Next.js, React, SEO).',
-  },
-  {
-    icon: GlobeIcon,
-    title: 'SEO & Posicionamiento',
-    description:
-      'Sitios optimizados para Google. Tu negocio visible en las primeras posiciones de búsqueda.',
-  },
-];
-
-const techStack: string[] = [
-  'React / Next.js',
-  'TypeScript',
-  'Node.js',
-  'PostgreSQL',
-  'Tailwind CSS',
-  'Vercel / AWS',
-];
-
-const deliverables: string[] = [
-  'Landing Pages de alta conversión',
-  'Sitios web corporativos',
-  'E-commerce y tiendas online',
-  'Aplicaciones web a medida',
-  'Mantenimiento y soporte continuo',
-  'Integración con WhatsApp, redes sociales y más',
-];
-
-/* ── Component ────────────────────────────────────────────────────────── */
+import { whatsappUrl } from '@/data/contact';
+import { webFeatures, techStack, deliverables } from '@/data/webServices';
 
 const WebDevServices: React.FC = () => {
   return (
@@ -126,7 +65,7 @@ const WebDevServices: React.FC = () => {
               {/* CTA */}
               <div className={styles.showcaseCtas}>
                 <a
-                  href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20estoy%20interesado%20en%20desarrollo%20web"
+                  href={whatsappUrl('Hola, estoy interesado en desarrollo web')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.ctaPrimary}

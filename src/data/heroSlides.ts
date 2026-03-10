@@ -1,6 +1,3 @@
-// Curated Hero Slides Data
-// Selected best images that tell a story of professional PC repair services
-
 export interface HeroSlide {
   id: number;
   src: string;

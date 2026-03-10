@@ -1,4 +1,5 @@
 import React from 'react';
+import { CONTACT, SITE_URL } from '@/data/contact';
 
 export default function LocalBusinessSchema() {
   const schemaData = {
@@ -7,20 +8,20 @@ export default function LocalBusinessSchema() {
     name: 'Fernando - Técnico en Computadores',
     description:
       'Servicio de reparación de computadoras en Montería. Más de 10 años de experiencia en diagnóstico, reparación y mantenimiento.',
-    url: 'https://ferchotecnico.com',
+    url: SITE_URL,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Dg. 7 #7 - 50',
-      addressLocality: 'Montería',
-      addressRegion: 'Córdoba',
+      streetAddress: CONTACT.address,
+      addressLocality: CONTACT.city,
+      addressRegion: CONTACT.region,
       addressCountry: 'CO',
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: '8.7478',
-      longitude: '-75.8895',
+      latitude: CONTACT.latitude,
+      longitude: CONTACT.longitude,
     },
-    telephone: '+573008474121',
+    telephone: CONTACT.phone,
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',

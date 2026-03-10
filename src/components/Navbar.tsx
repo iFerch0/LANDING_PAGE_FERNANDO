@@ -4,8 +4,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
+import { whatsappUrl } from '@/data/contact';
 
-// Iconos SVG profesionales inline
 const Icons = {
   home: (
     <svg
@@ -195,7 +195,6 @@ const Icons = {
   ),
 };
 
-// Datos de navegación
 const navItems = [
   { id: 'inicio', label: 'Inicio', href: '/', icon: Icons.home },
   { id: 'servicios', label: 'Servicios', href: '#servicios', icon: Icons.services },
@@ -209,7 +208,6 @@ const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('inicio');
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -219,7 +217,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close menu on escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -231,7 +228,6 @@ const Navbar = () => {
     return () => document.removeEventListener('keydown', handleEscape);
   }, []);
 
-  // Close menu when clicking outside
   useEffect(() => {
     if (!isMenuOpen) return;
 
@@ -246,7 +242,6 @@ const Navbar = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, [isMenuOpen]);
 
-  // Smooth scroll handler
   const handleNavClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
       if (href.startsWith('#')) {
@@ -306,7 +301,7 @@ const Navbar = () => {
         <div className={styles.actions}>
           {/* WhatsApp CTA */}
           <Link
-            href="https://api.whatsapp.com/send?phone=573008474121&text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            href={whatsappUrl('Hola, necesito ayuda con mi computador')}
             target="_blank"
             rel="noopener noreferrer"
             className={styles.ctaButton}
