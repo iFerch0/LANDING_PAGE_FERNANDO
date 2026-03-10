@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import ServicesGrid from '@/components/ServicesGrid';
+import WebDevServices from '@/components/WebDevServices';
 import Testimonials from '@/components/Testimonials';
 import AboutFernando from '@/components/AboutFernando';
 import ContactForm from '@/components/ContactForm';
@@ -32,8 +33,11 @@ export default function HomePage() {
           <Hero />
         </div>
 
-        {/* ServicesGrid - Qué ofrecemos */}
+        {/* ServicesGrid - Qué ofrecemos (servicios de computador) */}
         <ServicesGrid />
+
+        {/* WebDevServices - Desarrollo Web Profesional */}
+        <WebDevServices />
 
         {/* Testimonials - Reviews verificadas */}
         <Testimonials />

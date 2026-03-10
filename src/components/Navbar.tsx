@@ -279,7 +279,9 @@ const Navbar = () => {
           </div>
           <div className={styles.brandText}>
             <span className={styles.brandName}>Fernando</span>
-            <span className={styles.brandTitle}>Técnico en Computadores</span>
+            <span className={styles.brandTitle}>
+              Ing. de Sistemas | Full-Stack Dev | IT Support
+            </span>
           </div>
         </Link>
 

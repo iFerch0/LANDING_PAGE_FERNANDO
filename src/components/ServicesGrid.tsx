@@ -9,6 +9,8 @@ import {
   ClockIcon,
   CheckCircleIcon,
   WhatsAppIcon,
+  CpuIcon,
+  ConsultingIcon,
 } from './Icons';
 import styles from './ServicesGrid.module.css';
 
@@ -71,6 +73,26 @@ const compactServices: CompactService[] = [
     features: ['Conexión remota segura', 'Solución inmediata'],
     accent: 'accentAmber',
     iconBox: 'iconBoxAmber',
+  },
+  {
+    icon: CpuIcon,
+    title: 'Armado de Computadores',
+    description:
+      'Ensamblaje profesional de PC a tu medida. Selección de componentes, montaje y configuración completa.',
+    duration: '1-2 días',
+    features: ['Componentes garantizados', 'Configuración optimizada'],
+    accent: 'accentPurple',
+    iconBox: 'iconBoxPurple',
+  },
+  {
+    icon: ConsultingIcon,
+    title: 'Asesoría de Compra',
+    description:
+      'Te guío en la elección del computador ideal según tu presupuesto, necesidades y uso.',
+    duration: '30-60 min',
+    features: ['Evaluación personalizada', 'Mejor relación precio-calidad'],
+    accent: 'accentIndigo',
+    iconBox: 'iconBoxIndigo',
   },
 ];
 

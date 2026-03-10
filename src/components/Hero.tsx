@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
           <div className={styles.content}>
             <div className={styles.badge}>
               <CheckCircleIcon className={styles.badgeIcon} />
-              <span className={styles.badgeText}>Técnico Certificado</span>
+              <span className={styles.badgeText}>Ingeniero Certificado</span>
               <span className={styles.badgePulse} />
             </div>
 
