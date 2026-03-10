@@ -1,12 +1,39 @@
-import React from 'react';
+'use client';
+
+import React, { useRef, useState, useEffect } from 'react';
 import Script from 'next/script';
 import { GoogleIcon } from './Icons';
 import { elfsightConfig } from '@/data/testimonials';
 import styles from './Testimonials.module.css';
 
 const Testimonials = () => {
+  const [shouldLoadScript, setShouldLoadScript] = useState(false);
+  const containerRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const currentRef = containerRef.current;
+
+    // Intersection Observer to defer Elfsight massive JS download
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadScript(true);
+          if (currentRef) observer.unobserve(currentRef);
+        }
+      },
+      { rootMargin: '200px' } // Start loading 200px before reaching the section
+    );
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) observer.unobserve(currentRef);
+    };
+  }, []);
   return (
-    <section id="testimonios" className={styles.testimonials}>
+    <section ref={containerRef} id="testimonios" className={styles.testimonials}>
       <div className={`container ${styles.container}`}>
         {/* Header */}
         <div className={styles.header} data-aos="fade-up">
@@ -29,7 +56,9 @@ const Testimonials = () => {
 
         {/* Widget Container */}
         <div className={styles.widget} data-aos="fade-up" data-aos-delay="100">
-          <Script src={elfsightConfig.scriptSrc} strategy="afterInteractive" async />
+          {shouldLoadScript && (
+            <Script src={elfsightConfig.scriptSrc} strategy="lazyOnload" async />
+          )}
           <div className={`elfsight-app-${elfsightConfig.appId}`} data-elfsight-app-lazy></div>
         </div>
       </div>

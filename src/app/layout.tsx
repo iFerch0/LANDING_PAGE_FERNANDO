@@ -94,7 +94,6 @@ export default function RootLayout({
 
         {/* Preload recursos críticos */}
         <link rel="preload" href="/logo.png" as="image" />
-        <link rel="preload" href="/hero-poster.jpg" as="image" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://api.whatsapp.com" />
 

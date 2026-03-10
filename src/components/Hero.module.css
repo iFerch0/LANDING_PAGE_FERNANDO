@@ -52,16 +52,6 @@
   }
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: -200% center;
-  }
-
-  100% {
-    background-position: 200% center;
-  }
-}
-
 /* ── Hero Section ─────────────────────────────────────────────────────── */
 .hero {
   position: relative;
@@ -235,7 +225,6 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-size: 200% auto;
-  animation: shimmer 4s linear infinite;
 }
 
 .subtitle {
@@ -715,9 +704,5 @@
     opacity: 1;
     animation: none;
     transform: none;
-  }
-
-  .titleLine2 {
-    animation: none;
   }
 }
