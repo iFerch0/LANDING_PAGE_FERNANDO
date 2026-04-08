@@ -166,7 +166,7 @@ const nextConfig: NextConfig = {
       {
         source: '/cotizaciones/:path*',
         destination:
-          'https://aplicacion-cotizaciones-fercho-git-master-iferch0s-projects.vercel.app/:path*',
+          'https://cotizacion-fercho.vercel.app/:path*',
       },
     ];
   },
