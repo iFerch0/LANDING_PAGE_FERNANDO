@@ -161,6 +161,15 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async rewrites() {
+    return [
+      {
+        source: '/cotizaciones/:path*',
+        destination:
+          'https://aplicacion-cotizaciones-fercho-git-master-iferch0s-projects.vercel.app/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
