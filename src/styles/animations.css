@@ -1,0 +1,130 @@
+/* ── Custom Reveal Animations — no library, no generic fade-up ── */
+
+/* Base: hidden until revealed */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.8s var(--ease-out),
+    transform 0.8s var(--ease-out);
+}
+
+[data-reveal].revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* Variant 1: Rise (subtle upward) */
+[data-reveal='up'] {
+  transform: translateY(24px);
+}
+
+/* Variant 2: Slide from right (for images, side panels) */
+[data-reveal='right'] {
+  transform: translateX(32px);
+}
+
+/* Variant 3: Slide from left (for text columns) */
+[data-reveal='left'] {
+  transform: translateX(-32px);
+}
+
+/* Variant 4: Scale in (for cards, featured blocks) */
+[data-reveal='scale'] {
+  transform: scale(0.96);
+  transition-duration: 0.6s;
+}
+
+/* Variant 5: Fade only (for subtle elements) */
+[data-reveal='fade'] {
+  transition-duration: 0.5s;
+}
+
+/* ── Stagger delays for children ── */
+[data-reveal-stagger] > [data-reveal] {
+  transition-delay: calc(var(--stagger-index, 0) * 80ms);
+}
+
+/* ── Section header line reveal ── */
+[data-reveal='line'] {
+  clip-path: inset(0 100% 0 0);
+  opacity: 1;
+  transform: none;
+  transition: clip-path 0.7s var(--ease-out);
+}
+
+[data-reveal='line'].revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ── Reduced motion: show everything immediately ── */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    clip-path: none;
+  }
+}
+
+/* ── Interactive micro-animations ── */
+
+/* Nav link: marker slides in from left */
+.nav-marker {
+  transition: transform 0.25s var(--ease-out);
+}
+
+/* Button: subtle press-down on active */
+.btn-press:active {
+  transform: translateY(1px);
+}
+
+/* Card/row: border accent reveals on hover */
+.hover-accent {
+  transition: border-color 0.25s var(--ease-out);
+}
+
+/* Tech pill: lift + glow */
+.tech-lift {
+  transition:
+    transform 0.2s var(--ease-out),
+    box-shadow 0.2s var(--ease-out);
+}
+
+.tech-lift:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 12px rgba(var(--color-navy-500-rgb), 0.15);
+}
+
+/* Value item: left border thickens */
+.value-accent {
+  transition:
+    border-left-width 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+  border-left: 2px solid var(--color-border-subtle);
+}
+
+.value-accent:hover {
+  border-left-width: 3px;
+  border-left-color: var(--color-accent);
+}
+
+/* Service item: subtle background shift */
+.service-hover {
+  transition:
+    background 0.3s var(--ease-out),
+    border-color 0.3s var(--ease-out);
+}
+
+.service-hover:hover {
+  background: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+/* Feature row: icon color shift */
+.feature-hover .feature-icon-svg {
+  transition: color 0.3s var(--ease-out);
+}
+
+.feature-hover:hover .feature-icon-svg {
+  color: var(--color-accent);
+}

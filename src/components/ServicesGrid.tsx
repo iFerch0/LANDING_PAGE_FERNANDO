@@ -1,161 +1,141 @@
 'use client';
 
 import React from 'react';
-import { WrenchIcon, ClockIcon, CheckCircleIcon, WhatsAppIcon } from './Icons';
+import { ClockIcon, CheckCircleIcon, WhatsAppIcon } from './Icons';
 import styles from './ServicesGrid.module.css';
 import { whatsappUrl } from '@/data/contact';
 import { compactServices } from '@/data/servicesCompact';
 
-/**
- * ServicesGrid - Services showcase with a hero card and compact cards grid.
- *
- * Features:
- * - Hero card: featured "Hardware Repair" service with "Most requested" badge
- * - 5 compact cards rendered from `compactServices` data
- * - Each card shows: icon, duration badge, title, description, features list
- * - WhatsApp CTA links on every card
- * - AOS staggered fade-up animations (50ms delay increment)
- *
- * @example
- * ```tsx
- * <ServicesGrid />
- * ```
- *
- * @remarks
- * Data sourced from `src/data/servicesCompact.ts` (compactServices array).
- * Each compact service has an `accent` and `iconBox` property for CSS class mapping.
- * WhatsApp links use `whatsappUrl()` helper from `src/data/contact.ts`.
- */
 const ServicesGrid: React.FC = () => {
   return (
     <section id="servicios" className={styles.services} aria-labelledby="services-title">
       <div className={styles.container}>
-        {/* Header */}
-        <div className={styles.header} data-aos="fade-up">
-          <span className={styles.eyebrow}>Servicios profesionales</span>
-          <h2 id="services-title" className={styles.title}>
-            ¿Qué necesita
-            <span className={styles.titleAccent}> tu computador?</span>
-          </h2>
-          <p className={styles.subtitle}>
-            Soluciones profesionales para tu equipo. Diagnóstico gratuito incluido en todos los
-            servicios.
-          </p>
+        {/* Header — numbered, editorial */}
+        <div className={styles.header} data-reveal="up">
+          <span className={styles.sectionNum}>01</span>
+          <div className={styles.headerContent}>
+            <h2 id="services-title" className={styles.title}>
+              ¿Qué necesita <span className={styles.titleAccent}>tu computador?</span>
+            </h2>
+            <p className={styles.subtitle}>
+              Soluciones profesionales con diagnóstico gratuito incluido en todos los servicios.
+            </p>
+          </div>
         </div>
 
-        {/* Grid */}
-        <div className={styles.grid}>
-          {/* Hero Card — Reparación de Hardware (Más solicitado) */}
-          <article className={styles.heroCard} data-aos="fade-up">
-            <div className={styles.heroContent}>
-              <div className={styles.heroHeader}>
-                <div className={styles.heroIconBox}>
-                  <WrenchIcon className={styles.heroIcon} />
-                </div>
-                <div className={styles.heroTitleGroup}>
-                  <h3 className={styles.heroTitle}>Reparación de Hardware</h3>
-                  <p className={styles.heroSub}>Servicio más solicitado</p>
-                </div>
-                <span className={styles.popularBadge}>Más solicitado</span>
-              </div>
-
-              <p className={styles.heroDesc}>
-                Diagnóstico y reparación de componentes dañados, reemplazo de piezas con repuestos
-                originales. Mismo día en la mayoría de casos.
-              </p>
-
-              <div className={styles.heroDuration}>
-                <ClockIcon size={16} />
-                <span>Mismo día</span>
-              </div>
-
-              <a
-                href={whatsappUrl('Hola, necesito ayuda con mi computador')}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.heroCta}
-              >
-                <span className="sr-only">Contactar</span>
-                <WhatsAppIcon size={16} />
-                Solicitar cotización
-              </a>
+        {/* Featured Service — Hardware Repair */}
+        <article className={styles.featured} data-reveal="scale">
+          <div>
+            <p className={styles.featuredLabel}>Servicio más solicitado · HW-REP-01</p>
+            <h3 className={styles.featuredTitle}>Reparación de Hardware</h3>
+            <p className={styles.featuredSub}>Diagnóstico y reparación el mismo día</p>
+            <p className={styles.featuredDesc}>
+              Diagnóstico y reparación de componentes dañados, reemplazo de piezas con repuestos
+              originales. Mismo día en la mayoría de casos.
+            </p>
+            <div className={styles.featuredMeta}>
+              <span className={styles.featuredDuration}>
+                <ClockIcon size={14} />
+                Mismo día
+              </span>
             </div>
+            <a
+              href={whatsappUrl('Hola, necesito ayuda con mi computador')}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.featuredCta}
+            >
+              <WhatsAppIcon size={16} />
+              Solicitar cotización
+            </a>
+          </div>
 
-            <div className={styles.heroIncludes}>
-              <span className={styles.includesTitle}>Incluye:</span>
-              <ul className={styles.includesList}>
-                {[
-                  'Diagnóstico gratuito sin compromiso',
-                  'Reparación de componentes',
-                  'Repuestos originales garantizados',
-                  'Pruebas de funcionamiento completas',
-                ].map((item) => (
-                  <li key={item} className={styles.includesItem}>
-                    <CheckCircleIcon className={styles.includesIcon} />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className={styles.featuredIncludes}>
+            <span className={styles.includesTitle}>Incluye</span>
+            <ul className={styles.includesList}>
+              {[
+                'Diagnóstico gratuito sin compromiso',
+                'Reparación de componentes',
+                'Repuestos originales garantizados',
+                'Pruebas de funcionamiento completas',
+              ].map((item) => (
+                <li key={item} className={styles.includesItem}>
+                  <CheckCircleIcon className={styles.includesIcon} />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
 
-            <div className={styles.heroGlow} aria-hidden="true" />
-          </article>
-
-          {/* 5 Compact Cards */}
-          {compactServices.map((service, index) => {
+        {/* Services List — varied, not uniform */}
+        <div className={styles.servicesList} data-reveal-stagger>
+          {compactServices.map((service) => {
             const IconComponent = service.icon;
             return (
               <article
                 key={service.title}
-                className={`${styles.card} ${styles[service.accent]}`}
-                data-aos="fade-up"
-                data-aos-delay={(index + 1) * 50}
+                className={`${styles.serviceItem} service-hover`}
+                data-reveal="scale"
               >
-                <div className={styles.cardHeader}>
-                  <div className={`${styles.iconBox} ${styles[service.iconBox]}`}>
-                    <IconComponent className={styles.cardIcon} />
+                <div className={styles.serviceHeader}>
+                  <div className={styles.serviceIcon}>
+                    <IconComponent />
                   </div>
-                  <div className={styles.durationBadge}>
-                    <ClockIcon size={12} />
-                    {service.duration}
+                  <div>
+                    <h3 className={styles.serviceName}>{service.title}</h3>
+                    <span className={styles.serviceDuration}>{service.duration}</span>
                   </div>
                 </div>
-
-                <h3 className={styles.cardTitle}>{service.title}</h3>
-                <p className={styles.cardDesc}>{service.description}</p>
-
-                <div className={styles.cardFeatures}>
+                <p className={styles.serviceDesc}>{service.description}</p>
+                <div className={styles.serviceFeatures}>
                   {service.features.map((feat) => (
-                    <div key={feat} className={styles.cardFeature}>
-                      <CheckCircleIcon className={styles.featureIcon} />
+                    <div key={feat} className={styles.serviceFeature}>
+                      <CheckCircleIcon />
                       <span>{feat}</span>
                     </div>
                   ))}
                 </div>
-
                 <a
                   href={whatsappUrl('Hola, necesito ayuda con mi computador')}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={styles.cardCta}
+                  className={styles.serviceCta}
                 >
-                  <span className="sr-only">Solicitar</span>
-                  Solicitar cotización
+                  Cotizar
                   <svg
-                    width="14"
-                    height="14"
+                    width="12"
+                    height="12"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
                   >
-                    <path d="M5 12h14" />
-                    <path d="M12 5l7 7-7 7" />
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </a>
               </article>
             );
           })}
+        </div>
+
+        {/* Promo Banner */}
+        <div className={styles.promo} data-reveal="up">
+          <div className={styles.promoContent}>
+            <p className={styles.promoTitle}>¿No sabés qué servicio necesitás?</p>
+            <p className={styles.promoDesc}>
+              Escribime por WhatsApp y te oriento sin compromiso. Diagnóstico inicial gratuito.
+            </p>
+          </div>
+          <a
+            href={whatsappUrl('Hola, no estoy seguro de qué servicio necesito')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.promoCta}
+          >
+            <WhatsAppIcon />
+            Consultar por WhatsApp
+          </a>
         </div>
       </div>
     </section>

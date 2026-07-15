@@ -24,7 +24,7 @@ export default function ContactFormStep0({
     <div className={`${styles.stepPanel} ${active ? styles.stepPanelActive : ''}`}>
       <h3 className={styles.sectionTitle}>
         <UserIcon />
-        Información Personal
+        Información personal
       </h3>
 
       <div className={styles.fieldGroup}>
@@ -73,8 +73,7 @@ export default function ContactFormStep0({
           stroke="currentColor"
           strokeWidth="2"
         >
-          <path d="M5 12h14" />
-          <path d="M12 5l7 7-7 7" />
+          <path d="M5 12h14M12 5l7 7-7 7" />
         </svg>
       </button>
     </div>

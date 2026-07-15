@@ -28,24 +28,11 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        {/* Hero - Primera impresión con headline mejorado */}
-        <div data-aos="fade-up">
-          <Hero />
-        </div>
-
-        {/* ServicesGrid - Qué ofrecemos (servicios de computador) */}
+        <Hero />
         <ServicesGrid />
-
-        {/* WebDevServices - Desarrollo Web Profesional */}
         <WebDevServices />
-
-        {/* Testimonials - Reviews verificadas */}
         <Testimonials />
-
-        {/* AboutFernando - Credibilidad personal */}
         <AboutFernando />
-
-        {/* ContactForm - Captura de leads */}
         <ContactForm />
       </main>
     </>

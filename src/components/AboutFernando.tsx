@@ -9,27 +9,31 @@ const AboutFernando: React.FC = () => {
   return (
     <section id="sobre-mi" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.layout} data-aos="fade-up">
-          {/* Photo */}
-          <div className={styles.photoWrapper}>
-            <div className={styles.photoFrame}>
-              <Image
-                src="/img/sobre-mi.webp"
-                alt="Fernando Rhenals — Ingeniero de Sistemas y Técnico Especialista en Montería"
-                width={480}
-                height={560}
-                className={styles.photo}
-                style={{ objectFit: 'cover' }}
-              />
+        <div className={styles.layout} data-reveal="up">
+          {/* Photo Column */}
+          <div className={styles.photoCol}>
+            <div className={styles.photoWrapper}>
+              <div className={styles.photoFrame}>
+                <Image
+                  src="/img/sobre-mi.webp"
+                  alt="Fernando Rhenals — Ingeniero de Sistemas"
+                  width={480}
+                  height={640}
+                  className={styles.photo}
+                  style={{ objectFit: 'cover' }}
+                />
+                <span className={styles.photoCoords}>08°44&apos;N 75°53&apos;W — Montería, CO</span>
+              </div>
             </div>
-            <div className={styles.photoAccent} />
           </div>
 
-          {/* Content */}
+          {/* Content Column */}
           <div className={styles.content}>
-            <span className={styles.eyebrow}>Sobre el profesional</span>
+            <span className={styles.overline}>Sobre el profesional</span>
 
-            <h2 className={styles.name}>Fernando Rhenals</h2>
+            <h2 className={styles.name}>
+              Fernando <span className={styles.nameAccent}>Rhenals</span>
+            </h2>
             <p className={styles.role}>Ingeniero de Sistemas · Técnico Especialista</p>
 
             <p className={styles.bio}>
@@ -39,22 +43,22 @@ const AboutFernando: React.FC = () => {
               preventiva hasta la implementación de infraestructura empresarial completa.
             </p>
 
-            {/* Specialties */}
+            {/* Specialties — tech-style labels */}
             <div className={styles.specialties}>
               {specialties.map((s) => (
-                <span key={s} className={styles.pill}>
+                <span key={s} className={styles.specialty}>
                   {s}
                 </span>
               ))}
             </div>
 
-            {/* Values */}
+            {/* Values — numbered list */}
             <div className={styles.values}>
-              {values.map((v) => (
-                <div key={v.title} className={styles.valueItem}>
-                  <span className={styles.valueIcon}>{v.icon}</span>
+              {values.map((v, i) => (
+                <div key={v.title} className={`${styles.valueItem} value-accent`}>
+                  <span className={styles.valueNum}>{String(i + 1).padStart(2, '0')}</span>
                   <div>
-                    <strong className={styles.valueTitle}>{v.title}</strong>
+                    <h3 className={styles.valueTitle}>{v.title}</h3>
                     <p className={styles.valueDesc}>{v.desc}</p>
                   </div>
                 </div>

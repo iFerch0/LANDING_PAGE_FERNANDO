@@ -1,10 +1,37 @@
+/* ── Slider — architectural, technical ── */
 .slider {
   position: relative;
   width: 100%;
   aspect-ratio: 4/3;
-  border-radius: 24px;
   overflow: hidden;
-  background: var(--color-bg-2);
+  background: var(--color-surface-sunken);
+}
+
+/* Blueprint crosshair overlay */
+.slider::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.25;
+  background:
+    linear-gradient(
+      to right,
+      transparent calc(50% - 0.5px),
+      rgba(255, 255, 255, 0.3) calc(50% - 0.5px),
+      rgba(255, 255, 255, 0.3) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    ),
+    linear-gradient(
+      to bottom,
+      transparent calc(50% - 0.5px),
+      rgba(255, 255, 255, 0.3) calc(50% - 0.5px),
+      rgba(255, 255, 255, 0.3) calc(50% + 0.5px),
+      transparent calc(50% + 0.5px)
+    );
+  mask-image: radial-gradient(circle 60% at 50% 50%, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle 60% at 50% 50%, black 30%, transparent 70%);
 }
 
 .slides {
@@ -16,7 +43,7 @@
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 0.8s ease-in-out;
 }
 
 .slide.active {
@@ -28,78 +55,67 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1);
-  transition: transform 6s ease-out;
-}
-
-.slide.active .image {
-  transform: scale(1.08);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 0%, transparent 50%, rgba(0, 0, 0, 0.6) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.35) 0%, transparent 50%);
   z-index: 2;
 }
 
+/* ── Caption — technical annotation style ── */
 .caption {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 32px;
+  padding: var(--space-6);
   z-index: 3;
-  transform: translateY(10px);
-  opacity: 0;
-  transition: all 0.6s ease 0.3s;
-}
-
-.slide.active .caption {
-  transform: translateY(0);
-  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
 }
 
 .captionTag {
   display: inline-block;
-  padding: 6px 14px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  border-radius: 100px;
-  font-size: 11px;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--weight-medium);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: white;
-  margin-bottom: 12px;
+  letter-spacing: var(--tracking-wider);
+  color: rgba(255, 255, 255, 0.7);
+  width: fit-content;
 }
 
 .captionTitle {
-  font-size: 24px;
-  font-weight: 700;
-  color: white;
-  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-white);
   line-height: 1.2;
+  margin: 0;
 }
 
+/* ── Navigation Buttons ── */
 .navButton {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  color: white;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text);
   cursor: pointer;
   z-index: 10;
   opacity: 0;
-  transition: all 0.3s ease;
+  transition:
+    opacity var(--duration-fast) var(--ease-standard),
+    background var(--duration-fast) var(--ease-standard);
 }
 
 .slider:hover .navButton {
@@ -107,42 +123,40 @@
 }
 
 .navButton:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: translateY(-50%) scale(1.05);
+  background: var(--color-surface-sunken);
 }
 
 .navPrev {
-  left: 20px;
+  left: var(--space-3);
 }
 
 .navNext {
-  right: 20px;
+  right: var(--space-3);
 }
 
 .navIcon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 }
 
+/* ── Dots — minimal line-style ── */
 .dots {
   position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  bottom: var(--space-4);
+  right: var(--space-6);
   display: flex;
-  gap: 10px;
+  gap: var(--space-2);
   z-index: 10;
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
+  width: 20px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.35);
   border: none;
   padding: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .dot:hover {
@@ -150,23 +164,24 @@
 }
 
 .dot.active {
-  background: white;
-  transform: scale(1.2);
+  background: var(--color-white);
+  width: 32px;
 }
 
+/* ── Progress Bar ── */
 .progress {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
-  height: 3px;
-  background: rgba(255, 255, 255, 0.2);
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.15);
   z-index: 10;
 }
 
 .progressFill {
   height: 100%;
-  background: white;
+  background: var(--color-white);
   width: 0%;
 }
 
@@ -178,170 +193,86 @@
   from {
     width: 0%;
   }
-
   to {
     width: 100%;
   }
 }
 
+/* ── Counter — clean ── */
 .counter {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  padding: 8px 14px;
+  top: var(--space-4);
+  right: var(--space-4);
+  padding: var(--space-1) var(--space-3);
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  border-radius: 100px;
-  font-size: 13px;
-  font-weight: 600;
-  color: white;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: var(--weight-medium);
+  color: var(--color-white);
   z-index: 10;
-}
-
-.counterCurrent {
-  font-weight: 800;
+  letter-spacing: var(--tracking-mono);
 }
 
 .counterDivider {
-  opacity: 0.5;
-  margin: 0 4px;
+  opacity: 0.4;
+  margin: 0 2px;
 }
 
 .counterTotal {
-  opacity: 0.7;
+  opacity: 0.6;
 }
 
+/* ── Skeleton ── */
 .loading {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg-2);
+  background: var(--color-surface-sunken);
 }
 
 .skeleton {
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--color-bg-2) 0%,
-    var(--color-bg-3) 50%,
-    var(--color-bg-2) 100%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
+  background: var(--color-surface-sunken);
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-
-  100% {
-    background-position: -200% 0;
-  }
-}
-
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .slider {
     aspect-ratio: 1/1;
-    border-radius: 20px;
-  }
-
-  .caption {
-    padding: 24px;
-  }
-
-  .captionTitle {
-    font-size: 20px;
   }
 
   .navButton {
-    width: 40px;
-    height: 40px;
     opacity: 1;
+    width: 36px;
+    height: 36px;
   }
 
-  .navPrev {
-    left: 12px;
+  .caption {
+    padding: var(--space-4);
   }
 
-  .navNext {
-    right: 12px;
+  .captionTitle {
+    font-size: var(--text-lg);
   }
 
-  .navIcon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .counter {
-    top: 16px;
-    right: 16px;
-    padding: 6px 12px;
-    font-size: 12px;
+  .dots {
+    right: var(--space-4);
   }
 }
 
 @media (max-width: 480px) {
-  .slider {
-    border-radius: 16px;
-  }
-
   .navButton {
     display: none;
   }
 
   .caption {
-    padding: 20px;
-  }
-
-  .captionTag {
-    font-size: 10px;
-    padding: 4px 10px;
+    padding: var(--space-3);
   }
 
   .captionTitle {
-    font-size: 18px;
-  }
-
-  .dots {
-    bottom: 16px;
-    gap: 8px;
-  }
-
-  .dot {
-    width: 8px;
-    height: 8px;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .slider {
-    background: var(--color-bg-3);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .slide {
-    transition: opacity 0.3s ease;
-  }
-
-  .image {
-    transition: none;
-  }
-
-  .slide.active .image {
-    transform: none;
-  }
-
-  .progressFill.animate {
-    animation: none;
-    width: 100%;
-  }
-
-  .skeleton {
-    animation: none;
+    font-size: var(--text-md);
   }
 }

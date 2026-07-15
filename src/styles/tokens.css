@@ -1,110 +1,109 @@
 :root {
-  --color-white: #ffffff;
-  --color-black: #0a0a0a;
-  --color-cream-50: #faf9f6;
-  --color-cream-100: #f5f3ee;
-  --color-cream-200: #ede9e0;
-  --color-gray-100: #f7f7f7;
-  --color-gray-200: #ebebeb;
-  --color-gray-300: #a0a4a8;
-  --color-gray-400: #6b7280;
-  --color-gray-500: #4b5563;
-  --color-slate-500: #475569;
-  --color-slate-600: #334155;
-  --color-slate-700: #1e293b;
-  --color-slate-800: #0f172a;
-  --color-slate-900: #0c1220;
-  --color-brown-600: #5e5240;
-  --color-charcoal-700: #1f2121;
-  --color-charcoal-800: #262828;
+  /* ── Raw Palette ── */
+  --color-white: #fcfbf8;
+  --color-offwhite: #f6f4ef;
+  --color-paper: #faf9f5;
+  --color-black: #141311;
 
-  --color-teal-50: #f0fdfa;
-  --color-teal-100: #ccfbf1;
-  --color-teal-200: #99f6e4;
-  --color-teal-300: #32b8c6;
-  --color-teal-400: #2da6b2;
-  --color-teal-500: #21808d;
-  --color-teal-600: #1d7480;
-  --color-teal-700: #1a6873;
-  --color-teal-800: #155e68;
+  --color-navy-950: #0d1520;
+  --color-navy-900: #111d2e;
+  --color-navy-800: #182a40;
+  --color-navy-700: #1e3858;
+  --color-navy-600: #2a4d75;
+  --color-navy-500: #3a6a96;
+  --color-navy-400: #5b8db5;
+  --color-navy-300: #89b2d4;
+  --color-navy-200: #b8d2e8;
+  --color-navy-100: #dce9f4;
+  --color-navy-50: #f0f5fa;
 
-  --color-red-400: #ff5459;
-  --color-red-500: #c0152f;
-  --color-orange-300: #fdba74;
-  --color-orange-400: #e68161;
-  --color-orange-500: #a84b2f;
-  --color-amber-400: #fbbf24;
-  --color-amber-500: #f59e0b;
+  --color-terracotta-900: #3d1a0a;
+  --color-terracotta-800: #5c2812;
+  --color-terracotta-700: #7d361b;
+  --color-terracotta-600: #a04526;
+  --color-terracotta-500: #c2603a;
+  --color-terracotta-400: #d4805e;
+  --color-terracotta-300: #e3a088;
+  --color-terracotta-200: #efc4b4;
+  --color-terracotta-100: #f7e1d8;
+  --color-terracotta-50: #fcf2ed;
 
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-teal-300-rgb: 50, 184, 198;
-  --color-slate-900-rgb: 12, 18, 32;
-  --color-slate-500-rgb: 71, 85, 105;
-  --color-red-500-rgb: 192, 21, 47;
-  --color-red-400-rgb: 255, 84, 89;
-  --color-orange-500-rgb: 168, 75, 47;
-  --color-orange-400-rgb: 230, 129, 97;
+  --color-stone-900: #1c1917;
+  --color-stone-800: #292524;
+  --color-stone-700: #3d3833;
+  --color-stone-600: #57524c;
+  --color-stone-500: #78716c;
+  --color-stone-400: #9c948b;
+  --color-stone-300: #c4bdb3;
+  --color-stone-200: #e0dbd3;
+  --color-stone-100: #f0ede7;
+  --color-stone-50: #f9f8f5;
 
+  --color-blueprint: #2d5a8e;
+  --color-blueprint-light: #7ba6cc;
+  --color-blueprint-faint: #dbe8f5;
+
+  --color-amber-500: #d4802a;
+  --color-emerald-600: #2d7a4f;
+  --color-red-500: #c04040;
+
+  /* ── RGB Versions ── */
+  --color-navy-800-rgb: 24, 42, 64;
+  --color-navy-500-rgb: 58, 106, 150;
+  --color-terracotta-500-rgb: 194, 96, 58;
+  --color-terracotta-400-rgb: 212, 128, 94;
+  --color-stone-700-rgb: 61, 56, 51;
+  --color-stone-500-rgb: 120, 113, 108;
+
+  /* ── Spatial System (based on 4px grid, editorial scale) ── */
   --space-0: 0;
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-10: 10px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --space-40: 40px;
-  --space-48: 48px;
-  --space-56: 56px;
-  --space-64: 64px;
-  --space-80: 80px;
-  --space-96: 96px;
-  --space-128: 128px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
 
-  --radius-xs: 4px;
-  --radius-sm: 6px;
-  --radius-base: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
-  --radius-2xl: 24px;
-  --radius-full: 9999px;
+  /* ── Border Radius — minimal, intentional ── */
+  --radius-none: 0;
+  --radius-1: 2px;
+  --radius-2: 4px;
+  --radius-3: 6px;
+  --radius-4: 8px;
 
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
-  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+  /* ── Shadows — sparse, directional ── */
+  --shadow-none: none;
+  --shadow-raised: 0 1px 0 0 rgba(0, 0, 0, 0.05);
+  --shadow-floating: 0 2px 8px rgba(0, 0, 0, 0.06), 0 8px 32px rgba(0, 0, 0, 0.04);
+  --shadow-overlay: 0 4px 16px rgba(0, 0, 0, 0.08), 0 12px 48px rgba(0, 0, 0, 0.06);
 
-  --shadow-primary: 0 4px 14px rgba(33, 128, 141, 0.25);
-  --shadow-accent: 0 4px 14px rgba(217, 115, 52, 0.25);
-  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 6px 24px rgba(0, 0, 0, 0.04);
-  --shadow-card-hover: 0 4px 8px rgba(0, 0, 0, 0.06), 0 12px 40px rgba(0, 0, 0, 0.08);
-
+  /* ── Duration / Easing ── */
   --duration-instant: 100ms;
-  --duration-fast: 150ms;
-  --duration-normal: 250ms;
-  --duration-slow: 400ms;
-  --duration-slower: 600ms;
-  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 180ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-out: cubic-bezier(0, 0, 0.2, 1);
   --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1200px;
-  --container-2xl: 1400px;
+  /* ── Containers ── */
+  --container-narrow: 720px;
+  --container-default: 960px;
+  --container-wide: 1200px;
+  --container-full: 1440px;
 
+  /* ── Z-Index ── */
   --z-below: -1;
   --z-base: 0;
   --z-raised: 10;
