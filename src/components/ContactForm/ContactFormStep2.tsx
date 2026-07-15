@@ -28,7 +28,7 @@ export default function ContactFormStep2({
     <div className={`${styles.stepPanel} ${active ? styles.stepPanelActive : ''}`}>
       <h3 className={styles.sectionTitle}>
         <SendIcon />
-        Describe tu problema
+        Describí tu problema
       </h3>
 
       <div className={styles.fieldGroup}>
@@ -38,7 +38,7 @@ export default function ContactFormStep2({
         <textarea
           id="cf-problem"
           name="problem"
-          placeholder="Cuéntame qué problema tiene tu equipo, qué síntomas presenta, etc."
+          placeholder="Contame qué problema tiene tu equipo, qué síntomas presenta, hace cuánto..."
           value={formData.problem}
           onChange={onChange}
           onBlur={onBlur}
@@ -52,10 +52,7 @@ export default function ContactFormStep2({
       </div>
 
       <div className={styles.socialProof}>
-        <div className={styles.proofStars}>★★★★★</div>
-        <span className={styles.proofText}>
-          <strong>4.9/5</strong> basado en 100+ clientes satisfechos
-        </span>
+        <strong>★★★★★ 4.9/5</strong> — 50+ clientes satisfechos
       </div>
 
       <div className={styles.stepActions}>

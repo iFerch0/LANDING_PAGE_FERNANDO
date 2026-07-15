@@ -27,12 +27,12 @@ export default function ContactFormStep1({
     <div className={`${styles.stepPanel} ${active ? styles.stepPanelActive : ''}`}>
       <h3 className={styles.sectionTitle}>
         <DeviceIcon />
-        Detalles del Servicio
+        Detalles del servicio
       </h3>
 
       <div className={styles.fieldGroup}>
         <label htmlFor="cf-service" className={styles.label}>
-          ¿Qué servicio necesitas? *
+          ¿Qué servicio necesitás? *
         </label>
         <select
           id="cf-service"
@@ -42,7 +42,7 @@ export default function ContactFormStep1({
           onBlur={onBlur}
           className={`${styles.select} ${errors.service ? styles.inputError : ''}`}
         >
-          <option value="">Selecciona un servicio</option>
+          <option value="">Seleccioná un servicio</option>
           <optgroup label="Reparación y Mantenimiento">
             {SERVICE_OPTIONS.filter((s) => s.group === 'Reparación').map((s) => (
               <option key={s.value} value={s.value}>

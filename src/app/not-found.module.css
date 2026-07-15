@@ -3,64 +3,57 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  padding: var(--space-24);
-  background: linear-gradient(180deg, var(--color-cream-50) 0%, var(--color-cream-100) 100%);
+  padding: var(--space-8);
+  background: var(--color-background);
 }
 
 .container {
-  text-align: center;
-  max-width: 480px;
+  text-align: left;
+  max-width: 400px;
 }
 
 .code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
   display: block;
-  font-size: clamp(6rem, 15vw, 10rem);
-  font-weight: 800;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--brand-azul_oscuro), var(--brand-naranja_quemado));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: var(--space-16);
+  margin-bottom: var(--space-4);
 }
 
 .title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-bold);
   color: var(--color-text);
-  margin: 0 0 var(--space-12);
+  letter-spacing: var(--tracking-tighter);
+  line-height: 1.1;
+  margin: 0 0 var(--space-3);
 }
 
 .description {
-  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-size: var(--text-md);
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  margin: 0 0 var(--space-32);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 var(--space-6);
 }
 
 .cta {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  padding: var(--space-12) var(--space-32);
-  border-radius: var(--radius-full);
-  font-size: 1rem;
-  font-weight: 600;
-  text-decoration: none;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-primary);
   color: var(--color-text-inverse);
-  background: linear-gradient(135deg, var(--brand-azul_oscuro), var(--brand-azul_vibrante));
-  box-shadow: var(--shadow-primary);
-  transition:
-    transform var(--duration-normal) var(--ease-standard),
-    box-shadow var(--duration-normal) var(--ease-standard);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-standard);
 }
 
 .cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(var(--brand-azul_oscuro-rgb), 0.35);
-}
-
-.cta:focus-visible {
-  outline: none;
-  box-shadow: var(--focus-ring);
+  background: var(--color-primary-hover);
 }

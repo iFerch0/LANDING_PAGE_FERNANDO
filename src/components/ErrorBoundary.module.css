@@ -1,111 +1,111 @@
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  min-height: 400px;
-  padding: var(--space-40) var(--space-20);
-  text-align: center;
-  background: var(--color-cream-50);
-  border-radius: var(--radius-md);
-  margin: var(--space-20);
+  min-height: 300px;
+  padding: var(--space-10);
+  background: var(--color-background);
+  border: 1px solid var(--color-border);
+  max-width: 520px;
+  margin: var(--space-10) auto;
 }
 
 .icon {
-  margin-bottom: var(--space-20);
+  margin-bottom: var(--space-4);
 }
 
 .title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: var(--space-12);
-  color: var(--color-slate-800);
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-3);
 }
 
 .message {
-  color: var(--color-gray-400);
-  margin-bottom: var(--space-24);
-  max-width: 500px;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-6);
+  line-height: var(--leading-relaxed);
 }
 
 .actions {
   display: flex;
-  gap: var(--space-12);
+  gap: var(--space-3);
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .btnPrimary {
-  padding: var(--space-12) var(--space-24);
-  background: var(--color-teal-500);
-  color: var(--color-white);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
   border: none;
-  border-radius: var(--radius-base);
-  font-size: 1rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
   cursor: pointer;
-  transition: opacity var(--duration-fast) var(--ease-standard);
+  transition: background var(--duration-fast) var(--ease-standard);
 }
 
 .btnPrimary:hover {
-  opacity: 0.9;
+  background: var(--color-primary-hover);
 }
 
 .btnSecondary {
-  padding: var(--space-12) var(--space-24);
+  padding: var(--space-2) var(--space-5);
   background: transparent;
-  color: var(--color-teal-500);
-  border: 2px solid var(--color-teal-500);
-  border-radius: var(--radius-base);
-  font-size: 1rem;
-  font-weight: 500;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .btnSecondary:hover {
-  background: var(--color-teal-500);
-  color: var(--color-white);
+  background: var(--color-surface-sunken);
 }
 
 .btnWhatsapp {
-  padding: var(--space-12) var(--space-24);
-  background: #25d366;
-  color: var(--color-white);
+  padding: var(--space-2) var(--space-5);
+  background: var(--color-success);
+  color: var(--color-text-inverse);
   border: none;
-  border-radius: var(--radius-base);
-  font-size: 1rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-8);
-  transition: opacity var(--duration-fast) var(--ease-standard);
+  gap: var(--space-2);
+  transition: background var(--duration-fast) var(--ease-standard);
 }
 
 .btnWhatsapp:hover {
-  opacity: 0.9;
+  background: var(--color-success-hover);
 }
 
 .details {
-  margin-top: var(--space-32);
-  padding: var(--space-16);
-  background: var(--color-gray-100);
-  border-radius: var(--radius-base);
-  max-width: 600px;
-  width: 100%;
-  text-align: left;
-  font-size: 0.875rem;
-  font-family: monospace;
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-surface-sunken);
+  max-width: 100%;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
 }
 
 .summary {
   cursor: pointer;
-  font-weight: 700;
-  margin-bottom: var(--space-8);
+  font-weight: var(--weight-semibold);
+  margin-bottom: var(--space-2);
+  color: var(--color-text);
 }
 
 .pre {
   overflow: auto;
   margin: 0;
+  color: var(--color-text-secondary);
 }

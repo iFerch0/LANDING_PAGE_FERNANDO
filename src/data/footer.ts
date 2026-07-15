@@ -1,4 +1,4 @@
-export interface BusinessHour {
+interface BusinessHour {
   day: string;
   hours: string;
 }
