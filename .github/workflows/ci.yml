@@ -31,7 +31,7 @@ jobs:
           pnpm dlx wait-on http://localhost:3000
       - name: Install Chrome for Puppeteer
         run: |
-          pnpm exec puppeteer browsers install chrome --install-deps
+          pnpm exec puppeteer browsers install chrome
       - name: Visual smoke test (Puppeteer)
         run: |
           node ./scripts/ci-screenshots.js
