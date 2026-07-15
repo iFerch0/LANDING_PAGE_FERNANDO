@@ -6,6 +6,26 @@ import styles from './ServicesGrid.module.css';
 import { whatsappUrl } from '@/data/contact';
 import { compactServices } from '@/data/servicesCompact';
 
+/**
+ * ServicesGrid - Services showcase with a hero card and compact cards grid.
+ *
+ * Features:
+ * - Hero card: featured "Hardware Repair" service with "Most requested" badge
+ * - 5 compact cards rendered from `compactServices` data
+ * - Each card shows: icon, duration badge, title, description, features list
+ * - WhatsApp CTA links on every card
+ * - AOS staggered fade-up animations (50ms delay increment)
+ *
+ * @example
+ * ```tsx
+ * <ServicesGrid />
+ * ```
+ *
+ * @remarks
+ * Data sourced from `src/data/servicesCompact.ts` (compactServices array).
+ * Each compact service has an `accent` and `iconBox` property for CSS class mapping.
+ * WhatsApp links use `whatsappUrl()` helper from `src/data/contact.ts`.
+ */
 const ServicesGrid: React.FC = () => {
   return (
     <section id="servicios" className={styles.services} aria-labelledby="services-title">

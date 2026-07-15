@@ -9,7 +9,8 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ success: true, received: data.metric, note: 'Legacy endpoint' });
-  } catch {
+  } catch (error) {
+    console.error('Failed to process web vitals:', error);
     return NextResponse.json({ error: 'Failed to process web vitals' }, { status: 500 });
   }
 }

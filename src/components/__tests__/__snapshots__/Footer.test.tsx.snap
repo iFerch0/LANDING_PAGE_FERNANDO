@@ -81,6 +81,11 @@ exports[`Footer Component matches snapshot 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
+                <span
+                  class="sr-only"
+                >
+                  Facebook
+                </span>
                 <svg
                   fill="currentColor"
                   height="18"
@@ -99,6 +104,11 @@ exports[`Footer Component matches snapshot 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
+                <span
+                  class="sr-only"
+                >
+                  Instagram
+                </span>
                 <svg
                   fill="currentColor"
                   height="18"
@@ -117,6 +127,11 @@ exports[`Footer Component matches snapshot 1`] = `
                 rel="noopener noreferrer"
                 target="_blank"
               >
+                <span
+                  class="sr-only"
+                >
+                  LinkedIn
+                </span>
                 <svg
                   fill="currentColor"
                   height="18"
@@ -131,10 +146,15 @@ exports[`Footer Component matches snapshot 1`] = `
               <a
                 aria-label="WhatsApp"
                 class="socialLink socialWhatsapp"
-                href="https://wa.link/n8et4q"
+                href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
                 rel="noopener noreferrer"
                 target="_blank"
               >
+                <span
+                  class="sr-only"
+                >
+                  WhatsApp
+                </span>
                 <svg
                   fill="currentColor"
                   height="18"
@@ -161,7 +181,7 @@ exports[`Footer Component matches snapshot 1`] = `
             >
               <a
                 class="contactItem"
-                href="tel:+57 300 847 4121"
+                href="tel:+573008474121"
               >
                 <svg
                   fill="none"
@@ -181,7 +201,7 @@ exports[`Footer Component matches snapshot 1`] = `
               </a>
               <a
                 class="contactItem whatsappItem"
-                href="https://wa.link/n8et4q"
+                href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
                 rel="noopener noreferrer"
                 target="_blank"
               >

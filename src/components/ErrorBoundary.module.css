@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: var(--space-40) var(--space-20);
+  text-align: center;
+  background: var(--color-cream-50);
+  border-radius: var(--radius-md);
+  margin: var(--space-20);
+}
+
+.icon {
+  margin-bottom: var(--space-20);
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-12);
+  color: var(--color-slate-800);
+}
+
+.message {
+  color: var(--color-gray-400);
+  margin-bottom: var(--space-24);
+  max-width: 500px;
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btnPrimary {
+  padding: var(--space-12) var(--space-24);
+  background: var(--color-teal-500);
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnSecondary {
+  padding: var(--space-12) var(--space-24);
+  background: transparent;
+  color: var(--color-teal-500);
+  border: 2px solid var(--color-teal-500);
+  border-radius: var(--radius-base);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.btnSecondary:hover {
+  background: var(--color-teal-500);
+  color: var(--color-white);
+}
+
+.btnWhatsapp {
+  padding: var(--space-12) var(--space-24);
+  background: #25d366;
+  color: var(--color-white);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.btnWhatsapp:hover {
+  opacity: 0.9;
+}
+
+.details {
+  margin-top: var(--space-32);
+  padding: var(--space-16);
+  background: var(--color-gray-100);
+  border-radius: var(--radius-base);
+  max-width: 600px;
+  width: 100%;
+  text-align: left;
+  font-size: 0.875rem;
+  font-family: monospace;
+}
+
+.summary {
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: var(--space-8);
+}
+
+.pre {
+  overflow: auto;
+  margin: 0;
+}

@@ -125,6 +125,11 @@ export default function RootLayout({
         <meta property="og:image:height" content="630" />
         <meta property="og:image:type" content="image/jpeg" />
       </head>
+      {/*
+       * suppressHydrationWarning: browser extensions (e.g. Grammarly, Dark Reader)
+       * inject attributes into <body>, causing hydration mismatches.
+       * See ClientLayout.tsx cleanupBrowserExtensions for the runtime cleanup.
+       */}
       <body suppressHydrationWarning={true}>
         <GoogleAnalytics />
         <LocalBusinessSchema />

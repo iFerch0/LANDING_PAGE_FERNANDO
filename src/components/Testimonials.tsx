@@ -17,7 +17,9 @@ const Testimonials = () => {
       (entries) => {
         if (entries[0].isIntersecting) {
           setShouldLoadScript(true);
-          if (currentRef) observer.unobserve(currentRef);
+          if (currentRef) {
+            observer.unobserve(currentRef);
+          }
         }
       },
       { rootMargin: '200px' } // Start loading 200px before reaching the section
@@ -28,7 +30,9 @@ const Testimonials = () => {
     }
 
     return () => {
-      if (currentRef) observer.unobserve(currentRef);
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
     };
   }, []);
   return (

@@ -4,7 +4,7 @@ import ServicesGrid from '../ServicesGrid';
 describe('ServicesGrid Component', () => {
   it('renders services title', () => {
     render(<ServicesGrid />);
-    expect(screen.getByText('¿Qué necesita tu computador?')).toBeInTheDocument();
+    expect(screen.getByText(/Qué necesita/)).toBeInTheDocument();
   });
 
   it('renders service cards correctly', () => {

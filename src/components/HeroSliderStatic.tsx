@@ -6,6 +6,29 @@ import { HERO_SLIDES } from '../data/heroSlides';
 import styles from './HeroSlider.module.css';
 import { ChevronLeftIcon, ChevronRightIcon } from './Icons';
 
+/**
+ * HeroSliderStatic - Auto-playing image slider with navigation controls.
+ *
+ * Features:
+ * - Auto-advance every 5 seconds with progress bar animation
+ * - Pause on hover, resume on mouse leave
+ * - Touch/swipe support for mobile (50px threshold)
+ * - Keyboard navigation: ArrowLeft / ArrowRight
+ * - Dot indicators for direct slide access
+ * - Prev/Next arrow buttons
+ * - Slide counter (current / total)
+ * - Images loaded via Next.js Image with `priority` on first slide
+ *
+ * @example
+ * ```tsx
+ * <HeroSliderStatic />
+ * ```
+ *
+ * @remarks
+ * Slides data comes from `HERO_SLIDES` in `src/data/heroSlides.ts`.
+ * Progress bar resets on each slide change via `progressKey` state.
+ * Uses `objectPosition` from slide data for image framing.
+ */
 const HeroSliderStatic: React.FC = () => {
   const slides = HERO_SLIDES;
   const [current, setCurrent] = useState(0);
@@ -17,7 +40,9 @@ const HeroSliderStatic: React.FC = () => {
 
   useEffect(() => {
     if (isPaused) {
-      if (timerRef.current) clearInterval(timerRef.current);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
       return;
     }
 
@@ -27,7 +52,9 @@ const HeroSliderStatic: React.FC = () => {
     }, DURATION);
 
     return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
+      if (timerRef.current) {
+        clearInterval(timerRef.current);
+      }
     };
   }, [isPaused, slides.length]);
 
@@ -66,8 +93,12 @@ const HeroSliderStatic: React.FC = () => {
 
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') prev();
-      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') {
+        prev();
+      }
+      if (e.key === 'ArrowRight') {
+        next();
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);

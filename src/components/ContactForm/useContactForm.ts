@@ -39,6 +39,36 @@ function validateField(name: string, value: string): string {
   }
 }
 
+/**
+ * useContactForm - Custom hook for multi-step contact form state and validation.
+ *
+ * Manages a 3-step form flow:
+ * - Step 0: name, phone
+ * - Step 1: service, deviceType, urgency
+ * - Step 2: problem description
+ *
+ * Features:
+ * - Per-field validation on blur (name length, phone format, required selects, problem min length)
+ * - Step-level validation before advancing
+ * - WhatsApp URL generation with formatted message on submit
+ * - Auto-reset to step 0 after successful submission
+ *
+ * @returns Object with:
+ * - `step` (number): current step index (0-2)
+ * - `formData` (ContactFormData): current form values
+ * - `errors` (FormErrors): validation error messages per field
+ * - `isSubmitting` (boolean): submission in progress
+ * - `handleChange`: input change handler (clears error on change)
+ * - `handleBlur`: blur handler (validates field)
+ * - `nextStep`: validate current step and advance
+ * - `prevStep`: go back one step
+ * - `handleSubmit`: validate final step and open WhatsApp
+ *
+ * @example
+ * ```tsx
+ * const { step, formData, errors, handleChange, nextStep, handleSubmit } = useContactForm();
+ * ```
+ */
 export function useContactForm() {
   const [step, setStep] = useState(0);
   const [formData, setFormData] = useState<ContactFormData>(EMPTY_FORM);
@@ -50,7 +80,9 @@ export function useContactForm() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: '' }));
+    }
   };
 
   const handleBlur = (
@@ -58,28 +90,36 @@ export function useContactForm() {
   ) => {
     const { name, value } = e.target;
     const error = validateField(name, value);
-    if (error) setErrors((prev) => ({ ...prev, [name]: error }));
+    if (error) {
+      setErrors((prev) => ({ ...prev, [name]: error }));
+    }
   };
 
   const validateStep = (stepIndex: number): boolean => {
     const newErrors: FormErrors = {};
     STEP_FIELDS[stepIndex].forEach((field) => {
       const error = validateField(field, formData[field as keyof ContactFormData]);
-      if (error) newErrors[field] = error;
+      if (error) {
+        newErrors[field] = error;
+      }
     });
     setErrors((prev) => ({ ...prev, ...newErrors }));
     return Object.keys(newErrors).length === 0;
   };
 
   const nextStep = () => {
-    if (validateStep(step)) setStep((s) => Math.min(s + 1, 2));
+    if (validateStep(step)) {
+      setStep((s) => Math.min(s + 1, 2));
+    }
   };
 
   const prevStep = () => setStep((s) => Math.max(s - 1, 0));
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!validateStep(2)) return;
+    if (!validateStep(2)) {
+      return;
+    }
 
     setIsSubmitting(true);
     try {

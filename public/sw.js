@@ -15,7 +15,7 @@ const urlsToCache = [
 
 // Install event
 self.addEventListener('install', (event) => {
-  console.log('Service Worker installing.');
+  console.warn('Service Worker installing.');
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
@@ -29,7 +29,7 @@ self.addEventListener('install', (event) => {
         );
       })
       .then(() => {
-        console.log('Service Worker installation completed.');
+        console.warn('Service Worker installation completed.');
       })
   );
   // Force activation of new service worker
@@ -41,7 +41,9 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
 
   // Only handle GET requests
-  if (request.method !== 'GET') return;
+  if (request.method !== 'GET') {
+    return;
+  }
 
   // Network first for HTML pages
   if (request.headers.get('accept') && request.headers.get('accept').includes('text/html')) {
@@ -58,7 +60,7 @@ self.addEventListener('fetch', (event) => {
           return response;
         })
         .catch((error) => {
-          console.log(`Network failed for ${request.url}, trying cache:`, error);
+          console.warn(`Network failed for ${request.url}, trying cache:`, error);
           // Fallback to cache if network fails
           return caches.match(request);
         })
@@ -85,7 +87,7 @@ self.addEventListener('fetch', (event) => {
           });
         })
         .catch((error) => {
-          console.log(`Failed to fetch ${request.url}:`, error);
+          console.warn(`Failed to fetch ${request.url}:`, error);
           // Return a basic offline response for failed requests
           return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
         })
@@ -93,20 +95,20 @@ self.addEventListener('fetch', (event) => {
   }
 });// Activate event
 self.addEventListener('activate', (event) => {
-  console.log('Service Worker activating.');
+  console.warn('Service Worker activating.');
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            console.log(`Deleting old cache: ${cacheName}`);
+            console.warn(`Deleting old cache: ${cacheName}`);
             return caches.delete(cacheName);
           }
         })
       );
     })
     .then(() => {
-      console.log('Service Worker activation completed.');
+      console.warn('Service Worker activation completed.');
     })
   );
   // Take control of all pages immediately

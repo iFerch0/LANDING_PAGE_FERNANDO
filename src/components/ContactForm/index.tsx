@@ -9,6 +9,26 @@ import ContactFormStep0 from './ContactFormStep0';
 import ContactFormStep1 from './ContactFormStep1';
 import ContactFormStep2 from './ContactFormStep2';
 
+/**
+ * ContactForm - Multi-step contact form with validation and WhatsApp integration.
+ *
+ * Features:
+ * - 3-step wizard: personal info (Step0), project details (Step1), problem description (Step2)
+ * - Real-time field validation on blur and step navigation
+ * - Step progress indicators with icons
+ * - WhatsApp message generation on submit
+ * - Trust badges (free diagnosis, no commitment, 2h response)
+ *
+ * @example
+ * ```tsx
+ * <ContactForm />
+ * ```
+ *
+ * @remarks
+ * State management delegated to `useContactForm` hook.
+ * Each step is a separate presentational component (ContactFormStep0/1/2).
+ * Uses AOS for scroll-triggered fade-up animations.
+ */
 const ContactForm = () => {
   const {
     step,

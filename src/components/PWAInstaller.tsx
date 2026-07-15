@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import styles from './PWAInstaller.module.css';
 
 export default function PWAInstaller() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
 
   useEffect(() => {
     const handler = (e: Event) => {
@@ -24,15 +26,15 @@ export default function PWAInstaller() {
             if (newWorker) {
               newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  if (confirm('Nueva versión disponible. ¿Actualizar ahora?')) {
-                    window.location.reload();
-                  }
+                  setUpdateAvailable(true);
                 }
               });
             }
           });
         })
-        .catch(() => {});
+        .catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
     }
 
     return () => {
@@ -41,38 +43,65 @@ export default function PWAInstaller() {
   }, []);
 
   const handleInstallClick = async () => {
-    if (!deferredPrompt) return;
+    if (!deferredPrompt) {
+      return;
+    }
 
     deferredPrompt.prompt();
-    const { outcome } = await deferredPrompt.userChoice;
-
-    if (outcome === 'accepted') {
-    } else {
-    }
+    await deferredPrompt.userChoice;
 
     setDeferredPrompt(null);
     setShowInstallButton(false);
   };
 
-  if (!showInstallButton) return null;
+  const handleUpdateClick = () => {
+    window.location.reload();
+  };
+
+  if (updateAvailable) {
+    return (
+      <div className={`${styles.container} ${styles.visible}`}>
+        <div className={styles.content}>
+          <div className={styles.text}>
+            <h3 className={styles.title}>Nueva versión disponible</h3>
+            <p className={styles.description}>Actualiza para obtener las últimas mejoras</p>
+          </div>
+          <div className={styles.actions}>
+            <button onClick={handleUpdateClick} className={styles.installButton}>
+              Actualizar
+            </button>
+            <button
+              onClick={() => setUpdateAvailable(false)}
+              className={styles.closeButton}
+              aria-label="Cerrar"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (!showInstallButton) {
+    return null;
+  }
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 bg-blue-600 text-white p-4 rounded-lg shadow-lg max-w-sm">
-      <div className="flex items-center gap-3">
-        <div className="flex-1">
-          <h3 className="font-semibold text-sm">Instalar App</h3>
-          <p className="text-xs opacity-90">Acceso rápido desde tu pantalla de inicio</p>
+    <div className={`${styles.container} ${styles.visible}`}>
+      <div className={styles.content}>
+        <div className={styles.text}>
+          <h3 className={styles.title}>Instalar App</h3>
+          <p className={styles.description}>Acceso rápido desde tu pantalla de inicio</p>
         </div>
-        <div className="flex gap-2">
-          <button
-            onClick={handleInstallClick}
-            className="bg-white text-blue-600 px-3 py-1 rounded text-sm font-medium hover:bg-gray-100 transition-colors"
-          >
+        <div className={styles.actions}>
+          <button onClick={handleInstallClick} className={styles.installButton}>
             Instalar
           </button>
           <button
             onClick={() => setShowInstallButton(false)}
-            className="text-white hover:bg-blue-700 px-2 py-1 rounded text-sm transition-colors"
+            className={styles.closeButton}
+            aria-label="Cerrar"
           >
             ✕
           </button>

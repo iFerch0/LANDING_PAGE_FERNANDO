@@ -41,3 +41,14 @@ client_secret*.json
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Gentle AI tools
+.atl/
+openspec/
+
+# CodeGraph index
+.codegraph/
+
+# Claude/Editor
+.claude/
+.vscode/

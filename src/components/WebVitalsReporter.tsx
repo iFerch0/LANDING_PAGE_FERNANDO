@@ -1,7 +1,6 @@
 'use client';
 
 import { useReportWebVitals } from 'next/web-vitals';
-import { useEffect } from 'react';
 import type { Metric } from 'web-vitals';
 
 function sendToAnalytics(metric: Metric) {
@@ -21,9 +20,6 @@ function sendToAnalytics(metric: Metric) {
     });
   }
 
-  if (process.env.NODE_ENV === 'development') {
-  }
-
   if (process.env.NODE_ENV === 'production') {
     try {
       fetch('/api/web-vitals', {
@@ -41,7 +37,9 @@ function sendToAnalytics(metric: Metric) {
           userAgent: navigator.userAgent,
         }),
       }).catch(console.error);
-    } catch {}
+    } catch (error) {
+      console.error('Failed to report web vitals:', error);
+    }
   }
 }
 
@@ -49,15 +47,6 @@ export default function WebVitalsReporter() {
   useReportWebVitals((metric) => {
     sendToAnalytics(metric);
   });
-
-  useEffect(() => {
-    import('web-vitals').then(({ getCLS, getFID, getFCP, getLCP }) => {
-      getCLS(sendToAnalytics);
-      getFID(sendToAnalytics);
-      getFCP(sendToAnalytics);
-      getLCP(sendToAnalytics);
-    });
-  }, []);
 
   return null;
 }

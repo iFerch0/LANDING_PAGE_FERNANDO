@@ -14,13 +14,12 @@ const AboutFernando: React.FC = () => {
           <div className={styles.photoWrapper}>
             <div className={styles.photoFrame}>
               <Image
-                src="/img/sobre-mi.avif"
+                src="/img/sobre-mi.webp"
                 alt="Fernando Rhenals — Ingeniero de Sistemas y Técnico Especialista en Montería"
                 width={480}
                 height={560}
                 className={styles.photo}
                 style={{ objectFit: 'cover' }}
-                unoptimized
               />
             </div>
             <div className={styles.photoAccent} />

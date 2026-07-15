@@ -32,10 +32,17 @@ const eslintConfig = [
   },
   {
     rules: {
+      'no-console': ['error', { allow: ['warn', 'error'] }],
+      'eqeqeq': ['error', 'always'],
+      'curly': ['error', 'all'],
+      'no-var': 'error',
+      'prefer-const': 'error',
+      'no-implicit-coercion': 'error',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
+      '@typescript-eslint/no-explicit-any': 'warn',
     },
   },
   {

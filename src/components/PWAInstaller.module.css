@@ -1,0 +1,96 @@
+.container {
+  position: fixed;
+  bottom: var(--space-16);
+  right: var(--space-16);
+  z-index: var(--z-toast);
+  background: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--space-16);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-xl);
+  max-width: 340px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity var(--duration-normal) var(--ease-standard),
+    transform var(--duration-normal) var(--ease-standard);
+  pointer-events: none;
+}
+
+.container.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+}
+
+.text {
+  flex: 1;
+}
+
+.title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--space-2) 0;
+  color: var(--color-white);
+}
+
+.description {
+  font-size: var(--font-size-xs);
+  opacity: 0.9;
+  margin: 0;
+  color: var(--color-white);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-8);
+  align-items: flex-start;
+}
+
+.installButton {
+  background: var(--color-white);
+  color: var(--color-primary);
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  border: none;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.installButton:hover {
+  background: var(--color-cream-100);
+}
+
+.closeButton {
+  background: transparent;
+  color: var(--color-white);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  border: none;
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-standard);
+  line-height: 1;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+@media (max-width: 480px) {
+  .container {
+    left: var(--space-16);
+    right: var(--space-16);
+    max-width: none;
+  }
+}
