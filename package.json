@@ -52,6 +52,7 @@
     "jest-environment-jsdom": "^30.0.5",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
+    "puppeteer": "^25.3.0",
     "sharp": "^0.34.3",
     "typescript": "^5"
   }
