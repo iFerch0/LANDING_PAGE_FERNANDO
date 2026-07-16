@@ -1,0 +1,165 @@
+/* ── Portfolio Button CTA ── */
+
+.section {
+  padding: var(--space-20) 0;
+  background: var(--color-background-alt);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-8);
+}
+
+.card {
+  position: relative;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-4);
+  padding: var(--space-12) var(--space-10);
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--color-accent);
+}
+
+/* ── Background Pattern (blueprint grid) ── */
+.background {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(var(--color-blueprint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-blueprint) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse 80% 60% at 70% 50%, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 60% at 70% 50%, black 40%, transparent 70%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-10);
+  padding-left: var(--space-6);
+}
+
+.textContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.overline {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-accent);
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  font-weight: var(--weight-bold);
+  color: var(--color-text);
+  margin: 0;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.titleAccent {
+  color: var(--color-accent);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--leading-relaxed);
+  max-width: 500px;
+}
+
+/* ── Button ── */
+.button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-6) var(--space-8);
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--radius-4);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: 0 4px 16px rgba(var(--color-accent-rgb), 0.25);
+  min-width: 180px;
+}
+
+.button:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(var(--color-accent-rgb), 0.35);
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+.buttonCount {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  opacity: 0.9;
+  letter-spacing: var(--tracking-wide);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-12) 0;
+  }
+
+  .card {
+    padding: var(--space-8) var(--space-6);
+  }
+
+  .content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-8);
+    padding-left: var(--space-4);
+  }
+
+  .textContent {
+    align-items: center;
+  }
+
+  .description {
+    max-width: 100%;
+  }
+
+  .button {
+    width: 100%;
+    max-width: 280px;
+  }
+}

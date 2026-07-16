@@ -4,6 +4,7 @@ import ServicesGrid from '@/components/ServicesGrid';
 import WebDevServices from '@/components/WebDevServices';
 import Testimonials from '@/components/Testimonials';
 import AboutFernando from '@/components/AboutFernando';
+import PortfolioButton from '@/components/PortfolioButton';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 
@@ -33,6 +34,7 @@ export default function HomePage() {
         <WebDevServices />
         <Testimonials />
         <AboutFernando />
+        <PortfolioButton />
         <ContactForm />
       </main>
     </>

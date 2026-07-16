@@ -1,0 +1,101 @@
+/* ── Before/After Slider ── */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  cursor: ew-resize;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+.afterLayer,
+.beforeLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+}
+
+/* ── Labels ── */
+.label {
+  position: absolute;
+  top: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-inverse);
+  background: rgba(0, 0, 0, 0.7);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-2);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.labelBefore {
+  left: var(--space-3);
+}
+
+.labelAfter {
+  right: var(--space-3);
+}
+
+/* ── Slider Line ── */
+.sliderLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--color-text-inverse);
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Slider Handle ── */
+.sliderHandle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-text-inverse);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  cursor: ew-resize;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.sliderHandle:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.container:active .sliderHandle {
+  transform: translate(-50%, -50%) scale(1.15);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .sliderHandle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .label {
+    font-size: 10px;
+    padding: var(--space-1) var(--space-2);
+  }
+}
