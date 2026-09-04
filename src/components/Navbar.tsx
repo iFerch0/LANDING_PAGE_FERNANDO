@@ -5,12 +5,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
 import { whatsappUrl } from '@/data/contact';
-import { WhatsAppIcon, WrenchIcon, StarOutlineIcon, UserIcon, ContactIcon } from './Icons';
+import {
+  WhatsAppIcon,
+  HomeIcon,
+  CpuIcon,
+  WrenchIcon,
+  CodeIcon,
+  StarOutlineIcon,
+  UserIcon,
+  ContactIcon,
+} from './Icons';
 
 type IconComponent = React.FC<{ size?: number | string }>;
 
 const navItems: { id: string; label: string; href: string; icon: IconComponent }[] = [
+  { id: 'inicio', label: 'Inicio', href: '#inicio', icon: HomeIcon },
+  { id: 'ensambles', label: 'Ensambles', href: '#ensambles', icon: CpuIcon },
   { id: 'servicios', label: 'Servicios', href: '#servicios', icon: WrenchIcon },
+  { id: 'desarrollo-web', label: 'Web', href: '#desarrollo-web', icon: CodeIcon },
   { id: 'testimonios', label: 'Testimonios', href: '#testimonios', icon: StarOutlineIcon },
   { id: 'sobre-mi', label: 'Sobre mí', href: '#sobre-mi', icon: UserIcon },
   { id: 'contacto', label: 'Contacto', href: '#contacto', icon: ContactIcon },
@@ -24,8 +36,25 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 30);
+
+      // ScrollSpy: highlight the currently active section
+      const sectionIds = navItems.map((item) => item.id);
+      const scrollPosition = window.scrollY + 140;
+
+      for (let i = sectionIds.length - 1; i >= 0; i--) {
+        const el = document.getElementById(sectionIds[i]);
+        if (el && el.offsetTop <= scrollPosition) {
+          setActiveSection(sectionIds[i]);
+          return;
+        }
+      }
+      if (window.scrollY < 100) {
+        setActiveSection('inicio');
+      }
     };
+
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -82,12 +111,13 @@ const Navbar = () => {
         {/* Brand */}
         <Link href="/" className={styles.brand} aria-label="Ir al inicio">
           <Image
-            src="/logo.png"
+            src="/logo_new.png"
             alt="Fernando"
-            width={28}
-            height={28}
+            width={36}
+            height={36}
             className={styles.logo}
             priority
+            unoptimized
           />
           <div className={styles.brandText}>
             <span className={styles.brandName}>Fernando Rhenals</span>

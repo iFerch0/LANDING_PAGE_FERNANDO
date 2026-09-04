@@ -48,67 +48,165 @@ export type PortfolioItem = PortfolioBuild | PortfolioMaintenance;
 
 export const builds: PortfolioBuild[] = [
   {
-    id: 'workstation-i5-13600K',
+    id: 'FT-2026-09',
     category: 'build',
-    title: 'Workstation Intel i5 13600K',
+    title: 'Next-Gen Ultra Gaming',
     description:
-      'Workstation de alto rendimiento para desarrollo de software y diseño gráfico. Construida con componentes de última generación para manejar cargas de trabajo intensivas.',
-    year: 2024,
+      'Build de alto rendimiento para gaming 1440p Ultra / 4K Esports y creación de contenido. Ensamblado con componentes de última generación.',
+    year: 2026,
     images: [
-      '/img/portfolio/builds/workstation-i5-13600K-1.webp',
-      '/img/portfolio/builds/workstation-i5-13600K-2.webp',
-      '/img/portfolio/builds/workstation-i5-13600K-3.webp',
+      '/img/portfolio/builds/FT-2026-09/1.png',
+      '/img/portfolio/builds/FT-2026-09/2.jpg',
+      '/img/portfolio/builds/FT-2026-09/3.jpg',
+      '/img/portfolio/builds/FT-2026-09/4.png',
+      '/img/portfolio/builds/FT-2026-09/5.jpg',
+      '/img/portfolio/builds/FT-2026-09/6.png',
     ],
     specs: {
-      cpu: 'Intel Core i5 13600K',
-      ram: '32GB DDR5 Corsair Vengeance',
-      storage: '1TB Samsung 980 Pro NVMe',
-      motherboard: 'Gigabyte B760M',
-      psu: 'Thermaltake A3 750W 80+ Gold',
-      cooling: 'Thermaltake TH120 V2 Liquid Cooling',
-      case: 'XPG Gaming Chassis',
+      cpu: 'Intel Core Ultra 5 250K Plus',
+      ram: '32 GB DDR5-6000 Patriot Viper',
+      storage: '1 TB NVMe Gen 4 (7,100 MB/s)',
+      motherboard: 'ASUS Prime B860-Plus',
+      psu: '750W 80+ Gold Full Modular',
+      cooling: '240mm Refrigeración Líquida ARGB',
+      case: 'Chasis Gaming Mesh High Airflow',
+      gpu: 'AMD Radeon RX 9060 XT 16GB GDDR6',
     },
   },
   {
-    id: 'workstation-ryzen-8500G',
+    id: 'FT-2026-07',
+    category: 'build',
+    title: 'Workstation Master Ryzen 9 5900XT',
+    description:
+      'Estación de trabajo pesada y gaming extremo. 16 núcleos físicos, refrigeración líquida AIO con display LCD IPS personalizable y GPU RX 9060 XT 16GB.',
+    year: 2026,
+    images: ['/img/portfolio/builds/FT-2026-07/1.jpg', '/img/portfolio/builds/FT-2026-07/2.jpg'],
+    specs: {
+      cpu: 'AMD Ryzen 9 5900XT (16C/32T - 4.8 GHz)',
+      ram: '32GB DDR4 3200MHz Dual Channel',
+      storage: '1TB SSD M.2 NVMe High Speed',
+      motherboard: 'Socket AM4 High End + Wi-Fi 6E & BT 5.3',
+      psu: '750W 80+ Gold Full Modular',
+      cooling: 'AIO Liquid Cooling con Pantalla LCD IPS Inteligente',
+      case: 'Chasis High Airflow',
+      gpu: 'AMD Radeon RX 9060 XT 16GB GDDR6',
+    },
+  },
+  {
+    id: 'FT-2025-02',
+    category: 'build',
+    title: 'Gaming Rig RTX 4060 Edition',
+    description:
+      'Equipo balanceado para gaming competitivo y títulos AAA en 1080p Ultra con soporte para Ray Tracing y DLSS 3 Frame Generation.',
+    year: 2025,
+    images: [
+      '/img/portfolio/builds/FT-2025-02/1.jpg',
+      '/img/portfolio/builds/FT-2025-02/2.jpg',
+      '/img/portfolio/builds/FT-2025-02/3.jpg',
+    ],
+    specs: {
+      cpu: 'AMD Ryzen 5 5500 (6C/12T - 4.2 GHz)',
+      ram: '16GB DDR4 3200MHz Dual Channel',
+      storage: '1TB NVMe PCIe High Speed',
+      motherboard: 'Socket AM4 Gaming Ready',
+      psu: '650W 80+ Bronze',
+      cooling: 'Disipación por Aire de Alto Flujo',
+      case: 'Chasis High Airflow',
+      gpu: 'NVIDIA GeForce RTX 4060 8GB GDDR6',
+    },
+  },
+  {
+    id: 'FT-2024-08',
     category: 'build',
     title: 'Workstation AMD Ryzen 5 8500G',
     description:
-      'Workstation eficiente para desarrollo y diseño gráfico. Procesador AMD con gráficos integrados de alto rendimiento, ideal para flujos de trabajo creativos.',
+      'Equipo para diseño gráfico de entrada y esports. Equipado con gráficos integrados Radeon 740M, 32GB DDR5 a 6400MHz y refrigeración líquida de 240mm.',
     year: 2024,
     images: [
-      '/img/portfolio/builds/workstation-ryzen-8500G-1.webp',
-      '/img/portfolio/builds/workstation-ryzen-8500G-2.webp',
-      '/img/portfolio/builds/workstation-ryzen-8500G-3.webp',
+      '/img/portfolio/builds/FT-2024-08/1.jpg',
+      '/img/portfolio/builds/FT-2024-08/2.jpg',
+      '/img/portfolio/builds/FT-2024-08/3.jpg',
+      '/img/portfolio/builds/FT-2024-08/4.jpg',
+      '/img/portfolio/builds/FT-2024-08/5.jpg',
     ],
     specs: {
-      cpu: 'AMD Ryzen 5 8500G',
-      ram: '32GB DDR5 PNY XLRB',
-      storage: '1TB Kingston NVMe',
-      motherboard: 'Gigabyte A620M',
-      psu: 'Segotep 750W 80+ Gold',
-      cooling: 'Thermalright Aqua Elite 240 V3',
-      case: 'Cooler Master',
+      cpu: 'AMD Ryzen 5 8500G (6C/12T - 5.0 GHz)',
+      ram: '32GB DDR5 6400MHz Dual Channel',
+      storage: '1TB NVMe PCIe High Speed',
+      motherboard: 'Socket AM5 DDR5 Ready',
+      psu: '750W 80+ Gold',
+      cooling: '240mm Refrigeración Líquida ARGB',
+      case: 'Chasis High Airflow',
+      gpu: 'AMD Radeon 740M (Gráficos Integrados RDNA 3)',
+    },
+  },
+  {
+    id: 'FT-2024-08-II',
+    category: 'build',
+    title: 'Workstation Intel Core i5 12600K',
+    description:
+      'Equipo enfocado en programación, virtualización y desarrollo. 10 núcleos híbridos, 32GB DDR5 a 6400MHz, refrigeración líquida y fuente de 750W 80+ Gold lista para upgrade de tarjeta gráfica dedicada.',
+    year: 2024,
+    images: [
+      '/img/portfolio/builds/FT-2024-08-II/1.jpg',
+      '/img/portfolio/builds/FT-2024-08-II/2.jpg',
+      '/img/portfolio/builds/FT-2024-08-II/3.jpg',
+      '/img/portfolio/builds/FT-2024-08-II/4.jpg',
+      '/img/portfolio/builds/FT-2024-08-II/5.jpg',
+    ],
+    specs: {
+      cpu: 'Intel Core i5 12600K (10C/16T - 4.9 GHz)',
+      ram: '32GB DDR5 6400MHz Dual Channel',
+      storage: '1TB NVMe PCIe Gen 4',
+      motherboard: 'LGA1700 DDR5 Ready',
+      psu: '750W 80+ Gold',
+      cooling: '240mm Refrigeración Líquida ARGB',
+      case: 'Chasis High Airflow',
+      gpu: 'Intel UHD Graphics 770 (Integrada 32 EUs)',
+    },
+  },
+  {
+    id: 'FT-2023-08',
+    category: 'build',
+    title: 'Workstation Ryzen 7 & RX 6800XT',
+    description:
+      'Equipo de alto rendimiento para gaming 1440p Ultra / 4K y creación de contenido pesado con 4TB de almacenamiento masivo NVMe.',
+    year: 2023,
+    images: [
+      '/img/portfolio/builds/FT-2023-08/1.jpg',
+      '/img/portfolio/builds/FT-2023-08/2.jpg',
+      '/img/portfolio/builds/FT-2023-08/3.mp4',
+    ],
+    specs: {
+      cpu: 'AMD Ryzen 7 5800X (8C/16T - 4.7 GHz)',
+      ram: '32GB DDR4 Dual Channel High Speed',
+      storage: '4TB SSD M.2 NVMe High Speed',
+      motherboard: 'Socket AM4 High End',
+      psu: '750W 80+ Gold Full Modular',
+      cooling: '240mm Refrigeración Líquida ARGB',
+      case: 'Chasis High Airflow',
+      gpu: 'AMD Radeon RX 6800 XT 16GB GDDR6',
     },
   },
 ];
 
 export const maintenance: PortfolioMaintenance[] = [
   {
-    id: 'desktop-cleaning-01',
+    id: 'MT-2025-03',
     category: 'maintenance',
-    title: 'Desktop - Limpieza profunda',
+    title: 'Desktop - Limpieza profunda & Overhaul',
     description:
       'Limpieza interna completa de torre de escritorio con acumulación severa de polvo. Incluye limpieza de ventiladores, disipadores y componentes.',
-    year: 2024,
+    year: 2025,
     beforeImages: [
-      '/img/portfolio/maintenance/desktop-polvo-antes-01.webp',
-      '/img/portfolio/maintenance/desktop-polvo-antes-02.webp',
-      '/img/portfolio/maintenance/desktop-polvo-antes-03.webp',
+      '/img/portfolio/maintenance/MT-2025-03/antes/1.webp',
+      '/img/portfolio/maintenance/MT-2025-03/antes/2.webp',
+      '/img/portfolio/maintenance/MT-2025-03/antes/3.webp',
     ],
     afterImages: [
-      '/img/portfolio/maintenance/desktop-polvo-despues-01.webp',
-      '/img/portfolio/maintenance/desktop-polvo-despues-03.webp',
+      '/img/portfolio/maintenance/MT-2025-03/despues/1.webp',
+      '/img/portfolio/maintenance/MT-2025-03/despues/2.webp',
+      '/img/portfolio/maintenance/MT-2025-03/despues/3.webp',
     ],
     problem:
       'Acumulación excesiva de polvo en ventiladores y disipadores, causando sobrecalentamiento y ruido excesivo.',
@@ -116,42 +214,33 @@ export const maintenance: PortfolioMaintenance[] = [
       'Desarmado completo, limpieza con aire comprimido de todos los componentes, limpieza de ventiladores y aplicación de pasta térmica nueva en CPU.',
   },
   {
-    id: 'desktop-cleaning-02',
+    id: 'MT-2024-03',
     category: 'maintenance',
-    title: 'Desktop - Mantenimiento preventivo',
-    description:
-      'Mantenimiento preventivo de equipo de escritorio con múltiples fotos del proceso de limpieza.',
-    year: 2024,
-    beforeImages: [
-      '/img/portfolio/maintenance/desktop-polvo-antes-2-01.webp',
-      '/img/portfolio/maintenance/desktop-polvo-antes-2-02.webp',
-    ],
-    afterImages: ['/img/portfolio/maintenance/desktop-polvo-despues-2-01.webp'],
-    problem:
-      'Polvo acumulado en componentes internos afectando el flujo de aire y temperaturas del sistema.',
-    solution:
-      'Limpieza profunda de todos los componentes internos, ventiladores, fuente de poder y disipadores.',
-  },
-  {
-    id: 'laptop-cleaning-01',
-    category: 'maintenance',
-    title: 'Laptop - Limpieza interna',
+    title: 'Laptop - Limpieza interna & Repaste',
     description:
       'Limpieza interna de laptop con cambio de pasta térmica para resolver problemas de temperatura.',
     year: 2024,
-    beforeImages: ['/img/portfolio/maintenance/laptop-polvo-antes-01.webp'],
-    afterImages: ['/img/portfolio/maintenance/laptop-polvo-despues-01.webp'],
+    beforeImages: ['/img/portfolio/maintenance/MT-2024-03/antes/1.webp'],
+    afterImages: ['/img/portfolio/maintenance/MT-2024-03/despues/1.webp'],
     problem:
       'Sobrecalentamiento excesivo, ventilador ruidoso y throttling del procesador por acumulación de polvo.',
     solution:
       'Desarmado cuidadoso, limpieza del sistema de refrigeración, remoción de polvo del ventilador y disipador, aplicación de pasta térmica nueva.',
   },
+  {
+    id: 'MT-2024-02',
+    category: 'maintenance',
+    title: 'Desktop - Mantenimiento preventivo',
+    description:
+      'Mantenimiento preventivo de equipo de escritorio con fotos del proceso de limpieza.',
+    year: 2024,
+    beforeImages: ['/img/portfolio/maintenance/MT-2024-02/antes/1.webp'],
+    afterImages: ['/img/portfolio/maintenance/MT-2024-02/despues/1.webp'],
+    problem:
+      'Polvo acumulado en componentes internos afectando el flujo de aire y temperaturas del sistema.',
+    solution:
+      'Limpieza profunda de todos los componentes internos, ventiladores, fuente de poder y disipadores.',
+  },
 ];
 
-export const portfolioItems: PortfolioItem[] = [
-  builds[0],
-  builds[1],
-  maintenance[0],
-  maintenance[1],
-  maintenance[2],
-];
+export const portfolioItems: PortfolioItem[] = [...builds, ...maintenance];

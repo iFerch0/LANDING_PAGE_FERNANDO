@@ -54,6 +54,7 @@ jest.mock('next/image', () => ({
     loading,
     placeholder,
     blurDataURL,
+    unoptimized,
     ...props
   }) => {
     // We strip out Next.js specific props that would cause React warnings on a standard img tag
@@ -61,13 +62,6 @@ jest.mock('next/image', () => ({
   },
 }));
 /* eslint-enable @next/next/no-img-element, jsx-a11y/alt-text */
-
-// Mock AOS
-jest.mock('aos', () => ({
-  init: jest.fn(),
-  refresh: jest.fn(),
-  refreshHard: jest.fn(),
-}));
 
 // Mock window.gtag for analytics
 Object.defineProperty(window, 'gtag', {

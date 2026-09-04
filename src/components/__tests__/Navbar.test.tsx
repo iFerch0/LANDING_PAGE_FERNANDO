@@ -8,13 +8,15 @@ beforeEach(() => {
 describe('Navbar — Rendering', () => {
   it('renders the brand logo', () => {
     render(<Navbar />);
-    expect(screen.getByAltText('Fernando Técnico')).toBeInTheDocument();
+    expect(screen.getByAltText(/Fernando/)).toBeInTheDocument();
   });
 
   it('renders all navigation links', () => {
     render(<Navbar />);
     expect(screen.getByRole('menuitem', { name: /Inicio/ })).toBeInTheDocument();
+    expect(screen.getByRole('menuitem', { name: /Ensambles/ })).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Servicios/ })).toBeInTheDocument();
+    expect(screen.getByRole('menuitem', { name: /Web/ })).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Testimonios/ })).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Sobre mí/ })).toBeInTheDocument();
     expect(screen.getByRole('menuitem', { name: /Contacto/ })).toBeInTheDocument();

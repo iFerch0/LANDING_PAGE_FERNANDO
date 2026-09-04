@@ -1,5 +1,6 @@
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import HeroSliderStatic from '../HeroSliderStatic';
+import { HERO_SLIDES } from '../../data/heroSlides';
 
 beforeEach(() => {
   jest.useFakeTimers();
@@ -27,14 +28,14 @@ describe('HeroSliderStatic — Rendering', () => {
   it('renders dot indicators for each slide', () => {
     render(<HeroSliderStatic />);
     const dots = screen.getAllByRole('button', { name: /Ir a imagen/i });
-    expect(dots.length).toBe(5);
+    expect(dots.length).toBe(HERO_SLIDES.length);
   });
 
   it('renders counter showing current slide', () => {
     render(<HeroSliderStatic />);
     expect(screen.getByText('1')).toBeInTheDocument();
     expect(screen.getByText('/')).toBeInTheDocument();
-    expect(screen.getByText('5')).toBeInTheDocument();
+    expect(screen.getByText(String(HERO_SLIDES.length))).toBeInTheDocument();
   });
 });
 
@@ -58,7 +59,7 @@ describe('HeroSliderStatic — Keyboard navigation', () => {
 
   it('wraps around to first slide when pressing ArrowRight on last slide', () => {
     render(<HeroSliderStatic />);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < HERO_SLIDES.length; i++) {
       fireEvent.keyDown(window, { key: 'ArrowRight' });
     }
     expect(screen.getByText('1')).toBeInTheDocument();
@@ -68,7 +69,7 @@ describe('HeroSliderStatic — Keyboard navigation', () => {
     render(<HeroSliderStatic />);
     fireEvent.keyDown(window, { key: 'ArrowLeft' });
     const counterCurrent = document.querySelector('.counterCurrent');
-    expect(counterCurrent?.textContent).toBe('5');
+    expect(counterCurrent?.textContent).toBe(String(HERO_SLIDES.length));
   });
 });
 
@@ -105,7 +106,7 @@ describe('HeroSliderStatic — Button navigation', () => {
 
   it('wraps around when clicking Siguiente past last slide', () => {
     render(<HeroSliderStatic />);
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < HERO_SLIDES.length; i++) {
       fireEvent.click(getNextButton());
     }
     expect(screen.getByText('1')).toBeInTheDocument();
@@ -168,7 +169,7 @@ describe('HeroSliderStatic — Autoplay wraps around', () => {
     render(<HeroSliderStatic />);
 
     act(() => {
-      jest.advanceTimersByTime(25000);
+      jest.advanceTimersByTime(5000 * HERO_SLIDES.length);
     });
 
     expect(screen.getByText('1')).toBeInTheDocument();

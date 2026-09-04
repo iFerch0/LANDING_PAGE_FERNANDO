@@ -27,7 +27,7 @@ const ContactForm = () => {
         {/* Header */}
         <div className={styles.header} data-reveal="up">
           <div className={styles.headerTop}>
-            <span className={styles.sectionNum}>04</span>
+            <span className={styles.sectionNum}>05</span>
             <h2 className={styles.title}>
               Cuéntame <span className={styles.titleAccent}>qué necesitás</span>
             </h2>

@@ -1,100 +1,63 @@
 :root {
-  /* ── Semantic Color Tokens ── */
+  /* ── Semantic Color Tokens (Dark Stealth / High-End Hardware) ── */
 
   /* Backgrounds */
-  --color-background: var(--color-paper);
-  --color-background-alt: var(--color-offwhite);
-  --color-surface: var(--color-white);
-  --color-surface-raised: var(--color-white);
-  --color-surface-sunken: var(--color-stone-50);
+  --color-background: var(--color-dark-950);
+  --color-background-alt: var(--color-dark-900);
+  --color-surface: var(--color-dark-850);
+  --color-surface-raised: var(--color-dark-800);
+  --color-surface-sunken: #050507;
 
   /* Text */
-  --color-text: var(--color-stone-900);
-  --color-text-secondary: var(--color-stone-600);
-  --color-text-tertiary: var(--color-stone-400);
-  --color-text-inverse: var(--color-white);
-  --color-text-on-primary: var(--color-white);
-  --color-text-on-accent: var(--color-white);
+  --color-text: var(--color-dark-50);
+  --color-text-secondary: var(--color-dark-300);
+  --color-text-tertiary: var(--color-dark-400);
+  --color-text-inverse: var(--color-dark-950);
+  --color-text-on-primary: #ffffff;
+  --color-text-on-accent: #ffffff;
 
-  /* Primary — Engineering Blue */
-  --color-primary: var(--color-navy-700);
-  --color-primary-hover: var(--color-navy-900);
-  --color-primary-active: var(--color-navy-950);
-  --color-primary-subtle: rgba(var(--color-navy-500-rgb), 0.06);
-  --color-primary-rgb: var(--color-navy-700-rgb);
+  /* Primary — High Contrast Silver */
+  --color-primary: var(--color-dark-50);
+  --color-primary-hover: #ffffff;
+  --color-primary-active: var(--color-dark-200);
+  --color-primary-subtle: rgba(244, 244, 245, 0.08);
+  --color-primary-rgb: 244, 244, 245;
 
-  /* Accent — Warm Terracotta (human, Montería) */
-  --color-accent: var(--color-terracotta-500);
-  --color-accent-hover: var(--color-terracotta-700);
-  --color-accent-subtle: rgba(var(--color-terracotta-500-rgb), 0.07);
-  --color-accent-rgb: var(--color-terracotta-500-rgb);
+  /* Accent — Metallic Copper (High-End Hardware) */
+  --color-accent: var(--color-copper-500);
+  --color-accent-hover: var(--color-copper-400);
+  --color-accent-subtle: rgba(var(--color-copper-500-rgb), 0.12);
+  --color-accent-rgb: var(--color-copper-500-rgb);
 
-  /* Success / WhatsApp — used sparingly */
-  --color-success: #1b8a4a;
-  --color-success-hover: #146b38;
+  /* Success / WhatsApp */
+  --color-success: #22c55e;
+  --color-success-hover: #16a34a;
 
   /* Error */
-  --color-error: var(--color-red-500);
-  --color-error-subtle: rgba(192, 64, 64, 0.08);
+  --color-error: #ef4444;
+  --color-error-subtle: rgba(239, 68, 68, 0.12);
 
   /* Borders */
-  --color-border: var(--color-stone-200);
-  --color-border-strong: var(--color-stone-300);
-  --color-border-subtle: var(--color-stone-100);
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(255, 255, 255, 0.16);
+  --color-border-subtle: rgba(255, 255, 255, 0.04);
 
   /* Focus */
-  --color-focus-ring: rgba(var(--color-navy-500-rgb), 0.3);
+  --color-focus-ring: rgba(var(--color-copper-500-rgb), 0.4);
 
   /* Technical — blueprint lines, annotations */
-  --color-tech: var(--color-blueprint);
-  --color-tech-light: var(--color-blueprint-light);
-  --color-tech-faint: var(--color-blueprint-faint);
+  --color-tech: #38bdf8;
+  --color-tech-light: #7dd3fc;
+  --color-tech-faint: rgba(56, 189, 248, 0.1);
 
-  /* Gradients — only where absolutely necessary */
+  /* Gradients */
   --gradient-none: none;
 
   /* Focus ring */
   --focus-ring: 0 0 0 3px var(--color-focus-ring);
-  --focus-outline: 2px solid var(--color-primary);
+  --focus-outline: 2px solid var(--color-accent);
 
-  /* Shadows — minimal */
-  --shadow-raised: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-/* ── Dark Mode ── */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: var(--color-navy-950);
-    --color-background-alt: var(--color-navy-900);
-    --color-surface: var(--color-navy-800);
-    --color-surface-raised: var(--color-navy-700);
-    --color-surface-sunken: rgba(255, 255, 255, 0.03);
-
-    --color-text: var(--color-stone-50);
-    --color-text-secondary: var(--color-stone-300);
-    --color-text-tertiary: var(--color-stone-500);
-
-    --color-primary: var(--color-navy-300);
-    --color-primary-hover: var(--color-navy-200);
-    --color-primary-active: var(--color-navy-100);
-    --color-primary-subtle: rgba(var(--color-navy-300-rgb, 137, 178, 212), 0.08);
-
-    --color-accent: var(--color-terracotta-400);
-    --color-accent-hover: var(--color-terracotta-300);
-    --color-accent-subtle: rgba(var(--color-terracotta-400-rgb, 212, 128, 94), 0.08);
-
-    --color-border: rgba(255, 255, 255, 0.08);
-    --color-border-strong: rgba(255, 255, 255, 0.14);
-    --color-border-subtle: rgba(255, 255, 255, 0.05);
-
-    --color-success: #34d674;
-    --color-error: #e06060;
-
-    --color-tech: var(--color-blueprint-light);
-    --color-tech-faint: rgba(123, 166, 204, 0.08);
-
-    --shadow-raised: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 1px 3px rgba(0, 0, 0, 0.2);
-    --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.04), 0 2px 8px rgba(0, 0, 0, 0.3);
-  }
+  /* Shadows — dark atmospheric depth */
+  --shadow-raised: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 4px 20px rgba(0, 0, 0, 0.5);
 }

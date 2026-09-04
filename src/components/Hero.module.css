@@ -9,16 +9,16 @@
   background: var(--color-background);
 }
 
-/* ── Background Texture (blueprint grid) ── */
+/* ── Background Texture (subtle tech grid) ── */
 .background {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.04;
+  opacity: 0.08;
   background-image:
-    linear-gradient(rgba(45, 90, 142, 0.3) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 90, 142, 0.3) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
   background-size: 40px 40px;
   mask-image: radial-gradient(ellipse 80% 60% at 30% 50%, black 40%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 80% 60% at 30% 50%, black 40%, transparent 70%);
@@ -171,6 +171,7 @@
   font-weight: var(--weight-semibold);
   text-decoration: none;
   transition: all var(--duration-fast) var(--ease-standard);
+  border-radius: var(--radius-2);
 }
 
 .ctaPrimary,
@@ -178,18 +179,19 @@
 .ctaPrimary:visited,
 .ctaPrimary:active {
   background: var(--color-accent);
-  color: var(--color-text-inverse);
+  color: #ffffff;
 }
 
 .ctaPrimary:hover {
   background: var(--color-accent-hover);
-  color: var(--color-text-inverse);
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
 .ctaPrimary:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
-  color: var(--color-text-inverse);
+  color: #ffffff;
 }
 
 .ctaSecondary,

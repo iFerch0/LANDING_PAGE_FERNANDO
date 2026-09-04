@@ -37,7 +37,7 @@ const Testimonials = () => {
       <div className={styles.container}>
         {/* Header — numbered */}
         <div className={styles.header} data-reveal="up">
-          <span className={styles.sectionNum}>03</span>
+          <span className={styles.sectionNum}>04</span>
           <div className={styles.headerContent}>
             <h2 className={styles.title}>
               Lo que dicen <span className={styles.titleAccent}>nuestros clientes</span>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 import { CONTACT, whatsappUrl } from '@/data/contact';
 import { businessHours } from '@/data/footer';
@@ -14,20 +15,14 @@ const Footer = () => {
             {/* Brand */}
             <div className={styles.brandBlock}>
               <div className={styles.brandHeader}>
-                <div className={styles.brandMark}>
-                  <svg
-                    width="20"
-                    height="20"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
-                  </svg>
-                </div>
+                <Image
+                  src="/logo_new.png"
+                  alt="Fernando Rhenals"
+                  width={40}
+                  height={40}
+                  className={styles.brandLogo}
+                  unoptimized
+                />
                 <div>
                   <p className={styles.brandName}>Fernando Rhenals</p>
                   <p className={styles.brandRole}>Ingeniero de Sistemas</p>

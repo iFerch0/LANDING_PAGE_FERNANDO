@@ -18,23 +18,47 @@ export default function PWAInstaller() {
     window.addEventListener('beforeinstallprompt', handler);
 
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker
-        .register('/sw.js')
-        .then((registration) => {
-          registration.addEventListener('updatefound', () => {
-            const newWorker = registration.installing;
-            if (newWorker) {
-              newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-                  setUpdateAvailable(true);
-                }
-              });
+      if (process.env.NODE_ENV === 'development') {
+        if (typeof navigator.serviceWorker.getRegistrations === 'function') {
+          navigator.serviceWorker.getRegistrations().then((registrations) => {
+            for (const registration of registrations) {
+              registration.unregister();
             }
           });
-        })
-        .catch((error) => {
-          console.error('Service Worker registration failed:', error);
-        });
+        }
+        if (
+          typeof window !== 'undefined' &&
+          'caches' in window &&
+          typeof caches.keys === 'function'
+        ) {
+          caches.keys().then((names) => {
+            for (const name of names) {
+              caches.delete(name);
+            }
+          });
+        }
+        return;
+      }
+
+      if (typeof navigator.serviceWorker.register === 'function') {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then((registration) => {
+            registration.addEventListener('updatefound', () => {
+              const newWorker = registration.installing;
+              if (newWorker) {
+                newWorker.addEventListener('statechange', () => {
+                  if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    setUpdateAvailable(true);
+                  }
+                });
+              }
+            });
+          })
+          .catch((error) => {
+            console.error('Service Worker registration failed:', error);
+          });
+      }
     }
 
     return () => {

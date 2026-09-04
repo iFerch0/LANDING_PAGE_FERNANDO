@@ -3,7 +3,7 @@ const path = require('path');
 
 // Función para generar el array de imágenes
 function generateImagesArray() {
-  const imagesDir = path.join(__dirname, '..', 'public', 'img', 'pc-hogar-oficina');
+  const imagesDir = path.join(__dirname, '..', 'public', 'img', 'hero');
 
   try {
     const files = fs.readdirSync(imagesDir);
@@ -15,7 +15,7 @@ function generateImagesArray() {
 
     const imagesArray = imageFiles.map((file, index) => ({
       id: index + 1,
-      src: `/img/pc-hogar-oficina/${file}`,
+      src: `/img/hero/${file}`,
       alt: `Reparación de computadores - Imagen ${index + 1}`,
     }));
 

@@ -12,7 +12,7 @@ const WebDevServices: React.FC = () => {
       <div className={styles.container}>
         {/* Header — numbered */}
         <div className={styles.header} data-reveal="up">
-          <span className={styles.sectionNum}>02</span>
+          <span className={styles.sectionNum}>03</span>
           <div className={styles.headerContent}>
             <h2 id="webdev-title" className={styles.title}>
               Desarrollo Web <span className={styles.titleAccent}>Profesional</span>

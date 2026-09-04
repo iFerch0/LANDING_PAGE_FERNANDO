@@ -12,7 +12,7 @@ const ServicesGrid: React.FC = () => {
       <div className={styles.container}>
         {/* Header — numbered, editorial */}
         <div className={styles.header} data-reveal="up">
-          <span className={styles.sectionNum}>01</span>
+          <span className={styles.sectionNum}>02</span>
           <div className={styles.headerContent}>
             <h2 id="services-title" className={styles.title}>
               ¿Qué necesita <span className={styles.titleAccent}>tu computador?</span>

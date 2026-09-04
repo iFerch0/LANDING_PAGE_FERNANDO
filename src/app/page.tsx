@@ -1,10 +1,10 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import PcPortfolioSlider from '@/components/PcPortfolioSlider';
 import ServicesGrid from '@/components/ServicesGrid';
 import WebDevServices from '@/components/WebDevServices';
 import Testimonials from '@/components/Testimonials';
 import AboutFernando from '@/components/AboutFernando';
-import PortfolioButton from '@/components/PortfolioButton';
 import ContactForm from '@/components/ContactForm';
 import { Metadata } from 'next';
 
@@ -30,11 +30,11 @@ export default function HomePage() {
       <Navbar />
       <main>
         <Hero />
+        <PcPortfolioSlider />
         <ServicesGrid />
         <WebDevServices />
         <Testimonials />
         <AboutFernando />
-        <PortfolioButton />
         <ContactForm />
       </main>
     </>

@@ -94,7 +94,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 
         {/* Preload recursos críticos */}
-        <link rel="preload" href="/logo.png" as="image" />
+        <link rel="preload" href="/logo_new.png" as="image" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://api.whatsapp.com" />
 
