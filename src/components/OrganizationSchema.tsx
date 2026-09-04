@@ -2,9 +2,10 @@ export default function OrganizationSchema() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Fernando - Técnico en Computadores',
-    url: 'https://ferchotecnico.com',
-    logo: 'https://ferchotecnico.com/hero-poster.jpg',
+    name: 'Fernando Rhenals - Ensamble de PC & Servicio Técnico',
+    alternateName: 'Fernando Rhenals',
+    url: 'https://www.ferchotecnico.com',
+    logo: 'https://www.ferchotecnico.com/logo_new.png',
     sameAs: [],
   };
 

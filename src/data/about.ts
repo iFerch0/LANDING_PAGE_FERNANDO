@@ -1,9 +1,10 @@
 export const specialties: string[] = [
-  'Desarrollo Web',
-  'Reparación PC',
+  'Ensamble de PC Gamer',
+  'Workstations de Alto Rendimiento',
+  'Reparación de Computadores',
+  'Mantenimiento & Repaste Térmico',
   'Soporte Empresarial',
-  'Ensamble de Equipos',
-  'Mantenimiento Preventivo',
+  'Desarrollo Web',
 ];
 
 export interface Value {

@@ -4,11 +4,14 @@ import { CONTACT, SITE_URL } from '@/data/contact';
 export default function LocalBusinessSchema() {
   const schemaData = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Fernando - Técnico en Computadores',
+    '@type': ['LocalBusiness', 'ComputerRepairService'],
+    name: 'Fernando Rhenals - Ensamble de PC Gamer & Servicio Técnico',
+    alternateName: 'Fernando - Armado y Reparación de Computadores Montería',
     description:
-      'Servicio de reparación de computadoras en Montería. Más de 10 años de experiencia en diagnóstico, reparación y mantenimiento.',
+      'Ingeniero de Sistemas especialista en ensamble y armado de PC Gamer, Workstations de alto rendimiento para arquitectura/edición y servicio técnico especializado en Montería, Córdoba.',
     url: SITE_URL,
+    image: `${SITE_URL}/hero-poster.jpg`,
+    logo: `${SITE_URL}/logo_new.png`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: CONTACT.address,
@@ -25,50 +28,42 @@ export default function LocalBusinessSchema() {
     openingHoursSpecification: [
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Sunday',
-        opens: '09:00',
+        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+        opens: '08:00',
         closes: '18:00',
       },
       {
         '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Monday',
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Tuesday',
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Wednesday',
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Thursday',
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Friday',
-        opens: '09:00',
-        closes: '18:00',
-      },
-      {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: 'Saturday',
-        opens: '09:00',
-        closes: '18:00',
+        dayOfWeek: ['Saturday'],
+        opens: '08:00',
+        closes: '14:00',
       },
     ],
     priceRange: '$$',
     serviceArea: 'Montería, Córdoba, Colombia',
-    areaServed: 'Montería, Córdoba, Colombia',
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Montería',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        name: 'Córdoba',
+      },
+    ],
+    knowsAbout: [
+      'Ensamble de PC Gamer',
+      'Armado de Computadores a Medida',
+      'Workstations de Alto Rendimiento',
+      'Hardware Gaming y Componentes',
+      'Gestión de Cableado y Flujo de Aire',
+      'Optimización Térmica y Repaste',
+      'Refrigeración Líquida AIO',
+      'Mantenimiento Preventivo de Computadores',
+      'Reparación de Laptops y PC de Escritorio',
+      'Diagnóstico de Hardware y Software',
+      'Recuperación de Datos',
+    ],
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '5.0',
@@ -76,14 +71,41 @@ export default function LocalBusinessSchema() {
     },
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
-      name: 'Servicios Técnicos',
+      name: 'Catálogo de Servicios y Ensambles',
       itemListElement: [
         {
           '@type': 'Offer',
           itemOffered: {
             '@type': 'Service',
+            name: 'Ensamble y Armado de PC Gamer & Workstations',
+            description:
+              'Montaje profesional de computadores personalizados para gaming, streaming, arquitectura y edición de video con gestión de cables y pruebas de estabilidad.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Asesoría y Cotización de Componentes de Hardware',
+            description:
+              'Guía y selección de componentes equilibrados (CPU, GPU, RAM, Motherboard, Fuente y Chasis) según presupuesto y necesidades.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Mantenimiento Preventivo & Optimización Térmica',
+            description:
+              'Limpieza profunda por ultrasonido/aire comprimido, cambio de pasta térmica de alta conductividad y thermal pads.',
+          },
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
             name: 'Reparación de PC y Portátiles',
-            description: 'Diagnóstico completo y reparación de hardware y software',
+            description: 'Diagnóstico completo y reparación de hardware y software.',
           },
         },
         {
@@ -91,15 +113,11 @@ export default function LocalBusinessSchema() {
           itemOffered: {
             '@type': 'Service',
             name: 'Recuperación de Datos',
-            description: 'Rescate de información de discos dañados',
+            description: 'Rescate de información de discos mecánicos dañados y unidades SSD.',
           },
         },
       ],
     },
-    // Intentionally not including Review or AggregateRating schema here.
-    // Google Business reviews should remain on the GBP profile and be shown on
-    // the site visually (widgets) without marking them with JSON-LD review schema
-    // to avoid inconsistency or self-declared review markup.
   };
 
   return (

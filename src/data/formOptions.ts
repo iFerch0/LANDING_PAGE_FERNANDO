@@ -2,8 +2,9 @@ import { UserIcon, DeviceIcon, SendIcon } from '@/components/Icons';
 
 export const SERVICE_OPTIONS = [
   { value: '', label: 'Selecciona un servicio', group: '' },
+  { value: 'ensamble', label: '🖥️ Ensamble & Armado de PC Gamer / Workstation', group: 'Ensamble' },
   { value: 'reparacion', label: '🔧 Reparación de Hardware', group: 'Reparación' },
-  { value: 'mantenimiento', label: '🛡️ Mantenimiento Preventivo', group: 'Reparación' },
+  { value: 'mantenimiento', label: '🛡️ Mantenimiento Preventivo & Repaste', group: 'Reparación' },
   { value: 'datos', label: '💾 Recuperación de Datos', group: 'Reparación' },
   { value: 'formateo', label: '💿 Formateo e Instalación', group: 'Reparación' },
   { value: 'virus', label: '🦠 Eliminación de Virus', group: 'Reparación' },

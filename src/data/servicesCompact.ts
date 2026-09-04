@@ -13,6 +13,16 @@ export interface CompactService {
 
 export const compactServices: CompactService[] = [
   {
+    icon: CpuIcon,
+    title: 'Ensamble & Armado de PC',
+    description:
+      'Ensamblaje profesional de PC Gamer y Workstations a medida. Selección de componentes, gestión de cables y pruebas de estabilidad.',
+    duration: '1-2 días',
+    features: ['Hardware garantizado', 'Optimización y pruebas térmicas'],
+    accent: 'accentTeal',
+    iconBox: 'iconBoxTeal',
+  },
+  {
     icon: ZapIcon,
     title: 'Mantenimiento Preventivo',
     description:
@@ -58,16 +68,6 @@ export const compactServices: CompactService[] = [
     features: ['Conexión remota segura', 'Solución inmediata'],
     accent: 'accentAmber',
     iconBox: 'iconBoxAmber',
-  },
-  {
-    icon: CpuIcon,
-    title: 'Armado de Computadores',
-    description:
-      'Ensamblaje profesional de PC a tu medida. Selección de componentes, montaje y configuración completa.',
-    duration: '1-2 días',
-    features: ['Componentes garantizados', 'Configuración optimizada'],
-    accent: 'accentTeal',
-    iconBox: 'iconBoxTeal',
   },
   {
     icon: ConsultingIcon,
