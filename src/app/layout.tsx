@@ -14,10 +14,20 @@ export const metadata: Metadata = {
   description:
     'Ingeniero de Sistemas especialista en ensamble de PC Gamer, armado de workstations a medida y servicio técnico de computadores en Montería, Córdoba. Cotización personalizada y garantía.',
   icons: {
-    icon: '/favicon.ico',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon-48x48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
     shortcut: '/favicon.ico',
-    apple: '/icon-192x192.png',
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+      { url: '/icon-192x192.png', sizes: '192x192', type: 'image/png' },
+    ],
   },
+  manifest: '/manifest.json',
   keywords: [
     'ensamble pc gamer montería',
     'armado de computadores montería',
@@ -90,6 +100,14 @@ export default function RootLayout({
         {/* Google Fonts preconnect */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Favicon & Web App Icons para Google Search (múltiplos de 48px requeridos) */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon-48x48.png" sizes="48x48" type="image/png" />
+        <link rel="icon" href="/icon-96x96.png" sizes="96x96" type="image/png" />
+        <link rel="icon" href="/icon-192x192.png" sizes="192x192" type="image/png" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+        <link rel="manifest" href="/manifest.json" />
 
         {/* Preload recursos críticos */}
         <link rel="preload" href="/logo_new.png" as="image" />

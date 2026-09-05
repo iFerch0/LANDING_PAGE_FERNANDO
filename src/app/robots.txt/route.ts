@@ -4,18 +4,22 @@ export function GET() {
   const body = `User-agent: *
 Allow: /
 
-# Block static assets and technical files from indexing
+# Block technical files from indexing but allow favicons and public assets
 Disallow: /_next/static/
 Disallow: /_next/image/
 Disallow: /api/
-Disallow: /manifest.json
-Disallow: /favicon.ico
 Disallow: /*.woff
 Disallow: /*.woff2
 Disallow: /*.ttf
 Disallow: /*.eot
 
-# Allow important image files
+# Allow Googlebot and Googlebot-Favicons to crawl all icons and assets
+Allow: /favicon.ico
+Allow: /icon*.png
+Allow: /apple-icon.png
+Allow: /manifest.json
+Allow: /icons/
+Allow: /img/
 Allow: /_next/static/media/*.jpg
 Allow: /_next/static/media/*.jpeg
 Allow: /_next/static/media/*.png
