@@ -108,4 +108,22 @@ export const HERO_SLIDES: HeroSlide[] = [
     category: 'Productividad',
     objectPosition: 'center 30%',
   },
+  {
+    id: 12,
+    src: '/img/hero/11.jpg',
+    alt: 'Ensamble de PC Gamer y Workstation de alto rendimiento en taller especializado',
+    title: 'Ensambles de Alto Rendimiento',
+    subtitle: 'Montaje profesional con gestión de cableado y flujo de aire optimizado',
+    category: 'Ensamble',
+    objectPosition: 'center center',
+  },
+  {
+    id: 13,
+    src: '/img/hero/12.jpg',
+    alt: 'Mantenimiento preventivo especializado y repaste térmico de computadores',
+    title: 'Servicio Técnico Especializado',
+    subtitle: 'Atención personalizada, diagnóstico confiable y garantía en Montería',
+    category: 'Servicio',
+    objectPosition: 'center center',
+  },
 ];

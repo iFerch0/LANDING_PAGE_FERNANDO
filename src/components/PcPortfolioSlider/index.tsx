@@ -90,6 +90,205 @@ const builds: PcBuild[] = [
     ],
   },
   {
+    id: 'FT-2026-07-II',
+    name: 'Pro Gaming Rig Ryzen 7 & RTX 5060',
+    subtitle: 'Gaming 1440p Ultra, Títulos AAA con Ray Tracing + DLSS 4 & Noctua Cooling',
+    category: 'Gaming · Enthusiast',
+    accentColor: '#e11d48',
+    images: [
+      '/img/portfolio/builds/FT-2026-07-II/1.jpg',
+      '/img/portfolio/builds/FT-2026-07-II/2.jpg',
+      '/img/portfolio/builds/FT-2026-07-II/3.jpg',
+    ],
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 7 7700X',
+        detail: '8 núcleos / 16 hilos · hasta 5.4 GHz Turbo (Zen 4)',
+      },
+      {
+        label: 'GPU',
+        value: 'NVIDIA GeForce RTX 5060',
+        detail: '8 GB GDDR7 · Blackwell / DLSS 4 & Ray Tracing',
+      },
+      {
+        label: 'RAM',
+        value: '32 GB DDR5-6000',
+        detail: 'Kingston FURY Beast · Dual Channel Ultra Speed',
+      },
+      {
+        label: 'SSD',
+        value: '1 TB NVMe Gen 4',
+        detail: '7,000 MB/s lectura ultra rápida PCIe 4.0',
+      },
+      {
+        label: 'COOL',
+        value: 'Noctua Dual Tower Air Cooler',
+        detail: 'Doble torre & doble ventilador · Máxima disipación silenciosa',
+      },
+      {
+        label: 'PSU',
+        value: '750W 80+ Gold',
+        detail: 'Eficiencia energética continua para sesiones gaming intensas',
+      },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra / DLSS', value: '120+' },
+      { game: 'Call of Duty: Warzone | 1440p | Ultra', value: '165+' },
+      { game: 'Red Dead Redemption 2 | 1440p | Ultra', value: '105+' },
+    ],
+  },
+  {
+    id: 'FT-2025-11',
+    name: 'Workstation 3D & Gaming RTX 5060',
+    subtitle: 'Renderizado 3D, AutoCAD, Arquitectura & Gaming 1080p/1440p Ultra',
+    category: 'Workstation & Gaming · 3D Pro',
+    accentColor: '#6366f1',
+    images: [
+      '/img/portfolio/builds/FT-2025-11/1.mp4',
+      '/img/portfolio/builds/FT-2025-11/2.mp4',
+      '/img/portfolio/builds/FT-2025-11/3.jpg',
+      '/img/portfolio/builds/FT-2025-11/3.5.jpg',
+      '/img/portfolio/builds/FT-2025-11/4.jpg',
+    ],
+    specs: [
+      {
+        label: 'CPU',
+        value: 'Intel Core i7 12700KF',
+        detail: '12 núcleos (8P+4E) / 20 hilos · hasta 5.0 GHz turbo',
+      },
+      {
+        label: 'GPU',
+        value: 'NVIDIA GeForce RTX 5060',
+        detail: '8 GB GDDR7 · Blackwell / DLSS 4 & Ray Tracing',
+      },
+      {
+        label: 'RAM',
+        value: '32 GB DDR5-6400',
+        detail: 'Dual Channel · Ultra High Bandwidth para Render',
+      },
+      {
+        label: 'SSD',
+        value: '2 TB WD_BLACK NVMe',
+        detail: '7,250 MB/s lectura ultra rápida Gen 4',
+      },
+      {
+        label: 'AIO',
+        value: '240mm Refrigeración Líquida',
+        detail: 'Radiador doble · Control térmico en renders pesados',
+      },
+      {
+        label: 'PSU',
+        value: '750W 80+ Gold Modular',
+        detail: 'Certificación 80 Plus Gold · Entrega continua',
+      },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra / DLSS', value: '115+' },
+      { game: 'Call of Duty: Warzone | 1440p | Ultra', value: '160+' },
+      { game: 'Forza Horizon 5 | 1440p | Extremo', value: '135+' },
+    ],
+  },
+  {
+    id: 'FT-2025-10',
+    name: 'Full Stack Dev Station Ryzen 5',
+    subtitle: 'Desarrollo Full Stack, Compilación & Gaming Esports 1080p',
+    category: 'Workstation · Developer Edition',
+    accentColor: '#06b6d4',
+    images: [
+      '/img/portfolio/builds/FT-2025-10/1.jpg',
+      '/img/portfolio/builds/FT-2025-10/2.mp4',
+      '/img/portfolio/builds/FT-2025-10/3.jpg',
+      '/img/portfolio/builds/FT-2025-10/4.jpg',
+    ],
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 5 8500G',
+        detail: '6 núcleos / 12 hilos · hasta 5.0 GHz turbo',
+      },
+      {
+        label: 'iGPU',
+        value: 'AMD Radeon 740M',
+        detail: 'Gráficos Integrados RDNA 3 · Salida multimonitor',
+      },
+      {
+        label: 'RAM',
+        value: '16 GB DDR5',
+        detail: 'Dual Channel High Speed · Ideal para Docker y Web Dev',
+      },
+      {
+        label: 'SSD',
+        value: '512 GB NVMe M.2',
+        detail: 'Alta velocidad PCIe para compilación y arranque rápido',
+      },
+      {
+        label: 'AIO',
+        value: '120mm Refrigeración Líquida',
+        detail: 'Radiador compacto · Control térmico óptimo para desarrollo',
+      },
+      {
+        label: 'PSU',
+        value: '650W 80+ Bronze',
+        detail: 'Certificación 80+ Bronze · Lista para upgrade de GPU dedicada',
+      },
+    ],
+    fps: [
+      { game: 'Valorant | 1080p | Medio / Competitivo', value: '140+' },
+      { game: 'League of Legends | 1080p | Muy Alto', value: '120+' },
+      { game: 'GTA V / CS2 | 1080p | Normal', value: '75+' },
+    ],
+  },
+  {
+    id: 'FT-2025-07',
+    name: 'Esports Gaming Rig RTX 3050',
+    subtitle: 'Gaming 1080p Competitivo, DLSS + Monitor 25" 100Hz & Conectividad Wi-Fi 6',
+    category: 'Gaming · Esports Setup',
+    accentColor: '#eab308',
+    images: [
+      '/img/portfolio/builds/FT-2025-07/1.jpg',
+      '/img/portfolio/builds/FT-2025-07/2.jpg',
+      '/img/portfolio/builds/FT-2025-07/3.jpg',
+    ],
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 5 5500',
+        detail: '6 núcleos / 12 hilos · hasta 4.2 GHz turbo',
+      },
+      {
+        label: 'GPU',
+        value: 'GIGABYTE RTX 3050 6GB',
+        detail: '6 GB GDDR6 · Ray Tracing + DLSS 2',
+      },
+      {
+        label: 'RAM',
+        value: '16 GB DDR4-3200',
+        detail: 'Dual Channel High Speed para gaming fluido',
+      },
+      {
+        label: 'SSD',
+        value: '512 GB NVMe M.2',
+        detail: 'Alta velocidad PCIe para juegos y carga instantánea',
+      },
+      {
+        label: 'NET',
+        value: 'Wi-Fi 6 + Bluetooth 5.2',
+        detail: 'Conectividad inalámbrica de ultra baja latencia',
+      },
+      {
+        label: 'PSU',
+        value: '500W 80+ Bronze',
+        detail: 'Certificación 80+ Bronze de entrega continua',
+      },
+    ],
+    fps: [
+      { game: 'Valorant | 1080p | Alto Comp.', value: '200+' },
+      { game: 'Fortnite / GTA V | 1080p | Medio-Alto', value: '115+' },
+      { game: 'CS2 / Warzone | 1080p | Optimizado', value: '95+' },
+    ],
+  },
+  {
     id: 'FT-2025-02',
     name: 'Gaming Rig RTX 4060 Edition',
     subtitle: 'Gaming 1080p Ultra & Títulos AAA con Ray Tracing + DLSS 3',
@@ -181,8 +380,8 @@ const builds: PcBuild[] = [
       { label: 'SSD', value: '1 TB NVMe M.2', detail: 'Alta velocidad PCIe Gen 4' },
       {
         label: 'AIO',
-        value: '240mm Refrigeración Líquida',
-        detail: 'Radiador doble · Rendimiento térmico óptimo',
+        value: '120mm Thermaltake Líquida',
+        detail: 'Refrigeración líquida compacta Thermaltake · Rendimiento térmico óptimo',
       },
       { label: 'PSU', value: '750W 80+ Gold', detail: 'Potencia lista para futuro upgrade de GPU' },
     ],

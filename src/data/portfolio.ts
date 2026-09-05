@@ -93,6 +93,101 @@ export const builds: PortfolioBuild[] = [
     },
   },
   {
+    id: 'FT-2026-07-II',
+    category: 'build',
+    title: 'Pro Gaming Rig Ryzen 7 & RTX 5060',
+    description:
+      'Máquina de combate para gaming AAA en 1440p Ultra y títulos de última generación con DLSS 4, Ray Tracing y disipación de alta gama Noctua Dual Tower.',
+    year: 2026,
+    images: [
+      '/img/portfolio/builds/FT-2026-07-II/1.jpg',
+      '/img/portfolio/builds/FT-2026-07-II/2.jpg',
+      '/img/portfolio/builds/FT-2026-07-II/3.jpg',
+    ],
+    specs: {
+      cpu: 'AMD Ryzen 7 7700X (8C/16T - 5.4 GHz Turbo)',
+      ram: '32GB DDR5 6000MHz Kingston FURY Beast',
+      storage: '1TB SSD M.2 NVMe Gen 4 (7000 MB/s)',
+      motherboard: 'Socket AM5 PCIe 5.0 / DDR5 Ready',
+      psu: '750W 80+ Gold',
+      cooling: 'Noctua Dual Tower High Performance (Doble Ventilador)',
+      case: 'Chasis Gaming High Airflow',
+      gpu: 'NVIDIA GeForce RTX 5060 8GB GDDR7',
+    },
+  },
+  {
+    id: 'FT-2025-11',
+    category: 'build',
+    title: 'Workstation 3D & Gaming Rig Core i7',
+    description:
+      'Equipo de alto rendimiento diseñado para modelado 3D, AutoCAD, renderizado profesional y gaming AAA con Ray Tracing.',
+    year: 2025,
+    images: [
+      '/img/portfolio/builds/FT-2025-11/1.mp4',
+      '/img/portfolio/builds/FT-2025-11/2.mp4',
+      '/img/portfolio/builds/FT-2025-11/3.jpg',
+      '/img/portfolio/builds/FT-2025-11/3.5.jpg',
+      '/img/portfolio/builds/FT-2025-11/4.jpg',
+    ],
+    specs: {
+      cpu: 'Intel Core i7 12700KF (12C [8P+4E] / 20T - 5.0 GHz)',
+      ram: '32GB DDR5 6400MHz Dual Channel',
+      storage: 'SSD 2TB WD_BLACK SN850X NVMe (7250 MB/s)',
+      motherboard: 'Socket LGA1700 DDR5 Ready',
+      psu: '750W 80+ Gold Modular',
+      cooling: 'Refrigeración Líquida ARGB High Performance',
+      case: 'Chasis Gaming High Airflow',
+      gpu: 'NVIDIA GeForce RTX 5060 8GB GDDR7',
+    },
+  },
+  {
+    id: 'FT-2025-10',
+    category: 'build',
+    title: 'Full Stack Dev Station Ryzen 5 8500G',
+    description:
+      'Estación de trabajo optimizada para desarrollo Full Stack, programación, contenedores Docker y multitarea fluida con plataforma AM5 de última generación.',
+    year: 2025,
+    images: [
+      '/img/portfolio/builds/FT-2025-10/1.jpg',
+      '/img/portfolio/builds/FT-2025-10/2.mp4',
+      '/img/portfolio/builds/FT-2025-10/3.jpg',
+      '/img/portfolio/builds/FT-2025-10/4.jpg',
+    ],
+    specs: {
+      cpu: 'AMD Ryzen 5 8500G (6C/12T - 5.0 GHz)',
+      ram: '16GB DDR5 Dual Channel High Speed',
+      storage: '512GB SSD M.2 NVMe PCIe',
+      motherboard: 'Socket AM5 DDR5 Ready',
+      psu: '650W 80+ Bronze',
+      cooling: '120mm Refrigeración Líquida ARGB',
+      case: 'Chasis High Airflow',
+      gpu: 'AMD Radeon 740M (Gráficos Integrados RDNA 3)',
+    },
+  },
+  {
+    id: 'FT-2025-07',
+    category: 'build',
+    title: 'Esports Gaming Rig RTX 3050 Edition',
+    description:
+      'Setup equilibrado para esports y gaming 1080p. 6 núcleos, gráficos dedicados RTX 3050 6GB con DLSS, conectividad Wi-Fi 6 + Bluetooth 5.2 y monitor gamer 25" 100Hz.',
+    year: 2025,
+    images: [
+      '/img/portfolio/builds/FT-2025-07/1.jpg',
+      '/img/portfolio/builds/FT-2025-07/2.jpg',
+      '/img/portfolio/builds/FT-2025-07/3.jpg',
+    ],
+    specs: {
+      cpu: 'AMD Ryzen 5 5500 (6C/12T - 4.2 GHz)',
+      ram: '16GB DDR4 3200MHz Dual Channel',
+      storage: '512GB SSD M.2 NVMe PCIe',
+      motherboard: 'Socket AM4 + Wi-Fi 6 & Bluetooth 5.2',
+      psu: '500W 80+ Bronze',
+      cooling: 'Disipador AMD Wraith Stealth',
+      case: 'Chasis Gaming Mesh High Airflow',
+      gpu: 'GIGABYTE GeForce RTX 3050 6GB GDDR6',
+    },
+  },
+  {
     id: 'FT-2025-02',
     category: 'build',
     title: 'Gaming Rig RTX 4060 Edition',
@@ -145,7 +240,7 @@ export const builds: PortfolioBuild[] = [
     category: 'build',
     title: 'Workstation Intel Core i5 12600K',
     description:
-      'Equipo enfocado en programación, virtualización y desarrollo. 10 núcleos híbridos, 32GB DDR5 a 6400MHz, refrigeración líquida y fuente de 750W 80+ Gold lista para upgrade de tarjeta gráfica dedicada.',
+      'Equipo enfocado en programación, virtualización y desarrollo. 10 núcleos híbridos, 32GB DDR5 a 6400MHz, refrigeración líquida Thermaltake de 120mm y fuente de 750W 80+ Gold lista para upgrade de tarjeta gráfica dedicada.',
     year: 2024,
     images: [
       '/img/portfolio/builds/FT-2024-08-II/1.jpg',
@@ -160,7 +255,7 @@ export const builds: PortfolioBuild[] = [
       storage: '1TB NVMe PCIe Gen 4',
       motherboard: 'LGA1700 DDR5 Ready',
       psu: '750W 80+ Gold',
-      cooling: '240mm Refrigeración Líquida ARGB',
+      cooling: 'Refrigeración Líquida 120mm Thermaltake',
       case: 'Chasis High Airflow',
       gpu: 'Intel UHD Graphics 770 (Integrada 32 EUs)',
     },
@@ -191,6 +286,20 @@ export const builds: PortfolioBuild[] = [
 ];
 
 export const maintenance: PortfolioMaintenance[] = [
+  {
+    id: 'MT-2025-08',
+    category: 'maintenance',
+    title: 'Torre Oficina - Limpieza Integral & Overhaul',
+    description:
+      'Mantenimiento preventivo y correctivo completo a equipo de oficina con acumulación crítica de polvo y suciedad tras uso prolongado.',
+    year: 2025,
+    beforeImages: ['/img/portfolio/maintenance/MT-2025-08/antes/1.JPG'],
+    afterImages: ['/img/portfolio/maintenance/MT-2025-08/despues/1.jpg'],
+    problem:
+      'Acumulación masiva de polvo y suciedad en todos los componentes internos, obstrucción del flujo de aire y sobrecalentamiento en tareas de oficina.',
+    solution:
+      'Desensamble completo, soplado y limpieza profunda de componentes, disipador y ventiladores, remoción de residuos y cambio de pasta térmica de alto rendimiento.',
+  },
   {
     id: 'MT-2025-03',
     category: 'maintenance',
