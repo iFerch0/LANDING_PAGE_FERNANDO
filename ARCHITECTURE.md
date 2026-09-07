@@ -72,16 +72,15 @@ Reusable logic extracted to hooks:
 
 ## Data Structure
 
-Static data lives in `src/data/`:
-- `contact.ts`: contact info (email, phone, social links)
+Static data lives in `src/data/` (Single Source of Truth):
+- `contact.ts`: contact info (email, phone, WhatsApp links)
 - `servicesCompact.ts`: services list
-- `testimonials.ts`: client testimonials
+- `testimonials.ts`: client testimonials configuration
 - `heroSlides.ts`: hero slider images
 - `formOptions.ts`: form select options (services, devices, urgency)
-- `about.ts`: about section content
-- `faq.ts`: FAQ entries
-- `footer.ts`: footer links and data
-- `stats.ts`: statistics data
+- `about.ts`: about section content & specialties
+- `footer.ts`: footer schedule and business hours
+- `portfolio.ts`: PC builds and maintenance portfolio
 - `webServices.ts`: web development services
 
 **Reasons**:
@@ -113,7 +112,7 @@ Static data lives in `src/data/`:
 - `next/image` with modern formats (WebP, AVIF)
 - `priority` on above-the-fold images
 - Automatic lazy loading for the rest
-- Custom image optimization scripts (`scripts/optimize-images.js`)
+- Next.js built-in image optimization
 
 ### CSS
 
@@ -121,6 +120,7 @@ Static data lives in `src/data/`:
 - CSS Modules (scoped, no global leakage)
 - Typography system in `src/styles/typography.css`
 - Brand styles in `src/styles/brand.css`
+- Keyframe animations in `src/styles/animations.css`
 
 ### JavaScript
 
@@ -131,7 +131,7 @@ Static data lives in `src/data/`:
 ### Animations
 
 - Only `transform` and `opacity` (GPU-accelerated)
-- AOS library for scroll-triggered animations
+- Zero-dependency IntersectionObserver (`RevealOnScroll`)
 - CSS transitions for hover/focus states
 
 ## Security
@@ -173,10 +173,8 @@ Configured in `next.config.ts`:
 JSON-LD schemas for SEO:
 - `LocalBusinessSchema.tsx` — local business info
 - `OrganizationSchema.tsx` — organization metadata
-- `TechnicalServiceSchema.tsx` — service descriptions
 
-## PWA Support
+## Analytics & Monitoring
 
-- `PWAInstaller.tsx` — install prompt component
-- `WebVitalsReporter.tsx` — performance monitoring
+- `WebVitalsReporter.tsx` — Core Web Vitals telemetry
 - `GoogleAnalytics.tsx` — analytics integration

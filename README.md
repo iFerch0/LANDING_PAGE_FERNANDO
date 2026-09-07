@@ -7,15 +7,14 @@ Personal landing page for Fernando — IT support services portfolio. Built with
 - **Framework**: Next.js 15 (App Router)
 - **UI**: React 19 + TypeScript
 - **Styles**: CSS Modules + Design Tokens
-- **Animations**: AOS (Animate On Scroll)
-- **Backend**: Supabase
+- **Animations**: Zero-dependency IntersectionObserver (`RevealOnScroll`)
 - **Testing**: Jest + React Testing Library
-- **Linting**: ESLint + Prettier + Husky
+- **Linting & Formatting**: ESLint + Prettier
 
 ## 📋 Prerequisites
 
 - Node.js 18+ (recommended: latest LTS)
-- Package manager: npm, yarn, pnpm, or bun
+- Package manager: npm, yarn, or pnpm
 
 ## 🛠️ Setup
 
@@ -59,30 +58,29 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Development server with hot reload |
+| `npm run dev:clean` | Clean `.next` cache and start dev server |
+| `npm run clean` | Remove `.next` build cache |
 | `npm run build` | Production build |
-| `npm run build:full` | Full build (optimize images + update colors + generate images + build) |
 | `npm start` | Production server |
-| `npm test` | Run tests |
+| `npm test` | Run tests with Jest |
 | `npm run test:watch` | Tests in watch mode |
 | `npm run test:coverage` | Tests with coverage report |
 | `npm run lint` | Run ESLint |
 | `npm run format` | Format with Prettier |
-| `npm run optimize:images` | Optimize images with sharp |
-| `npm run update:colors` | Update color tokens |
-| `npm run generate:images` | Generate image variants |
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── app/                  # Next.js routes (App Router)
-│   ├── layout.tsx        # Root layout
+│   ├── layout.tsx        # Root layout (metadata, fonts, analytics)
 │   ├── page.tsx          # Main page
 │   ├── not-found.tsx     # 404 page
 │   ├── globals.css       # Global styles + tokens
-│   ├── ClientLayout.tsx  # Client-side layout wrapper
+│   ├── ClientLayout.tsx  # Client-side layout wrapper & SW cleanup
 │   ├── sitemap.ts        # Sitemap generation
-│   └── api/              # API routes
+│   ├── robots.txt/       # Dynamic robots.txt
+│   └── api/web-vitals/   # Telemetry endpoint
 ├── components/           # React components
 │   ├── ContactForm/      # Multi-step contact form
 │   │   ├── index.tsx     # Form container
@@ -90,6 +88,7 @@ src/
 │   │   ├── ContactFormStep0.tsx
 │   │   ├── ContactFormStep1.tsx
 │   │   └── ContactFormStep2.tsx
+│   ├── PcPortfolioSlider/# PC builds & maintenance gallery
 │   ├── Navbar.tsx        # Main navigation
 │   ├── Hero.tsx          # Hero section
 │   ├── HeroSliderStatic.tsx  # Image slider
@@ -101,29 +100,29 @@ src/
 │   ├── Icons.tsx         # Reusable SVG icons
 │   ├── ErrorBoundary.tsx # Error boundary
 │   ├── GoogleAnalytics.tsx
-│   ├── PWAInstaller.tsx  # PWA install prompt
 │   ├── WebVitalsReporter.tsx
+│   ├── RevealOnScroll.tsx# Scroll animations
 │   ├── LocalBusinessSchema.tsx  # Structured data
-│   ├── OrganizationSchema.tsx
-│   └── TechnicalServiceSchema.tsx
-├── data/                 # Static data
+│   └── OrganizationSchema.tsx
+├── data/                 # Static data (Single Source of Truth)
 │   ├── contact.ts        # Contact info
 │   ├── servicesCompact.ts # Services list
 │   ├── testimonials.ts   # Client testimonials
 │   ├── heroSlides.ts     # Slider images
 │   ├── formOptions.ts    # Form select options
 │   ├── about.ts          # About section data
-│   ├── faq.ts            # FAQ data
 │   ├── footer.ts         # Footer data
-│   ├── stats.ts          # Statistics
+│   ├── portfolio.ts      # Builds & maintenance portfolio
 │   └── webServices.ts    # Web dev services data
 ├── styles/               # CSS + tokens
 │   ├── tokens.css        # Design tokens (colors, spacing)
 │   ├── typography.css    # Typography scales
 │   ├── brand.css         # Brand-specific styles
+│   ├── animations.css    # Keyframe animations
 │   └── utilities.css     # Utility classes
 └── types/                # TypeScript types
-    └── forms.ts          # Form types
+    ├── forms.ts          # Form types
+    └── gtag.d.ts         # Google Analytics window typing
 ```
 
 ## 🎨 Style Architecture

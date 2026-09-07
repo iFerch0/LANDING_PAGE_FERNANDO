@@ -294,6 +294,7 @@ const PcPortfolioSlider: React.FC = () => {
                                   fill
                                   sizes="64px"
                                   className={styles.thumbImg}
+                                  loading={currentBuildIdx === 0 && i === 0 ? 'eager' : 'lazy'}
                                 />
                               )}
                             </button>

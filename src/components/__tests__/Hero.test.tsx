@@ -14,7 +14,7 @@ describe('Hero Component', () => {
     render(<Hero />);
 
     const whatsappButton = screen.getByText(/Respuesta en minutos/i);
-    const phoneButton = screen.getByText(/Lun-Vie 8AM-6PM/i);
+    const phoneButton = screen.getByText(/Lun[–-]Vie 8AM[–-]6PM/i);
 
     expect(whatsappButton).toBeInTheDocument();
     expect(phoneButton).toBeInTheDocument();

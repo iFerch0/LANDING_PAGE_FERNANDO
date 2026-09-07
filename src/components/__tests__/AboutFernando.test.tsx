@@ -1,20 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import AboutFernando from '../AboutFernando';
+import { specialties } from '../../data/about';
 
 describe('AboutFernando', () => {
   it('renders name and role', () => {
     render(<AboutFernando />);
-    expect(screen.getByText('Fernando Rhenals')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(/Fernando\s+Rhenals/);
     expect(screen.getByText(/Ingeniero de Sistemas/)).toBeInTheDocument();
   });
 
   it('renders all specialties', () => {
     render(<AboutFernando />);
-    expect(screen.getByText('Desarrollo Web')).toBeInTheDocument();
-    expect(screen.getByText('Reparación PC')).toBeInTheDocument();
-    expect(screen.getByText('Soporte Empresarial')).toBeInTheDocument();
-    expect(screen.getByText('Ensamble de Equipos')).toBeInTheDocument();
-    expect(screen.getByText('Mantenimiento Preventivo')).toBeInTheDocument();
+    specialties.forEach((specialty) => {
+      expect(screen.getByText(specialty)).toBeInTheDocument();
+    });
   });
 
   it('renders values with icons', () => {

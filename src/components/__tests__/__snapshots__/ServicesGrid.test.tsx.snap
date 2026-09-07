@@ -12,983 +12,227 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
     >
       <div
         class="header"
-        data-aos="fade-up"
+        data-reveal="up"
       >
         <span
-          class="eyebrow"
+          class="sectionNum"
         >
-          Servicios profesionales
+          02
         </span>
-        <h2
-          class="title"
-          id="services-title"
+        <div
+          class="headerContent"
         >
-          ¿Qué necesita
-          <span
-            class="titleAccent"
+          <h2
+            class="title"
+            id="services-title"
           >
-             tu computador?
-          </span>
-        </h2>
-        <p
-          class="subtitle"
-        >
-          Soluciones profesionales para tu equipo. Diagnóstico gratuito incluido en todos los servicios.
-        </p>
+            ¿Qué necesita 
+            <span
+              class="titleAccent"
+            >
+              tu computador?
+            </span>
+          </h2>
+          <p
+            class="subtitle"
+          >
+            Soluciones profesionales con diagnóstico gratuito incluido en todos los servicios.
+          </p>
+        </div>
       </div>
+      <article
+        class="featured"
+        data-reveal="scale"
+      >
+        <div>
+          <p
+            class="featuredLabel"
+          >
+            Servicio más solicitado · HW-REP-01
+          </p>
+          <h3
+            class="featuredTitle"
+          >
+            Reparación de Hardware
+          </h3>
+          <p
+            class="featuredSub"
+          >
+            Diagnóstico y reparación el mismo día
+          </p>
+          <p
+            class="featuredDesc"
+          >
+            Diagnóstico y reparación de componentes dañados, reemplazo de piezas con repuestos originales. Mismo día en la mayoría de casos.
+          </p>
+          <div
+            class="featuredMeta"
+          >
+            <span
+              class="featuredDuration"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="14"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="14"
+              >
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                />
+                <path
+                  d="M12 6v6l4 2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Mismo día
+            </span>
+          </div>
+          <a
+            class="featuredCta"
+            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              aria-label="WhatsApp"
+              fill="currentColor"
+              focusable="false"
+              height="16"
+              role="img"
+              viewBox="0 0 24 24"
+              width="16"
+            >
+              <title>
+                WhatsApp
+              </title>
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"
+              />
+            </svg>
+            Solicitar cotización
+          </a>
+        </div>
+        <div
+          class="featuredIncludes"
+        >
+          <span
+            class="includesTitle"
+          >
+            Incluye
+          </span>
+          <ul
+            class="includesList"
+          >
+            <li
+              class="includesItem"
+            >
+              <svg
+                aria-hidden="true"
+                class="includesIcon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Diagnóstico gratuito sin compromiso
+              </span>
+            </li>
+            <li
+              class="includesItem"
+            >
+              <svg
+                aria-hidden="true"
+                class="includesIcon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Reparación de componentes
+              </span>
+            </li>
+            <li
+              class="includesItem"
+            >
+              <svg
+                aria-hidden="true"
+                class="includesIcon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Repuestos originales garantizados
+              </span>
+            </li>
+            <li
+              class="includesItem"
+            >
+              <svg
+                aria-hidden="true"
+                class="includesIcon"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Pruebas de funcionamiento completas
+              </span>
+            </li>
+          </ul>
+        </div>
+      </article>
       <div
-        class="grid"
+        class="servicesList"
+        data-reveal-stagger="true"
       >
         <article
-          class="heroCard"
-          data-aos="fade-up"
+          class="serviceItem service-hover"
+          data-reveal="scale"
         >
           <div
-            class="heroContent"
+            class="serviceHeader"
           >
             <div
-              class="heroHeader"
-            >
-              <div
-                class="heroIconBox"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="heroIcon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </div>
-              <div
-                class="heroTitleGroup"
-              >
-                <h3
-                  class="heroTitle"
-                >
-                  Reparación de Hardware
-                </h3>
-                <p
-                  class="heroSub"
-                >
-                  Servicio más solicitado
-                </p>
-              </div>
-              <span
-                class="popularBadge"
-              >
-                Más solicitado
-              </span>
-            </div>
-            <p
-              class="heroDesc"
-            >
-              Diagnóstico y reparación de componentes dañados, reemplazo de piezas con repuestos originales. Mismo día en la mayoría de casos.
-            </p>
-            <div
-              class="heroDuration"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="16"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="16"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Mismo día
-              </span>
-            </div>
-            <a
-              class="heroCta"
-              href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <span
-                class="sr-only"
-              >
-                Contactar
-              </span>
-              <svg
-                aria-label="WhatsApp"
-                fill="currentColor"
-                focusable="false"
-                height="16"
-                role="img"
-                viewBox="0 0 24 24"
-                width="16"
-              >
-                <title>
-                  WhatsApp
-                </title>
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"
-                />
-              </svg>
-              Solicitar cotización
-            </a>
-          </div>
-          <div
-            class="heroIncludes"
-          >
-            <span
-              class="includesTitle"
-            >
-              Incluye:
-            </span>
-            <ul
-              class="includesList"
-            >
-              <li
-                class="includesItem"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="includesIcon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span>
-                  Diagnóstico gratuito sin compromiso
-                </span>
-              </li>
-              <li
-                class="includesItem"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="includesIcon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span>
-                  Reparación de componentes
-                </span>
-              </li>
-              <li
-                class="includesItem"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="includesIcon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span>
-                  Repuestos originales garantizados
-                </span>
-              </li>
-              <li
-                class="includesItem"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="includesIcon"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <span>
-                  Pruebas de funcionamiento completas
-                </span>
-              </li>
-            </ul>
-          </div>
-          <div
-            aria-hidden="true"
-            class="heroGlow"
-          />
-        </article>
-        <article
-          class="card accentBlue"
-          data-aos="fade-up"
-          data-aos-delay="50"
-        >
-          <div
-            class="cardHeader"
-          >
-            <div
-              class="iconBox iconBoxBlue"
-            >
-              <svg
-                aria-hidden="true"
-                class="cardIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <polygon
-                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              2-3 horas
-            </div>
-          </div>
-          <h3
-            class="cardTitle"
-          >
-            Mantenimiento Preventivo
-          </h3>
-          <p
-            class="cardDesc"
-          >
-            Limpieza completa de hardware, actualización de sistema y optimización de rendimiento.
-          </p>
-          <div
-            class="cardFeatures"
-          >
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Limpieza interna completa
-              </span>
-            </div>
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Cambio de pasta térmica
-              </span>
-            </div>
-          </div>
-          <a
-            class="cardCta"
-            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
-            <svg
-              fill="none"
-              height="14"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="14"
-            >
-              <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </article>
-        <article
-          class="card accentTeal"
-          data-aos="fade-up"
-          data-aos-delay="100"
-        >
-          <div
-            class="cardHeader"
-          >
-            <div
-              class="iconBox iconBoxTeal"
-            >
-              <svg
-                aria-hidden="true"
-                class="cardIcon"
-                fill="none"
-                height="18"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="18"
-              >
-                <rect
-                  height="14"
-                  rx="2"
-                  ry="2"
-                  width="20"
-                  x="2"
-                  y="3"
-                />
-                <line
-                  x1="8"
-                  x2="16"
-                  y1="21"
-                  y2="21"
-                />
-                <line
-                  x1="12"
-                  x2="12"
-                  y1="17"
-                  y2="21"
-                />
-              </svg>
-            </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              1-3 días
-            </div>
-          </div>
-          <h3
-            class="cardTitle"
-          >
-            Recuperación de Datos
-          </h3>
-          <p
-            class="cardDesc"
-          >
-            Recuperación de archivos perdidos o de discos dañados con tecnología especializada.
-          </p>
-          <div
-            class="cardFeatures"
-          >
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Evaluación sin costo
-              </span>
-            </div>
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Entrega en USB/Nube
-              </span>
-            </div>
-          </div>
-          <a
-            class="cardCta"
-            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
-            <svg
-              fill="none"
-              height="14"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="14"
-            >
-              <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </article>
-        <article
-          class="card accentGreen"
-          data-aos="fade-up"
-          data-aos-delay="150"
-        >
-          <div
-            class="cardHeader"
-          >
-            <div
-              class="iconBox iconBoxGreen"
-            >
-              <svg
-                aria-hidden="true"
-                class="cardIcon"
-                fill="none"
-                height="18"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="18"
-              >
-                <rect
-                  height="14"
-                  rx="2"
-                  ry="2"
-                  width="20"
-                  x="2"
-                  y="3"
-                />
-                <line
-                  x1="8"
-                  x2="16"
-                  y1="21"
-                  y2="21"
-                />
-                <line
-                  x1="12"
-                  x2="12"
-                  y1="17"
-                  y2="21"
-                />
-              </svg>
-            </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              3-4 horas
-            </div>
-          </div>
-          <h3
-            class="cardTitle"
-          >
-            Formateo e Instalación
-          </h3>
-          <p
-            class="cardDesc"
-          >
-            Instalación limpia de Windows, configuración completa y programas esenciales.
-          </p>
-          <div
-            class="cardFeatures"
-          >
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Windows 10/11 original
-              </span>
-            </div>
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Drivers actualizados
-              </span>
-            </div>
-          </div>
-          <a
-            class="cardCta"
-            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
-            <svg
-              fill="none"
-              height="14"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="14"
-            >
-              <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </article>
-        <article
-          class="card accentRed"
-          data-aos="fade-up"
-          data-aos-delay="200"
-        >
-          <div
-            class="cardHeader"
-          >
-            <div
-              class="iconBox iconBoxRed"
-            >
-              <svg
-                aria-hidden="true"
-                class="cardIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-                <path
-                  d="M9 12l2 2 4-4"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              2 horas
-            </div>
-          </div>
-          <h3
-            class="cardTitle"
-          >
-            Eliminación de Virus
-          </h3>
-          <p
-            class="cardDesc"
-          >
-            Limpieza profunda de malware, virus, adware y optimización de seguridad.
-          </p>
-          <div
-            class="cardFeatures"
-          >
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Escaneo completo
-              </span>
-            </div>
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Antivirus premium
-              </span>
-            </div>
-          </div>
-          <a
-            class="cardCta"
-            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
-            <svg
-              fill="none"
-              height="14"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="14"
-            >
-              <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </article>
-        <article
-          class="card accentAmber"
-          data-aos="fade-up"
-          data-aos-delay="250"
-        >
-          <div
-            class="cardHeader"
-          >
-            <div
-              class="iconBox iconBoxAmber"
-            >
-              <svg
-                aria-hidden="true"
-                class="cardIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="1.5"
-                viewBox="0 0 24 24"
-              >
-                <polygon
-                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
-              >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              30-60 min
-            </div>
-          </div>
-          <h3
-            class="cardTitle"
-          >
-            Soporte Remoto
-          </h3>
-          <p
-            class="cardDesc"
-          >
-            Asistencia técnica a distancia para problemas de software y configuración.
-          </p>
-          <div
-            class="cardFeatures"
-          >
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Conexión remota segura
-              </span>
-            </div>
-            <div
-              class="cardFeature"
-            >
-              <svg
-                aria-hidden="true"
-                class="featureIcon"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span>
-                Solución inmediata
-              </span>
-            </div>
-          </div>
-          <a
-            class="cardCta"
-            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
-            <svg
-              fill="none"
-              height="14"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-              width="14"
-            >
-              <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </article>
-        <article
-          class="card accentTeal"
-          data-aos="fade-up"
-          data-aos-delay="300"
-        >
-          <div
-            class="cardHeader"
-          >
-            <div
-              class="iconBox iconBoxTeal"
+              class="serviceIcon"
             >
               <svg
                 aria-label="Procesador"
-                class="cardIcon"
                 fill="none"
                 height="18"
                 role="img"
@@ -1041,51 +285,32 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
                 />
               </svg>
             </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
+            <div>
+              <h3
+                class="serviceName"
               >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              1-2 días
+                Ensamble & Armado de PC
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                1-2 días
+              </span>
             </div>
           </div>
-          <h3
-            class="cardTitle"
-          >
-            Armado de Computadores
-          </h3>
           <p
-            class="cardDesc"
+            class="serviceDesc"
           >
-            Ensamblaje profesional de PC a tu medida. Selección de componentes, montaje y configuración completa.
+            Ensamblaje profesional de PC Gamer y Workstations a medida. Selección de componentes, gestión de cables y pruebas de estabilidad.
           </p>
           <div
-            class="cardFeatures"
+            class="serviceFeatures"
           >
             <div
-              class="cardFeature"
+              class="serviceFeature"
             >
               <svg
                 aria-hidden="true"
-                class="featureIcon"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -1098,15 +323,14 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
                 />
               </svg>
               <span>
-                Componentes garantizados
+                Hardware garantizado
               </span>
             </div>
             <div
-              class="cardFeature"
+              class="serviceFeature"
             >
               <svg
                 aria-hidden="true"
-                class="featureIcon"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -1119,53 +343,617 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
                 />
               </svg>
               <span>
-                Configuración optimizada
+                Optimización y pruebas térmicas
               </span>
             </div>
           </div>
           <a
-            class="cardCta"
+            class="serviceCta"
             href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
+            Cotizar
             <svg
               fill="none"
-              height="14"
+              height="12"
               stroke="currentColor"
               stroke-width="2"
               viewBox="0 0 24 24"
-              width="14"
+              width="12"
             >
               <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
+                d="M5 12h14M12 5l7 7-7 7"
               />
             </svg>
           </a>
         </article>
         <article
-          class="card accentBlue"
-          data-aos="fade-up"
-          data-aos-delay="350"
+          class="serviceItem service-hover"
+          data-reveal="scale"
         >
           <div
-            class="cardHeader"
+            class="serviceHeader"
           >
             <div
-              class="iconBox iconBoxBlue"
+              class="serviceIcon"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <polygon
+                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3
+                class="serviceName"
+              >
+                Mantenimiento Preventivo
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                2-3 horas
+              </span>
+            </div>
+          </div>
+          <p
+            class="serviceDesc"
+          >
+            Limpieza completa de hardware, actualización de sistema y optimización de rendimiento.
+          </p>
+          <div
+            class="serviceFeatures"
+          >
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Limpieza interna completa
+              </span>
+            </div>
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Cambio de pasta térmica
+              </span>
+            </div>
+          </div>
+          <a
+            class="serviceCta"
+            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cotizar
+            <svg
+              fill="none"
+              height="12"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+        <article
+          class="serviceItem service-hover"
+          data-reveal="scale"
+        >
+          <div
+            class="serviceHeader"
+          >
+            <div
+              class="serviceIcon"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="18"
+              >
+                <rect
+                  height="14"
+                  rx="2"
+                  ry="2"
+                  width="20"
+                  x="2"
+                  y="3"
+                />
+                <line
+                  x1="8"
+                  x2="16"
+                  y1="21"
+                  y2="21"
+                />
+                <line
+                  x1="12"
+                  x2="12"
+                  y1="17"
+                  y2="21"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3
+                class="serviceName"
+              >
+                Recuperación de Datos
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                1-3 días
+              </span>
+            </div>
+          </div>
+          <p
+            class="serviceDesc"
+          >
+            Recuperación de archivos perdidos o de discos dañados con tecnología especializada.
+          </p>
+          <div
+            class="serviceFeatures"
+          >
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Evaluación sin costo
+              </span>
+            </div>
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Entrega en USB/Nube
+              </span>
+            </div>
+          </div>
+          <a
+            class="serviceCta"
+            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cotizar
+            <svg
+              fill="none"
+              height="12"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+        <article
+          class="serviceItem service-hover"
+          data-reveal="scale"
+        >
+          <div
+            class="serviceHeader"
+          >
+            <div
+              class="serviceIcon"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                height="18"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                width="18"
+              >
+                <rect
+                  height="14"
+                  rx="2"
+                  ry="2"
+                  width="20"
+                  x="2"
+                  y="3"
+                />
+                <line
+                  x1="8"
+                  x2="16"
+                  y1="21"
+                  y2="21"
+                />
+                <line
+                  x1="12"
+                  x2="12"
+                  y1="17"
+                  y2="21"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3
+                class="serviceName"
+              >
+                Formateo e Instalación
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                3-4 horas
+              </span>
+            </div>
+          </div>
+          <p
+            class="serviceDesc"
+          >
+            Instalación limpia de Windows, configuración completa y programas esenciales.
+          </p>
+          <div
+            class="serviceFeatures"
+          >
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Windows 10/11 original
+              </span>
+            </div>
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Drivers actualizados
+              </span>
+            </div>
+          </div>
+          <a
+            class="serviceCta"
+            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cotizar
+            <svg
+              fill="none"
+              height="12"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+        <article
+          class="serviceItem service-hover"
+          data-reveal="scale"
+        >
+          <div
+            class="serviceHeader"
+          >
+            <div
+              class="serviceIcon"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 12l2 2 4-4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3
+                class="serviceName"
+              >
+                Eliminación de Virus
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                2 horas
+              </span>
+            </div>
+          </div>
+          <p
+            class="serviceDesc"
+          >
+            Limpieza profunda de malware, virus, adware y optimización de seguridad.
+          </p>
+          <div
+            class="serviceFeatures"
+          >
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Escaneo completo
+              </span>
+            </div>
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Antivirus premium
+              </span>
+            </div>
+          </div>
+          <a
+            class="serviceCta"
+            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cotizar
+            <svg
+              fill="none"
+              height="12"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+        <article
+          class="serviceItem service-hover"
+          data-reveal="scale"
+        >
+          <div
+            class="serviceHeader"
+          >
+            <div
+              class="serviceIcon"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+              >
+                <polygon
+                  points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div>
+              <h3
+                class="serviceName"
+              >
+                Soporte Remoto
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                30-60 min
+              </span>
+            </div>
+          </div>
+          <p
+            class="serviceDesc"
+          >
+            Asistencia técnica a distancia para problemas de software y configuración.
+          </p>
+          <div
+            class="serviceFeatures"
+          >
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Conexión remota segura
+              </span>
+            </div>
+            <div
+              class="serviceFeature"
+            >
+              <svg
+                aria-hidden="true"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <span>
+                Solución inmediata
+              </span>
+            </div>
+          </div>
+          <a
+            class="serviceCta"
+            href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Cotizar
+            <svg
+              fill="none"
+              height="12"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              width="12"
+            >
+              <path
+                d="M5 12h14M12 5l7 7-7 7"
+              />
+            </svg>
+          </a>
+        </article>
+        <article
+          class="serviceItem service-hover"
+          data-reveal="scale"
+        >
+          <div
+            class="serviceHeader"
+          >
+            <div
+              class="serviceIcon"
             >
               <svg
                 aria-label="Consultoría"
-                class="cardIcon"
                 fill="none"
                 height="18"
                 role="img"
@@ -1195,51 +983,32 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
                 />
               </svg>
             </div>
-            <div
-              class="durationBadge"
-            >
-              <svg
-                aria-hidden="true"
-                fill="none"
-                height="12"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="12"
+            <div>
+              <h3
+                class="serviceName"
               >
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="10"
-                />
-                <path
-                  d="M12 6v6l4 2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              30-60 min
+                Asesoría de Compra
+              </h3>
+              <span
+                class="serviceDuration"
+              >
+                30-60 min
+              </span>
             </div>
           </div>
-          <h3
-            class="cardTitle"
-          >
-            Asesoría de Compra
-          </h3>
           <p
-            class="cardDesc"
+            class="serviceDesc"
           >
             Te guío en la elección del computador ideal según tu presupuesto, necesidades y uso.
           </p>
           <div
-            class="cardFeatures"
+            class="serviceFeatures"
           >
             <div
-              class="cardFeature"
+              class="serviceFeature"
             >
               <svg
                 aria-hidden="true"
-                class="featureIcon"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -1256,11 +1025,10 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
               </span>
             </div>
             <div
-              class="cardFeature"
+              class="serviceFeature"
             >
               <svg
                 aria-hidden="true"
-                class="featureIcon"
                 fill="none"
                 stroke="currentColor"
                 stroke-width="2"
@@ -1278,34 +1046,69 @@ exports[`ServicesGrid Component matches snapshot 1`] = `
             </div>
           </div>
           <a
-            class="cardCta"
+            class="serviceCta"
             href="https://wa.me/573008474121?text=Hola%2C%20necesito%20ayuda%20con%20mi%20computador"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <span
-              class="sr-only"
-            >
-              Solicitar
-            </span>
-            Solicitar cotización
+            Cotizar
             <svg
               fill="none"
-              height="14"
+              height="12"
               stroke="currentColor"
               stroke-width="2"
               viewBox="0 0 24 24"
-              width="14"
+              width="12"
             >
               <path
-                d="M5 12h14"
-              />
-              <path
-                d="M12 5l7 7-7 7"
+                d="M5 12h14M12 5l7 7-7 7"
               />
             </svg>
           </a>
         </article>
+      </div>
+      <div
+        class="promo"
+        data-reveal="up"
+      >
+        <div
+          class="promoContent"
+        >
+          <p
+            class="promoTitle"
+          >
+            ¿No sabés qué servicio necesitás?
+          </p>
+          <p
+            class="promoDesc"
+          >
+            Escribime por WhatsApp y te oriento sin compromiso. Diagnóstico inicial gratuito.
+          </p>
+        </div>
+        <a
+          class="promoCta"
+          href="https://wa.me/573008474121?text=Hola%2C%20no%20estoy%20seguro%20de%20qu%C3%A9%20servicio%20necesito"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <svg
+            aria-label="WhatsApp"
+            fill="currentColor"
+            focusable="false"
+            height="18"
+            role="img"
+            viewBox="0 0 24 24"
+            width="18"
+          >
+            <title>
+              WhatsApp
+            </title>
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.525 3.488"
+            />
+          </svg>
+          Consultar por WhatsApp
+        </a>
       </div>
     </div>
   </section>

@@ -26,7 +26,7 @@ function getPhoneInput() {
 }
 
 function getServiceSelect() {
-  return screen.getByLabelText(/Qué servicio necesitas/);
+  return screen.getByLabelText(/servicio necesit/i);
 }
 
 function getDeviceSelect() {
@@ -38,7 +38,7 @@ function getUrgencySelect() {
 }
 
 function getProblemTextarea() {
-  return screen.getByLabelText(/Qué está pasando/);
+  return screen.getByLabelText(/está pasando/i);
 }
 
 function getNextButton() {
@@ -104,7 +104,7 @@ describe('ContactForm — Step 0 validation', () => {
     renderForm();
     fireEvent.click(getNextButton());
     const activePanel = document.querySelector('[class*="stepPanelActive"]');
-    expect(activePanel?.querySelector('h3')?.textContent).toContain('Información Personal');
+    expect(activePanel?.querySelector('h3')?.textContent?.toLowerCase()).toContain('información personal');
   });
 
   it('shows error for short name', () => {
@@ -173,7 +173,7 @@ describe('ContactForm — Step 1 validation', () => {
     advanceToStep1();
     fillStep1('reparacion', 'laptop', 'alta');
     fireEvent.click(getNextButton());
-    expect(screen.getByText(/Describe tu problema/i)).toBeInTheDocument();
+    expect(screen.getByText(/Describ[ií] tu problema/i)).toBeInTheDocument();
   });
 });
 
