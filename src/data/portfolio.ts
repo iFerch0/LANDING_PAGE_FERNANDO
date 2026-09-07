@@ -1,38 +1,31 @@
 /**
- * Portfolio data - Workstations and maintenance projects
- *
- * To add a new build:
- * 1. Add images to /public/img/portfolio/builds/
- * 2. Copy one of the build objects below
- * 3. Update the fields with your new build info
- *
- * To add maintenance work:
- * 1. Add before/after images to /public/img/portfolio/maintenance/
- * 2. Add a maintenance object to the maintenance array
+ * Portfolio data - Builds and Maintenance projects
+ * Single Source of Truth for portfolio items
  */
 
-export type BuildSpecs = {
-  cpu: string;
-  ram: string;
-  storage: string;
-  motherboard: string;
-  psu: string;
-  cooling: string;
-  case: string;
-  gpu?: string;
-};
+export interface PcSpec {
+  label: string;
+  value: string;
+  detail: string;
+}
 
-export type PortfolioBuild = {
+export interface FpsEntry {
+  game: string;
+  value: string;
+}
+
+export interface PcBuild {
   id: string;
-  category: 'build';
-  title: string;
-  description: string;
-  year: number;
+  name: string;
+  subtitle: string;
+  category: string;
+  accentColor: string;
   images: string[];
-  specs: BuildSpecs;
-};
+  specs: PcSpec[];
+  fps: FpsEntry[];
+}
 
-export type PortfolioMaintenance = {
+export interface PortfolioMaintenance {
   id: string;
   category: 'maintenance';
   title: string;
@@ -42,18 +35,15 @@ export type PortfolioMaintenance = {
   afterImages: string[];
   problem: string;
   solution: string;
-};
+}
 
-export type PortfolioItem = PortfolioBuild | PortfolioMaintenance;
-
-export const builds: PortfolioBuild[] = [
+export const builds: PcBuild[] = [
   {
     id: 'FT-2026-09',
-    category: 'build',
-    title: 'Next-Gen Ultra Gaming',
-    description:
-      'Build de alto rendimiento para gaming 1440p Ultra / 4K Esports y creación de contenido. Ensamblado con componentes de última generación.',
-    year: 2026,
+    name: 'Next-Gen Ultra Gaming',
+    subtitle: 'Gaming 1440p Ultra / 4K Esports + Creación de Contenido',
+    category: 'Gaming · Enthusiast',
+    accentColor: '#c86432',
     images: [
       '/img/portfolio/builds/FT-2026-09/1.png',
       '/img/portfolio/builds/FT-2026-09/2.jpg',
@@ -62,66 +52,104 @@ export const builds: PortfolioBuild[] = [
       '/img/portfolio/builds/FT-2026-09/5.jpg',
       '/img/portfolio/builds/FT-2026-09/6.png',
     ],
-    specs: {
-      cpu: 'Intel Core Ultra 5 250K Plus',
-      ram: '32 GB DDR5-6000 Patriot Viper',
-      storage: '1 TB NVMe Gen 4 (7,100 MB/s)',
-      motherboard: 'ASUS Prime B860-Plus',
-      psu: '750W 80+ Gold Full Modular',
-      cooling: '240mm Refrigeración Líquida ARGB',
-      case: 'Chasis Gaming Mesh High Airflow',
-      gpu: 'AMD Radeon RX 9060 XT 16GB GDDR6',
-    },
+    specs: [
+      { label: 'CPU', value: 'Intel Core Ultra 5 250K Plus', detail: '18 núcleos · 5.3 GHz boost' },
+      { label: 'GPU', value: 'AMD Radeon RX 9060 XT', detail: '16 GB GDDR6 · RDNA 4 / FSR 4' },
+      { label: 'RAM', value: '32 GB DDR5-6000', detail: 'Dual Channel · High Speed' },
+      { label: 'SSD', value: '1 TB NVMe Gen 4', detail: '7,100 MB/s lectura' },
+      { label: 'AIO', value: '240mm Refrigeración Líquida', detail: 'Radiador doble · ARGB' },
+      { label: 'PSU', value: '750W 80+ Gold', detail: 'Full Modular' },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra', value: '105+' },
+      { game: 'Call of Duty: Warzone | 1440p | Ultra', value: '160+' },
+      { game: 'Valorant | 1440p | Competitivo', value: '480+' },
+    ],
   },
   {
     id: 'FT-2026-07',
-    category: 'build',
-    title: 'Workstation Master Ryzen 9 5900XT',
-    description:
-      'Estación de trabajo pesada y gaming extremo. 16 núcleos físicos, refrigeración líquida AIO con display LCD IPS personalizable y GPU RX 9060 XT 16GB.',
-    year: 2026,
+    name: 'Workstation Master Ryzen 9',
+    subtitle: '16 Cores / 32 Hilos · Render 3D, Creación Pesada & Gaming 1440p/4K',
+    category: 'Workstation & Gaming · Elite',
+    accentColor: '#f97316',
     images: ['/img/portfolio/builds/FT-2026-07/1.jpg', '/img/portfolio/builds/FT-2026-07/2.jpg'],
-    specs: {
-      cpu: 'AMD Ryzen 9 5900XT (16C/32T - 4.8 GHz)',
-      ram: '32GB DDR4 3200MHz Dual Channel',
-      storage: '1TB SSD M.2 NVMe High Speed',
-      motherboard: 'Socket AM4 High End + Wi-Fi 6E & BT 5.3',
-      psu: '750W 80+ Gold Full Modular',
-      cooling: 'AIO Liquid Cooling con Pantalla LCD IPS Inteligente',
-      case: 'Chasis High Airflow',
-      gpu: 'AMD Radeon RX 9060 XT 16GB GDDR6',
-    },
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 9 5900XT',
+        detail: '16 núcleos / 32 hilos · hasta 4.8 GHz (72MB Caché)',
+      },
+      { label: 'GPU', value: 'AMD Radeon RX 9060 XT', detail: '16 GB GDDR6 · RDNA 4 / FSR 4' },
+      { label: 'RAM', value: '32 GB DDR4-3200', detail: 'Dual Channel High Speed' },
+      { label: 'SSD', value: '1 TB NVMe M.2', detail: 'Alta velocidad PCIe' },
+      {
+        label: 'AIO',
+        value: 'AIO Liquid LCD Display',
+        detail: 'Pantalla IPS personalizada con telemetría en vivo',
+      },
+      { label: 'PSU', value: '750W 80+ Gold', detail: 'Full Modular + Wi-Fi 6E & Bluetooth 5.3' },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra / FSR', value: '110+' },
+      { game: 'Call of Duty: Warzone | 1440p | Ultra', value: '165+' },
+      { game: 'Valorant | 1440p | Competitivo', value: '520+' },
+    ],
   },
   {
     id: 'FT-2026-07-II',
-    category: 'build',
-    title: 'Pro Gaming Rig Ryzen 7 & RTX 5060',
-    description:
-      'Máquina de combate para gaming AAA en 1440p Ultra y títulos de última generación con DLSS 4, Ray Tracing y disipación de alta gama Noctua Dual Tower.',
-    year: 2026,
+    name: 'Pro Gaming Rig Ryzen 7 & RTX 5060',
+    subtitle: 'Gaming 1440p Ultra, Títulos AAA con Ray Tracing + DLSS 4 & Noctua Cooling',
+    category: 'Gaming · Enthusiast',
+    accentColor: '#e11d48',
     images: [
       '/img/portfolio/builds/FT-2026-07-II/1.jpg',
       '/img/portfolio/builds/FT-2026-07-II/2.jpg',
       '/img/portfolio/builds/FT-2026-07-II/3.jpg',
     ],
-    specs: {
-      cpu: 'AMD Ryzen 7 7700X (8C/16T - 5.4 GHz Turbo)',
-      ram: '32GB DDR5 6000MHz Kingston FURY Beast',
-      storage: '1TB SSD M.2 NVMe Gen 4 (7000 MB/s)',
-      motherboard: 'Socket AM5 PCIe 5.0 / DDR5 Ready',
-      psu: '750W 80+ Gold',
-      cooling: 'Noctua Dual Tower High Performance (Doble Ventilador)',
-      case: 'Chasis Gaming High Airflow',
-      gpu: 'NVIDIA GeForce RTX 5060 8GB GDDR7',
-    },
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 7 7700X',
+        detail: '8 núcleos / 16 hilos · hasta 5.4 GHz Turbo (Zen 4)',
+      },
+      {
+        label: 'GPU',
+        value: 'NVIDIA GeForce RTX 5060',
+        detail: '8 GB GDDR7 · Blackwell / DLSS 4 & Ray Tracing',
+      },
+      {
+        label: 'RAM',
+        value: '32 GB DDR5-6000',
+        detail: 'Kingston FURY Beast · Dual Channel Ultra Speed',
+      },
+      {
+        label: 'SSD',
+        value: '1 TB NVMe Gen 4',
+        detail: '7,000 MB/s lectura ultra rápida PCIe 4.0',
+      },
+      {
+        label: 'COOL',
+        value: 'Noctua Dual Tower Air Cooler',
+        detail: 'Doble torre & doble ventilador · Máxima disipación silenciosa',
+      },
+      {
+        label: 'PSU',
+        value: '750W 80+ Gold',
+        detail: 'Eficiencia energética continua para sesiones gaming intensas',
+      },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra / DLSS', value: '120+' },
+      { game: 'Call of Duty: Warzone | 1440p | Ultra', value: '165+' },
+      { game: 'Red Dead Redemption 2 | 1440p | Ultra', value: '105+' },
+    ],
   },
   {
     id: 'FT-2025-11',
-    category: 'build',
-    title: 'Workstation 3D & Gaming Rig Core i7',
-    description:
-      'Equipo de alto rendimiento diseñado para modelado 3D, AutoCAD, renderizado profesional y gaming AAA con Ray Tracing.',
-    year: 2025,
+    name: 'Workstation 3D & Gaming RTX 5060',
+    subtitle: 'Renderizado 3D, AutoCAD, Arquitectura & Gaming 1080p/1440p Ultra',
+    category: 'Workstation & Gaming · 3D Pro',
+    accentColor: '#6366f1',
     images: [
       '/img/portfolio/builds/FT-2025-11/1.mp4',
       '/img/portfolio/builds/FT-2025-11/2.mp4',
@@ -129,94 +157,182 @@ export const builds: PortfolioBuild[] = [
       '/img/portfolio/builds/FT-2025-11/3.5.jpg',
       '/img/portfolio/builds/FT-2025-11/4.jpg',
     ],
-    specs: {
-      cpu: 'Intel Core i7 12700KF (12C [8P+4E] / 20T - 5.0 GHz)',
-      ram: '32GB DDR5 6400MHz Dual Channel',
-      storage: 'SSD 2TB WD_BLACK SN850X NVMe (7250 MB/s)',
-      motherboard: 'Socket LGA1700 DDR5 Ready',
-      psu: '750W 80+ Gold Modular',
-      cooling: 'Refrigeración Líquida ARGB High Performance',
-      case: 'Chasis Gaming High Airflow',
-      gpu: 'NVIDIA GeForce RTX 5060 8GB GDDR7',
-    },
+    specs: [
+      {
+        label: 'CPU',
+        value: 'Intel Core i7 12700KF',
+        detail: '12 núcleos (8P+4E) / 20 hilos · hasta 5.0 GHz turbo',
+      },
+      {
+        label: 'GPU',
+        value: 'NVIDIA GeForce RTX 5060',
+        detail: '8 GB GDDR7 · Blackwell / DLSS 4 & Ray Tracing',
+      },
+      {
+        label: 'RAM',
+        value: '32 GB DDR5-6400',
+        detail: 'Dual Channel · Ultra High Bandwidth para Render',
+      },
+      {
+        label: 'SSD',
+        value: '2 TB WD_BLACK NVMe',
+        detail: '7,250 MB/s lectura ultra rápida Gen 4',
+      },
+      {
+        label: 'AIO',
+        value: '240mm Refrigeración Líquida',
+        detail: 'Radiador doble · Control térmico en renders pesados',
+      },
+      {
+        label: 'PSU',
+        value: '750W 80+ Gold Modular',
+        detail: 'Certificación 80 Plus Gold · Entrega continua',
+      },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra / DLSS', value: '115+' },
+      { game: 'Call of Duty: Warzone | 1440p | Ultra', value: '160+' },
+      { game: 'Forza Horizon 5 | 1440p | Extremo', value: '135+' },
+    ],
   },
   {
     id: 'FT-2025-10',
-    category: 'build',
-    title: 'Full Stack Dev Station Ryzen 5 8500G',
-    description:
-      'Estación de trabajo optimizada para desarrollo Full Stack, programación, contenedores Docker y multitarea fluida con plataforma AM5 de última generación.',
-    year: 2025,
+    name: 'Full Stack Dev Station Ryzen 5',
+    subtitle: 'Desarrollo Full Stack, Compilación & Gaming Esports 1080p',
+    category: 'Workstation · Developer Edition',
+    accentColor: '#06b6d4',
     images: [
       '/img/portfolio/builds/FT-2025-10/1.jpg',
       '/img/portfolio/builds/FT-2025-10/2.mp4',
       '/img/portfolio/builds/FT-2025-10/3.jpg',
       '/img/portfolio/builds/FT-2025-10/4.jpg',
     ],
-    specs: {
-      cpu: 'AMD Ryzen 5 8500G (6C/12T - 5.0 GHz)',
-      ram: '16GB DDR5 Dual Channel High Speed',
-      storage: '512GB SSD M.2 NVMe PCIe',
-      motherboard: 'Socket AM5 DDR5 Ready',
-      psu: '650W 80+ Bronze',
-      cooling: '120mm Refrigeración Líquida ARGB',
-      case: 'Chasis High Airflow',
-      gpu: 'AMD Radeon 740M (Gráficos Integrados RDNA 3)',
-    },
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 5 8500G',
+        detail: '6 núcleos / 12 hilos · hasta 5.0 GHz turbo',
+      },
+      {
+        label: 'iGPU',
+        value: 'AMD Radeon 740M',
+        detail: 'Gráficos Integrados RDNA 3 · Salida multimonitor',
+      },
+      {
+        label: 'RAM',
+        value: '16 GB DDR5',
+        detail: 'Dual Channel High Speed · Ideal para Docker y Web Dev',
+      },
+      {
+        label: 'SSD',
+        value: '512 GB NVMe M.2',
+        detail: 'Alta velocidad PCIe para compilación y arranque rápido',
+      },
+      {
+        label: 'AIO',
+        value: '120mm Refrigeración Líquida',
+        detail: 'Radiador compacto · Control térmico óptimo para desarrollo',
+      },
+      {
+        label: 'PSU',
+        value: '650W 80+ Bronze',
+        detail: 'Certificación 80+ Bronze · Lista para upgrade de GPU dedicada',
+      },
+    ],
+    fps: [
+      { game: 'Valorant | 1080p | Medio / Competitivo', value: '140+' },
+      { game: 'League of Legends | 1080p | Muy Alto', value: '120+' },
+      { game: 'GTA V / CS2 | 1080p | Normal', value: '75+' },
+    ],
   },
   {
     id: 'FT-2025-07',
-    category: 'build',
-    title: 'Esports Gaming Rig RTX 3050 Edition',
-    description:
-      'Setup equilibrado para esports y gaming 1080p. 6 núcleos, gráficos dedicados RTX 3050 6GB con DLSS, conectividad Wi-Fi 6 + Bluetooth 5.2 y monitor gamer 25" 100Hz.',
-    year: 2025,
+    name: 'Esports Gaming Rig RTX 3050',
+    subtitle: 'Gaming 1080p Competitivo, DLSS + Monitor 25" 100Hz & Conectividad Wi-Fi 6',
+    category: 'Gaming · Esports Setup',
+    accentColor: '#eab308',
     images: [
       '/img/portfolio/builds/FT-2025-07/1.jpg',
       '/img/portfolio/builds/FT-2025-07/2.jpg',
       '/img/portfolio/builds/FT-2025-07/3.jpg',
     ],
-    specs: {
-      cpu: 'AMD Ryzen 5 5500 (6C/12T - 4.2 GHz)',
-      ram: '16GB DDR4 3200MHz Dual Channel',
-      storage: '512GB SSD M.2 NVMe PCIe',
-      motherboard: 'Socket AM4 + Wi-Fi 6 & Bluetooth 5.2',
-      psu: '500W 80+ Bronze',
-      cooling: 'Disipador AMD Wraith Stealth',
-      case: 'Chasis Gaming Mesh High Airflow',
-      gpu: 'GIGABYTE GeForce RTX 3050 6GB GDDR6',
-    },
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 5 5500',
+        detail: '6 núcleos / 12 hilos · hasta 4.2 GHz turbo',
+      },
+      {
+        label: 'GPU',
+        value: 'GIGABYTE RTX 3050 6GB',
+        detail: '6 GB GDDR6 · Ray Tracing + DLSS 2',
+      },
+      {
+        label: 'RAM',
+        value: '16 GB DDR4-3200',
+        detail: 'Dual Channel High Speed para gaming fluido',
+      },
+      {
+        label: 'SSD',
+        value: '512 GB NVMe M.2',
+        detail: 'Alta velocidad PCIe para juegos y carga instantánea',
+      },
+      {
+        label: 'NET',
+        value: 'Wi-Fi 6 + Bluetooth 5.2',
+        detail: 'Conectividad inalámbrica de ultra baja latencia',
+      },
+      {
+        label: 'PSU',
+        value: '500W 80+ Bronze',
+        detail: 'Certificación 80+ Bronze de entrega continua',
+      },
+    ],
+    fps: [
+      { game: 'Valorant | 1080p | Alto Comp.', value: '200+' },
+      { game: 'Fortnite / GTA V | 1080p | Medio-Alto', value: '115+' },
+      { game: 'CS2 / Warzone | 1080p | Optimizado', value: '95+' },
+    ],
   },
   {
     id: 'FT-2025-02',
-    category: 'build',
-    title: 'Gaming Rig RTX 4060 Edition',
-    description:
-      'Equipo balanceado para gaming competitivo y títulos AAA en 1080p Ultra con soporte para Ray Tracing y DLSS 3 Frame Generation.',
-    year: 2025,
+    name: 'Gaming Rig RTX 4060 Edition',
+    subtitle: 'Gaming 1080p Ultra & Títulos AAA con Ray Tracing + DLSS 3',
+    category: 'Gaming · AAA Ready',
+    accentColor: '#84cc16',
     images: [
       '/img/portfolio/builds/FT-2025-02/1.jpg',
       '/img/portfolio/builds/FT-2025-02/2.jpg',
       '/img/portfolio/builds/FT-2025-02/3.jpg',
     ],
-    specs: {
-      cpu: 'AMD Ryzen 5 5500 (6C/12T - 4.2 GHz)',
-      ram: '16GB DDR4 3200MHz Dual Channel',
-      storage: '1TB NVMe PCIe High Speed',
-      motherboard: 'Socket AM4 Gaming Ready',
-      psu: '650W 80+ Bronze',
-      cooling: 'Disipación por Aire de Alto Flujo',
-      case: 'Chasis High Airflow',
-      gpu: 'NVIDIA GeForce RTX 4060 8GB GDDR6',
-    },
+    specs: [
+      { label: 'CPU', value: 'AMD Ryzen 5 5500', detail: '6 núcleos / 12 hilos · hasta 4.2 GHz' },
+      {
+        label: 'GPU',
+        value: 'NVIDIA GeForce RTX 4060',
+        detail: '8 GB GDDR6 · Ada Lovelace / DLSS 3 + Frame Gen',
+      },
+      { label: 'RAM', value: '16 GB DDR4-3200', detail: 'Dual Channel High Speed' },
+      { label: 'SSD', value: '1 TB NVMe M.2', detail: 'Alta velocidad PCIe' },
+      {
+        label: 'COOL',
+        value: 'Disipación de Alto Flujo',
+        detail: 'Presión positiva & ventilación directa',
+      },
+      { label: 'PSU', value: '650W 80+ Bronze', detail: 'Fuente certificada de entrega continua' },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1080p | Ultra / DLSS', value: '90+' },
+      { game: 'Red Dead Redemption 2 | 1080p | Ultra', value: '85+' },
+      { game: 'Forza Horizon 5 | 1080p | Extremo', value: '115+' },
+    ],
   },
   {
     id: 'FT-2024-08',
-    category: 'build',
-    title: 'Workstation AMD Ryzen 5 8500G',
-    description:
-      'Equipo para diseño gráfico de entrada y esports. Equipado con gráficos integrados Radeon 740M, 32GB DDR5 a 6400MHz y refrigeración líquida de 240mm.',
-    year: 2024,
+    name: 'Workstation Design & Esports',
+    subtitle: 'Diseño Gráfico de Entrada + Gaming Competitivo 1080p',
+    category: 'Workstation · APU Performance',
+    accentColor: '#38bdf8',
     images: [
       '/img/portfolio/builds/FT-2024-08/1.jpg',
       '/img/portfolio/builds/FT-2024-08/2.jpg',
@@ -224,24 +340,26 @@ export const builds: PortfolioBuild[] = [
       '/img/portfolio/builds/FT-2024-08/4.jpg',
       '/img/portfolio/builds/FT-2024-08/5.jpg',
     ],
-    specs: {
-      cpu: 'AMD Ryzen 5 8500G (6C/12T - 5.0 GHz)',
-      ram: '32GB DDR5 6400MHz Dual Channel',
-      storage: '1TB NVMe PCIe High Speed',
-      motherboard: 'Socket AM5 DDR5 Ready',
-      psu: '750W 80+ Gold',
-      cooling: '240mm Refrigeración Líquida ARGB',
-      case: 'Chasis High Airflow',
-      gpu: 'AMD Radeon 740M (Gráficos Integrados RDNA 3)',
-    },
+    specs: [
+      { label: 'CPU', value: 'AMD Ryzen 5 8500G', detail: '6 núcleos / 12 hilos · hasta 5.0 GHz' },
+      { label: 'iGPU', value: 'AMD Radeon 740M', detail: 'Gráficos Integrados RDNA 3' },
+      { label: 'RAM', value: '32 GB DDR5-6400', detail: 'Dual Channel · Ultra High Bandwidth' },
+      { label: 'SSD', value: '1 TB NVMe M.2', detail: 'Alta velocidad PCIe' },
+      { label: 'AIO', value: '240mm Refrigeración Líquida', detail: 'Radiador doble · ARGB' },
+      { label: 'PSU', value: '750W 80+ Gold', detail: 'Capacidad de upgrade para GPU dedicada' },
+    ],
+    fps: [
+      { game: 'Valorant | 1080p | Competitivo', value: '150+' },
+      { game: 'League of Legends | 1080p | Muy Alto', value: '130+' },
+      { game: 'Rocket League | 1080p | Calidad/Rend.', value: '95+' },
+    ],
   },
   {
     id: 'FT-2024-08-II',
-    category: 'build',
-    title: 'Workstation Intel Core i5 12600K',
-    description:
-      'Equipo enfocado en programación, virtualización y desarrollo. 10 núcleos híbridos, 32GB DDR5 a 6400MHz, refrigeración líquida Thermaltake de 120mm y fuente de 750W 80+ Gold lista para upgrade de tarjeta gráfica dedicada.',
-    year: 2024,
+    name: 'Dev Station & Future-Proof Rig',
+    subtitle: 'Programación, Compilación & Multitarea Pesada (GPU Ready)',
+    category: 'Workstation · Developer Edition',
+    accentColor: '#10b981',
     images: [
       '/img/portfolio/builds/FT-2024-08-II/1.jpg',
       '/img/portfolio/builds/FT-2024-08-II/2.jpg',
@@ -249,39 +367,64 @@ export const builds: PortfolioBuild[] = [
       '/img/portfolio/builds/FT-2024-08-II/4.jpg',
       '/img/portfolio/builds/FT-2024-08-II/5.jpg',
     ],
-    specs: {
-      cpu: 'Intel Core i5 12600K (10C/16T - 4.9 GHz)',
-      ram: '32GB DDR5 6400MHz Dual Channel',
-      storage: '1TB NVMe PCIe Gen 4',
-      motherboard: 'LGA1700 DDR5 Ready',
-      psu: '750W 80+ Gold',
-      cooling: 'Refrigeración Líquida 120mm Thermaltake',
-      case: 'Chasis High Airflow',
-      gpu: 'Intel UHD Graphics 770 (Integrada 32 EUs)',
-    },
+    specs: [
+      {
+        label: 'CPU',
+        value: 'Intel Core i5 12600K',
+        detail: '10 núcleos (6P+4E) / 16 hilos · hasta 4.9 GHz',
+      },
+      {
+        label: 'iGPU',
+        value: 'Intel UHD Graphics 770',
+        detail: 'Gráficos integrados 32 EUs · Salida 4K',
+      },
+      {
+        label: 'RAM',
+        value: '32 GB DDR5-6400',
+        detail: 'Dual Channel · Ideal para Docker y compilación',
+      },
+      { label: 'SSD', value: '1 TB NVMe M.2', detail: 'Alta velocidad PCIe Gen 4' },
+      {
+        label: 'AIO',
+        value: '120mm Thermaltake Líquida',
+        detail: 'Refrigeración líquida compacta Thermaltake · Rendimiento térmico óptimo',
+      },
+      { label: 'PSU', value: '750W 80+ Gold', detail: 'Potencia lista para futuro upgrade de GPU' },
+    ],
+    fps: [
+      { game: 'League of Legends | 1080p | Medio', value: '100+' },
+      { game: 'Valorant | 1080p | Bajo Comp.', value: '85+' },
+      { game: 'Minecraft | 1080p | 12 Chunks', value: '120+' },
+    ],
   },
   {
     id: 'FT-2023-08',
-    category: 'build',
-    title: 'Workstation Ryzen 7 & RX 6800XT',
-    description:
-      'Equipo de alto rendimiento para gaming 1440p Ultra / 4K y creación de contenido pesado con 4TB de almacenamiento masivo NVMe.',
-    year: 2023,
+    name: 'Workstation Ryzen 7 & RX 6800 XT',
+    subtitle: 'Gaming 1440p / 4K + Creación de Contenido & 4TB NVMe',
+    category: 'Gaming & Workstation · High End',
+    accentColor: '#ef4444',
     images: [
       '/img/portfolio/builds/FT-2023-08/1.jpg',
       '/img/portfolio/builds/FT-2023-08/2.jpg',
       '/img/portfolio/builds/FT-2023-08/3.mp4',
     ],
-    specs: {
-      cpu: 'AMD Ryzen 7 5800X (8C/16T - 4.7 GHz)',
-      ram: '32GB DDR4 Dual Channel High Speed',
-      storage: '4TB SSD M.2 NVMe High Speed',
-      motherboard: 'Socket AM4 High End',
-      psu: '750W 80+ Gold Full Modular',
-      cooling: '240mm Refrigeración Líquida ARGB',
-      case: 'Chasis High Airflow',
-      gpu: 'AMD Radeon RX 6800 XT 16GB GDDR6',
-    },
+    specs: [
+      { label: 'CPU', value: 'AMD Ryzen 7 5800X', detail: '8 núcleos / 16 hilos · hasta 4.7 GHz' },
+      { label: 'GPU', value: 'AMD Radeon RX 6800 XT', detail: '16 GB GDDR6 · RDNA 2 / FSR' },
+      { label: 'RAM', value: '32 GB DDR4 High Speed', detail: 'Dual Channel · 3200MHz' },
+      {
+        label: 'SSD',
+        value: '4 TB SSD M.2 NVMe',
+        detail: 'Almacenamiento masivo de alta velocidad',
+      },
+      { label: 'AIO', value: '240mm Refrigeración Líquida', detail: 'Radiador doble · ARGB' },
+      { label: 'PSU', value: '750W 80+ Gold', detail: 'Full Modular' },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1440p | Ultra / FSR', value: '95+' },
+      { game: 'Call of Duty: Warzone | 1440p | Extremo', value: '140+' },
+      { game: 'Red Dead Redemption 2 | 1440p | Ultra', value: '100+' },
+    ],
   },
 ];
 
@@ -351,5 +494,3 @@ export const maintenance: PortfolioMaintenance[] = [
       'Limpieza profunda de todos los componentes internos, ventiladores, fuente de poder y disipadores.',
   },
 ];
-
-export const portfolioItems: PortfolioItem[] = [...builds, ...maintenance];

@@ -3,7 +3,7 @@
   "short_name": "FerchoTécnico",
   "description": "Servicio técnico especializado en reparación y mantenimiento de computadores en Montería, Córdoba",
   "start_url": "/",
-  "display": "standalone",
+  "display": "browser",
   "background_color": "#d2b384",
   "theme_color": "#3a6e93",
   "orientation": "portrait-primary",
