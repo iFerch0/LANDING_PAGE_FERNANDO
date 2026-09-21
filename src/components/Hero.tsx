@@ -1,18 +1,25 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { WhatsAppIcon, PhoneIcon, MapPinIcon } from './Icons';
 import HeroSliderStatic from './HeroSliderStatic';
 import styles from './Hero.module.css';
 import { CONTACT, whatsappUrl } from '@/data/contact';
+import UsedEquipmentBanner from './UsedEquipmentBanner';
+import UsedEquipmentModal from './UsedEquipmentModal';
 
 const Hero: React.FC = () => {
+  const [isEquipmentModalOpen, setIsEquipmentModalOpen] = useState(false);
+
   return (
     <section id="inicio" className={styles.hero}>
       {/* Blueprint grid background */}
       <div className={styles.background} aria-hidden="true" />
 
       <div className={styles.container}>
+        {/* Banner equipos de segunda disponibles — Full Width Announcement Bar */}
+        <UsedEquipmentBanner onOpenModal={() => setIsEquipmentModalOpen(true)} />
+
         <div className={styles.grid}>
           {/* Content Column */}
           <div className={styles.content}>
@@ -39,8 +46,7 @@ const Hero: React.FC = () => {
 
             {/* Description */}
             <p className={styles.description}>
-              <span className={styles.descriptionStrong}>10+ años de experiencia</span> en Montería.
-              Diagnóstico gratuito, repuestos originales y garantía en cada reparación.
+              Diagnóstico, reparación y mantenimiento de PCs, portátiles y equipos de escritorio. Repuestos originales y garantía en cada reparación.
             </p>
 
             {/* CTAs */}
@@ -108,6 +114,12 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Modal slider de equipos de segunda */}
+      <UsedEquipmentModal
+        isOpen={isEquipmentModalOpen}
+        onClose={() => setIsEquipmentModalOpen(false)}
+      />
     </section>
   );
 };

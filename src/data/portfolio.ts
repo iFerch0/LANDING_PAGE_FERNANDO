@@ -39,6 +39,34 @@ export interface PortfolioMaintenance {
 
 export const builds: PcBuild[] = [
   {
+    id: 'FT-2026-09-II',
+    name: 'Ryzen 7 7700X + RTX 5060 Liquid 360',
+    subtitle: 'Gaming 1440p Alto Rendimiento, Streaming & Render · AM5 Next-Gen',
+    category: 'Gaming & Creación · High-End',
+    accentColor: '#ea580c',
+    images: [
+      '/img/portfolio/builds/FT-2026-09-II/1.jpg',
+      '/img/portfolio/builds/FT-2026-09-II/2.jpg',
+      '/img/portfolio/builds/FT-2026-09-II/3.jpg',
+      '/img/portfolio/builds/FT-2026-09-II/4.jpg',
+      '/img/portfolio/builds/FT-2026-09-II/5.jpg',
+      '/img/portfolio/builds/FT-2026-09-II/6.jpg',
+    ],
+    specs: [
+      { label: 'CPU', value: 'AMD Ryzen 7 7700X', detail: '8 núcleos / 16 hilos · hasta 5.4 GHz boost (Zen 4 AM5)' },
+      { label: 'GPU', value: 'NVIDIA GeForce RTX 5060', detail: 'Arquitectura Blackwell · Ray Tracing & DLSS 4' },
+      { label: 'RAM', value: '16 GB DDR5 (Upgrade a 32GB)', detail: 'DDR5 alta velocidad · Ampliación a 32 GB programada a fin de mes' },
+      { label: 'AIO', value: '360mm Refrigeración Líquida', detail: 'Radiador triple 360mm · Máxima disipación térmica' },
+      { label: 'SSD', value: '1 TB NVMe M.2 PCIe 4.0', detail: 'Almacenamiento ultra rápido para juegos y SO' },
+      { label: 'PSU', value: 'Corsair 750W 80+ Gold', detail: 'Fuente real certificada · Eficiencia y confiabilidad' },
+    ],
+    fps: [
+      { game: 'Cyberpunk 2077 | 1080p/1440p | DLSS', value: '110+' },
+      { game: 'Call of Duty: Warzone | 1440p | Competitivo', value: '145+' },
+      { game: 'Valorant / CS2 | 1440p | Competitivo', value: '450+' },
+    ],
+  },
+  {
     id: 'FT-2026-09',
     name: 'Next-Gen Ultra Gaming',
     subtitle: 'Gaming 1440p Ultra / 4K Esports + Creación de Contenido',

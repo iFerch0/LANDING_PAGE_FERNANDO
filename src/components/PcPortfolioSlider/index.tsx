@@ -2,6 +2,7 @@
 
 import React, { useState, useCallback } from 'react';
 import Image from 'next/image';
+import ImageZoom from '../ImageZoom';
 import styles from './PcPortfolioSlider.module.css';
 import { whatsappUrl } from '@/data/contact';
 import { builds, maintenance, PortfolioMaintenance } from '@/data/portfolio';
@@ -182,13 +183,13 @@ const PcPortfolioSlider: React.FC = () => {
                             className={styles.video}
                           />
                         ) : (
-                          <Image
+                          <ImageZoom
                             key={activeBuildImage}
                             src={activeBuildImage}
                             alt={`${build.name} — foto ${currentBuildImage + 1}`}
-                            fill
+                            objectFit="contain"
+                            zoomScale={2.4}
                             sizes="(max-width: 900px) 100vw, 420px"
-                            className={styles.photo}
                             priority={currentBuildIdx === 0 && currentBuildImage === 0}
                             loading={
                               currentBuildIdx === 0 && currentBuildImage === 0 ? 'eager' : 'lazy'
