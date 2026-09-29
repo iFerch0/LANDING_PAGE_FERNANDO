@@ -38,40 +38,6 @@ export const CATEGORY_FILTERS: { id: EquipmentCategory; label: string }[] = [
 
 export const usedEquipmentList: UsedEquipmentItem[] = [
   {
-    id: 'EQ-GAMER-01',
-    title: 'Torre Gamer Intel Core i9-10850K · Refrigeración Líquida',
-    subtitle: 'Potencia extrema de 10 núcleos / 20 hilos con refrigeración líquida de 240mm y chasis Corsair',
-    category: 'gaming',
-    categoryLabel: 'Torre Gamer',
-    badge: 'Gama Alta · Ensamblado 2022',
-    condition: 'Excelente estado (Ensamblado en 2022)',
-    warranty: 'Garantía y soporte directo',
-    price: '$2.000.000 COP',
-    priceNote: 'Ligeramente negociable',
-    status: 'available',
-    images: [
-      '/img/equipos-segunda/EQ-GAMER-01/1.jpg',
-      '/img/equipos-segunda/EQ-GAMER-01/2.jpg',
-      '/img/equipos-segunda/EQ-GAMER-01/3.jpg',
-      '/img/equipos-segunda/EQ-GAMER-01/4.jpg',
-    ],
-    specs: [
-      { label: 'Procesador', value: 'Intel Core i9-10850K (10 núcleos / 20 hilos · hasta 5.2 GHz)' },
-      { label: 'Refrigeración', value: 'Refrigeración Líquida 240MM (AIO Radiador Doble)' },
-      { label: 'Memoria RAM', value: '32 GB DDR4 RGB (2x16GB)' },
-      { label: 'Almacenamiento', value: 'SSD 1TB M.2 NVMe de alta velocidad' },
-      { label: 'Chasis & Fans', value: 'Chasis Corsair Middle Tower + 4 Fans instalados' },
-      { label: 'Fuente de Poder', value: 'Fuente Real con certificación 80+ Gold' },
-      { label: 'Año de Ensamble', value: '2022 (Uso personal cuidadoso)' },
-    ],
-    highlights: [
-      'Procesador i9 de 10 núcleos reales y 20 hilos para multitarea pesada y juegos.',
-      'Refrigeración líquida de 240mm que mantiene temperaturas óptimas bajo carga.',
-      'Chasis Corsair de construcción sólida con excelente flujo de aire.',
-      'Mantenimiento recién realizado y listo para entrega inmediata.',
-    ],
-  },
-  {
     id: 'EQ-OFFICE-01',
     title: 'Minitorre Lenovo ThinkCentre M72e',
     subtitle: 'Equipo ultra compacto, silencioso y de bajo consumo · Óptimo para tareas de oficina, comercio y estudio',
