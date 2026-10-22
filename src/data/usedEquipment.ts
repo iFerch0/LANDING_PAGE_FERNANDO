@@ -23,7 +23,8 @@ export interface UsedEquipmentItem {
   price: string;
   priceNote?: string;
   originalPrice?: string;
-  status: 'available' | 'reserved';
+  status: 'available' | 'reserved' | 'hidden';
+  hidden?: boolean;
   images: string[];
   specs: EquipmentSpec[];
   highlights: string[];
@@ -36,7 +37,11 @@ export const CATEGORY_FILTERS: { id: EquipmentCategory; label: string }[] = [
   { id: 'office', label: 'Oficina / Hogar' },
 ];
 
-export const usedEquipmentList: UsedEquipmentItem[] = [
+/**
+ * Inventario completo de equipos.
+ * Aquellos con `hidden: true` o `status: 'hidden'` permanecen guardados pero no se publican en la web.
+ */
+export const allEquipmentList: UsedEquipmentItem[] = [
   {
     id: 'EQ-OFFICE-01',
     title: 'Minitorre Lenovo ThinkCentre M72e',
@@ -48,7 +53,8 @@ export const usedEquipmentList: UsedEquipmentItem[] = [
     warranty: 'Garantía y soporte directo',
     price: '$550.000 COP',
     priceNote: 'SSD o HDD a elección',
-    status: 'available',
+    status: 'hidden',
+    hidden: true,
     images: [
       '/img/equipos-segunda/EQ-OFFICE-01/1.jpg',
       '/img/equipos-segunda/EQ-OFFICE-01/2.jpg',
@@ -70,6 +76,13 @@ export const usedEquipmentList: UsedEquipmentItem[] = [
     ],
   },
 ];
+
+/**
+ * Equipos actualmente publicados y disponibles en la landing page.
+ */
+export const usedEquipmentList: UsedEquipmentItem[] = allEquipmentList.filter(
+  (item) => !item.hidden && item.status !== 'hidden'
+);
 
 /**
  * Generates direct WhatsApp inquiry link for a specific used equipment item

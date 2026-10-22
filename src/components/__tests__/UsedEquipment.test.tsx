@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import Hero from '../Hero';
 import UsedEquipmentBanner from '../UsedEquipmentBanner';
 import UsedEquipmentModal from '../UsedEquipmentModal';
-import { usedEquipmentList, getEquipmentWhatsAppUrl } from '@/data/usedEquipment';
+import { usedEquipmentList, allEquipmentList, getEquipmentWhatsAppUrl } from '@/data/usedEquipment';
 
 describe('UsedEquipmentBanner Component', () => {
   it('renders announcement banner with status badge and text', () => {
@@ -38,36 +38,49 @@ describe('UsedEquipmentModal Component', () => {
     expect(container.firstChild).toBeNull();
   });
 
-  it('renders modal with items, specs, and controls when isOpen is true', () => {
+  it('renders modal with items or empty state when isOpen is true', () => {
     render(<UsedEquipmentModal isOpen={true} onClose={onCloseMock} />);
 
-    // Check title and first item
+    // Check title
     expect(screen.getByRole('heading', { level: 2, name: /Equipos de Segunda/i })).toBeInTheDocument();
-    const firstItem = usedEquipmentList[0];
-    expect(screen.getByText(firstItem.title)).toBeInTheDocument();
-    expect(screen.getByText(firstItem.price)).toBeInTheDocument();
-    expect(screen.getByText(firstItem.condition)).toBeInTheDocument();
+
+    if (usedEquipmentList.length > 0) {
+      const firstItem = usedEquipmentList[0];
+      expect(screen.getByText(firstItem.title)).toBeInTheDocument();
+      expect(screen.getByText(firstItem.price)).toBeInTheDocument();
+      expect(screen.getByText(firstItem.condition)).toBeInTheDocument();
+    } else {
+      expect(
+        screen.getByText(/No hay equipos disponibles en esta categoría/i)
+      ).toBeInTheDocument();
+    }
   });
 
   it('navigates through items with Next and Prev buttons', () => {
     render(<UsedEquipmentModal isOpen={true} onClose={onCloseMock} />);
 
-    const firstItem = usedEquipmentList[0];
-    expect(screen.getByText(firstItem.title)).toBeInTheDocument();
-
-    const nextBtn = screen.getByRole('button', { name: /Equipo siguiente/i });
-    fireEvent.click(nextBtn);
-
-    if (usedEquipmentList.length > 1) {
-      const secondItem = usedEquipmentList[1];
-      expect(screen.getByText(secondItem.title)).toBeInTheDocument();
-
-      const prevBtn = screen.getByRole('button', { name: /Equipo anterior/i });
-      fireEvent.click(prevBtn);
-
+    if (usedEquipmentList.length > 0) {
+      const firstItem = usedEquipmentList[0];
       expect(screen.getByText(firstItem.title)).toBeInTheDocument();
+
+      const nextBtn = screen.getByRole('button', { name: /Equipo siguiente/i });
+      fireEvent.click(nextBtn);
+
+      if (usedEquipmentList.length > 1) {
+        const secondItem = usedEquipmentList[1];
+        expect(screen.getByText(secondItem.title)).toBeInTheDocument();
+
+        const prevBtn = screen.getByRole('button', { name: /Equipo anterior/i });
+        fireEvent.click(prevBtn);
+
+        expect(screen.getByText(firstItem.title)).toBeInTheDocument();
+      } else {
+        expect(screen.getByText(firstItem.title)).toBeInTheDocument();
+      }
     } else {
-      expect(screen.getByText(firstItem.title)).toBeInTheDocument();
+      expect(
+        screen.getByText(/No hay equipos disponibles en esta categoría/i)
+      ).toBeInTheDocument();
     }
   });
 
@@ -78,9 +91,10 @@ describe('UsedEquipmentModal Component', () => {
     fireEvent.click(officeTab);
 
     const officeItem = usedEquipmentList.find((i) => i.category === 'office');
-    expect(officeItem).toBeDefined();
     if (officeItem) {
       expect(screen.getByText(officeItem.title)).toBeInTheDocument();
+    } else {
+      expect(screen.getByText(/No hay equipos disponibles en esta categoría/i)).toBeInTheDocument();
     }
   });
 
@@ -111,7 +125,11 @@ describe('UsedEquipmentModal Component', () => {
   });
 
   it('generates correct WhatsApp inquiry link for equipment', () => {
-    const item = usedEquipmentList[0];
+    const item = allEquipmentList[0] || {
+      id: 'EQ-SAMPLE',
+      title: 'Equipo de Prueba',
+      price: '$500.000 COP',
+    };
     const url = getEquipmentWhatsAppUrl(item);
 
     expect(url).toContain('wa.me');
@@ -121,15 +139,22 @@ describe('UsedEquipmentModal Component', () => {
 });
 
 describe('Hero with UsedEquipment Integration', () => {
-  it('opens UsedEquipmentModal when banner in Hero is clicked', () => {
+  it('handles banner display according to equipment availability', () => {
     render(<Hero />);
 
     expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
 
-    const bannerBtn = screen.getByRole('button', { name: /Ver equipos de segunda disponibles/i });
-    fireEvent.click(bannerBtn);
-
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
-    expect(screen.getByText(usedEquipmentList[0].title)).toBeInTheDocument();
+    const bannerBtn = screen.queryByRole('button', { name: /Ver equipos de segunda disponibles/i });
+    if (usedEquipmentList.length > 0) {
+      expect(bannerBtn).toBeInTheDocument();
+      if (bannerBtn) {
+        fireEvent.click(bannerBtn);
+        expect(screen.getByRole('dialog')).toBeInTheDocument();
+        expect(screen.getByText(usedEquipmentList[0].title)).toBeInTheDocument();
+      }
+    } else {
+      // When no equipment is published, the banner is cleanly hidden from Hero
+      expect(bannerBtn).toBeNull();
+    }
   });
 });

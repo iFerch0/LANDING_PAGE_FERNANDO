@@ -5,6 +5,7 @@ import { WhatsAppIcon, PhoneIcon, MapPinIcon } from './Icons';
 import HeroSliderStatic from './HeroSliderStatic';
 import styles from './Hero.module.css';
 import { CONTACT, whatsappUrl } from '@/data/contact';
+import { usedEquipmentList } from '@/data/usedEquipment';
 import UsedEquipmentBanner from './UsedEquipmentBanner';
 import UsedEquipmentModal from './UsedEquipmentModal';
 
@@ -17,8 +18,10 @@ const Hero: React.FC = () => {
       <div className={styles.background} aria-hidden="true" />
 
       <div className={styles.container}>
-        {/* Banner equipos de segunda disponibles — Full Width Announcement Bar */}
-        <UsedEquipmentBanner onOpenModal={() => setIsEquipmentModalOpen(true)} />
+        {/* Banner equipos de segunda disponibles — Full Width Announcement Bar (solo visible si hay stock disponible) */}
+        {usedEquipmentList.length > 0 && (
+          <UsedEquipmentBanner onOpenModal={() => setIsEquipmentModalOpen(true)} />
+        )}
 
         <div className={styles.grid}>
           {/* Content Column */}
