@@ -31,52 +31,90 @@ export default function ImageZoom({
   const [position, setPosition] = useState({ x: 50, y: 50 });
   const containerRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+  const handleClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    if (!rect.width || !rect.height) {
-      return;
+    if (rect.width && rect.height) {
+      const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+      const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
+      setPosition({ x, y });
     }
-
-    const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
-    const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
-
-    setPosition({ x, y });
-    setIsZoomed(true);
+    setIsZoomed((prev) => {
+      const nextState = !prev;
+      if (!nextState) {
+        setPosition({ x: 50, y: 50 });
+      }
+      return nextState;
+    });
   }, []);
 
-  const handleMouseEnter = useCallback(() => {
-    setIsZoomed(true);
-  }, []);
+  const handleMouseMove = useCallback(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      if (!isZoomed) {
+        return;
+      }
 
-  const handleMouseLeave = useCallback(() => {
-    setIsZoomed(false);
-    setPosition({ x: 50, y: 50 });
-  }, []);
-
-  const handleTouchMove = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
-    if (e.touches.length > 0) {
-      const touch = e.touches[0];
       const rect = e.currentTarget.getBoundingClientRect();
       if (!rect.width || !rect.height) {
         return;
       }
 
-      const x = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
-      const y = Math.max(0, Math.min(100, ((touch.clientY - rect.top) / rect.height) * 100));
+      const x = Math.max(0, Math.min(100, ((e.clientX - rect.left) / rect.width) * 100));
+      const y = Math.max(0, Math.min(100, ((e.clientY - rect.top) / rect.height) * 100));
 
       setPosition({ x, y });
-      setIsZoomed(true);
+    },
+    [isZoomed]
+  );
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    // En móviles, un toque en la imagen alterna el zoom
+    const rect = e.currentTarget.getBoundingClientRect();
+    if (rect.width && rect.height && e.changedTouches.length > 0) {
+      const touch = e.changedTouches[0];
+      const x = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+      const y = Math.max(0, Math.min(100, ((touch.clientY - rect.top) / rect.height) * 100));
+      setPosition({ x, y });
     }
+    setIsZoomed((prev) => {
+      const nextState = !prev;
+      if (!nextState) {
+        setPosition({ x: 50, y: 50 });
+      }
+      return nextState;
+    });
   }, []);
 
-  const handleTouchEnd = useCallback(() => {
-    setIsZoomed(false);
-    setPosition({ x: 50, y: 50 });
-  }, []);
+  const handleTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      if (!isZoomed) {
+        return;
+      }
+
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const rect = e.currentTarget.getBoundingClientRect();
+        if (!rect.width || !rect.height) {
+          return;
+        }
+
+        const x = Math.max(0, Math.min(100, ((touch.clientX - rect.left) / rect.width) * 100));
+        const y = Math.max(0, Math.min(100, ((touch.clientY - rect.top) / rect.height) * 100));
+
+        setPosition({ x, y });
+      }
+    },
+    [isZoomed]
+  );
 
   const toggleZoomLock = useCallback((e: React.MouseEvent) => {
     e.stopPropagation();
-    setIsZoomed((prev) => !prev);
+    setIsZoomed((prev) => {
+      const nextState = !prev;
+      if (!nextState) {
+        setPosition({ x: 50, y: 50 });
+      }
+      return nextState;
+    });
   }, []);
 
   const badgePositionStyle: React.CSSProperties = {
@@ -90,13 +128,13 @@ export default function ImageZoom({
     <div
       ref={containerRef}
       className={`${styles.zoomContainer} ${isZoomed ? styles.zoomContainerActive : ''} ${className}`}
+      onClick={handleClick}
       onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
       role="region"
-      aria-label={`Visualizador con zoom para ${alt}`}
+      aria-label={`Visualizador con zoom para ${alt}. ${isZoomed ? 'Haz clic para alejar' : 'Haz clic para ampliar con lupa'}`}
+      title={isZoomed ? 'Haz clic en la foto para volver al tamaño normal' : 'Haz clic en la foto para ampliar con la lupa'}
     >
       <div
         className={`${styles.imageWrapper} ${isZoomed ? styles.imageWrapperZoomed : ''}`}
@@ -123,7 +161,7 @@ export default function ImageZoom({
         onClick={toggleZoomLock}
         style={badgePositionStyle}
         aria-label={isZoomed ? 'Desactivar lupa' : 'Activar lupa de aumento'}
-        title="Lupa de inspección detallada"
+        title={isZoomed ? 'Clic para volver a tamaño normal' : 'Clic para activar lupa de aumento'}
       >
         <span className={styles.loupeIcon} aria-hidden="true">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">

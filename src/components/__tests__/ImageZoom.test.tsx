@@ -30,7 +30,7 @@ describe('ImageZoom Component', () => {
     expect(screen.getByText('Lupa')).toBeInTheDocument();
   });
 
-  it('activates zoom on mouse enter and mouse move, deactivates on mouse leave', () => {
+  it('activates zoom on click and deactivates on second click without zooming on hover', () => {
     render(<ImageZoom src={sampleSrc} alt={sampleAlt} />);
 
     const container = screen.getByRole('region', { name: new RegExp(sampleAlt, 'i') });
@@ -48,13 +48,19 @@ describe('ImageZoom Component', () => {
       toJSON: () => {},
     });
 
+    // Hovering / mouse enter should NOT activate zoom
     fireEvent.mouseEnter(container);
-    expect(screen.getByText('2.2x')).toBeInTheDocument();
+    expect(screen.getByText('Lupa')).toBeInTheDocument();
 
     fireEvent.mouseMove(container, { clientX: 200, clientY: 100 });
+    expect(screen.getByText('Lupa')).toBeInTheDocument();
+
+    // Clicking the container activates zoom
+    fireEvent.click(container);
     expect(screen.getByText('2.2x')).toBeInTheDocument();
 
-    fireEvent.mouseLeave(container);
+    // Clicking the container again deactivates zoom back to normal size
+    fireEvent.click(container);
     expect(screen.getByText('Lupa')).toBeInTheDocument();
   });
 });

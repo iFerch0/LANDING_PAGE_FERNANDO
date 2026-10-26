@@ -12,7 +12,7 @@
 }
 
 .zoomContainerActive {
-  cursor: crosshair;
+  cursor: zoom-out;
 }
 
 .imageWrapper {

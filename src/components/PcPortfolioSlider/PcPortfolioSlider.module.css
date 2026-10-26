@@ -349,6 +349,12 @@
   transition: color var(--duration-slow) var(--ease-out);
 }
 
+.buildHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
 /* ── Photo area ── */
 .photoArea {
   display: flex;
@@ -449,17 +455,24 @@
 /* Photo counter badge */
 .photoCounter {
   position: absolute;
-  bottom: var(--space-2);
-  right: var(--space-3);
+  bottom: 12px;
+  right: 12px;
   z-index: 10;
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(0, 0, 0, 0.55);
-  padding: 2px var(--space-2);
-  border-radius: var(--radius-1);
-  letter-spacing: var(--tracking-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #ffffff;
+  background: rgba(10, 13, 18, 0.78);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 4px 10px;
+  border-radius: 20px;
+  letter-spacing: 0.03em;
   pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
 }
 
 /* ── Thumbnail strip ── */
@@ -713,60 +726,130 @@
   color: var(--color-text);
 }
 
-/* ── Build navigation ── */
+/* ── Build & Project Navigation Console ── */
 .navigation {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: var(--space-5);
+  justify-content: space-between;
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-3);
+  padding: var(--space-3) var(--space-5);
+  box-shadow: var(--shadow-card);
+  margin-top: var(--space-2);
 }
 
-.navBtn {
+.navCenter {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background: transparent;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-2);
+  gap: 8px;
+}
+
+.navCounterBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  background: var(--color-background-alt);
+  padding: 3px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border-subtle);
+  letter-spacing: var(--tracking-wide);
+}
+
+.navCounterIcon {
+  display: inline-flex;
+  align-items: center;
   color: var(--color-text-tertiary);
+}
+
+.navCounterHighlight {
+  color: var(--slider-accent, var(--color-accent));
+  font-weight: var(--weight-bold);
+  transition: color var(--duration-slow) var(--ease-out);
+}
+
+/* Base button styles */
+.navBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  border-radius: var(--radius-2);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-standard);
-  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.navBtn:hover {
+.navBtnText {
+  display: inline-block;
+}
+
+.navBtnPrev {
   background: var(--color-surface-raised);
-  border-color: var(--color-border-strong);
-  color: var(--color-text);
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-text-secondary);
 }
 
-/* ── Dots / tabs ── */
+.navBtnPrev:hover {
+  background: var(--color-border-strong);
+  color: #ffffff;
+  border-color: var(--color-text-tertiary);
+  transform: translateX(-2px);
+}
+
+/* Siguiente Ensamble - Botón Destacado de Acción */
+.navBtnNext {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid var(--slider-accent, var(--color-accent));
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(0, 0, 0, 0.3);
+}
+
+.navBtnNext:hover {
+  background: var(--slider-accent, var(--color-accent));
+  color: #050505;
+  box-shadow: 0 0 18px var(--slider-accent, var(--color-accent));
+  transform: translateX(2px);
+}
+
+/* Dots / Indicadores de progreso */
 .dots {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: 6px;
 }
 
 .dot {
-  width: 24px;
-  height: 2px;
+  width: 20px;
+  height: 4px;
   background: var(--color-border-strong);
   border: none;
-  border-radius: 1px;
+  border-radius: 2px;
   padding: 0;
   cursor: pointer;
   transition: all var(--duration-normal) var(--ease-out);
 }
 
 .dot:hover {
-  background: var(--color-text-tertiary);
+  background: var(--color-text-secondary);
+  height: 5px;
 }
 
 .dotActive {
-  width: 40px;
-  background: var(--build-accent, var(--color-accent));
+  width: 36px;
+  height: 5px;
+  background: var(--slider-accent, var(--color-accent));
+  box-shadow: 0 0 8px var(--slider-accent, var(--color-accent));
 }
 
 /* ── Responsive ── */
@@ -777,6 +860,35 @@
 
   .container {
     padding: 0 var(--space-5);
+  }
+}
+
+@media (max-width: 680px) {
+  .navigation {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+  }
+
+  .navCenter {
+    order: -1;
+    width: 100%;
+  }
+
+  .navBtn {
+    flex: 1 1 calc(50% - var(--space-2));
+    justify-content: center;
+    padding: 0 var(--space-2);
+    font-size: var(--text-xs);
+  }
+
+  .dot {
+    width: 14px;
+  }
+
+  .dotActive {
+    width: 24px;
   }
 }
 

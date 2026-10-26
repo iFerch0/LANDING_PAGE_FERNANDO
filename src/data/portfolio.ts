@@ -12,6 +12,7 @@ export interface PcSpec {
 export interface FpsEntry {
   game: string;
   value: string;
+  unit?: string;
 }
 
 export interface PcBuild {
@@ -38,6 +39,65 @@ export interface PortfolioMaintenance {
 }
 
 export const builds: PcBuild[] = [
+  {
+    id: 'FT-2026-10',
+    name: 'AI Titan Workstation · Ryzen 9 9950X & RTX 5090 32GB',
+    subtitle: 'Inferencia LLMs Locales, Deep Learning & Gaming 4K · AM5 Next-Gen',
+    category: 'AI Workstation & Deep Learning · Flagship',
+    accentColor: '#10b981',
+    images: [
+      '/img/portfolio/builds/FT-2026-10/1.jpg',
+      '/img/portfolio/builds/FT-2026-10/2.jpg',
+      '/img/portfolio/builds/FT-2026-10/3.jpg',
+    ],
+    specs: [
+      {
+        label: 'CPU',
+        value: 'AMD Ryzen 9 9950X',
+        detail: '16 núcleos / 32 hilos · hasta 5.7 GHz boost (Zen 5 AM5)',
+      },
+      {
+        label: 'GPU',
+        value: 'ASUS TUF RTX 5090 32GB',
+        detail: '32 GB GDDR7 · Blackwell / DLSS 4 & Cómputo IA',
+      },
+      {
+        label: 'RAM',
+        value: '96 GB DDR5-5600',
+        detail: 'Dual Channel (2x48GB) · Alta densidad para modelos IA',
+      },
+      {
+        label: 'PLACA',
+        value: 'ASUS TUF B850-PLUS WIFI',
+        detail: 'Socket AM5 · PCIe 5.0 & Wi-Fi 6E',
+      },
+      {
+        label: 'COOL',
+        value: 'Dual Tower Air Cooler',
+        detail: 'Doble torre & doble ventilador · Máxima disipación silenciosa',
+      },
+      {
+        label: 'SSD',
+        value: '2 TB Kingston NVMe Gen 4',
+        detail: 'Lectura ultra rápida PCIe 4.0 para datasets y SO',
+      },
+      {
+        label: 'PSU',
+        value: 'Corsair 1000W Cybenetics Gold',
+        detail: 'ATX 3.1 & PCIe 5.1 (12V-2x6) · Full Modular',
+      },
+      {
+        label: 'CASE',
+        value: 'Fractal Design Airflow',
+        detail: 'Alto flujo de aire · Diseño escandinavo premium',
+      },
+    ],
+    fps: [
+      { game: 'Llama 3 70B (Q4) | Inferencia Local', value: '45+', unit: 'tok/s' },
+      { game: 'Flux.1 / SDXL | 1024x1024 | FP8', value: '< 1', unit: 'seg' },
+      { game: 'Cyberpunk 2077 | 4K | Path Tracing', value: '145+', unit: 'FPS' },
+    ],
+  },
   {
     id: 'FT-2026-09-II',
     name: 'Ryzen 7 7700X + RTX 5060 Liquid 360',

@@ -157,6 +157,11 @@ const PcPortfolioSlider: React.FC = () => {
                   </span>
                 </div>
 
+                <div className={styles.buildHeader}>
+                  <h3 className={styles.buildName}>{build.name}</h3>
+                  <p className={styles.buildSubtitle}>{build.subtitle}</p>
+                </div>
+
                 {/* Photo area */}
                 <div className={styles.photoArea}>
                   {hasBuildImages ? (
@@ -194,6 +199,7 @@ const PcPortfolioSlider: React.FC = () => {
                             loading={
                               currentBuildIdx === 0 && currentBuildImage === 0 ? 'eager' : 'lazy'
                             }
+                            badgePosition="bottom-left"
                           />
                         )}
 
@@ -325,9 +331,6 @@ const PcPortfolioSlider: React.FC = () => {
                     </div>
                   )}
                 </div>
-
-                <h3 className={styles.buildName}>{build.name}</h3>
-                <p className={styles.buildSubtitle}>{build.subtitle}</p>
               </div>
 
               {/* Right column — specs + FPS + CTAs */}
@@ -354,7 +357,7 @@ const PcPortfolioSlider: React.FC = () => {
                         <span className={styles.perfGame}>{item.game}</span>
                         <span className={styles.perfValue} style={{ color: build.accentColor }}>
                           {item.value}
-                          <span className={styles.perfUnit}> FPS</span>
+                          <span className={styles.perfUnit}> {item.unit || 'FPS'}</span>
                         </span>
                       </div>
                     ))}
@@ -391,6 +394,11 @@ const PcPortfolioSlider: React.FC = () => {
                   <span className={styles.buildCategory} style={{ color: 'var(--color-accent)' }}>
                     MANTENIMIENTO PREVENTIVO & TÉRMICO
                   </span>
+                </div>
+
+                <div className={styles.buildHeader}>
+                  <h3 className={styles.buildName}>{currentMaint.title}</h3>
+                  <p className={styles.buildSubtitle}>{currentMaint.description}</p>
                 </div>
 
                 <div className={styles.comparisonGrid}>
@@ -473,9 +481,6 @@ const PcPortfolioSlider: React.FC = () => {
                     ))}
                   </div>
                 )}
-
-                <h3 className={styles.buildName}>{currentMaint.title}</h3>
-                <p className={styles.buildSubtitle}>{currentMaint.description}</p>
               </div>
 
               {/* Right column — Diagnosis, Technical Work & CTAs */}
@@ -542,56 +547,92 @@ const PcPortfolioSlider: React.FC = () => {
 
           {/* Navigation Controls */}
           {totalItems > 1 && (
-            <div className={styles.navigation}>
+            <div
+              className={styles.navigation}
+              style={
+                activeTab === 'builds'
+                  ? ({ '--slider-accent': build.accentColor } as React.CSSProperties)
+                  : ({ '--slider-accent': 'var(--color-accent)' } as React.CSSProperties)
+              }
+            >
+              {/* Botón Ensamble Anterior */}
               <button
                 onClick={prev}
-                className={styles.navBtn}
-                aria-label={activeTab === 'builds' ? 'Build anterior' : 'Mantenimiento anterior'}
+                className={`${styles.navBtn} ${styles.navBtnPrev}`}
+                aria-label={activeTab === 'builds' ? 'Ver ensamble anterior' : 'Ver mantenimiento anterior'}
               >
                 <svg
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
                 >
                   <path d="M15 18l-6-6 6-6" />
                 </svg>
+                <span className={styles.navBtnText}>
+                  {activeTab === 'builds' ? 'Ensamble Anterior' : 'Anterior'}
+                </span>
               </button>
 
-              <div
-                className={styles.dots}
-                role="tablist"
-                aria-label={activeTab === 'builds' ? 'Builds' : 'Mantenimientos'}
-              >
-                {Array.from({ length: totalItems }).map((_, i) => (
-                  <button
-                    key={i}
-                    role="tab"
-                    aria-selected={i === currentIdx}
-                    className={`${styles.dot} ${i === currentIdx ? styles.dotActive : ''}`}
-                    onClick={() => goTo(i)}
-                    aria-label={`Elemento ${i + 1}`}
-                  />
-                ))}
+              {/* Indicador Central: Badge y Barra de Segmentos */}
+              <div className={styles.navCenter}>
+                <div className={styles.navCounterBadge}>
+                  <span className={styles.navCounterIcon} aria-hidden="true">
+                    {activeTab === 'builds' ? <CpuIcon size={14} /> : <WrenchIcon size={14} />}
+                  </span>
+                  <span className={styles.navCounterText}>
+                    {activeTab === 'builds' ? 'Ensamble' : 'Proyecto'}{' '}
+                    <strong className={styles.navCounterHighlight}>{currentIdx + 1}</strong> de{' '}
+                    <span>{totalItems}</span>
+                  </span>
+                </div>
+
+                <div
+                  className={styles.dots}
+                  role="tablist"
+                  aria-label={activeTab === 'builds' ? 'Lista de ensambles' : 'Lista de mantenimientos'}
+                >
+                  {Array.from({ length: totalItems }).map((_, i) => {
+                    const itemTitle =
+                      activeTab === 'builds'
+                        ? builds[i]?.name || `Ensamble ${i + 1}`
+                        : maintenance[i]?.title || `Mantenimiento ${i + 1}`;
+                    return (
+                      <button
+                        key={i}
+                        role="tab"
+                        aria-selected={i === currentIdx}
+                        className={`${styles.dot} ${i === currentIdx ? styles.dotActive : ''}`}
+                        onClick={() => goTo(i)}
+                        aria-label={`Ir al ${activeTab === 'builds' ? 'ensamble' : 'mantenimiento'} ${i + 1}: ${itemTitle}`}
+                        title={`${i + 1}. ${itemTitle}`}
+                      />
+                    );
+                  })}
+                </div>
               </div>
 
+              {/* Botón Siguiente Ensamble (Destacado) */}
               <button
                 onClick={next}
-                className={styles.navBtn}
-                aria-label={activeTab === 'builds' ? 'Build siguiente' : 'Mantenimiento siguiente'}
+                className={`${styles.navBtn} ${styles.navBtnNext}`}
+                aria-label={activeTab === 'builds' ? 'Ver siguiente ensamble' : 'Ver siguiente mantenimiento'}
               >
+                <span className={styles.navBtnText}>
+                  {activeTab === 'builds' ? 'Siguiente Ensamble' : 'Siguiente'}
+                </span>
                 <svg
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
-                  strokeWidth="2"
+                  strokeWidth="2.5"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   aria-hidden="true"
